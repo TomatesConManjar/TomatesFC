@@ -1,0 +1,219 @@
+```
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FC7 Titanes - Equipo de Fútbol 7</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap');
+        
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://placehold.co/1920x1080') no-repeat center center;
+            background-size: cover;
+            height: 60vh;
+        }
+        
+        .player-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .trophy {
+            transition: all 0.3s ease;
+        }
+        
+        .trophy:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <nav class="bg-blue-800 text-white shadow-lg">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="https://placehold.co/60x60" alt="Logo FC7 Titanes - Escudo circular con diseño moderno en azul y blanco" class="h-12 mr-3">
+                <span class="font-bold text-xl">FC7 Titanes</span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#inicio" class="hover:text-yellow-400 transition">Inicio</a>
+                <a href="#equipo" class="hover:text-yellow-400 transition">Equipo</a>
+                <a href="#partidos" class="hover:text-yellow-400 transition">Partidos</a>
+                <a href="#galeria" class="hover:text-yellow-400 transition">Galería</a>
+                <a href="#contacto" class="hover:text-yellow-400 transition">Contacto</a>
+            </div>
+            <button class="md:hidden focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero section -->
+    <section id="inicio" class="hero flex items-center justify-center text-center text-white">
+        <div class="px-4">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">FC7 Titanes</h1>
+            <p class="text-xl md:text-2xl mb-8">Pasión, garra y corazón en cada partido</p>
+            <button class="bg-yellow-500 hover:bg-yellow-600 text-blue-900 font-bold py-3 px-6 rounded-full transition transform hover:scale-105">
+                Únete al equipo
+            </button>
+        </div>
+    </section>
+
+    <!-- Sobre el equipo -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12 text-blue-800">Nuestra Historia</h2>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <img src="https://placehold.co/800x600" alt="Equipo FC7 Titanes posando juntos en el campo con uniformes azules" class="rounded-lg shadow-xl">
+                </div>
+                <div class="md:w-1/2">
+                    <p class="text-lg mb-4">Fundado en 2015, FC7 Titanes comenzó como un grupo de amigos apasionados por el fútbol que buscaban mantenerse activos y compartir su amor por el deporte.</p>
+                    <p class="text-lg mb-4">Hoy somos un equipo competitivo que participa en la liga regional de fútbol 7, combinando habilidad, estrategia y camaradería en cada encuentro.</p>
+                    <p class="text-lg mb-6">Nuestros valores se basan en el respeto, el trabajo en equipo y la superación personal, tanto dentro como fuera del campo.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full">Competitividad</span>
+                        <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full">Compañerismo</span>
+                        <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full">Diversión</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Jugadores -->
+    <section id="equipo" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12 text-blue-800">Nuestro Equipo</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                <!-- Jugador 1 -->
+                <div class="player-card bg-white rounded-lg overflow-hidden shadow-lg transition duration-300">
+                    <img src="https://placehold.co/400x500" alt="Capitán Marco Rodríguez, defensa central con experiencia, pelo corto negro y sonrisa marcada" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2 text-blue-800">Marco Rodríguez</h3>
+                        <p class="text-gray-600 mb-2">Capitán - Defensa</p>
+                        <p class="text-gray-700">"La defensa es el pilar de todo gran equipo"</p>
+                    </div>
+                </div>
+                
+                <!-- Jugador 2 -->
+                <div class="player-card bg-white rounded-lg overflow-hidden shadow-lg transition duration-300">
+                    <img src="https://placehold.co/400x500" alt="Delantero Javier Márquez, goleador del equipo, celebración característica con puño alzado" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2 text-blue-800">Javier Márquez</h3>
+                        <p class="text-gray-600 mb-2">Delantero</p>
+                        <p class="text-gray-700">"Cada partido es una nueva oportunidad para marcar"</p>
+                    </div>
+                </div>
+                
+                <!-- Jugador 3 -->
+                <div class="player-card bg-white rounded-lg overflow-hidden shadow-lg transition duration-300">
+                    <img src="https://placehold.co/400x500" alt="Portero Diego López en acción, estirada espectacular con guantes amarillos" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2 text-blue-800">Diego López</h3>
+                        <p class="text-gray-600 mb-2">Portero</p>
+                        <p class="text-gray-700">"Un buen portero es la mitad del equipo"</p>
+                    </div>
+                </div>
+                
+                <!-- Jugador 4 -->
+                <div class="player-card bg-white rounded-lg overflow-hidden shadow-lg transition duration-300">
+                    <img src="https://placehold.co/400x500" alt="Centrocampista Luis Torres controlando el balón, técnica pulcra y visión de juego" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2 text-blue-800">Luis Torres</h3>
+                        <p class="text-gray-600 mb-2">Mediocentro</p>
+                        <p class="text-gray-700">"El mediocampista es el cerebro del equipo"</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <button class="bg-blue-800 hover:bg-blue-900 text-white font-bold py-3 px-8 rounded-full transition">
+                    Conoce a todo el equipo
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Próximos partidos -->
+    <section id="partidos" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12 text-blue-800">Próximos Partidos</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Partido 1 -->
+                <div class="border-2 border-blue-200 rounded-lg p-6 hover:border-blue-500 transition">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="bg-blue-800 text-white px-3 py-1 rounded-full text-sm">Liga</span>
+                        <p class="text-gray-600">Sábado 15 Junio</p>
+                    </div>
+                    <div class="flex items-center justify-between my-4">
+                        <div class="text-center">
+                            <img src="https://placehold.co/100x100" alt="Escudo FC7 Titanes - Diseño moderno en azul" class="mx-auto h-16 w-16 object-contain">
+                            <p class="font-bold mt-2">FC7 Titanes</p>
+                        </div>
+                        <div class="text-center mx-4">
+                            <p class="font-bold text-xl">VS</p>
+                            <p class="text-gray-600 text-sm">18:30 hs</p>
+                        </div>
+                        <div class="text-center">
+                            <img src="https://placehold.co/100x100" alt="Escudo rival Los Halcones - Diseño con ave rapaz en rojo" class="mx-auto h-16 w-16 object-contain">
+                            <p class="font-bold mt-2">Los Halcones</p>
+                        </div>
+                    </div>
+                    <button class="w-full bg-gray-100 hover:bg-blue-100 text-blue-800 py-2 rounded-full transition">
+                        Ver detalles
+                    </button>
+                </div>
+                
+                <!-- Partido 2 -->
+                <div class="border-2 border-blue-200 rounded-lg p-6 hover:border-blue-500 transition">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="bg-green-600 text-white px-3 py-1 rounded-full text-sm">Amistoso</span>
+                        <p class="text-gray-600">Miércoles 19 Junio</p>
+                    </div>
+                    <div class="flex items-center justify-between my-4">
+                        <div class="text-center">
+                            <img src="https://placehold.co/100x100" alt="Escudo FC7 Titanes - Diseño moderno en azul" class="mx-auto h-16 w-16 object-contain">
+                            <p class="font-bold mt-2">FC7 Titanes</p>
+                        </div>
+                        <div class="text-center mx-4">
+                            <p class="font-bold text-xl">VS</p>
+                            <p class="text-gray-600 text-sm">20:00 hs</p>
+                        </div>
+                        <div class="text-center">
+                            <img src="https://placehold.co/100x100" alt="Escudo rival Tormenta FC - Diseño con rayos en negro y amarillo" class="mx-auto h-16 w-16 object-contain">
+                            <p class="font-bold mt-2">Tormenta FC</p>
+                        </div>
+                    </div>
+                    <button class="w-full bg-gray-100 hover:bg-blue-100 text-blue-800 py-2 rounded-full transition">
+                        Ver detalles
+                    </button>
+                </div>
+                
+                <!-- Partido 3 -->
+                <div class="border-2 border-blue-200 rounded-lg p-6 hover:border-blue-500 transition">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="bg-blue-800 text-white px-3 py-1 rounded-full text-sm">Liga</span>
+                        <p class="text-gray-600">Domingo 23 Junio</p>
+                    </div>
+                    <div class="flex items-center justify-between my-4">
+                        <div class="text-center">
+                            <img src="https://placehold.co/100x100" alt="Escudo FC7 Titanes - Diseño moderno en azul" class="mx-auto h-16 w-16 object-contain">
+                            <p class="font-bold mt-2">FC7 Titanes</p>
+                        </div>
+                        <div class="text-center mx-4">
+                            <p class="font-bold text-xl">VS</p>
+                            <p class="text-gray-600 text-sm">17:00 hs</p>
+                        
+```

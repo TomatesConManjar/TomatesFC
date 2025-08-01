@@ -26,10 +26,6 @@
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
         
-        .trophy {
-            transition: all 0.3s ease;
-        }
-        
         .trophy:hover {
             transform: scale(1.1);
         }
@@ -37,7 +33,7 @@
 </head>
 <body>
     <!-- Barra de navegación -->
-    <nav class="bg-blue-800 text-white shadow-lg">
+    <nav class="bg-red-800 text-white shadow-lg">
         <div class="container mx-auto px-6 py-3 flex justify-between items-center">
             <div class="flex items-center">
                 <img src="https://placehold.co/60x60" alt="Logo Tomates FC - Escudo circular con diseño moderno en rojo y blanco" class="h-12 mr-3">
@@ -94,51 +90,81 @@
     <!-- Jugadores -->
     <section id="equipo" class="py-16 bg-gray-100">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12 text-blue-800">Nuestro Equipo</h2>
+            <h2 class="text-3xl font-bold text-center mb-12 text-red-800">Nuestro Equipo</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                 <!-- Jugador 1 -->
                 <div class="player-card bg-white rounded-lg overflow-hidden shadow-lg transition duration-300">
-                    <img src="https://placehold.co/400x500" alt="Capitán Marco Rodríguez, defensa central con experiencia, pelo corto negro y sonrisa marcada" class="w-full h-64 object-cover">
+                    <img src="https://placehold.co/400x500" alt="Francisco Lizama, defensa central con el dorsal 4" class="w-full h-64 object-cover">
                     <div class="p-6">
-                        <h3 class="font-bold text-xl mb-2 text-blue-800">Marco Rodríguez</h3>
-                        <p class="text-gray-600 mb-2">Capitán - Defensa</p>
+                        <h3 class="font-bold text-xl mb-2 text-red-800">Francisco Lizama</h3>
+                        <p class="text-gray-600 mb-2">Defensa #4</p>
                         <p class="text-gray-700">"La defensa es el pilar de todo gran equipo"</p>
                     </div>
                 </div>
                 
                 <!-- Jugador 2 -->
                 <div class="player-card bg-white rounded-lg overflow-hidden shadow-lg transition duration-300">
-                    <img src="https://placehold.co/400x500" alt="Delantero Javier Márquez, goleador del equipo, celebración característica con puño alzado" class="w-full h-64 object-cover">
+                    <img src="https://placehold.co/400x500" alt="Leandro Zavala, defensa con el dorsal 6" class="w-full h-64 object-cover">
                     <div class="p-6">
-                        <h3 class="font-bold text-xl mb-2 text-blue-800">Javier Márquez</h3>
-                        <p class="text-gray-600 mb-2">Delantero</p>
-                        <p class="text-gray-700">"Cada partido es una nueva oportunidad para marcar"</p>
+                        <h3 class="font-bold text-xl mb-2 text-red-800">Leandro Zavala</h3>
+                        <p class="text-gray-600 mb-2">Defensa #6</p>
+                        <p class="text-gray-700">"El mediocampo es el corazón del juego"</p>
                     </div>
                 </div>
                 
                 <!-- Jugador 3 -->
                 <div class="player-card bg-white rounded-lg overflow-hidden shadow-lg transition duration-300">
-                    <img src="https://placehold.co/400x500" alt="Portero Diego López en acción, estirada espectacular con guantes amarillos" class="w-full h-64 object-cover">
+                    <img src="https://placehold.co/400x500" alt="Benjamin Garces, delantero con el dorsal 7" class="w-full h-64 object-cover">
                     <div class="p-6">
-                        <h3 class="font-bold text-xl mb-2 text-blue-800">Diego López</h3>
-                        <p class="text-gray-600 mb-2">Portero</p>
-                        <p class="text-gray-700">"Un buen portero es la mitad del equipo"</p>
+                        <h3 class="font-bold text-xl mb-2 text-red-800">Benjamin Garces</h3>
+                        <p class="text-gray-600 mb-2">Delantero #7</p>
+                        <p class="text-gray-700">"Cada gol es un paso más hacia la victoria"</p>
                     </div>
                 </div>
                 
                 <!-- Jugador 4 -->
                 <div class="player-card bg-white rounded-lg overflow-hidden shadow-lg transition duration-300">
-                    <img src="https://placehold.co/400x500" alt="Centrocampista Luis Torres controlando el balón, técnica pulcra y visión de juego" class="w-full h-64 object-cover">
+                    <img src="https://placehold.co/400x500" alt="Matias Paredes, delantero con el dorsal 9" class="w-full h-64 object-cover">
                     <div class="p-6">
-                        <h3 class="font-bold text-xl mb-2 text-blue-800">Luis Torres</h3>
-                        <p class="text-gray-600 mb-2">Mediocentro</p>
-                        <p class="text-gray-700">"El mediocampista es el cerebro del equipo"</p>
+                        <h3 class="font-bold text-xl mb-2 text-red-800">Matias Paredes</h3>
+                        <p class="text-gray-600 mb-2">Delantero #9</p>
+                        <p class="text-gray-700">"La visión de juego es mi mayor fortaleza"</p>
+                    </div>
+                </div>
+
+                <!-- Jugador 5 -->
+                <div class="player-card bg-white rounded-lg overflow-hidden shadow-lg transition duration-300">
+                    <img src="https://placehold.co/400x500" alt="Diego Manque, mediocampista con el dorsal 10" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2 text-red-800">Diego Manque</h3>
+                        <p class="text-gray-600 mb-2">Mediocampista #10</p>
+                        <p class="text-gray-700">"El número 10 siempre busca la magia"</p>
+                    </div>
+                </div>
+
+                <!-- Jugador 6 -->
+                <div class="player-card bg-white rounded-lg overflow-hidden shadow-lg transition duration-300">
+                    <img src="https://placehold.co/400x500" alt="Sebastian Sandoval, mediocampista con el dorsal 11" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2 text-red-800">Sebastian Sandoval</h3>
+                        <p class="text-gray-600 mb-2">Mediocampista #11</p>
+                        <p class="text-gray-700">"Cerrando espacios y recuperando balones"</p>
+                    </div>
+                </div>
+
+                <!-- Jugador 7 -->
+                <div class="player-card bg-white rounded-lg overflow-hidden shadow-lg transition duration-300">
+                    <img src="https://placehold.co/400x500" alt="Cristobal Santibañez, delantero con el dorsal 12" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2 text-red-800">Cristobal Santibañez</h3>
+                        <p class="text-gray-600 mb-2">Delantero #12</p>
+                        <p class="text-gray-700">"La última línea de defensa, siempre alerta"</p>
                     </div>
                 </div>
             </div>
             
             <div class="text-center mt-12">
-                <button class="bg-blue-800 hover:bg-blue-900 text-white font-bold py-3 px-8 rounded-full transition">
+                <button class="bg-red-800 hover:bg-red-900 text-white font-bold py-3 px-8 rounded-full transition">
                     Conoce a todo el equipo
                 </button>
             </div>
@@ -148,72 +174,286 @@
     <!-- Próximos partidos -->
     <section id="partidos" class="py-16 bg-white">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12 text-blue-800">Próximos Partidos</h2>
+            <h2 class="text-3xl font-bold text-center mb-12 text-red-800">Próximos Partidos</h2>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Partido 1 -->
-                <div class="border-2 border-blue-200 rounded-lg p-6 hover:border-blue-500 transition">
+                <div class="border-2 border-red-200 rounded-lg p-6 hover:border-red-500 transition">
                     <div class="flex justify-between items-center mb-4">
-                        <span class="bg-blue-800 text-white px-3 py-1 rounded-full text-sm">Amistoso</span>
-                        <p class="text-gray-600">Sábado 15 Junio</p>
+                        <span class="bg-green-600 text-white px-3 py-1 rounded-full text-sm">Amistoso</span>
+                        <p class="text-gray-600">Lunes 20 Enero</p>
                     </div>
                     <div class="flex items-center justify-between my-4">
                         <div class="text-center">
-                            <img src="https://placehold.co/100x100" alt="Escudo Tomates FC - Diseño moderno en azul" class="mx-auto h-16 w-16 object-contain">
+                            <img src="https://placehold.co/100x100" alt="Escudo Tomates FC" class="mx-auto h-16 w-16 object-contain">
                             <p class="font-bold mt-2">Tomates FC</p>
                         </div>
                         <div class="text-center mx-4">
                             <p class="font-bold text-xl">VS</p>
-                            <p class="text-gray-600 text-sm">18:30 hs</p>
+                            <p class="text-gray-600 text-sm">11:00 hs</p>
                         </div>
                         <div class="text-center">
-                            <img src="https://placehold.co/100x100" alt="Escudo rival Los Halcones - Diseño con ave rapaz en rojo" class="mx-auto h-16 w-16 object-contain">
-                            <p class="font-bold mt-2">Los Halcones</p>
+                            <img src="https://placehold.co/100x100" alt="Escudo Vaqueros" class="mx-auto h-16 w-16 object-contain">
+                            <p class="font-bold mt-2">Vaqueros</p>
                         </div>
                     </div>
-                    <button class="w-full bg-gray-100 hover:bg-blue-100 text-blue-800 py-2 rounded-full transition">
+                    <button class="w-full bg-gray-100 hover:bg-red-100 text-red-800 py-2 rounded-full transition">
                         Ver detalles
                     </button>
                 </div>
                 
                 <!-- Partido 2 -->
-                <div class="border-2 border-blue-200 rounded-lg p-6 hover:border-blue-500 transition">
+                <div class="border-2 border-red-200 rounded-lg p-6 hover:border-red-500 transition">
                     <div class="flex justify-between items-center mb-4">
                         <span class="bg-green-600 text-white px-3 py-1 rounded-full text-sm">Amistoso</span>
-                        <p class="text-gray-600">Miércoles 19 Junio</p>
+                        <p class="text-gray-600">Lunes 3 Marzo</p>
                     </div>
                     <div class="flex items-center justify-between my-4">
                         <div class="text-center">
-                            <img src="https://placehold.co/100x100" alt="Escudo Tomates FC - Diseño moderno en azul" class="mx-auto h-16 w-16 object-contain">
+                            <img src="https://placehold.co/100x100" alt="Escudo Tomates FC" class="mx-auto h-16 w-16 object-contain">
                             <p class="font-bold mt-2">Tomates FC</p>
                         </div>
                         <div class="text-center mx-4">
                             <p class="font-bold text-xl">VS</p>
-                            <p class="text-gray-600 text-sm">20:00 hs</p>
+                            <p class="text-gray-600 text-sm">12:00 hs</p>
                         </div>
                         <div class="text-center">
-                            <img src="https://placehold.co/100x100" alt="Escudo rival Tormenta FC - Diseño con rayos en negro y amarillo" class="mx-auto h-16 w-16 object-contain">
-                            <p class="font-bold mt-2">Tormenta FC</p>
+                            <img src="https://placehold.co/100x100" alt="Escudo Vaqueros" class="mx-auto h-16 w-16 object-contain">
+                            <p class="font-bold mt-2">Vaqueros</p>
                         </div>
                     </div>
-                    <button class="w-full bg-gray-100 hover:bg-blue-100 text-blue-800 py-2 rounded-full transition">
+                    <button class="w-full bg-gray-100 hover:bg-red-100 text-red-800 py-2 rounded-full transition">
                         Ver detalles
                     </button>
                 </div>
                 
                 <!-- Partido 3 -->
-                <div class="border-2 border-blue-200 rounded-lg p-6 hover:border-blue-500 transition">
+                <div class="border-2 border-red-200 rounded-lg p-6 hover:border-red-500 transition">
                     <div class="flex justify-between items-center mb-4">
-                        <span class="bg-blue-800 text-white px-3 py-1 rounded-full text-sm">Amistoso</span>
-                        <p class="text-gray-600">Domingo 23 Junio</p>
+                        <span class="bg-green-600 text-white px-3 py-1 rounded-full text-sm">Amistoso</span>
+                        <p class="text-gray-600">Viernes 28 Marzo</p>
                     </div>
                     <div class="flex items-center justify-between my-4">
                         <div class="text-center">
-                            <img src="https://placehold.co/100x100" alt="Escudo Tomates FC - Diseño moderno en azul" class="mx-auto h-16 w-16 object-contain">
+                            <img src="https://placehold.co/100x100" alt="Escudo Tomates FC" class="mx-auto h-16 w-16 object-contain">
+                            <p class="font-bold mt-2">Tomates FC</p>
+                        </div>
+                        <div class="text-center mx-4">
+                            <p class="font-bold text-xl">VS</p>
+                            <p class="text-gray-600 text-sm">13:00 hs</p>
+                        </div>
+                        <div class="text-center">
+                            <img src="https://placehold.co/100x100" alt="Escudo Manchester ICI" class="mx-auto h-16 w-16 object-contain">
+                            <p class="font-bold mt-2">Manchester ICI</p>
+                        </div>
+                    </div>
+                    <button class="w-full bg-gray-100 hover:bg-red-100 text-red-800 py-2 rounded-full transition">
+                        Ver detalles
+                    </button>
+                </div>
+
+                <!-- Partido 4 -->
+                <div class="border-2 border-red-200 rounded-lg p-6 hover:border-red-500 transition">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="bg-green-600 text-white px-3 py-1 rounded-full text-sm">Amistoso</span>
+                        <p class="text-gray-600">Jueves 1 Mayo</p>
+                    </div>
+                    <div class="flex items-center justify-between my-4">
+                        <div class="text-center">
+                            <img src="https://placehold.co/100x100" alt="Escudo Tomates FC" class="mx-auto h-16 w-16 object-contain">
+                            <p class="font-bold mt-2">Tomates FC</p>
+                        </div>
+                        <div class="text-center mx-4">
+                            <p class="font-bold text-xl">VS</p>
+                            <p class="text-gray-600 text-sm">12:00 hs</p>
+                        </div>
+                        <div class="text-center">
+                            <img src="https://placehold.co/100x100" alt="Escudo Vaqueros" class="mx-auto h-16 w-16 object-contain">
+                            <p class="font-bold mt-2">Vaqueros</p>
+                        </div>
+                    </div>
+                    <button class="w-full bg-gray-100 hover:bg-red-100 text-red-800 py-2 rounded-full transition">
+                        Ver detalles
+                    </button>
+                </div>
+
+                <!-- Partido 5 -->
+                <div class="border-2 border-red-200 rounded-lg p-6 hover:border-red-500 transition">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="bg-green-600 text-white px-3 py-1 rounded-full text-sm">Amistoso</span>
+                        <p class="text-gray-600">Viernes 9 Mayo</p>
+                    </div>
+                    <div class="flex items-center justify-between my-4">
+                        <div class="text-center">
+                            <img src="https://placehold.co/100x100" alt="Escudo Tomates FC" class="mx-auto h-16 w-16 object-contain">
+                            <p class="font-bold mt-2">Tomates FC</p>
+                        </div>
+                        <div class="text-center mx-4">
+                            <p class="font-bold text-xl">VS</p>
+                            <p class="text-gray-600 text-sm">14:00 hs</p>
+                        </div>
+                        <div class="text-center">
+                            <img src="https://placehold.co/100x100" alt="Escudo Real Justicia" class="mx-auto h-16 w-16 object-contain">
+                            <p class="font-bold mt-2">Real Justicia</p>
+                        </div>
+                    </div>
+                    <button class="w-full bg-gray-100 hover:bg-red-100 text-red-800 py-2 rounded-full transition">
+                        Ver detalles
+                    </button>
+                </div>
+
+                <!-- Partido 6 -->
+                <div class="border-2 border-red-200 rounded-lg p-6 hover:border-red-500 transition">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="bg-green-600 text-white px-3 py-1 rounded-full text-sm">Amistoso</span>
+                        <p class="text-gray-600">Sábado 24 Mayo</p>
+                    </div>
+                    <div class="flex items-center justify-between my-4">
+                        <div class="text-center">
+                            <img src="https://placehold.co/100x100" alt="Escudo Tomates FC" class="mx-auto h-16 w-16 object-contain">
+                            <p class="font-bold mt-2">Tomates FC</p>
+                        </div>
+                        <div class="text-center mx-4">
+                            <p class="font-bold text-xl">VS</p>
+                            <p class="text-gray-600 text-sm">14:00 hs</p>
+                        </div>
+                        <div class="text-center">
+                            <img src="https://placehold.co/100x100" alt="Escudo Equipo Maradona" class="mx-auto h-16 w-16 object-contain">
+                            <p class="font-bold mt-2">Equipo Maradona</p>
+                        </div>
+                    </div>
+                    <button class="w-full bg-gray-100 hover:bg-red-100 text-red-800 py-2 rounded-full transition">
+                        Ver detalles
+                    </button>
+                </div>
+
+                <!-- Partido 7 -->
+                <div class="border-2 border-red-200 rounded-lg p-6 hover:border-red-500 transition">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="bg-green-600 text-white px-3 py-1 rounded-full text-sm">Amistoso</span>
+                        <p class="text-gray-600">Viernes 30 Mayo</p>
+                    </div>
+                    <div class="flex items-center justify-between my-4">
+                        <div class="text-center">
+                            <img src="https://placehold.co/100x100" alt="Escudo Tomates FC" class="mx-auto h-16 w-16 object-contain">
+                            <p class="font-bold mt-2">Tomates FC</p>
+                        </div>
+                        <div class="text-center mx-4">
+                            <p class="font-bold text-xl">VS</p>
+                            <p class="text-gray-600 text-sm">14:00 hs</p>
+                        </div>
+                        <div class="text-center">
+                            <img src="https://placehold.co/100x100" alt="Escudo Real Justicia" class="mx-auto h-16 w-16 object-contain">
+                            <p class="font-bold mt-2">Real Justicia</p>
+                        </div>
+                    </div>
+                    <button class="w-full bg-gray-100 hover:bg-red-100 text-red-800 py-2 rounded-full transition">
+                        Ver detalles
+                    </button>
+                </div>
+
+                <!-- Partido 8 -->
+                <div class="border-2 border-red-200 rounded-lg p-6 hover:border-red-500 transition">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="bg-green-600 text-white px-3 py-1 rounded-full text-sm">Amistoso</span>
+                        <p class="text-gray-600">Viernes 27 Junio</p>
+                    </div>
+                    <div class="flex items-center justify-between my-4">
+                        <div class="text-center">
+                            <img src="https://placehold.co/100x100" alt="Escudo Tomates FC" class="mx-auto h-16 w-16 object-contain">
+                            <p class="font-bold mt-2">Tomates FC</p>
+                        </div>
+                        <div class="text-center mx-4">
+                            <p class="font-bold text-xl">VS</p>
+                            <p class="text-gray-600 text-sm">12:00 hs</p>
+                        </div>
+                        <div class="text-center">
+                            <img src="https://placehold.co/100x100" alt="Escudo Resistencia IC" class="mx-auto h-16 w-16 object-contain">
+                            <p class="font-bold mt-2">Resistencia IC</p>
+                        </div>
+                    </div>
+                    <button class="w-full bg-gray-100 hover:bg-red-100 text-red-800 py-2 rounded-full transition">
+                        Ver detalles
+                    </button>
+                </div>
+
+                <!-- Partido 9 -->
+                <div class="border-2 border-red-200 rounded-lg p-6 hover:border-red-500 transition">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="bg-green-600 text-white px-3 py-1 rounded-full text-sm">Amistoso</span>
+                        <p class="text-gray-600">Lunes 14 Julio</p>
+                    </div>
+                    <div class="flex items-center justify-between my-4">
+                        <div class="text-center">
+                            <img src="https://placehold.co/100x100" alt="Escudo Tomates FC" class="mx-auto h-16 w-16 object-contain">
+                            <p class="font-bold mt-2">Tomates FC</p>
+                        </div>
+                        <div class="text-center mx-4">
+                            <p class="font-bold text-xl">VS</p>
+                            <p class="text-gray-600 text-sm">15:00 hs</p>
+                        </div>
+                        <div class="text-center">
+                            <img src="https://placehold.co/100x100" alt="Escudo Vaqueros" class="mx-auto h-16 w-16 object-contain">
+                            <p class="font-bold mt-2">Vaqueros</p>
+                        </div>
+                    </div>
+                    <button class="w-full bg-gray-100 hover:bg-red-100 text-red-800 py-2 rounded-full transition">
+                        Ver detalles
+                    </button>
+                </div>
+
+                <!-- Partido 10 -->
+                <div class="border-2 border-red-200 rounded-lg p-6 hover:border-red-500 transition">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="bg-green-600 text-white px-3 py-1 rounded-full text-sm">Amistoso</span>
+                        <p class="text-gray-600">Viernes 18 Julio</p>
+                    </div>
+                    <div class="flex items-center justify-between my-4">
+                        <div class="text-center">
+                            <img src="https://placehold.co/100x100" alt="Escudo Tomates FC" class="mx-auto h-16 w-16 object-contain">
+                            <p class="font-bold mt-2">Tomates FC</p>
+                        </div>
+                        <div class="text-center mx-4">
+                            <p class="font-bold text-xl">VS</p>
+                            <p class="text-gray-600 text-sm">12:00 hs</p>
+                        </div>
+                        <div class="text-center">
+                            <img src="https://placehold.co/100x100" alt="Escudo Real Justicia" class="mx-auto h-16 w-16 object-contain">
+                            <p class="font-bold mt-2">Real Justicia</p>
+                        </div>
+                    </div>
+                    <button class="w-full bg-gray-100 hover:bg-red-100 text-red-800 py-2 rounded-full transition">
+                        Ver detalles
+                    </button>
+                </div>
+
+                <!-- Partido 11 -->
+                <div class="border-2 border-red-200 rounded-lg p-6 hover:border-red-500 transition">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="bg-green-600 text-white px-3 py-1 rounded-full text-sm">Amistoso</span>
+                        <p class="text-gray-600">Jueves 31 Julio</p>
+                    </div>
+                    <div class="flex items-center justify-between my-4">
+                        <div class="text-center">
+                            <img src="https://placehold.co/100x100" alt="Escudo Tomates FC" class="mx-auto h-16 w-16 object-contain">
                             <p class="font-bold mt-2">Tomates FC</p>
                         </div>
                         <div class="text-center mx-4">
                             <p class="font-bold text-xl">VS</p>
                             <p class="text-gray-600 text-sm">17:00 hs</p>
-                        
+                        </div>
+                        <div class="text-center">
+                            <img src="https://placehold.co/100x100" alt="Escudo Vaqueros" class="mx-auto h-16 w-16 object-contain">
+                            <p class="font-bold mt-2">Vaqueros</p>
+                        </div>
+                    </div>
+                    <button class="w-full bg-gray-100 hover:bg-red-100 text-red-800 py-2 rounded-full transition">
+                        Ver detalles
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
 ```

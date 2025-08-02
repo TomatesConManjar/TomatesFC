@@ -35,7 +35,7 @@
             document.getElementById('team-section').style.display = 'none';
             document.getElementById('stats-section').style.display = 'block';
         }
-        
+
         function goBack() {
             document.getElementById('team-section').style.display = 'block';
             document.getElementById('stats-section').style.display = 'none';
@@ -58,7 +58,7 @@
             </div>
             <div class="flex items-center">
                 <a href="https://www.instagram.com/tomates._fc._?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="hover:text-yellow-400 transition">
-                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-instagram fa-lg"></i>
                 </a>
             </div>
             <button class="md:hidden focus:outline-none">
@@ -79,7 +79,7 @@
         </div>
     </section>
 
-    <!-- Sobre el equipo -->
+    <!-- Nuestra Historia -->
     <section class="py-16 bg-white">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold text-center mb-12 text-red-800">Nuestra Historia</h2>
@@ -101,8 +101,8 @@
         </div>
     </section>
 
-    <!-- Jugadores -->
-    <section id="equipo" class="py-16 bg-gray-100">
+    <!-- Sección del equipo -->
+    <section id="team-section" class="py-16 bg-gray-100">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold text-center mb-12 text-red-800">Nuestro Equipo</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
@@ -135,7 +135,7 @@
                         <p class="text-gray-700">"Cada gol cuenta, y yo estoy aquí para marcar la diferencia"</p>
                     </div>
                 </div>
-                
+
                 <!-- Jugador 4 -->
                 <div class="player-card bg-white rounded-lg overflow-hidden shadow-lg transition duration-300">
                     <img src="https://placehold.co/400x500" alt="Matias Paredes, delantero con el dorsal 9" class="w-full h-64 object-cover">
@@ -176,10 +176,10 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="text-center mt-12">
-                <button class="bg-red-800 hover:bg-red-900 text-white font-bold py-3 px-8 rounded-full transition">
-                    Conoce a nuestro el equipo
+                <button onclick="showStats()" class="bg-red-800 hover:bg-red-900 text-white font-bold py-3 px-8 rounded-full transition">
+                    Conoce a nuestro equipo
                 </button>
             </div>
         </div>
@@ -223,7 +223,7 @@
                         <p class="text-gray-700">Asistencias: 15 (1.36 A/P)</p>
                     </div>
                 </div>
-                
+
                 <div class="player-card bg-white rounded-lg overflow-hidden shadow-lg transition duration-300">
                     <img src="https://placehold.co/400x500" alt="Matias Paredes" class="w-full h-64 object-cover">
                     <div class="p-6">
@@ -234,7 +234,7 @@
                         <p class="text-gray-700">Asistencias: 2 (0.50 A/P)</p>
                     </div>
                 </div>
-                
+
                 <div class="player-card bg-white rounded-lg overflow-hidden shadow-lg transition duration-300">
                     <img src="https://placehold.co/400x500" alt="Diego Manque" class="w-full h-64 object-cover">
                     <div class="p-6">
@@ -256,7 +256,7 @@
                         <p class="text-gray-700">Asistencias: 16 (1.45 A/P)</p>
                     </div>
                 </div>
-                
+
                 <div class="player-card bg-white rounded-lg overflow-hidden shadow-lg transition duration-300">
                     <img src="https://placehold.co/400x500" alt="Cristobal Santibañez" class="w-full h-64 object-cover">
                     <div class="p-6">

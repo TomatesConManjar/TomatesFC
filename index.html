@@ -30,6 +30,16 @@
             transform: scale(1.1);
         }
     </style>
+    <script>
+        function showStats() {
+            document.getElementById('team-section').style.display = 'none';
+            document.getElementById('stats-section').style.display = 'block';
+        }
+        function goBack() {
+            document.getElementById('team-section').style.display = 'block';
+            document.getElementById('stats-section').style.display = 'none';
+        }
+    </script>
 </head>
 <body>
     <!-- Barra de navegación -->

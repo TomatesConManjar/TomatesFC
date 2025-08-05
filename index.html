@@ -101,6 +101,82 @@
             document.getElementById('equipo').style.display = 'block';
             document.getElementById('stats-section').style.display = 'none';
         }
+
+        // Datos de los partidos con jugadores
+        const partidosData = {
+            1: {
+                fecha: "Lunes 20 Enero",
+                rival: "Vaqueros",
+                resultado: "22-10",
+                jugadores: [
+                    { nombre: "Benjamin Garces", goles: 8, asistencias: 3 },
+                    { nombre: "Diego Manque", goles: 5, asistencias: 7 },
+                    { nombre: "Sebastian Sandoval", goles: 4, asistencias: 2 },
+                    { nombre: "Leandro Zavala", goles: 3, asistencias: 1 },
+                    { nombre: "Cristobal Santibañez", goles: 2, asistencias: 0 },
+                    { nombre: "Matias Paredes", goles: 0, asistencias: 1 }
+                ]
+            },
+            2: {
+                fecha: "Lunes 3 Marzo",
+                rival: "Vaqueros",
+                resultado: "19-15",
+                jugadores: [
+                    { nombre: "Benjamin Garces", goles: 6, asistencias: 2 },
+                    { nombre: "Diego Manque", goles: 4, asistencias: 5 },
+                    { nombre: "Sebastian Sandoval", goles: 3, asistencias: 3 },
+                    { nombre: "Leandro Zavala", goles: 3, asistencias: 1 },
+                    { nombre: "Cristobal Santibañez", goles: 2, asistencias: 1 },
+                    { nombre: "Francisco Lizama", goles: 1, asistencias: 0 }
+                ]
+            }
+            // Puedes agregar más partidos aquí
+        };
+
+        function showMatchDetails(partidoId) {
+            // Ocultar sección de partidos
+            document.getElementById('partidos').style.display = 'none';
+        
+            // Mostrar sección de detalles
+            const detailsSection = document.getElementById('match-details-section');
+            detailsSection.style.display = 'block';
+        
+            // Cargar datos del partido
+            const partido = partidosData[partidoId];
+            if (partido) {
+                document.getElementById('match-title').textContent = `Tomates FC vs ${partido.rival}`;
+                document.getElementById('match-date').textContent = partido.fecha;
+                document.getElementById('match-score').textContent = partido.resultado;
+            
+                // Cargar jugadores
+                const playersContainer = document.getElementById('match-players');
+                playersContainer.innerHTML = '';
+            
+                partido.jugadores.forEach(jugador => {
+                    const playerCard = `
+                        <div class="bg-white rounded-lg p-6 shadow-lg border-2 border-red-100 hover:border-red-300 transition">
+                            <h3 class="font-bold text-xl mb-3 text-red-800">${jugador.nombre}</h3>
+                            <div class="space-y-2">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-600">⚽ Goles:</span>
+                                    <span class="font-bold text-green-600">${jugador.goles}</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-600">🎯 Asistencias:</span>
+                                    <span class="font-bold text-blue-600">${jugador.asistencias}</span>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    playersContainer.innerHTML += playerCard;
+                });
+            }
+        }
+
+        function backToMatches() {
+            document.getElementById('match-details-section').style.display = 'none';
+            document.getElementById('partidos').style.display = 'block';
+        }
     </script>
 </head>
 <body>
@@ -715,6 +791,27 @@
                         Ver detalles
                     </button>
                 </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sección de detalles del partido -->
+    <section id="match-details-section" style="display: none;" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="mb-8">
+                <button onclick="backToMatches()" class="bg-red-800 hover:bg-red-900 text-white font-bold py-2 px-6 rounded-full transition mb-4">
+                    ← Volver a Partidos
+                </button>
+                <h2 id="match-title" class="text-3xl font-bold text-center mb-4 text-red-800">Detalles del Partido</h2>
+                <div class="text-center mb-8">
+                    <p id="match-date" class="text-lg text-gray-600 mb-2"></p>
+                    <p id="match-score" class="text-2xl font-bold text-red-800"></p>
+                </div>
+            </div>
+        
+            <h3 class="text-2xl font-bold text-center mb-8 text-red-800">Rendimiento de Jugadores</h3>
+            <div id="match-players" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <!-- Los jugadores se cargan dinámicamente aquí -->
             </div>
         </div>
     </section>

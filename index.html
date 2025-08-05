@@ -36,6 +36,44 @@
         .trophy:hover {
             transform: scale(1.1);
         }
+        /* Estilos para el menú móvil */
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        /* Animación del botón hamburguesa */
+        .hamburger-line {
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active .hamburger-line:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active .hamburger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        /* Overlay para cerrar el menú */
+        .menu-overlay {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
     </style>
     <script>
         function showStats() {
@@ -51,32 +89,85 @@
 </head>
 <body>
     <!-- Barra de navegación -->
-    <nav class="bg-red-800 text-white shadow-lg">
-        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <div class="flex items-center">
-                <img src="https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/Tomates_FC__13_-removebg-preview%20(1).png" alt="Logo Tomates FC - Escudo circular con diseño moderno en rojo y blanco" class="h-12 mr-3">
-                <span class="font-bold text-xl">Tomates FC</span>
-            </div>
-            <div class="hidden md:flex space-x-8 ml auto">
-                <a href="#inicio" class="hover:text-yellow-400 transition">Inicio</a>
-                <a href="#equipo" class="hover:text-yellow-400 transition">Equipo</a>
-                <a href="#partidos" class="hover:text-yellow-400 transition">Partidos</a>
-                <a href="#galeria" class="hover:text-yellow-400 transition">Galería</a>
-            </div>
-            <div class="flex items-center">
-                <a href="https://www.instagram.com/tomates._fc._?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="hover:text-yellow-400 transition">
-                    <i class="fab fa-instagram fa-lg"></i>
-                </a>
+    <nav class="bg-red-800 text-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <!-- Logo y nombre -->
+                <div class="flex items-center">
+                    <img src="https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/Tomates_FC__13_-removebg-preview%20(1).png" alt="Logo Tomates FC - Escudo circular con diseño moderno en rojo y blanco" class="h-12 mr-3">
+                    <span class="font-bold text-xl">Tomates FC</span>
+                </div>
+
+                <!-- Menú desktop -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#inicio" class="hover:text-yellow-400 transition duration-300">Inicio</a>
+                    <a href="#historia" class="hover:text-yellow-400 transition duration-300">Historia</a>
+                    <a href="#equipo" class="hover:text-yellow-400 transition duration-300">Equipo</a>
+                    <a href="#partidos" class="hover:text-yellow-400 transition duration-300">Partidos</a>
+                    <a href="#galeria" class="hover:text-yellow-400 transition duration-300">Galería</a>
+                </div>
+
+                <!-- Instagram y botón hamburguesa -->
+                <div class="flex items-center space-x-4">
+                    <a href="https://www.instagram.com/tomates._fc._?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="hover:text-yellow-400 transition duration-300">
+                        <i class="fab fa-instagram fa-lg"></i>
+                    </a>
+                
+                    <!-- Botón hamburguesa -->
+                    <button id="mobile-menu-button" class="md:hidden focus:outline-none hamburger">
+                        <div class="w-6 h-6 flex flex-col justify-center items-center">
+                            <span class="hamburger-line w-6 h-0.5 bg-white block mb-1"></span>
+                            <span class="hamburger-line w-6 h-0.5 bg-white block mb-1"></span>
+                            <span class="hamburger-line w-6 h-0.5 bg-white block"></span>
+                        </div>
+                    </button>
+                </div>
             </div>
         </div>
-    </nav>
-            <button class="md:hidden focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
+
+        <!-- Menú móvil -->
+        <div id="mobile-menu" class="mobile-menu md:hidden fixed inset-y-0 left-0 w-64 bg-red-900 shadow-lg z-50">
+            <div class="p-6">
+                <!-- Logo en el menú móvil -->
+                <div class="flex items-center mb-8">
+                    <img src="https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/Tomates_FC__13_-removebg-preview%20(1).png" alt="Logo Tomates FC" class="h-10 mr-3">
+                    <span class="font-bold text-lg text-white">Tomates FC</span>
+                </div>
+            
+                <!-- Enlaces del menú móvil -->
+                <nav class="space-y-4">
+                    <a href="#inicio" class="mobile-menu-link block py-3 px-4 text-white hover:bg-red-700 rounded-lg transition duration-300">
+                        <i class="fas fa-home mr-3"></i>Inicio
+                    </a>
+                    <a href="#historia" class="mobile-menu-link block py-3 px-4 text-white hover:bg-red-700 rounded-lg transition duration-300">
+                        <i class="fas fa-book mr-3"></i>Historia
+                    </a>
+                    <a href="#equipo" class="mobile-menu-link block py-3 px-4 text-white hover:bg-red-700 rounded-lg transition duration-300">
+                        <i class="fas fa-users mr-3"></i>Equipo
+                    </a>
+                    <a href="#partidos" class="mobile-menu-link block py-3 px-4 text-white hover:bg-red-700 rounded-lg transition duration-300">
+                        <i class="fas fa-futbol mr-3"></i>Partidos
+                    </a>
+                    <a href="#galeria" class="mobile-menu-link block py-3 px-4 text-white hover:bg-red-700 rounded-lg transition duration-300">
+                        <i class="fas fa-images mr-3"></i>Galería
+                    </a>
+                </nav>
+
+                <!-- Redes sociales en menú móvil -->
+                <div class="mt-8 pt-6 border-t border-red-700">
+                    <p class="text-gray-300 text-sm mb-4">Síguenos:</p>
+                    <a href="https://www.instagram.com/tomates._fc._?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="inline-flex items-center text-white hover:text-yellow-400 transition duration-300">
+                        <i class="fab fa-instagram text-xl mr-2"></i>
+                        @tomates._fc._
+                    </a>
+                </div>
+            </div>
         </div>
+    
+        <!-- Overlay para cerrar el menú -->
+        <div id="menu-overlay" class="menu-overlay md:hidden fixed inset-0 bg-black bg-opacity-50 z-40"></div>
     </nav>
+        
     <!-- Hero section -->
     <section id="inicio" class="hero flex items-center justify-center text-center text-white">
         <div class="px-4">
@@ -89,7 +180,7 @@
     </section>
 
     <!-- Nuestra Historia -->
-    <section class="py-16 bg-white">
+    <section id="historia" class="py-16 bg-white">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold text-center mb-12 text-red-800">NUESTRA HISTORIA</h2>
             <div class="flex flex-col md:flex-row items-center">
@@ -705,5 +796,57 @@
             class="fixed bottom-6 right-6 bg-red-800 hover:bg-red-900 text-white p-3 rounded-full shadow-lg transition transform hover:scale-110 z-50">
         <i class="fas fa-arrow-up"></i>
     </button>
+    <script>
+        // JavaScript para el menú móvil
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuOverlay = document.getElementById('menu-overlay');
+            const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+
+            // Función para abrir/cerrar el menú
+            function toggleMenu() {
+                mobileMenuButton.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+                menuOverlay.classList.toggle('active');
+                document.body.classList.toggle('overflow-hidden');
+            }
+
+            // Función para cerrar el menú
+            function closeMenu() {
+                mobileMenuButton.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                menuOverlay.classList.remove('active');
+                document.body.classList.remove('overflow-hidden');
+            }
+
+            // Event listeners
+            mobileMenuButton.addEventListener('click', toggleMenu);
+            menuOverlay.addEventListener('click', closeMenu);
+
+            // Cerrar menú al hacer clic en un enlace
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', closeMenu);
+            });
+
+            // Cerrar menú con ESC
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeMenu();
+                }
+            });
+        });
+
+        // Tus funciones existentes
+        function showStats() {
+            document.getElementById('team-section').style.display = 'none';
+            document.getElementById('stats-section').style.display = 'block';
+        }
+
+        function goBack() {
+            document.getElementById('team-section').style.display = 'block';
+            document.getElementById('stats-section').style.display = 'none';
+        }
+    </script>
 </body>
 </html>

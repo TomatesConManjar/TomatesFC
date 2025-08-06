@@ -991,6 +991,11 @@
                     card.style.display = 'none';
                 }
             });
+            // Cargar preferencia de modo oscuro al cargar la página
+            if (localStorage.getItem('darkMode') === 'enabled') {
+                document.body.classList.add('dark-mode');
+                document.getElementById('darkModeIcon').className = 'fas fa-sun';
+            }
         });
 
         // MODO OSCURO

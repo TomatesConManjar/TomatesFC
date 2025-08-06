@@ -891,7 +891,7 @@
                     closeMenu();
                 }
             });
-                // AGREGAR DESPUÉS DE LÍNEA 892
+        // AGREGAR DESPUÉS DE LÍNEA 892
         // FILTROS DE PARTIDOS
         function filterMatches(filter) {
             const matchCards = document.querySelectorAll('[data-result]');
@@ -909,10 +909,10 @@
             // Filtrar partidos
             matchCards.forEach(card => {
                 if (filter === 'todos') {
-            c        ard.style.display = 'block';
+                    card.style.display = 'block';
                 } else {
                     if (card.dataset.result === filter.slice(0, -1)) {
-                c        ard.style.display = 'block';
+                        card.style.display = 'block';
                     } else {
                         card.style.display = 'none';
                     }

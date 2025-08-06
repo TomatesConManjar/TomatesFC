@@ -91,237 +91,7 @@
             visibility: visible;
         }
     </style>
-    <script>
-        function showStats() {
-            document.getElementById('equipo').style.display = 'none';
-            document.getElementById('stats-section').style.display = 'block';
-        }
-
-        function goBack() {
-            document.getElementById('equipo').style.display = 'block';
-            document.getElementById('stats-section').style.display = 'none';
-        }
-
-        // Datos de los partidos con jugadores
-        const partidosData = {
-            1: {
-                fecha: "Lunes 20 Enero",
-                rival: "Vaqueros",
-                resultado: "22-10",
-                jugadores: [
-                    { nombre: "Leandro Zavala", goles: 0, asistencias: 1 },
-                    { nombre: "Benjamín Garcés", goles: 12, asistencias: 4 },
-                    { nombre: "Diego Manque", goles: 7, asistencias: 8 },
-                    { nombre: "Sebastían Sandoval", goles: 1, asistencias: 1 },
-                ]
-            },
-            2: {
-                fecha: "Lunes 3 Marzo",
-                rival: "Vaqueros",
-                resultado: "19-15",
-                jugadores: [
-                    { nombre: "Leandro Zavala", goles: 1, asistencias: 0 },
-                    { nombre: "Benjamín Garcés", goles: 7, asistencias: 1 },
-                    { nombre: "Diego Manque", goles: 3, asistencias: 5 },
-                    { nombre: "Sebastían Sandoval", goles: 1, asistencias: 7 },
-                    { nombre: "Cristóbal Santibáñez", goles: 7, asistencias: 1 },
-                ]
-            },
-            3: {
-                fecha: "Viernes 28 Marzo",
-                rival: "Manchester ICI",
-                resultado: "4-15",
-                jugadores: [
-                    { nombre: "Leandro Zavala", goles: 1, asistencias: 0 },
-                    { nombre: "Benjamín Garcés", goles: 0, asistencias: 0 },
-                    { nombre: "Diego Manque", goles: 1, asistencias: 0 },
-                    { nombre: "Sebastían Sandoval", goles: 1, asistencias: 1 },
-                    { nombre: "Cristóbal Santibáñez", goles: 0, asistencias: 0 },
-                ]
-            },
-            4: {
-                fecha: "Jueves 1 Mayo",
-                rival: "Vaqueros",
-                resultado: "5-15",
-                jugadores: [
-                    { nombre: "Francisco Lizama", goles: 1, asistencias: 0 },
-                    { nombre: "Leandro Zavala", goles: 1, asistencias: 1 },
-                    { nombre: "Benjamín Garcés", goles: 1, asistencias: 0 },
-                    { nombre: "Diego Manque", goles: 0, asistencias: 1 },
-                    { nombre: "Sebastían Sandoval", goles: 1, asistencias: 1 },
-                    { nombre: "Cristóbal Santibáñez", goles: 1, asistencias: 0 },
-                ]
-            },
-            5: {
-                fecha: "Viernes 9 Mayo",
-                rival: "Real Justicia",
-                resultado: "10-8",
-                jugadores: [
-                    { nombre: "Francisco Lizama", goles: 0, asistencias: 0 },
-                    { nombre: "Leandro Zavala", goles: 5, asistencias: 4 },
-                    { nombre: "Benjamín Garcés", goles: 1, asistencias: 2 },
-                    { nombre: "Diego Manque", goles: 1, asistencias: 3 },
-                    { nombre: "Sebastían Sandoval", goles: 2, asistencias: 2 },
-                ]
-            },
-            6: {
-                fecha: "Sabado 24 Mayo",
-                rival: "Equipo Maradona",
-                resultado: "2-15",
-                jugadores: [
-                    { nombre: "Francisco Lizama", goles: 0, asistencias: 0 },
-                    { nombre: "Leandro Zavala", goles: 0, asistencias: 0 },
-                    { nombre: "Benjamín Garcés", goles: 1, asistencias: 0 },
-                    { nombre: "Matías Paredes", goles: 0, asistencias: 1 },
-                    { nombre: "Diego Manque", goles: 0, asistencias: 0 },
-                    { nombre: "Sebastían Sandoval", goles: 1, asistencias: 0 },
-                    
-                ]
-            },
-            7: {
-                fecha: "Viernes 30 Mayo",
-                rival: "Real Justicia",
-                resultado: "10-7",
-                jugadores: [
-                    { nombre: "Francisco Lizama", goles: 0, asistencias: 0 },
-                    { nombre: "Leandro Zavala", goles: 4, asistencias: 0 },
-                    { nombre: "Benjamín Garcés", goles: 1, asistencias: 3 },
-                    { nombre: "Diego Manque", goles: 2, asistencias: 2 },
-                    { nombre: "Sebastían Sandoval", goles: 2, asistencias: 0 },
-                ]
-            },
-            8: {
-                fecha: "Viernes 27 Junio",
-                rival: "Resistencia IC",
-                resultado: "5-5",
-                jugadores: [
-                    { nombre: "Francisco Lizama", goles: 0, asistencias: 0 },
-                    { nombre: "Benjamín Garcés", goles: 1, asistencias: 1 },
-                    { nombre: "Diego Manque", goles: 0, asistencias: 2 },
-                    { nombre: "Sebastían Sandoval", goles: 0, asistencias: 0 },
-                ]
-            },
-            9: {
-                fecha: "Lunes 14 Julio",
-                rival: "Vaqueros",
-                resultado: "13-14",
-                jugadores: [
-                    { nombre: "Benjamín Garcés", goles: 2, asistencias: 2 },
-                    { nombre: "Matías Paredes", goles: 5, asistencias: 1 },
-                    { nombre: "Diego Manque", goles: 1, asistencias: 4 },
-                    { nombre: "Sebastían Sandoval", goles: 2, asistencias: 1 },
-                    { nombre: "Cristóbal Santibáñez", goles: 2, asistencias: 2 },
-                ]
-            },
-                10: {
-                fecha: "Viernes 18 Julio",
-                rival: "Real Justicia",
-                resultado: "6-7",
-                jugadores: [
-                    { nombre: "Benjamín Garcés", goles: 2, asistencias: 1 },
-                    { nombre: "Matías Paredes", goles: 1, asistencias: 0 },
-                    { nombre: "Diego Manque", goles: 1, asistencias: 3 },
-                    { nombre: "Sebastían Sandoval", goles: 0, asistencias: 0 },
-                ]
-            },
-                11: {
-                fecha: "Jueves 31 Julio",
-                rival: "Vaqueros",
-                resultado: "10-14",
-                jugadores: [
-                    { nombre: "Benjamín Garcés", goles: 2, asistencias: 1 },
-                    { nombre: "Matías Paredes", goles: 2, asistencias: 0 },
-                    { nombre: "Diego Manque", goles: 0, asistencias: 1 },
-                    { nombre: "Sebastían Sandoval", goles: 2, asistencias: 3 },
-                    { nombre: "Cristóbal Santibáñez", goles: 3, asistencias: 0 },
-                ]
-            },
-        };
-
-            function showMatchDetails(partidoId) {
-        document.getElementById('partidos').style.display = 'none';
-        const detailsSection = document.getElementById('match-details-section');
-        detailsSection.style.display = 'block';
     
-        const partido = partidosData[partidoId];
-        if (partido) {
-            document.getElementById('match-title').textContent = `Tomates FC vs ${partido.rival}`;
-            document.getElementById('match-date').textContent = partido.fecha;
-        
-            // Obtener escudo del rival según el nombre
-            let escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/500x500__4_-removebg-preview.png'; // Default
-        
-            switch(partido.rival) {
-                case 'Vaqueros':
-                    escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__4_-removebg-preview.png';
-                    break;
-                case 'Manchester ICI':
-                    escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__2_-removebg-preview.png';
-                    break;
-                case 'Real Justicia':
-                    escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__3___1_-removebg-preview.png';
-                    break;
-                case 'Resistencia IC':
-                    escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__1_-removebg-preview%20(1).png';
-                    break;
-                case 'Equipo Maradona':
-                    escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__4_-removebg-preview.png';
-                    break;
-            }    
-        
-            // Crear HTML con escudos y resultado
-            const [golesLocal, golesVisitante] = partido.resultado.split('-');
-            const matchHeader = `
-                <div class="flex items-center justify-center space-x-8 mb-8">
-                    <div class="text-center">
-                        <img src="https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/Tomates_FC__13_-removebg-preview%20(1).png" alt="Escudo Tomates FC" class="h-20 w-20 mx-auto mb-2">
-                        <p class="font-bold text-lg">Tomates FC</p>
-                        <span class="text-4xl font-bold text-red-800">${golesLocal}</span>
-                    </div>
-                    <div class="text-center">
-                        <p class="text-2xl font-bold text-gray-600">VS</p>
-                        <p class="text-gray-500 mt-2">${partido.fecha}</p>
-                    </div>
-                    <div class="text-center">
-                        <img src="${escudoRival}" alt="Escudo ${partido.rival}" class="h-20 w-20 mx-auto mb-2">
-                        <p class="font-bold text-lg">${partido.rival}</p>
-                        <span class="text-4xl font-bold text-gray-800">${golesVisitante}</span>
-                    </div>
-                </div>
-            `;
-        
-            document.getElementById('match-header').innerHTML = matchHeader;
-            
-                // Cargar jugadores
-                const playersContainer = document.getElementById('match-players');
-                playersContainer.innerHTML = '';
-            
-                partido.jugadores.forEach(jugador => {
-                    const playerCard = `
-                        <div class="bg-white rounded-lg p-6 shadow-lg border-2 border-red-100 hover:border-red-300 transition">
-                            <h3 class="font-bold text-xl mb-3 text-red-800">${jugador.nombre}</h3>
-                            <div class="space-y-2">
-                                <div class="flex justify-between items-center">
-                                    <span class="text-gray-600">⚽ Goles:</span>
-                                    <span class="font-bold text-green-600">${jugador.goles}</span>
-                                </div>
-                                <div class="flex justify-between items-center">
-                                    <span class="text-gray-600">🎯 Asistencias:</span>
-                                    <span class="font-bold text-blue-600">${jugador.asistencias}</span>
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                    playersContainer.innerHTML += playerCard;
-                });
-            }
-        }
-
-        function backToMatches() {
-            document.getElementById('match-details-section').style.display = 'none';
-            document.getElementById('partidos').style.display = 'block';
-        }
-    </script>
 </head>
 <body>
     <!-- Barra de navegación -->
@@ -1093,6 +863,237 @@
             });
         });
 
+    </script>
+    <script>
+        function showStats() {
+            document.getElementById('equipo').style.display = 'none';
+            document.getElementById('stats-section').style.display = 'block';
+        }
+
+        function goBack() {
+            document.getElementById('equipo').style.display = 'block';
+            document.getElementById('stats-section').style.display = 'none';
+        }
+
+        // Datos de los partidos con jugadores
+        const partidosData = {
+            1: {
+                fecha: "Lunes 20 Enero",
+                rival: "Vaqueros",
+                resultado: "22-10",
+                jugadores: [
+                    { nombre: "Leandro Zavala", goles: 0, asistencias: 1 },
+                    { nombre: "Benjamín Garcés", goles: 12, asistencias: 4 },
+                    { nombre: "Diego Manque", goles: 7, asistencias: 8 },
+                    { nombre: "Sebastían Sandoval", goles: 1, asistencias: 1 },
+                ]
+            },
+            2: {
+                fecha: "Lunes 3 Marzo",
+                rival: "Vaqueros",
+                resultado: "19-15",
+                jugadores: [
+                    { nombre: "Leandro Zavala", goles: 1, asistencias: 0 },
+                    { nombre: "Benjamín Garcés", goles: 7, asistencias: 1 },
+                    { nombre: "Diego Manque", goles: 3, asistencias: 5 },
+                    { nombre: "Sebastían Sandoval", goles: 1, asistencias: 7 },
+                    { nombre: "Cristóbal Santibáñez", goles: 7, asistencias: 1 },
+                ]
+            },
+            3: {
+                fecha: "Viernes 28 Marzo",
+                rival: "Manchester ICI",
+                resultado: "4-15",
+                jugadores: [
+                    { nombre: "Leandro Zavala", goles: 1, asistencias: 0 },
+                    { nombre: "Benjamín Garcés", goles: 0, asistencias: 0 },
+                    { nombre: "Diego Manque", goles: 1, asistencias: 0 },
+                    { nombre: "Sebastían Sandoval", goles: 1, asistencias: 1 },
+                    { nombre: "Cristóbal Santibáñez", goles: 0, asistencias: 0 },
+                ]
+            },
+            4: {
+                fecha: "Jueves 1 Mayo",
+                rival: "Vaqueros",
+                resultado: "5-15",
+                jugadores: [
+                    { nombre: "Francisco Lizama", goles: 1, asistencias: 0 },
+                    { nombre: "Leandro Zavala", goles: 1, asistencias: 1 },
+                    { nombre: "Benjamín Garcés", goles: 1, asistencias: 0 },
+                    { nombre: "Diego Manque", goles: 0, asistencias: 1 },
+                    { nombre: "Sebastían Sandoval", goles: 1, asistencias: 1 },
+                    { nombre: "Cristóbal Santibáñez", goles: 1, asistencias: 0 },
+                ]
+            },
+            5: {
+                fecha: "Viernes 9 Mayo",
+                rival: "Real Justicia",
+                resultado: "10-8",
+                jugadores: [
+                    { nombre: "Francisco Lizama", goles: 0, asistencias: 0 },
+                    { nombre: "Leandro Zavala", goles: 5, asistencias: 4 },
+                    { nombre: "Benjamín Garcés", goles: 1, asistencias: 2 },
+                    { nombre: "Diego Manque", goles: 1, asistencias: 3 },
+                    { nombre: "Sebastían Sandoval", goles: 2, asistencias: 2 },
+                ]
+            },
+            6: {
+                fecha: "Sabado 24 Mayo",
+                rival: "Equipo Maradona",
+                resultado: "2-15",
+                jugadores: [
+                    { nombre: "Francisco Lizama", goles: 0, asistencias: 0 },
+                    { nombre: "Leandro Zavala", goles: 0, asistencias: 0 },
+                    { nombre: "Benjamín Garcés", goles: 1, asistencias: 0 },
+                    { nombre: "Matías Paredes", goles: 0, asistencias: 1 },
+                    { nombre: "Diego Manque", goles: 0, asistencias: 0 },
+                    { nombre: "Sebastían Sandoval", goles: 1, asistencias: 0 },
+                    
+                ]
+            },
+            7: {
+                fecha: "Viernes 30 Mayo",
+                rival: "Real Justicia",
+                resultado: "10-7",
+                jugadores: [
+                    { nombre: "Francisco Lizama", goles: 0, asistencias: 0 },
+                    { nombre: "Leandro Zavala", goles: 4, asistencias: 0 },
+                    { nombre: "Benjamín Garcés", goles: 1, asistencias: 3 },
+                    { nombre: "Diego Manque", goles: 2, asistencias: 2 },
+                    { nombre: "Sebastían Sandoval", goles: 2, asistencias: 0 },
+                ]
+            },
+            8: {
+                fecha: "Viernes 27 Junio",
+                rival: "Resistencia IC",
+                resultado: "5-5",
+                jugadores: [
+                    { nombre: "Francisco Lizama", goles: 0, asistencias: 0 },
+                    { nombre: "Benjamín Garcés", goles: 1, asistencias: 1 },
+                    { nombre: "Diego Manque", goles: 0, asistencias: 2 },
+                    { nombre: "Sebastían Sandoval", goles: 0, asistencias: 0 },
+                ]
+            },
+            9: {
+                fecha: "Lunes 14 Julio",
+                rival: "Vaqueros",
+                resultado: "13-14",
+                jugadores: [
+                    { nombre: "Benjamín Garcés", goles: 2, asistencias: 2 },
+                    { nombre: "Matías Paredes", goles: 5, asistencias: 1 },
+                    { nombre: "Diego Manque", goles: 1, asistencias: 4 },
+                    { nombre: "Sebastían Sandoval", goles: 2, asistencias: 1 },
+                    { nombre: "Cristóbal Santibáñez", goles: 2, asistencias: 2 },
+                ]
+            },
+                10: {
+                fecha: "Viernes 18 Julio",
+                rival: "Real Justicia",
+                resultado: "6-7",
+                jugadores: [
+                    { nombre: "Benjamín Garcés", goles: 2, asistencias: 1 },
+                    { nombre: "Matías Paredes", goles: 1, asistencias: 0 },
+                    { nombre: "Diego Manque", goles: 1, asistencias: 3 },
+                    { nombre: "Sebastían Sandoval", goles: 0, asistencias: 0 },
+                ]
+            },
+                11: {
+                fecha: "Jueves 31 Julio",
+                rival: "Vaqueros",
+                resultado: "10-14",
+                jugadores: [
+                    { nombre: "Benjamín Garcés", goles: 2, asistencias: 1 },
+                    { nombre: "Matías Paredes", goles: 2, asistencias: 0 },
+                    { nombre: "Diego Manque", goles: 0, asistencias: 1 },
+                    { nombre: "Sebastían Sandoval", goles: 2, asistencias: 3 },
+                    { nombre: "Cristóbal Santibáñez", goles: 3, asistencias: 0 },
+                ]
+            },
+        };
+
+            function showMatchDetails(partidoId) {
+        document.getElementById('partidos').style.display = 'none';
+        const detailsSection = document.getElementById('match-details-section');
+        detailsSection.style.display = 'block';
+    
+        const partido = partidosData[partidoId];
+        if (partido) {
+            document.getElementById('match-title').textContent = `Tomates FC vs ${partido.rival}`;
+            document.getElementById('match-date').textContent = partido.fecha;
+        
+            // Obtener escudo del rival según el nombre
+            let escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/500x500__4_-removebg-preview.png'; // Default
+        
+            switch(partido.rival) {
+                case 'Vaqueros':
+                    escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__4_-removebg-preview.png';
+                    break;
+                case 'Manchester ICI':
+                    escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__2_-removebg-preview.png';
+                    break;
+                case 'Real Justicia':
+                    escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__3___1_-removebg-preview.png';
+                    break;
+                case 'Resistencia IC':
+                    escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__1_-removebg-preview%20(1).png';
+                    break;
+                case 'Equipo Maradona':
+                    escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__4_-removebg-preview.png';
+                    break;
+            }    
+        
+            // Crear HTML con escudos y resultado
+            const [golesLocal, golesVisitante] = partido.resultado.split('-');
+            const matchHeader = `
+                <div class="flex items-center justify-center space-x-8 mb-8">
+                    <div class="text-center">
+                        <img src="https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/Tomates_FC__13_-removebg-preview%20(1).png" alt="Escudo Tomates FC" class="h-20 w-20 mx-auto mb-2">
+                        <p class="font-bold text-lg">Tomates FC</p>
+                        <span class="text-4xl font-bold text-red-800">${golesLocal}</span>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-2xl font-bold text-gray-600">VS</p>
+                        <p class="text-gray-500 mt-2">${partido.fecha}</p>
+                    </div>
+                    <div class="text-center">
+                        <img src="${escudoRival}" alt="Escudo ${partido.rival}" class="h-20 w-20 mx-auto mb-2">
+                        <p class="font-bold text-lg">${partido.rival}</p>
+                        <span class="text-4xl font-bold text-gray-800">${golesVisitante}</span>
+                    </div>
+                </div>
+            `;
+        
+            document.getElementById('match-header').innerHTML = matchHeader;
+            
+                // Cargar jugadores
+                const playersContainer = document.getElementById('match-players');
+                playersContainer.innerHTML = '';
+            
+                partido.jugadores.forEach(jugador => {
+                    const playerCard = `
+                        <div class="bg-white rounded-lg p-6 shadow-lg border-2 border-red-100 hover:border-red-300 transition">
+                            <h3 class="font-bold text-xl mb-3 text-red-800">${jugador.nombre}</h3>
+                            <div class="space-y-2">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-600">⚽ Goles:</span>
+                                    <span class="font-bold text-green-600">${jugador.goles}</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-600">🎯 Asistencias:</span>
+                                    <span class="font-bold text-blue-600">${jugador.asistencias}</span>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    playersContainer.innerHTML += playerCard;
+                });
+            }
+        }
+
+        function backToMatches() {
+            document.getElementById('match-details-section').style.display = 'none';
+            document.getElementById('partidos').style.display = 'block';
+        }
     </script>
 </body>
 </html>

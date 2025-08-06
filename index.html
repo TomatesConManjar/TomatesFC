@@ -408,10 +408,29 @@
         </div>
     </section>
                 
-    <!-- Próximos partidos -->
+    <!-- Partidos -->
     <section id="partidos" class="py-16 bg-white">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold text-center mb-12 text-red-800">PARTIDOS</h2>
+            <!-- AGREGAR ENTRE LÍNEAS 411-412 -->
+            <div class="flex flex-wrap gap-4 mb-8 justify-center">
+                <button class="filter-btn bg-red-800 text-white px-6 py-2 rounded-full font-bold transition hover:bg-red-900" 
+                        data-filter="todos" onclick="filterMatches('todos')">
+                    Todos (11)
+                </button>
+                <button class="filter-btn bg-gray-200 text-gray-700 px-6 py-2 rounded-full font-bold transition hover:bg-green-200" 
+                        data-filter="victorias" onclick="filterMatches('victorias')">
+                    Victorias (4)
+                </button>
+                <button class="filter-btn bg-gray-200 text-gray-700 px-6 py-2 rounded-full font-bold transition hover:bg-yellow-200" 
+                        data-filter="empates" onclick="filterMatches('empates')">
+                    Empates (1)
+                </button>
+                <button class="filter-btn bg-gray-200 text-gray-700 px-6 py-2 rounded-full font-bold transition hover:bg-red-200" 
+                        data-filter="derrotas" onclick="filterMatches('derrotas')">
+                    Derrotas (6)
+                </button>
+            </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
                 <!-- Partido 1 -->
@@ -828,6 +847,11 @@
             class="fixed bottom-6 right-6 bg-red-800 hover:bg-red-900 text-white p-3 rounded-full shadow-lg transition transform hover:scale-110 z-50">
         <i class="fas fa-arrow-up"></i>
     </button>
+    <!-- AGREGAR ENTRE LÍNEAS 888-889 -->
+        <button id="darkModeToggle" onclick="toggleDarkMode()" 
+                class="fixed bottom-20 right-6 bg-gray-800 hover:bg-gray-900 text-white p-3 rounded-full shadow-lg transition transform hover:scale-110 z-50">
+            <i id="darkModeIcon" class="fas fa-moon"></i>
+        </button>
     <script>
         // JavaScript para el menú móvil
         document.addEventListener('DOMContentLoaded', function() {
@@ -868,7 +892,7 @@
                 }
             });
         });
-
+        });
     </script>
     <script>
         function showStats() {

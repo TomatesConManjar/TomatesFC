@@ -1099,6 +1099,20 @@
             document.getElementById('match-details-section').style.display = 'none';
             document.getElementById('partidos').style.display = 'block';
         }
+        // BUSCADOR DE JUGADORES
+        document.getElementById('playerSearch').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const playerCards = document.querySelectorAll('.player-card');
+    
+            playerCards.forEach(card => {
+                const playerName = card.querySelector('h3').textContent.toLowerCase();
+                if (playerName.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
     </script>
 </body>
 </html>

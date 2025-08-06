@@ -238,20 +238,59 @@
             },
         };
 
-        function showMatchDetails(partidoId) {
-            // Ocultar sección de partidos
-            document.getElementById('partidos').style.display = 'none';
+            function showMatchDetails(partidoId) {
+        document.getElementById('partidos').style.display = 'none';
+        const detailsSection = document.getElementById('match-details-section');
+        detailsSection.style.display = 'block';
+    
+        const partido = partidosData[partidoId];
+        if (partido) {
+            document.getElementById('match-title').textContent = `Tomates FC vs ${partido.rival}`;
+            document.getElementById('match-date').textContent = partido.fecha;
         
-            // Mostrar sección de detalles
-            const detailsSection = document.getElementById('match-details-section');
-            detailsSection.style.display = 'block';
+            // Obtener escudo del rival según el nombre
+            let escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/500x500__4_-removebg-preview.png'; // Default
         
-            // Cargar datos del partido
-            const partido = partidosData[partidoId];
-            if (partido) {
-                document.getElementById('match-title').textContent = `Tomates FC vs ${partido.rival}`;
-                document.getElementById('match-date').textContent = partido.fecha;
-                document.getElementById('match-score').textContent = partido.resultado;
+            switch(partido.rival) {
+                case 'Vaqueros':
+                    escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/500x500__4_-removebg-preview.png';
+                    break;
+                case 'Manchester ICI':
+                    escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__2_-removebg-preview.png';
+                    break;
+                case 'Real Justicia':
+                    escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__3___1_-removebg-preview.png';
+                    break;
+                case 'Resistencia IC':
+                    escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__1_-removebg-preview%20(1).png';
+                    break;
+                case 'Equipo Maradona':
+                    escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/500x500__4_-removebg-preview.png';
+                    break;
+            }    
+        
+            // Crear HTML con escudos y resultado
+            const [golesLocal, golesVisitante] = partido.resultado.split('-');
+            const matchHeader = `
+                <div class="flex items-center justify-center space-x-8 mb-8">
+                    <div class="text-center">
+                        <img src="https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/Tomates_FC__13_-removebg-preview%20(1).png" alt="Escudo Tomates FC" class="h-20 w-20 mx-auto mb-2">
+                        <p class="font-bold text-lg">Tomates FC</p>
+                        <span class="text-4xl font-bold text-red-800">${golesLocal}</span>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-2xl font-bold text-gray-600">VS</p>
+                        <p class="text-gray-500 mt-2">${partido.fecha}</p>
+                    </div>
+                    <div class="text-center">
+                        <img src="${escudoRival}" alt="Escudo ${partido.rival}" class="h-20 w-20 mx-auto mb-2">
+                        <p class="font-bold text-lg">${partido.rival}</p>
+                        <span class="text-4xl font-bold text-gray-800">${golesVisitante}</span>
+                    </div>
+                </div>
+            `;
+        
+            document.getElementById('match-header').innerHTML = matchHeader;
             
                 // Cargar jugadores
                 const playersContainer = document.getElementById('match-players');
@@ -907,10 +946,9 @@
                 <button onclick="backToMatches()" class="bg-red-800 hover:bg-red-900 text-white font-bold py-2 px-6 rounded-full transition mb-4">
                     ← Volver a Partidos
                 </button>
-                <h2 id="match-title" class="text-3xl font-bold text-center mb-4 text-red-800">Detalles del Partido</h2>
-                <div class="text-center mb-8">
-                    <p id="match-date" class="text-lg text-gray-600 mb-2"></p>
-                    <p id="match-score" class="text-2xl font-bold text-red-800"></p>
+                <h2 class="text-3xl font-bold text-center mb-8 text-red-800">Detalles del Partido</h2>
+                <div id="match-header" class="bg-white rounded-lg p-6 shadow-lg mb-8">
+                    <!-- Los escudos y resultado se cargan aquí dinámicamente -->
                 </div>
             </div>
         

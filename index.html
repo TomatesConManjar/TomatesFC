@@ -247,18 +247,18 @@
 
         .player-number {
             position: absolute;
-            top: 10px;
-            right: 10px;
+            top: 15px;
+            right: 15px;
             background: linear-gradient(45deg, #dc2626, #991b1b);
             color: white;
-            width: 40px;
-            height: 40px;
+            width: 35px;
+            height: 35px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            font-size: 18px;
+            font-size: 16px;
             box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4);
             z-index: 10;
         }
@@ -408,7 +408,7 @@
                        class="w-full px-4 py-3 border-2 border-red-200 rounded-full focus:border-red-500 focus:outline-none transition">
             </div>
         </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8" style="overflow: hidden;">
                 <!-- Jugador 1 -->
                     <div class="player-card player-card-enhanced rounded-lg overflow-hidden shadow-lg transition duration-300">
                     <img src="https://placehold.co/400x500" alt="Francisco Lizama, defensa con el dorsal 4" class="w-full h-64 object-cover">
@@ -486,7 +486,7 @@
                     </div>
                 </div>
 
-            <div class="text-center mt-12">
+            <div class="text-center mt-12" style="clear: both;">
                 <button onclick="showStats()" class="bg-red-800 hover:bg-red-900 text-white font-bold py-3 px-8 rounded-full transition">
                     Conoce a nuestro equipo
                 </button>

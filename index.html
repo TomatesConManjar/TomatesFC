@@ -35,17 +35,6 @@
             background-color: #1f1f1f !important;
         }
 
-        .dark-mode .bg-gray-50 {
-            background-color: #2d2d2d !important;
-        }
-
-        .dark-mode .text-gray-600 {
-            color: #b0b0b0 !important;
-        }
-
-        .dark-mode .text-gray-700 {
-            color: #d0d0d0 !important;
-        }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f5f5f5;
@@ -917,13 +906,11 @@
                     closeMenu();
                 }
             });
-        // AGREGAR DESPUÉS DE LÍNEA 892
         // FILTROS DE PARTIDOS
         window.filterMatches = function(filter) {
             const matchCards = document.querySelectorAll('[data-result]');
             const filterButtons = document.querySelectorAll('.filter-btn');
 
-            // Actualizar estilos de botones
             filterButtons.forEach(btn => {
                 if (btn.dataset.filter === filter) {
                     btn.className = 'filter-btn bg-red-800 text-white px-6 py-2 rounded-full font-bold transition hover:bg-red-900';
@@ -932,7 +919,6 @@
                 }
             });
 
-            // Filtrar partidos
             matchCards.forEach(card => {
                 if (filter === 'todos') {
                     card.style.display = 'block';
@@ -960,11 +946,11 @@
         };
 
         // MODO OSCURO
-        function toggleDarkMode() {
+        window.toggleDarkMode = function() {
             document.body.classList.toggle('dark-mode');
             const isDark = document.body.classList.contains('dark-mode');
             const icon = document.getElementById('darkModeIcon');
-    
+
             if (isDark) {
                 icon.className = 'fas fa-sun';
                 localStorage.setItem('darkMode', 'enabled');
@@ -972,15 +958,7 @@
                 icon.className = 'fas fa-moon';
                 localStorage.setItem('darkMode', 'disabled');
             }
-        }
-
-        function filterMatches(filter) {
-        // Cargar preferencia de modo oscuro
-        document.addEventListener('DOMContentLoaded', function() {
-            if (localStorage.getItem('darkMode') === 'enabled') {
-                document.body.classList.add('dark-mode');
-                document.getElementById('darkModeIcon').className = 'fas fa-sun';
-            }
+        };
         });
     </script>
     <script>

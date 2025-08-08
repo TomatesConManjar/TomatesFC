@@ -19,7 +19,33 @@
             scroll-behavior: smooth;
         }
         @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap');<<
-        
+
+        /* Modo oscuro */
+        .dark-mode {
+            background-color: #1a1a1a !important;
+            color: #f0f0f0 !important;
+        }
+
+        .dark-mode .bg-white {
+            background-color: #2d2d2d !important;
+            color: #f0f0f0 !important;
+        }
+
+        .dark-mode .bg-gray-100 {
+            background-color: #1f1f1f !important;
+        }
+
+        .dark-mode .bg-gray-50 {
+            background-color: #2d2d2d !important;
+        }
+
+        .dark-mode .text-gray-600 {
+            color: #b0b0b0 !important;
+        }
+
+        .dark-mode .text-gray-700 {
+            color: #d0d0d0 !important;
+        }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f5f5f5;
@@ -893,10 +919,10 @@
             });
         // AGREGAR DESPUÉS DE LÍNEA 892
         // FILTROS DE PARTIDOS
-        function filterMatches(filter) {
+        window.filterMatches = function(filter) {
             const matchCards = document.querySelectorAll('[data-result]');
             const filterButtons = document.querySelectorAll('.filter-btn');
-    
+
             // Actualizar estilos de botones
             filterButtons.forEach(btn => {
                 if (btn.dataset.filter === filter) {
@@ -905,13 +931,12 @@
                     btn.className = 'filter-btn bg-gray-200 text-gray-700 px-6 py-2 rounded-full font-bold transition hover:bg-gray-300';
                 }
             });
-    
+
             // Filtrar partidos
             matchCards.forEach(card => {
                 if (filter === 'todos') {
                     card.style.display = 'block';
                 } else {
-                    // Mapear los nombres de filtros a los valores del dataset
                     let filterValue;
                     switch(filter) {
                         case 'victorias':
@@ -924,7 +949,7 @@
                             filterValue = 'derrota';
                             break;
                     }
-        
+
                     if (card.dataset.result === filterValue) {
                         card.style.display = 'block';
                     } else {
@@ -932,34 +957,7 @@
                     }
                 }
             });
-                    if (card.dataset.result === filter.slice(0, -1)) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                }
-            });
-        }
-
-        // BUSCADOR DE JUGADORES
-        document.getElementById('playerSearch').addEventListener('input', function(e) {
-            const searchTerm = e.target.value.toLowerCase();
-            const playerCards = document.querySelectorAll('.player-card');
-    
-            playerCards.forEach(card => {
-                const playerName = card.querySelector('h3').textContent.toLowerCase();
-                if (playerName.includes(searchTerm)) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-            // Cargar preferencia de modo oscuro al cargar la página
-            if (localStorage.getItem('darkMode') === 'enabled') {
-                document.body.classList.add('dark-mode');
-                document.getElementById('darkModeIcon').className = 'fas fa-sun';
-            }
-        });
+        };
 
         // MODO OSCURO
         function toggleDarkMode() {

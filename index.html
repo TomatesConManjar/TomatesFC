@@ -234,7 +234,6 @@
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         
-        
         .trophy:hover {
             transform: scale(1.1);
         }
@@ -1391,9 +1390,41 @@
 
             // Cerrar menú al hacer clic en un enlace
             mobileMenuLinks.forEach(link => {
-                link.addEventListener('click', closeMenu);
+                link.addEventListener('click', function(e) {
+                    closeMenu();
+        
+                    // Si el enlace es #equipo, asegurarse de mostrar la plantilla correcta
+                    if (this.getAttribute('href') === '#equipo') {
+                        e.preventDefault();
+                        document.getElementById('player-details-section').style.display = 'none';
+                        document.getElementById('stats-section').style.display = 'none';
+                        document.getElementById('equipo').style.display = 'block';
+            
+                        // Actualizar URL
+                        window.history.pushState({section: 'equipo'}, '', '#equipo');
+            
+                        // Scroll suave al equipo
+                        document.getElementById('equipo').scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
             });
 
+            // Manejar enlaces del navbar desktop
+            document.querySelectorAll('nav a[href="#equipo"]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.getElementById('player-details-section').style.display = 'none';
+                    document.getElementById('stats-section').style.display = 'none';
+                    document.getElementById('equipo').style.display = 'block';
+        
+                    // Actualizar URL
+                    window.history.pushState({section: 'equipo'}, '', '#equipo');
+        
+                    // Scroll suave al equipo
+                    document.getElementById('equipo').scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+            
             // Cerrar menú con ESC
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape') {

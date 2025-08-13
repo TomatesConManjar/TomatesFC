@@ -465,7 +465,13 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                 <!-- Jugador 1 -->
                     <div class="player-card rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer" onclick="showPlayerDetails('francisco-lizama')">
-                    <img src="https://placehold.co/400x500" alt="Francisco Lizama, defensa con el dorsal 4" class="w-full h-64 object-cover">
+                    <div class="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-t-lg relative">
+                        <i class="fas fa-user text-6xl mb-3 text-gray-300"></i>
+                        <div class="absolute top-4 right-4 bg-red-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg">
+                            4
+                        </div>
+                        <span class="text-sm font-semibold mt-2">F. LIZAMA</span>
+                    </div>
                     <div class="p-6 relative">
                         <div class="player-number">4</div>
                         <h3 class="font-bold text-xl mb-2 text-red-800">Francisco Lizama</h3>
@@ -555,7 +561,13 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                 <!-- Estadísticas de cada jugador -->
                 <div class="player-card player-card-enhanced rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer" onclick="showPlayerDetails('francisco-lizama')">
-                    <img src="https://placehold.co/400x500" alt="Francisco Lizama" class="w-full h-64 object-cover">
+                    <div class="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-t-lg relative">
+                        <i class="fas fa-user text-6xl mb-3 text-gray-300"></i>
+                        <div class="absolute top-4 right-4 bg-red-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg">
+                            4
+                        </div>
+                        <span class="text-sm font-semibold mt-2">F. LIZAMA</span>
+                    </div>
                     <div class="p-6">
                         <h3 class="font-bold text-xl mb-2 text-red-800">Francisco Lizama</h3>
                         <p class="text-gray-600 mb-4">Defensa #4</p>
@@ -1367,7 +1379,6 @@
             const mobileMenu = document.getElementById('mobile-menu');
             const menuOverlay = document.getElementById('menu-overlay');
             const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
-
             // Función para abrir/cerrar el menú
             function toggleMenu() {
                 mobileMenuButton.classList.toggle('active');
@@ -1375,7 +1386,6 @@
                 menuOverlay.classList.toggle('active');
                 document.body.classList.toggle('overflow-hidden');
             }
-
             // Función para cerrar el menú
             function closeMenu() {
                 mobileMenuButton.classList.remove('active');
@@ -1383,16 +1393,13 @@
                 menuOverlay.classList.remove('active');
                 document.body.classList.remove('overflow-hidden');
             }
-
             // Event listeners
             mobileMenuButton.addEventListener('click', toggleMenu);
             menuOverlay.addEventListener('click', closeMenu);
-
             // Cerrar menú al hacer clic en un enlace
             mobileMenuLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     closeMenu();
-        
                     // Si el enlace es #equipo, asegurarse de mostrar la plantilla correcta
                     if (this.getAttribute('href') === '#equipo') {
                         e.preventDefault();
@@ -1408,7 +1415,6 @@
                     }
                 });
             });
-
             // Manejar enlaces del navbar desktop
             document.querySelectorAll('nav a[href="#equipo"]').forEach(link => {
                 link.addEventListener('click', function(e) {
@@ -1416,15 +1422,12 @@
                     document.getElementById('player-details-section').style.display = 'none';
                     document.getElementById('stats-section').style.display = 'none';
                     document.getElementById('equipo').style.display = 'block';
-        
                     // Actualizar URL
                     window.history.pushState({section: 'equipo'}, '', '#equipo');
-        
                     // Scroll suave al equipo
                     document.getElementById('equipo').scrollIntoView({ behavior: 'smooth' });
                 });
             });
-            
             // Cerrar menú con ESC
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape') {
@@ -1435,7 +1438,6 @@
         window.filterMatches = function(filter) {
             const matchCards = document.querySelectorAll('[data-result]');
             const filterButtons = document.querySelectorAll('.filter-btn');
-
             filterButtons.forEach(btn => {
                 if (btn.dataset.filter === filter) {
                     btn.className = 'filter-btn bg-red-800 text-white px-6 py-2 rounded-full font-bold transition hover:bg-red-900';
@@ -1469,13 +1471,11 @@
                 }
             });
         };
-
         // MODO OSCURO
         window.toggleDarkMode = function() {
             document.body.classList.toggle('dark-mode');
             const isDark = document.body.classList.contains('dark-mode');
             const icon = document.getElementById('darkModeIcon');
-
             if (isDark) {
                 icon.className = 'fas fa-sun';
                 localStorage.setItem('darkMode', 'enabled');
@@ -1491,12 +1491,10 @@
             document.getElementById('equipo').style.display = 'none';
             document.getElementById('stats-section').style.display = 'block';
         }
-
         function goBack() {
             document.getElementById('equipo').style.display = 'block';
             document.getElementById('stats-section').style.display = 'none';
         }
-
         // Datos de los partidos con jugadores
         const partidosData = {
             1: {
@@ -1663,16 +1661,12 @@
                 ]
             },
         };
-
         function showMatchDetails(partidoId) {
         document.getElementById('partidos').style.display = 'none';
         const detailsSection = document.getElementById('match-details-section');
         detailsSection.style.display = 'block';
-    
         const partido = partidosData[partidoId];
         if (partido) {
-            
-        
             // Obtener escudo del rival según el nombre
             let escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/500x500__4_-removebg-preview.png'; // Default
         
@@ -1693,7 +1687,6 @@
                     escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__4_-removebg-preview.png';
                     break;
             }    
-        
             // Crear HTML con escudos y resultado
             const [golesLocal, golesVisitante] = partido.resultado.split('-');
             const matchHeader = `
@@ -1715,13 +1708,10 @@
                     </div>
                 </div>
             `;
-        
             document.getElementById('match-header').innerHTML = matchHeader;
-            
                 // Cargar jugadores
                 const playersContainer = document.getElementById('match-players');
                 playersContainer.innerHTML = '';
-            
                 partido.jugadores.forEach(jugador => {
                     const playerCard = `
                         <div class="bg-white rounded-lg p-6 shadow-lg border-2 border-red-100 hover:border-red-300 transition">
@@ -1742,7 +1732,6 @@
                 });
             }
         }
-
         function backToMatches() {
             document.getElementById('match-details-section').style.display = 'none';
             document.getElementById('partidos').style.display = 'block';
@@ -1751,7 +1740,6 @@
         document.getElementById('playerSearch').addEventListener('input', function(e) {
             const searchTerm = e.target.value.toLowerCase();
             const playerCards = document.querySelectorAll('.player-card');
-    
             playerCards.forEach(card => {
                 const playerName = card.querySelector('h3').textContent.toLowerCase();
                 if (playerName.includes(searchTerm)) {
@@ -1761,7 +1749,6 @@
                 }
             });
         });
-
         // Datos completos de los jugadores
         const jugadoresData = {
             'francisco-lizama': {
@@ -1875,29 +1862,30 @@
                 ]
             }
         };
-
         // Función para mostrar detalles del jugador
         function showPlayerDetails(playerId) {
             const jugador = jugadoresData[playerId];
             if (!jugador) return;
-
             // Ocultar sección del equipo y mostrar detalles
             document.getElementById('equipo').style.display = 'none';
             document.getElementById('stats-section').style.display = 'none';
             document.getElementById('player-details-section').style.display = 'block';
-
             // Cambiar URL sin recargar página
             window.history.pushState({section: 'player-details', playerId: playerId}, '', `#jugador/${playerId}`);
-
             // Crear header del jugador
             const totalGoles = jugador.partidos.reduce((sum, partido) => sum + partido.goles, 0);
             const totalAsistencias = jugador.partidos.reduce((sum, partido) => sum + partido.asistencias, 0);
             const partidosJugados = jugador.partidos.length;
-
             document.getElementById('player-header').innerHTML = `
                 <div class="flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-8">
                     <div class="relative">
-                        <img src="https://placehold.co/200x250" alt="${jugador.nombre}" class="rounded-lg shadow-lg">
+                        <div class="w-48 h-60 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-lg shadow-lg relative">
+                            <i class="fas fa-user text-8xl mb-4 text-gray-300"></i>
+                            <div class="absolute top-4 right-4 bg-red-600 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl">
+                                ${jugador.numero}
+                            </div>
+                            <span class="text-sm font-semibold">${jugador.nombre.split(' ').map(n => n[0] + '.').join(' ')}</span>
+                        </div>
                         <div class="absolute -top-3 -right-3 bg-gradient-to-r from-red-600 to-red-800 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl shadow-lg">
                             ${jugador.numero}
                         </div>

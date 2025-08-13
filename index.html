@@ -1604,7 +1604,6 @@
         document.getElementById('historia').style.display = 'none';
         document.getElementById('equipo').style.display = 'none';
         document.getElementById('partidos').style.display = 'none';
-        document.getElementById('galeria').style.display = 'none';
         document.getElementById('stats-section').style.display = 'none';
         document.getElementById('player-details-section').style.display = 'none';
         const detailsSection = document.getElementById('match-details-section');
@@ -1678,7 +1677,11 @@
         }
         function backToMatches() {
             document.getElementById('match-details-section').style.display = 'none';
+            document.getElementById('inicio').style.display = 'block';
+            document.getElementById('historia').style.display = 'block';
+            document.getElementById('equipo').style.display = 'block';
             document.getElementById('partidos').style.display = 'block';
+            document.getElementById('galeria').style.display = 'block';
             document.getElementById('partidos').scrollIntoView({ behavior: 'smooth' });
         }
         // BUSCADOR DE JUGADORES

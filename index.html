@@ -424,9 +424,13 @@
                 
                 <!-- Jugador 2 -->
                <div class="player-card rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer" onclick="showPlayerDetails('leandro-zavala')">
-                    <div class="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-t-lg relative">
-                        <i class="fas fa-user text-6xl mb-3 text-gray-300"></i>
-                        <span class="text-sm font-semibold mt-2">L. ZAVALA</span>
+                    <div class="w-full h-64 bg-gradient-to-br from-red-500 to-red-700 flex flex-col items-center justify-center relative overflow-hidden">
+                        <div class="absolute inset-0 opacity-10">
+                            <div class="w-full h-full" style="background-image: radial-gradient(circle at 25% 25%, white 2px, transparent 2px), radial-gradient(circle at 75% 75%, white 2px, transparent 2px); background-size: 30px 30px;"></div>
+                        </div>
+                        <i class="fas fa-shield-alt text-white text-5xl mb-3 z-10"></i>
+                        <span class="text-white text-3xl font-bold z-10">#6</span>
+                        <span class="text-white/80 text-sm font-medium z-10 mt-1">DEFENSA</span>
                     </div>
                     <div class="p-6 relative">
                         <div class="player-number">6</div>

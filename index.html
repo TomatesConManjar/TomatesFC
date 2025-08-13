@@ -1608,6 +1608,7 @@
         document.getElementById('player-details-section').style.display = 'none';
         const detailsSection = document.getElementById('match-details-section');
         detailsSection.style.display = 'block';
+        detailsSection.scrollIntoView({ behavior: 'smooth' });
         const partido = partidosData[partidoId];
         if (partido) {
             // Obtener escudo del rival según el nombre

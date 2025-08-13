@@ -937,8 +937,6 @@
                         Ver detalles
                     </button>
                 </div>
-                
-                
                 <!-- Partido 2 -->
                 <div class="border-2 border-red-200 rounded-lg p-6 hover:border-red-500 transition" data-result="victoria">
                     <div class="flex justify-between items-center mb-4">
@@ -1043,7 +1041,6 @@
                         Ver detalles
                     </button>
                 </div>
-
                 <!-- Partido 6 -->
                 <div class="border-2 border-red-200 rounded-lg p-6 hover:border-red-500 transition" data-result="derrota">
                     <div class="flex justify-between items-center mb-4">
@@ -1096,7 +1093,6 @@
                         Ver detalles
                     </button>
                 </div>
-
                 <!-- Partido 8 -->
                 <div class="border-2 border-red-200 rounded-lg p-6 hover:border-red-500 transition" data-result="empate">
                     <div class="flex justify-between items-center mb-4">
@@ -1123,7 +1119,6 @@
                         Ver detalles
                     </button>
                 </div>
-
                 <!-- Partido 9 -->
                 <div class="border-2 border-red-200 rounded-lg p-6 hover:border-red-500 transition" data-result="derrota">
                     <div class="flex justify-between items-center mb-4">
@@ -1150,7 +1145,6 @@
                         Ver detalles
                     </button>
                 </div>
-
                 <!-- Partido 10 -->
                 <div class="border-2 border-red-200 rounded-lg p-6 hover:border-red-500 transition" data-result="derrota">
                     <div class="flex justify-between items-center mb-4">
@@ -1177,7 +1171,6 @@
                         Ver detalles
                     </button>
                 </div>
-
                 <!-- Partido 11 -->
                 <div class="border-2 border-red-200 rounded-lg p-6 hover:border-red-500 transition" data-result="derrota">
                     <div class="flex justify-between items-center mb-4">
@@ -1207,7 +1200,6 @@
             </div>
         </div>
     </section>
-    
     <!-- Sección de detalles del partido -->
     <section id="match-details-section" style="display: none;" class="py-16 bg-gray-100">
         <div class="container mx-auto px-6">
@@ -1220,7 +1212,6 @@
                     <!-- Los escudos y resultado se cargan aquí dinámicamente -->
                 </div>
             </div>
-        
             <h3 class="text-2xl font-bold text-center mb-8 text-red-800">Rendimiento de Jugadores</h3>
             <div id="match-players" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 <!-- Los jugadores se cargan dinámicamente aquí -->
@@ -1252,7 +1243,6 @@
                         </a>
                     </div>
                 </div>
-
                 <!-- Enlaces rápidos -->
                 <div>
                     <h4 class="text-lg font-semibold mb-4 text-red-400">Enlaces Rápidos</h4>
@@ -1263,7 +1253,6 @@
                         <li><a href="#galeria" class="text-gray-300 hover:text-yellow-400 transition">Galería</a></li>
                     </ul>
                 </div>
-
                 <!-- Estadísticas del equipo -->
                 <div>
                     <h4 class="text-lg font-semibold mb-4 text-red-400">Estadísticas</h4>
@@ -1275,7 +1264,6 @@
                         <li><span class="font-semibold">Goles anotados:</span> 105</li>
                     </ul>
                 </div>
-
                 <!-- Contacto -->
                 <div>
                     <h4 class="text-lg font-semibold mb-4 text-red-400">Contacto</h4>
@@ -1299,7 +1287,6 @@
                     </ul>
                 </div>
             </div>
-
             <!-- Línea divisoria y copyright -->
             <div class="border-t border-gray-700 mt-8 pt-8">
                 <div class="flex flex-col md:flex-row justify-between items-center">
@@ -1315,7 +1302,6 @@
             </div>
         </div>
     </footer>
-
     <!-- Botón para volver arriba -->
     <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
             class="fixed bottom-6 right-6 bg-red-800 hover:bg-red-900 text-white p-3 rounded-full shadow-lg transition transform hover:scale-110 z-50">
@@ -1360,10 +1346,8 @@
                         document.getElementById('player-details-section').style.display = 'none';
                         document.getElementById('stats-section').style.display = 'none';
                         document.getElementById('equipo').style.display = 'block';
-            
                         // Actualizar URL
                         window.history.pushState({section: 'equipo'}, '', '#equipo');
-            
                         // Scroll suave al equipo
                         document.getElementById('equipo').scrollIntoView({ behavior: 'smooth' });
                     }

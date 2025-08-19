@@ -178,7 +178,6 @@
             background-size: cover;
             height: 60vh;
         }
-        /* Reemplaza tu .player-card:hover actual con esto */
         .player-card {
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             backdrop-filter: blur(10px);
@@ -1419,6 +1418,22 @@
                         // Scroll suave al equipo
                         document.getElementById('equipo').scrollIntoView({ behavior: 'smooth' });
                     }
+                });
+            });
+            // Aquí es donde agregarás el nuevo código
+            // Obtener los enlaces del navbar
+            const navbarEnlaces = document.querySelectorAll('nav a');
+            // Agregar evento de clic a los enlaces del navbar
+            navbarEnlaces.forEach(enlace => {
+                enlace.addEventListener('click', function(e) {
+                    // Obtener el ID de la sección que se debe mostrar
+                    const seccionId = e.target.getAttribute('href').split('#')[1];
+                    // Ocultar todas las secciones
+                    document.querySelectorAll('section').forEach(seccion => {
+                        seccion.style.display = 'none';
+                    });
+                    // Mostrar la sección correspondiente
+                    document.getElementById(seccionId).style.display = 'block';
                 });
             });
             // Manejar enlaces del navbar desktop

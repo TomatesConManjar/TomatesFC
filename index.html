@@ -375,8 +375,8 @@
                     </div>
                     <div class="bg-gray-50 p-6 rounded-lg text-center border-2 border-green-100">
                         <div class="text-blue-900 text-4xl mb-4">👥</div>
-                        <h3 class="text-xl font-semibold mb-2">7 Jugadores</h3>
-                        <p class="text-gray-600">Contamos con un plantel de 7 jugadores talentosos y comprometidos con el equipo.</p>
+                        <h3 class="text-xl font-semibold mb-2">8 Jugadores</h3>
+                        <p class="text-gray-600">Contamos con un plantel de 8 jugadores talentosos y comprometidos con el equipo.</p>
                     </div>
                     <div class="bg-gray-50 p-6 rounded-lg text-center border-2 border-green-100">
                         <div class="text-blue-900 text-4xl mb-4">⚽</div>
@@ -438,6 +438,19 @@
                     </div>
                 </div>
                 <!-- Jugador 4 -->
+                <div class="player-card rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer" onclick="showPlayerDetails('cristobal-santibanez')">
+                    <div class="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-t-lg relative">
+                        <i class="fas fa-user text-6xl mb-3 text-gray-300"></i>
+                        <span class="text-sm font-semibold mt-2">C. SANTIBAÑEZ</span>
+                    </div>
+                    <div class="p-6 relative">
+                        <div class="player-number">8</div>
+                        <h3 class="font-bold text-xl mb-2 text-red-800">Cristóbal Santibáñez</h3>
+                        <p class="text-gray-600 mb-2">Delantero</p>
+                        <p class="text-gray-700">"Anticipar el juego es lo que me define como delantero"</p>
+                    </div>
+                </div>
+                <!-- Jugador 5 -->
                 <div class="player-card rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer" onclick="showPlayerDetails('matias-paredes')">
                     <div class="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-t-lg relative">
                         <i class="fas fa-user text-6xl mb-3 text-gray-300"></i>
@@ -450,7 +463,7 @@
                         <p class="text-gray-700">"Cada gol es un paso más hacia la victoria"</p>
                     </div>
                 </div>
-                <!-- Jugador 5 -->
+                <!-- Jugador 6 -->
                 <div class="player-card rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer" onclick="showPlayerDetails('diego-manque')">
                     <div class="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-t-lg relative">
                         <i class="fas fa-user text-6xl mb-3 text-gray-300"></i>
@@ -463,7 +476,7 @@
                         <p class="text-gray-700">"Crear oportunidades es mi pasión en el campo"</p>
                     </div>
                 </div>
-                <!-- Jugador 6 -->
+                <!-- Jugador 7 -->
                 <div class="player-card rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer" onclick="showPlayerDetails('sebastian-sandoval')">
                     <div class="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-t-lg relative">
                         <i class="fas fa-user text-6xl mb-3 text-gray-300"></i>
@@ -476,17 +489,17 @@
                         <p class="text-gray-700">"Siempre listo para recuperar el balón y apoyar al equipo"</p>
                     </div>
                 </div>
-                <!-- Jugador 7 -->
-                <div class="player-card rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer" onclick="showPlayerDetails('cristobal-santibanez')">
+                <!-- Jugador 8 -->
+                <div class="player-card rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer" onclick="showPlayerDetails('matias-bustamante')">
                     <div class="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-t-lg relative">
                         <i class="fas fa-user text-6xl mb-3 text-gray-300"></i>
-                        <span class="text-sm font-semibold mt-2">C. SANTIBAÑEZ</span>
+                        <span class="text-sm font-semibold mt-2">M. BUSTAMANTE</span>
                     </div>
                     <div class="p-6 relative">
-                        <div class="player-number">12</div>
-                        <h3 class="font-bold text-xl mb-2 text-red-800">Cristóbal Santibáñez</h3>
-                        <p class="text-gray-600 mb-2">Delantero</p>
-                        <p class="text-gray-700">"Anticipar el juego es lo que me define como delantero"</p>
+                        <div class="player-number">14</div>
+                        <h3 class="font-bold text-xl mb-2 text-red-800">Matías Bustamante</h3>
+                        <p class="text-gray-600 mb-2">Mediocampista</p>
+                        <p class="text-gray-700">"No hay balón perdido si yo estoy cerca, de un área a la otra"</p>
                     </div>
                 </div>
             </div>
@@ -500,7 +513,7 @@
     <!-- Sección de estadísticas -->
     <section id="stats-section" style="display: none;" class="py-16 bg-white">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12 text-red-800">Estadísticas de los Jugadores</h2>
+            <h2 class="text-3xl font-bold text-center mb-12 text-red-800">Estadísticas de Jugadores</h2>
             <div class="mb-8">
                 <div class="max-w-md mx-auto">
                     <input type="text" id="playerSearchStats" placeholder="🔍 Buscar jugador..." 
@@ -656,6 +669,55 @@
                         </div>
                     </div>
                 </div>
+                <div class="player-card player-card-enhanced rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer" onclick="showPlayerDetails('cristobal-santibanez')">
+                    <div class="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-t-lg relative">
+                        <i class="fas fa-user text-6xl mb-3 text-gray-300"></i>
+                        <div class="absolute top-4 right-4 bg-red-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg">
+                            8
+                        </div>
+                        <span class="text-sm font-semibold mt-2">C. SANTIBAÑEZ</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2 text-red-800">Cristóbal Santibáñez</h3>
+                        <p class="text-gray-600 mb-4">Delantero #8</p>
+    
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between py-2 border-b border-gray-100">
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                                        <span class="text-green-600 text-sm">⚽</span>
+                                    </div>
+                                    <span class="font-semibold text-gray-700">Goles</span>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-2xl font-bold text-green-600">13</span>
+                                    <p class="text-xs text-gray-500">2.60 por partido</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between py-2 border-b border-gray-100">
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                                        <span class="text-blue-600 text-sm">🎯</span>
+                                    </div>
+                                    <span class="font-semibold text-gray-700">Asistencias</span>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-2xl font-bold text-blue-600">3</span>
+                                    <p class="text-xs text-gray-500">0.60 por partido</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between py-2">
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                                        <span class="text-purple-600 text-sm">📅</span>
+                                    </div>
+                                    <span class="font-semibold text-gray-700">Partidos</span>
+                                </div>
+                                <span class="text-xl font-bold text-purple-600">5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="player-card player-card-enhanced rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer" onclick="showPlayerDetails('matias-paredes')">
                     <div class="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-t-lg relative">
                         <i class="fas fa-user text-6xl mb-3 text-gray-300"></i>
@@ -802,18 +864,17 @@
                         </div>
                     </div>
                 </div>
-                <div class="player-card player-card-enhanced rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer" onclick="showPlayerDetails('cristobal-santibanez')">
+                <div class="player-card player-card-enhanced rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer" onclick="showPlayerDetails('matias-bustamante')">
                     <div class="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-t-lg relative">
                         <i class="fas fa-user text-6xl mb-3 text-gray-300"></i>
                         <div class="absolute top-4 right-4 bg-red-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg">
-                            12
+                            14
                         </div>
-                        <span class="text-sm font-semibold mt-2">C. SANTIBAÑEZ</span>
+                        <span class="text-sm font-semibold mt-2">M. BUSTAMANTE</span>
                     </div>
                     <div class="p-6">
-                        <h3 class="font-bold text-xl mb-2 text-red-800">Cristóbal Santibáñez</h3>
-                        <p class="text-gray-600 mb-4">Delantero #12</p>
-    
+                        <h3 class="font-bold text-xl mb-2 text-red-800">Matías Bustamante</h3>
+                        <p class="text-gray-600 mb-4">Mediocampista #14</p>
                         <div class="space-y-3">
                             <div class="flex items-center justify-between py-2 border-b border-gray-100">
                                 <div class="flex items-center">
@@ -823,11 +884,10 @@
                                     <span class="font-semibold text-gray-700">Goles</span>
                                 </div>
                                 <div class="text-right">
-                                    <span class="text-2xl font-bold text-green-600">13</span>
-                                    <p class="text-xs text-gray-500">2.60 por partido</p>
+                                    <span class="text-2xl font-bold text-green-600">1</span>
+                                    <p class="text-xs text-gray-500">1.00 por partido</p>
                                 </div>
                             </div>
-        
                             <div class="flex items-center justify-between py-2 border-b border-gray-100">
                                 <div class="flex items-center">
                                     <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3">
@@ -836,8 +896,8 @@
                                     <span class="font-semibold text-gray-700">Asistencias</span>
                                 </div>
                                 <div class="text-right">
-                                    <span class="text-2xl font-bold text-blue-600">3</span>
-                                    <p class="text-xs text-gray-500">0.60 por partido</p>
+                                    <span class="text-2xl font-bold text-blue-600">1</span>
+                                    <p class="text-xs text-gray-500">1.00 por partido</p>
                                 </div>
                             </div>
                             <div class="flex items-center justify-between py-2">
@@ -847,11 +907,11 @@
                                     </div>
                                     <span class="font-semibold text-gray-700">Partidos</span>
                                 </div>
-                                <span class="text-xl font-bold text-purple-600">5</span>
+                                <span class="text-xl font-bold text-purple-600">1</span>
                             </div>
                         </div>
                     </div>
-                </div>     
+                </div>
             </div>
             <div class="text-center mt-12">
                 <button onclick="goBack()" class="bg-red-800 hover:bg-red-900 text-white font-bold py-3 px-8 rounded-full transition">
@@ -1451,9 +1511,9 @@
                 jugadores: [
                     { nombre: "Leandro Zavala", goles: 1, asistencias: 0 },
                     { nombre: "Benjamín Garcés", goles: 7, asistencias: 1 },
+                    { nombre: "Cristóbal Santibáñez", goles: 7, asistencias: 1 },
                     { nombre: "Diego Manque", goles: 3, asistencias: 5 },
                     { nombre: "Sebastián Sandoval", goles: 1, asistencias: 7 },
-                    { nombre: "Cristóbal Santibáñez", goles: 7, asistencias: 1 },
                 ]
             },
             3: {
@@ -1466,9 +1526,9 @@
                 jugadores: [
                     { nombre: "Leandro Zavala", goles: 1, asistencias: 0 },
                     { nombre: "Benjamín Garcés", goles: 0, asistencias: 0 },
+                    { nombre: "Cristóbal Santibáñez", goles: 0, asistencias: 0 },
                     { nombre: "Diego Manque", goles: 1, asistencias: 0 },
                     { nombre: "Sebastián Sandoval", goles: 1, asistencias: 1 },
-                    { nombre: "Cristóbal Santibáñez", goles: 0, asistencias: 0 },
                 ]
             },
             4: {
@@ -1482,9 +1542,9 @@
                     { nombre: "Francisco Lizama", goles: 1, asistencias: 0 },
                     { nombre: "Leandro Zavala", goles: 1, asistencias: 1 },
                     { nombre: "Benjamín Garcés", goles: 1, asistencias: 0 },
+                    { nombre: "Cristóbal Santibáñez", goles: 1, asistencias: 0 },
                     { nombre: "Diego Manque", goles: 0, asistencias: 1 },
                     { nombre: "Sebastián Sandoval", goles: 1, asistencias: 1 },
-                    { nombre: "Cristóbal Santibáñez", goles: 1, asistencias: 0 },
                 ]
             },
             5: {
@@ -1557,10 +1617,11 @@
                 hora: "15:00 hrs",
                 jugadores: [
                     { nombre: "Benjamín Garcés", goles: 2, asistencias: 2 },
+                    { nombre: "Cristóbal Santibáñez", goles: 2, asistencias: 2 },
                     { nombre: "Matías Paredes", goles: 5, asistencias: 1 },
                     { nombre: "Diego Manque", goles: 1, asistencias: 4 },
                     { nombre: "Sebastián Sandoval", goles: 2, asistencias: 1 },
-                    { nombre: "Cristóbal Santibáñez", goles: 2, asistencias: 2 },
+                    { nombre: "Matías Bustamante", goles: 1, asistencias: 1 },
                 ]
             },
                 10: {
@@ -1586,10 +1647,10 @@
                 hora: "17:00 hrs",
                 jugadores: [
                     { nombre: "Benjamín Garcés", goles: 2, asistencias: 1 },
+                    { nombre: "Cristóbal Santibáñez", goles: 3, asistencias: 0 },
                     { nombre: "Matías Paredes", goles: 2, asistencias: 0 },
                     { nombre: "Diego Manque", goles: 0, asistencias: 1 },
                     { nombre: "Sebastián Sandoval", goles: 2, asistencias: 3 },
-                    { nombre: "Cristóbal Santibáñez", goles: 3, asistencias: 0 },
                 ]
             },
         };
@@ -1801,6 +1862,15 @@
                     { id: 4, rival: 'Vaqueros', fecha: 'Jueves 1 Mayo', goles: 1, asistencias: 0 },
                     { id: 9, rival: 'Vaqueros', fecha: 'Lunes 14 Julio', goles: 2, asistencias: 2 },
                     { id: 11, rival: 'Vaqueros', fecha: 'Jueves 31 Julio', goles: 3, asistencias: 0 }
+                ]
+            },
+            'matias-bustamante': {
+                nombre: 'Matias Bustamante',
+                numero: 14,
+                posicion: 'Mediocampista',
+                frase: 'No hay balón perdido si yo estoy cerca, de un área a la otra',
+                partidos: [
+                    { id: 9, rival: 'Vaqueros', fecha: 'Lunes 14 Julio', goles: 1, asistencias: 1 },
                 ]
             }
         };

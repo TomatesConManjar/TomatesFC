@@ -2010,6 +2010,14 @@
                 `;
             });
             document.getElementById('match-performances').innerHTML = matchPerformancesHTML;
+            // Desplazamiento suave al título del jugador
+            const playerDetailsSection = document.getElementById('player-details-section');
+            const offset = 50; // Ajusta este valor según sea necesario
+            const topPosition = playerDetailsSection.getBoundingClientRect().top + window.scrollY - offset;
+            window.scrollTo({
+                top: topPosition,
+                behavior: 'smooth'
+            });
         }
         // Función para volver al equipo
         function backToTeam() {

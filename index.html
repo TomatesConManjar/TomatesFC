@@ -1497,7 +1497,13 @@
             document.getElementById('equipo').style.display = 'none';
             document.getElementById('partidos').style.display = 'none';
             document.getElementById('stats-section').style.display = 'block';
-            document.getElementById('stats-section').scrollIntoView({ behavior: 'smooth' });
+            const statsSection = document.getElementById('stats-section');
+            const offset = 50; // Ajusta este valor según sea necesario
+            const topPosition = statsSection.getBoundingClientRect().top + window.scrollY - offset;
+            window.scrollTo({
+                top: topPosition,
+                behavior: 'smooth'
+            });
         }
         function goBack() {
             document.getElementById('inicio').style.display = 'block';

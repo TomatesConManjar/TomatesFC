@@ -1478,11 +1478,17 @@
     </script>
     <script>
         function showStats() {
+            document.getElementById('inicio').style.display = 'none';
+            document.getElementById('historia').style.display = 'none';
             document.getElementById('equipo').style.display = 'none';
+            document.getElementById('partidos').style.display = 'none';
             document.getElementById('stats-section').style.display = 'block';
         }
         function goBack() {
+            document.getElementById('inicio').style.display = 'block';
+            document.getElementById('historia').style.display = 'block';
             document.getElementById('equipo').style.display = 'block';
+            document.getElementById('partidos').style.display = 'block';
             document.getElementById('stats-section').style.display = 'none';
         }
         // Datos de los partidos con jugadores
@@ -1655,12 +1661,10 @@
             },
         };
         function showMatchDetails(partidoId) {
-        document.getElementById('inicio').style.display = 'none';
-        document.getElementById('historia').style.display = 'none';
-        document.getElementById('equipo').style.display = 'none';
         document.getElementById('partidos').style.display = 'none';
         document.getElementById('stats-section').style.display = 'none';
         document.getElementById('player-details-section').style.display = 'none';
+        document.getElementById('match-details-section').style.display = 'block';
         const detailsSection = document.getElementById('match-details-section');
         detailsSection.style.display = 'block';
         detailsSection.scrollIntoView({ behavior: 'smooth' });
@@ -1732,11 +1736,7 @@
         }
         function backToMatches() {
             document.getElementById('match-details-section').style.display = 'none';
-            document.getElementById('inicio').style.display = 'none';
-            document.getElementById('historia').style.display = 'none';
-            document.getElementById('equipo').style.display = 'none';
             document.getElementById('partidos').style.display = 'block';
-            document.getElementById('galeria').style.display = 'block';
             document.getElementById('partidos').scrollIntoView({ behavior: 'smooth' });
         }
         // BUSCADOR DE JUGADORES

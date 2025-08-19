@@ -1397,8 +1397,22 @@
                     // Si el enlace es #equipo, asegurarse de mostrar la plantilla correcta
                     if (this.getAttribute('href') === '#equipo') {
                         e.preventDefault();
-                        document.getElementById('player-details-section').style.display = 'none';
-                        document.getElementById('stats-section').style.display = 'none';
+                        document.getElementById('player-details-section').style.display = 'block';
+                        // Scroll suave al título de la sección
+                        setTimeout(() => {
+                            document.getElementById('player-details-section').scrollIntoView({ 
+                                behavior: 'smooth', 
+                                block: 'start' 
+                            });
+                        }, 100);
+                        document.getElementById('stats-section').style.display = 'block';
+                        // Scroll suave al título de la sección
+                        setTimeout(() => {
+                            document.getElementById('stats-section').scrollIntoView({ 
+                                behavior: 'smooth', 
+                                block: 'start' 
+                            });
+                        }, 100);
                         document.getElementById('equipo').style.display = 'block';
                         // Actualizar URL
                         window.history.pushState({section: 'equipo'}, '', '#equipo');
@@ -1739,10 +1753,10 @@
             document.getElementById('partidos').style.display = 'block';
             document.getElementById('partidos').scrollIntoView({ behavior: 'smooth' });
         }
-        // BUSCADOR DE JUGADORES
-        document.getElementById('playerSearchStats').addEventListener('input', function(e) {
+        // BUSCADOR DE JUGADORES - SECCIÓN PRINCIPAL
+        document.getElementById('playerSearch').addEventListener('input', function(e) {
             const searchTerm = e.target.value.toLowerCase();
-            const playerCards = document.querySelectorAll('#stats-section .player-card');
+            const playerCards = document.querySelectorAll('#equipo .player-card');
             playerCards.forEach(card => {
                 const playerName = card.querySelector('h3').textContent.toLowerCase();
                 if (playerName.includes(searchTerm)) {

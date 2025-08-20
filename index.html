@@ -260,6 +260,17 @@
             transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         }
+        .match-score {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .match-score span {
+            position: absolute;
+            top: 0; /* Ajusta este valor según sea necesario para centrar verticalmente */
+        }
     </style>
 </head>
 <body>
@@ -976,7 +987,7 @@
                         <p class="text-gray-600">Lunes 20 Enero</p>
                     </div>
                     <div class="flex items-center justify-between my-4">
-                        <div class="text-center relative">
+                        <div class="text-center match score">
                             <img src="https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/Tomates_FC__13_-removebg-preview%20(1).png" alt="Escudo Tomates FC" class="mx-auto h-16 w-16 object-contain">
                             <p class="font-bold mt-2">Tomates FC</p>
                             <span class="absolute -right-10 top-4 text-4xl font-bold text-gray-800" style="font-family: 'Bebas Neue', sans-serif;">22</span>
@@ -985,8 +996,8 @@
                             <p class="font-bold text-xl">VS</p>
                             <p class="text-gray-600 text-sm">11:00 hrs</p>
                         </div>
-                        <div class="text-center relative">
-                            <span class="absolute -left-11 top-4 text-4xl font-bold text-gray-800" style="font-family: 'Bebas Neue', sans-serif;">10</span>
+                        <div class="text-center match score">
+                            <span class="absolute -left-10 top-4 text-4xl font-bold text-gray-800" style="font-family: 'Bebas Neue', sans-serif;">10</span>
                             <img src="https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/500x500__4_-removebg-preview.png" alt="Escudo Vaqueros" class="mx-auto h-16 w-16 object-contain">
                             <p class="font-bold mt-2">Vaqueros</p>
                         </div>

@@ -1439,7 +1439,6 @@
                 enlace.addEventListener('click', function(e) {
                     // Obtener el ID de la sección que se debe mostrar
                     const seccionId = e.target.getAttribute('href').split('#')[1];
-        
                     // Si el enlace es "Inicio", mostrar todas las secciones
                     if (seccionId === 'inicio') {
                         document.getElementById('inicio').style.display = 'block';
@@ -1476,6 +1475,26 @@
                     window.history.pushState({section: 'equipo'}, '', '#equipo');
                     // Scroll suave al equipo
                     document.getElementById('equipo').scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+            // Agregar evento al botón "Volver"
+            document.getElementById('volver').addEventListener('click', function() {
+                // Aquí asumimos que el ID de la sección de la plantilla es "inicio"
+                const seccionId = 'inicio'; // Cambia esto si el ID es diferente
+                const seccion = document.getElementById(seccionId);
+    
+                // Mostrar la sección de la plantilla
+                document.querySelectorAll('section').forEach(seccion => {
+                    seccion.style.display = 'none';
+                });
+                seccion.style.display = 'block';
+                // Desplazarse suavemente a la sección de la plantilla
+                const offset = 70; // Ajusta este valor según sea necesario
+                const elementPosition = seccion.getBoundingClientRect().top + window.scrollY; // Obtener la posición de la sección
+                const offsetPosition = elementPosition - offset; // Ajustar la posición
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
                 });
             });
             // Cerrar menú con ESC

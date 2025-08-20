@@ -1428,12 +1428,21 @@
                 enlace.addEventListener('click', function(e) {
                     // Obtener el ID de la sección que se debe mostrar
                     const seccionId = e.target.getAttribute('href').split('#')[1];
-                    // Ocultar todas las secciones
-                    document.querySelectorAll('section').forEach(seccion => {
-                        seccion.style.display = 'none';
-                    });
-                    // Mostrar la sección correspondiente
-                    document.getElementById(seccionId).style.display = 'block';
+        
+                    // Si el enlace es "Inicio", mostrar todas las secciones
+                    if (seccionId === 'inicio') {
+                        document.getElementById('inicio').style.display = 'block';
+                        document.getElementById('historia').style.display = 'block';
+                        document.getElementById('equipo').style.display = 'block';
+                        document.getElementById('partidos').style.display = 'block';
+                    } else {
+                        // Ocultar todas las secciones
+                        document.querySelectorAll('section').forEach(seccion => {
+                            seccion.style.display = 'none';
+                        });
+                        // Mostrar la sección correspondiente
+                        document.getElementById(seccionId).style.display = 'block';
+                    }
                 });
             });
             // Manejar enlaces del navbar desktop
@@ -1513,7 +1522,7 @@
             document.getElementById('partidos').style.display = 'none';
             document.getElementById('stats-section').style.display = 'block';
             const statsSection = document.getElementById('stats-section');
-            const offset = 50; // Ajusta este valor según sea necesario
+            const offset = 50;
             const topPosition = statsSection.getBoundingClientRect().top + window.scrollY - offset;
             window.scrollTo({
                 top: topPosition,

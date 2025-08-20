@@ -1457,8 +1457,8 @@
                     // Desplazarse suavemente a la sección con un ajuste
                     const offset = 70; // Ajusta este valor según sea necesario
                     const seccion = document.getElementById(seccionId);
-                    const elementPosition = seccion.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - offset;
+                    const elementPosition = seccion.getBoundingClientRect().top + window.scrollY; // Obtener la posición de la sección
+                    const offsetPosition = elementPosition - offset; // Ajustar la posición
                     window.scrollTo({
                         top: offsetPosition,
                         behavior: 'smooth'

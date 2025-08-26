@@ -1879,12 +1879,6 @@
         function backToMatches() {
             document.getElementById('match-details-section').style.display = 'none';
             document.getElementById('partidos').style.display = 'block';
-            const partidosSection = document.getElementById('partidos');
-            const offset = 50; // Ajusta este valor según sea necesario
-            const topPosition = equipoSection.getBoundingClientRect().top + window.scrollY - offset;
-            window.scrollTo({
-                top: topPosition,
-                behavior: 'smooth'
         }
         // BUSCADOR DE JUGADORES - SECCIÓN PRINCIPAL
         document.getElementById('playerSearch').addEventListener('input', function(e) {

@@ -982,7 +982,7 @@
         </div>
     </section>
     <!-- Partidos -->
-    <section id="partidos" class="py-16 bg-white">
+    <section id="partidos" class="py-16 bg-gray-100">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold text-center mb-12 text-red-800">PARTIDOS</h2>
             <div class="flex flex-wrap gap-4 mb-8 justify-center">
@@ -1003,25 +1003,25 @@
                     Derrotas (6)
                 </button>
             </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">  
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"> 
                 <!-- Partido 1 -->
-                <div class="border-2 border-red-200 rounded-lg p-6 hover:border-red-500 transition" data-result="victoria">
+                <div class="match-card p-6 hover:shadow-lg transition">
                     <div class="flex justify-between items-center mb-4">
                         <span class="bg-green-600 text-white px-3 py-1 rounded-full text-sm">Amistoso</span>
                         <p class="text-gray-600">Lunes 20 Enero</p>
                     </div>
                     <div class="flex items-center justify-between my-4">
-                        <div class="text-center match-score">
+                        <div class="text-center">
                             <img src="https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/Tomates_FC__13_-removebg-preview%20(1).png" alt="Escudo Tomates FC" class="mx-auto h-16 w-16 object-contain">
                             <p class="font-bold mt-2">Tomates FC</p>
-                            <span class="absolute -right-10 top-4 text-4xl font-bold text-gray-800" style="font-family: 'Bebas Neue', sans-serif;">22</span>
+                            <span class="text-4xl font-bold text-gray-800">22</span>
                         </div>
                         <div class="text-center mx-4">
                             <p class="font-bold text-xl">VS</p>
                             <p class="text-gray-600 text-sm">11:00 hrs</p>
                         </div>
-                        <div class="text-center match-score">
-                            <span class="absolute -left-10 top-4 text-4xl font-bold text-gray-800" style="font-family: 'Bebas Neue', sans-serif;">10</span>
+                        <div class="text-center">
+                            <span class="text-4xl font-bold text-gray-800">10</span>
                             <img src="https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/500x500__4_-removebg-preview.png" alt="Escudo Vaqueros" class="mx-auto h-16 w-16 object-contain">
                             <p class="font-bold mt-2">Vaqueros</p>
                         </div>
@@ -1029,7 +1029,7 @@
                     <button onclick="showMatchDetails(1)" class="w-full bg-gray-100 hover:bg-red-100 text-red-800 py-2 rounded-full transition">
                         Ver detalles
                     </button>
-                </div>
+                </div> 
                 <!-- Partido 2 -->
                 <div class="border-2 border-red-200 rounded-lg p-6 hover:border-red-500 transition" data-result="victoria">
                     <div class="flex justify-between items-center mb-4">

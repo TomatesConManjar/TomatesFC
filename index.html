@@ -1600,6 +1600,14 @@
             document.getElementById('equipo').style.display = 'block';
             document.getElementById('partidos').style.display = 'block';
             document.getElementById('stats-section').style.display = 'none';
+            // Desplazamiento suave a la sección de plantilla
+            const equipoSection = document.getElementById('equipo');
+            const offset = 50; // Ajusta este valor según sea necesario
+            const topPosition = equipoSection.getBoundingClientRect().top + window.scrollY - offset;
+            window.scrollTo({
+                top: topPosition,
+                behavior: 'smooth'
+            });
         }
         // Datos de los partidos con jugadores
         const partidosData = {

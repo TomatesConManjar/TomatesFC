@@ -272,6 +272,29 @@
             top: 20%; /* Ajusta este valor según sea necesario para centrar verticalmente */
             font-size: 2rem; /* Asegúrate de que el tamaño de fuente sea adecuado */
         }
+        /* Estilos para la sección de partidos */
+        #partidos {
+            background-color: #f9f9f9; /* Color de fondo suave */
+            padding: 40px 0; /* Espaciado superior e inferior */
+        }
+        /* Estilos para las tarjetas de partidos */
+        .match-card {
+            background-color: #ffffff; /* Fondo blanco */
+            border-radius: 10px; /* Bordes redondeados */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
+            transition: transform 0.3s, box-shadow 0.3s; /* Transición suave */
+        }
+        .match-card:hover {
+            transform: translateY(-5px); /* Efecto de elevación al pasar el mouse */
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Sombra más intensa al pasar el mouse */
+        }
+        /* Estilos para los botones */
+        button {
+            transition: background-color 0.3s, transform 0.3s; /* Transición suave */
+        }
+        button:hover {
+            transform: scale(1.05); /* Aumentar ligeramente el tamaño al pasar el mouse */
+        }
     </style>
 </head>
 <body>

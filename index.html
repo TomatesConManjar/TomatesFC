@@ -1614,7 +1614,7 @@
         // MODO OSCURO
         window.toggleDarkMode = function() {
             document.body.classList.toggle('dark-mode');
-            const isDark = document.body.classList.contains('dark-mode');
+            const isDark = document.body.classList.contains('dark');
             const icon = document.getElementById('darkModeIcon');
             if (isDark) {
                 icon.className = 'fas fa-sun';

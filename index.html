@@ -402,8 +402,8 @@
                 <div class="grid md:grid-cols-3 gap-8">
                     <div class="bg-gray-50 p-6 rounded-lg text-center border-2 border-green-100">
                         <div class="text-blue-900 text-4xl mb-4">🏆</div>
-                        <h3 class="text-xl font-semibold mb-2">11 partidos</h3>
-                        <p class="text-gray-600">Hemos disputado 12 partidos con un porcentaje de victoria del 33%.</p>
+                        <h3 class="text-xl font-semibold mb-2">13 partidos</h3>
+                        <p class="text-gray-600">Hemos disputado 13 partidos con un porcentaje de victoria del 39%.</p>
                     </div>
                     <div class="bg-gray-50 p-6 rounded-lg text-center border-2 border-green-100">
                         <div class="text-blue-900 text-4xl mb-4">👥</div>
@@ -412,8 +412,8 @@
                     </div>
                     <div class="bg-gray-50 p-6 rounded-lg text-center border-2 border-green-100">
                         <div class="text-blue-900 text-4xl mb-4">⚽</div>
-                        <h3 class="text-xl font-semibold mb-2">110 Goles</h3>
-                        <p class="text-gray-600">Tenemos la gran cantidad de 110 goles como equipo y con un promedio de 9.2 goles por partido.</p>
+                        <h3 class="text-xl font-semibold mb-2">123 Goles</h3>
+                        <p class="text-gray-600">Tenemos la gran cantidad de 123 goles como equipo y con un promedio de 9.5 goles por partido.</p>
                     </div>
                 </div>
             </div>
@@ -429,33 +429,33 @@
                        class="w-full px-4 py-3 border-2 border-red-200 rounded-full focus:border-red-500 focus:outline-none transition">
             </div>
         </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">     
                 <!-- Jugador 1 -->
-                <div class="player-card rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer" onclick="showPlayerDetails('francisco-lizama')">
-                    <div class="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-t-lg relative">
-                        <i class="fas fa-user text-6xl mb-3 text-gray-300"></i>
-                        <span class="text-sm font-semibold mt-2">F. LIZAMA</span>
-                    </div>
-                    <div class="p-6 relative">
-                        <div class="player-number">4</div>
-                        <h3 class="font-bold text-xl mb-2 text-red-800">Francisco Lizama</h3>
-                        <p class="text-gray-600 mb-2">Defensa</p>
-                        <p class="text-gray-700">"La última línea de defensa, siempre alerta"</p>
-                    </div>
-                </div>     
-                <!-- Jugador 2 -->
                 <div class="player-card rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer" onclick="showPlayerDetails('leandro-zavala')">
                     <div class="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-t-lg relative">
                         <i class="fas fa-user text-6xl mb-3 text-gray-300"></i>
                         <span class="text-sm font-semibold mt-2">L. ZAVALA</span>
                     </div>
                     <div class="p-6 relative">
-                        <div class="player-number">6</div>
+                        <div class="player-number">5</div>
                         <h3 class="font-bold text-xl mb-2 text-red-800">Leandro Zavala</h3>
                         <p class="text-gray-600 mb-2">Defensa</p>
                         <p class="text-gray-700">"La defensa es el pilar de todo gran equipo"</p>
                     </div>
-                </div>               
+                </div>   
+                <!-- Jugador 2 -->
+                <div class="player-card rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer" onclick="showPlayerDetails('francisco-lizama')">
+                    <div class="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-t-lg relative">
+                        <i class="fas fa-user text-6xl mb-3 text-gray-300"></i>
+                        <span class="text-sm font-semibold mt-2">F. LIZAMA</span>
+                    </div>
+                    <div class="p-6 relative">
+                        <div class="player-number">6</div>
+                        <h3 class="font-bold text-xl mb-2 text-red-800">Francisco Lizama</h3>
+                        <p class="text-gray-600 mb-2">Defensa</p>
+                        <p class="text-gray-700">"La última línea de defensa, siempre alerta"</p>
+                    </div>
+                </div>
                 <!-- Jugador 3 -->
                 <div class="player-card rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer" onclick="showPlayerDetails('benjamin-garces')">
                     <div class="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-t-lg relative">
@@ -554,11 +554,59 @@
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                 <!-- Estadísticas de cada jugador -->
+                <div class="player-card player-card-enhanced rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer" onclick="showPlayerDetails('leandro-zavala')">
+                    <div class="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-t-lg relative">
+                        <i class="fas fa-user text-6xl mb-3 text-gray-300"></i>
+                        <div class="absolute top-4 right-4 bg-red-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg">
+                            5
+                        </div>
+                        <span class="text-sm font-semibold mt-2">L. ZAVALA</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2 text-red-800">Leandro Zavala</h3>
+                        <p class="text-gray-600 mb-4">Defensa #5</p>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between py-2 border-b border-gray-100">
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                                        <span class="text-green-600 text-sm">⚽</span>
+                                    </div>
+                                    <span class="font-semibold text-gray-700">Goles</span>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-2xl font-bold text-green-600">12</span>
+                                    <p class="text-xs text-gray-500">1.50 por partido</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between py-2 border-b border-gray-100">
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                                        <span class="text-blue-600 text-sm">🎯</span>
+                                    </div>
+                                    <span class="font-semibold text-gray-700">Asistencias</span>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-2xl font-bold text-blue-600">7</span>
+                                    <p class="text-xs text-gray-500">0.88 por partido</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between py-2">
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                                        <span class="text-purple-600 text-sm">📅</span>
+                                    </div>
+                                    <span class="font-semibold text-gray-700">Partidos</span>
+                                </div>
+                                <span class="text-xl font-bold text-purple-600">8</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
                 <div class="player-card player-card-enhanced rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer" onclick="showPlayerDetails('francisco-lizama')">
                     <div class="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-t-lg relative">
                         <i class="fas fa-user text-6xl mb-3 text-gray-300"></i>
                         <div class="absolute top-4 right-4 bg-red-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg">
-                            4
+                            6
                         </div>
                         <span class="text-sm font-semibold mt-2">F. LIZAMA</span>
                     </div>
@@ -603,55 +651,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="player-card player-card-enhanced rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer" onclick="showPlayerDetails('leandro-zavala')">
-                    <div class="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-t-lg relative">
-                        <i class="fas fa-user text-6xl mb-3 text-gray-300"></i>
-                        <div class="absolute top-4 right-4 bg-red-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg">
-                            6
-                        </div>
-                        <span class="text-sm font-semibold mt-2">L. ZAVALA</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-bold text-xl mb-2 text-red-800">Leandro Zavala</h3>
-                        <p class="text-gray-600 mb-4">Defensa #6</p>
-                        <div class="space-y-3">
-                            <div class="flex items-center justify-between py-2 border-b border-gray-100">
-                                <div class="flex items-center">
-                                    <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3">
-                                        <span class="text-green-600 text-sm">⚽</span>
-                                    </div>
-                                    <span class="font-semibold text-gray-700">Goles</span>
-                                </div>
-                                <div class="text-right">
-                                    <span class="text-2xl font-bold text-green-600">12</span>
-                                    <p class="text-xs text-gray-500">1.71 por partido</p>
-                                </div>
-                            </div>
-                            <div class="flex items-center justify-between py-2 border-b border-gray-100">
-                                <div class="flex items-center">
-                                    <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3">
-                                        <span class="text-blue-600 text-sm">🎯</span>
-                                    </div>
-                                    <span class="font-semibold text-gray-700">Asistencias</span>
-                                </div>
-                                <div class="text-right">
-                                    <span class="text-2xl font-bold text-blue-600">6</span>
-                                    <p class="text-xs text-gray-500">0.86 por partido</p>
-                                </div>
-                            </div>
-                            <div class="flex items-center justify-between py-2">
-                                <div class="flex items-center">
-                                    <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3">
-                                        <span class="text-purple-600 text-sm">📅</span>
-                                    </div>
-                                    <span class="font-semibold text-gray-700">Partidos</span>
-                                </div>
-                                <span class="text-xl font-bold text-purple-600">7</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>               
+                </div>             
                 <div class="player-card player-card-enhanced rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer" onclick="showPlayerDetails('benjamin-garces')">
                     <div class="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-t-lg relative">
                         <i class="fas fa-user text-6xl mb-3 text-gray-300"></i>
@@ -673,8 +673,8 @@
                                     <span class="font-semibold text-gray-700">Goles</span>
                                 </div>
                                 <div class="text-right">
-                                    <span class="text-2xl font-bold text-green-600">30</span>
-                                    <p class="text-xs text-gray-500">2.50 por partido</p>
+                                    <span class="text-2xl font-bold text-green-600">31</span>
+                                    <p class="text-xs text-gray-500">2.39 por partido</p>
                                 </div>
                             </div>
                             <div class="flex items-center justify-between py-2 border-b border-gray-100">
@@ -685,8 +685,8 @@
                                     <span class="font-semibold text-gray-700">Asistencias</span>
                                 </div>
                                 <div class="text-right">
-                                    <span class="text-2xl font-bold text-blue-600">16</span>
-                                    <p class="text-xs text-gray-500">1.33 por partido</p>
+                                    <span class="text-2xl font-bold text-blue-600">19</span>
+                                    <p class="text-xs text-gray-500">1.46 por partido</p>
                                 </div>
                             </div>
                             <div class="flex items-center justify-between py-2">
@@ -696,7 +696,7 @@
                                     </div>
                                     <span class="font-semibold text-gray-700">Partidos</span>
                                 </div>
-                                <span class="text-xl font-bold text-purple-600">12</span>
+                                <span class="text-xl font-bold text-purple-600">13</span>
                             </div>
                         </div>
                     </div>
@@ -722,8 +722,8 @@
                                     <span class="font-semibold text-gray-700">Goles</span>
                                 </div>
                                 <div class="text-right">
-                                    <span class="text-2xl font-bold text-green-600">15</span>
-                                    <p class="text-xs text-gray-500">2.50 por partido</p>
+                                    <span class="text-2xl font-bold text-green-600">18</span>
+                                    <p class="text-xs text-gray-500">2.57 por partido</p>
                                 </div>
                             </div>
                             <div class="flex items-center justify-between py-2 border-b border-gray-100">
@@ -735,7 +735,7 @@
                                 </div>
                                 <div class="text-right">
                                     <span class="text-2xl font-bold text-blue-600">3</span>
-                                    <p class="text-xs text-gray-500">0.50 por partido</p>
+                                    <p class="text-xs text-gray-500">0.43 por partido</p>
                                 </div>
                             </div>
                             <div class="flex items-center justify-between py-2">
@@ -745,7 +745,7 @@
                                     </div>
                                     <span class="font-semibold text-gray-700">Partidos</span>
                                 </div>
-                                <span class="text-xl font-bold text-purple-600">6</span>
+                                <span class="text-xl font-bold text-purple-600">7</span>
                             </div>
                         </div>
                     </div>
@@ -820,8 +820,8 @@
                                     <span class="font-semibold text-gray-700">Goles</span>
                                 </div>
                                 <div class="text-right">
-                                    <span class="text-2xl font-bold text-green-600">18</span>
-                                    <p class="text-xs text-gray-500">1.50 por partido</p>
+                                    <span class="text-2xl font-bold text-green-600">20</span>
+                                    <p class="text-xs text-gray-500">1.54 por partido</p>
                                 </div>
                             </div>
                             <div class="flex items-center justify-between py-2 border-b border-gray-100">
@@ -833,7 +833,7 @@
                                 </div>
                                 <div class="text-right">
                                     <span class="text-2xl font-bold text-blue-600">29</span>
-                                    <p class="text-xs text-gray-500">2.42 por partido</p>
+                                    <p class="text-xs text-gray-500">2.23 por partido</p>
                                 </div>
                             </div>
                             <div class="flex items-center justify-between py-2">
@@ -843,7 +843,7 @@
                                     </div>
                                     <span class="font-semibold text-gray-700">Partidos</span>
                                 </div>
-                                <span class="text-xl font-bold text-purple-600">12</span>
+                                <span class="text-xl font-bold text-purple-600">13</span>
                             </div>
                         </div>
                     </div>
@@ -868,8 +868,8 @@
                                     <span class="font-semibold text-gray-700">Goles</span>
                                 </div>
                                 <div class="text-right">
-                                    <span class="text-2xl font-bold text-green-600">14</span>
-                                    <p class="text-xs text-gray-500">1.17 por partido</p>
+                                    <span class="text-2xl font-bold text-green-600">15</span>
+                                    <p class="text-xs text-gray-500">1.15 por partido</p>
                                 </div>
                             </div>
                             <div class="flex items-center justify-between py-2 border-b border-gray-100">
@@ -880,8 +880,8 @@
                                     <span class="font-semibold text-gray-700">Asistencias</span>
                                 </div>
                                 <div class="text-right">
-                                    <span class="text-2xl font-bold text-blue-600">17</span>
-                                    <p class="text-xs text-gray-500">1.42 por partido</p>
+                                    <span class="text-2xl font-bold text-blue-600">19</span>
+                                    <p class="text-xs text-gray-500">1.46 por partido</p>
                                 </div>
                             </div>
                             <div class="flex items-center justify-between py-2">
@@ -891,7 +891,7 @@
                                     </div>
                                     <span class="font-semibold text-gray-700">Partidos</span>
                                 </div>
-                                <span class="text-xl font-bold text-purple-600">12</span>
+                                <span class="text-xl font-bold text-purple-600">13</span>
                             </div>
                         </div>
                     </div>
@@ -990,7 +990,7 @@
                 </button>
                 <button class="filter-btn bg-gray-200 text-gray-700 px-6 py-2 rounded-full font-bold transition hover:bg-green-200" 
                         data-filter="victorias" onclick="filterMatches('victorias')">
-                    Victorias (4)
+                    Victorias (5)
                 </button>
                 <button class="filter-btn bg-gray-200 text-gray-700 px-6 py-2 rounded-full font-bold transition hover:bg-yellow-200" 
                         data-filter="empates" onclick="filterMatches('empates')">
@@ -1314,6 +1314,32 @@
                         Ver detalles
                     </button>
                 </div> 
+                <!-- Partido 13 -->
+                <div class="match-card p-6 hover:shadow-lg transition">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="bg-green-600 text-white px-3 py-1 rounded-full text-sm">Amistoso</span>
+                        <p class="text-gray-600">Jueves 04 Septiembre</p>
+                    </div>
+                    <div class="flex items-center justify-between my-4">
+                        <div class="text-center">
+                            <img src="https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/Tomates_FC__13_-removebg-preview%20(1).png" alt="Escudo Tomates FC" class="mx-auto h-16 w-16 object-contain">
+                            <p class="font-bold mt-2">Tomates FC</p>
+                            <span class="text-4xl font-bold text-gray-800">13</span>
+                        </div>
+                        <div class="text-center mx-4">
+                            <p class="font-bold text-xl">VS</p>
+                            <p class="text-gray-600 text-sm">19:00 hrs</p>
+                        </div>
+                        <div class="text-center">
+                            <img src="https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/500x500__4_-removebg-preview.png" alt="Escudo Vaqueros" class="mx-auto h-16 w-16 object-contain">
+                            <p class="font-bold mt-2">Equipo Maradona</p>
+                            <span class="text-4xl font-bold text-gray-800">5</span>
+                        </div>
+                    </div>
+                    <button onclick="showMatchDetails(13)" class="w-full bg-gray-100 hover:bg-red-100 text-red-800 py-2 rounded-full transition">
+                        Ver detalles
+                    </button>
+                </div> 
             </div>
         </div>
     </section>
@@ -1374,11 +1400,11 @@
                 <div>
                     <h4 class="text-lg font-semibold mb-4 text-red-400">Estadísticas</h4>
                     <ul class="space-y-2 text-gray-300">
-                        <li><span class="font-semibold">Partidos:</span> 12</li>
-                        <li><span class="font-semibold">Victorias:</span> 4</li>
+                        <li><span class="font-semibold">Partidos:</span> 13</li>
+                        <li><span class="font-semibold">Victorias:</span> 5</li>
                         <li><span class="font-semibold">Empates:</span> 2</li>
                         <li><span class="font-semibold">Derrotas:</span> 6</li>
-                        <li><span class="font-semibold">Goles anotados:</span> 110</li>
+                        <li><span class="font-semibold">Goles anotados:</span> 123</li>
                     </ul>
                 </div>
                 <!-- Contacto -->
@@ -1816,7 +1842,22 @@
                     { nombre: "Cristóbal Santibáñez", goles: 2, asistencias: 0 },
                     { nombre: "Diego Manque", goles: 2, asistencias: 0 },
                     { nombre: "Sebastián Sandoval", goles: 1, asistencias: 1 },
-                    { nombre: "Matías Bustamante", goles: 0, asistencias: 1 }
+                    { nombre: "Matías Bustamante", goles: 0, asistencias: 1 },
+                ]
+            },
+            12: {
+                fecha: "Jueves 04 Septiembre",
+                rival: "Equipo Maradona",
+                resultado: "13-5",
+                lugar: "Canchas UFRO",
+                tipo: "Amistoso",
+                hora: "19:00 hrs",
+                jugadores: [
+                    { nombre: "Leandro Zavala", goles: 0, asistencias: 1 },
+                    { nombre: "Benjamín Garcés", goles: 1, asistencias: 3 },
+                    { nombre: "Cristobal Santibáñez", goles: 3, asistencias: 0 },
+                    { nombre: "Diego Manque", goles: 2, asistencias: 0 },
+                    { nombre: "Sebastián Sandoval", goles: 1, asistencias: 2 }
                 ]
             }
         };
@@ -1849,6 +1890,9 @@
                     escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__4_-removebg-preview.png';
                     break;
                 case 'Equipo Pablismo':
+                    escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__4_-removebg-preview.png';
+                    break;
+                case 'Equipo Maradona':
                     escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__4_-removebg-preview.png';
                     break;
             }    
@@ -1941,7 +1985,8 @@
                     { id: 4, rival: 'Vaqueros', fecha: 'Jueves 1 Mayo', goles: 1, asistencias: 1 },
                     { id: 5, rival: 'Real Justicia', fecha: 'Viernes 9 Mayo', goles: 5, asistencias: 4 },
                     { id: 6, rival: 'Microdosis', fecha: 'Sábado 24 Mayo', goles: 0, asistencias: 0 },
-                    { id: 7, rival: 'Real Justicia', fecha: 'Viernes 30 Mayo', goles: 4, asistencias: 0 }
+                    { id: 7, rival: 'Real Justicia', fecha: 'Viernes 30 Mayo', goles: 4, asistencias: 0 },
+                    { id: 13, rival: 'Equipo Maradona', fecha: 'Jueves 04 Septiembre', goles: 0, asistencias: 1 }
                 ]
             },
             'benjamin-garces': {
@@ -1961,7 +2006,8 @@
                     { id: 9, rival: 'Vaqueros', fecha: 'Lunes 14 Julio', goles: 2, asistencias: 2 },
                     { id: 10, rival: 'Real Justicia', fecha: 'Viernes 18 Julio', goles: 2, asistencias: 1 },
                     { id: 11, rival: 'Vaqueros', fecha: 'Jueves 31 Julio', goles: 2, asistencias: 1 },
-                    { id: 12, rival: 'Equipo Pablismo', fecha: 'Sabado 23 Agosto', goles: 0, asistencias: 1 }
+                    { id: 12, rival: 'Equipo Pablismo', fecha: 'Sabado 23 Agosto', goles: 0, asistencias: 1 },
+                    { id: 13, rival: 'Equipo Maradona', fecha: 'Jueves 04 Septiembre', goles: 1, asistencias: 3 }
                 ]
             },
             'matias-paredes': {
@@ -1993,7 +2039,8 @@
                     { id: 9, rival: 'Vaqueros', fecha: 'Lunes 14 Julio', goles: 1, asistencias: 4 },
                     { id: 10, rival: 'Real Justicia', fecha: 'Viernes 18 Julio', goles: 1, asistencias: 3 },
                     { id: 11, rival: 'Vaqueros', fecha: 'Jueves 31 Julio', goles: 0, asistencias: 1 },
-                    { id: 12, rival: 'Equipo Pablismo', fecha: 'Sabado 23 Agosto', goles: 2, asistencias: 0 }
+                    { id: 12, rival: 'Equipo Pablismo', fecha: 'Sabado 23 Agosto', goles: 2, asistencias: 0 },
+                    { id: 13, rival: 'Equipo Maradona', fecha: 'Jueves 04 Septiembre', goles: 2, asistencias: 0 }
                 ]
             },
             'sebastian-sandoval': {
@@ -2014,6 +2061,7 @@
                     { id: 10, rival: 'Real Justicia', fecha: 'Viernes 18 Julio', goles: 0, asistencias: 0 },
                     { id: 11, rival: 'Vaqueros', fecha: 'Jueves 31 Julio', goles: 2, asistencias: 3 },
                     { id: 12, rival: 'Equipo Pablismo', fecha: 'Sabado 23 Agosto', goles: 1, asistencias: 1 }
+                    { id: 13, rival: 'Equipo Maradona', fecha: 'Jueves 04 Septiembre', goles: 1, asistencias: 2 }
                 ]
             },
             'cristobal-santibanez': {
@@ -2027,7 +2075,8 @@
                     { id: 4, rival: 'Vaqueros', fecha: 'Jueves 1 Mayo', goles: 1, asistencias: 0 },
                     { id: 9, rival: 'Vaqueros', fecha: 'Lunes 14 Julio', goles: 2, asistencias: 2 },
                     { id: 11, rival: 'Vaqueros', fecha: 'Jueves 31 Julio', goles: 3, asistencias: 0 },
-                    { id: 12, rival: 'Equipo Pablismo', fecha: 'Sabado 23 Agosto', goles: 2, asistencias: 0 }
+                    { id: 12, rival: 'Equipo Pablismo', fecha: 'Sabado 23 Agosto', goles: 2, asistencias: 0 },
+                    { id: 13, rival: 'Equipo Maradona', fecha: 'Jueves 04 Septiembre', goles: 3, asistencias: 0 }
                 ]
             },
             'matias-bustamante': {

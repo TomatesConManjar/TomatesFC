@@ -1631,17 +1631,16 @@
             }
         };
         // Al cargar la página, aplicar modo oscuro si está habilitado
-        document.addEventListener('DOMContentLoaded', function() {
-            const darkModeSetting = localStorage.getItem('darkMode');
-            const html = document.documentElement;
-            const icon = document.getElementById('darkModeIcon');
-            if (darkModeSetting === 'enabled') {
-                html.classList.add('dark');
-                icon.className = 'fas fa-sun';
-            } else {
-                html.classList.remove('dark');
-                icon.className = 'fas fa-moon';
-            }
+        const darkModeSetting = localStorage.getItem('darkMode');
+        const html = document.documentElement;
+        const icon = document.getElementById('darkModeIcon');
+        if (darkModeSetting === 'enabled') {
+            html.classList.add('dark');
+            icon.className = 'fas fa-sun';
+        } else {
+            html.classList.remove('dark');
+            icon.className = 'fas fa-moon';
+        }
         });
     </script>
     <script>

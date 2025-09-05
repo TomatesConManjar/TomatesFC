@@ -1625,11 +1625,17 @@
                 localStorage.setItem('darkMode', 'disabled');
             }
         };
-        // Al cargar la página, verifica el estado del modo oscuro
+        // Al cargar la página, aplicar modo oscuro si está habilitado
         document.addEventListener('DOMContentLoaded', function() {
-            if (localStorage.getItem('darkMode') === 'enabled') {
-                document.documentElement.classList.add('dark');
-                document.getElementById('darkModeIcon').className = 'fas fa-sun';
+            const darkModeSetting = localStorage.getItem('darkMode');
+            const html = document.documentElement;
+            const icon = document.getElementById('darkModeIcon');
+            if (darkModeSetting === 'enabled') {
+                html.classList.add('dark');
+                icon.className = 'fas fa-sun';
+            } else {
+                html.classList.remove('dark');
+                icon.className = 'fas fa-moon';
             }
         });
     </script>

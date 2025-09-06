@@ -1876,9 +1876,14 @@
         };
         function showMatchDetails(partidoId) {
         document.getElementById('partidos').classList.add('hidden');
+        document.getElementById('partidos').style.display = 'none';
         document.getElementById('stats-section').classList.add('hidden');
+        document.getElementById('stats-section').style.display = 'none';
         document.getElementById('player-details-section').classList.add('hidden');
+        document.getElementById('player-details-section').style.display = 'none';
         document.getElementById('match-details-section').classList.remove('hidden');
+        document.getElementById('match-details-section').style.display = 'block';
+
         const detailsSection = document.getElementById('match-details-section');
         detailsSection.style.display = 'block';
         detailsSection.scrollIntoView({ behavior: 'smooth' });
@@ -1956,7 +1961,9 @@
         }
         function backToMatches() {
             document.getElementById('match-details-section').classList.add('hidden');
+            document.getElementById('match-details-section').style.display = 'none';
             document.getElementById('partidos').classList.remove('hidden');
+            document.getElementById('partidos').style.display = 'block';
         }
         // BUSCADOR DE JUGADORES - SECCIÓN PRINCIPAL
         document.getElementById('playerSearch').addEventListener('input', function(e) {

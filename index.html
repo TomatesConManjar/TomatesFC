@@ -1458,6 +1458,18 @@
                 mobileMenu.classList.toggle('active');
                 menuOverlay.classList.toggle('active');
                 document.body.classList.toggle('overflow-hidden');
+                if (mobileMenu.classList.contains('active')) {
+                    mobileMenu.classList.remove('hidden');
+                    menuOverlay.classList.remove('hidden');
+                } else {
+                    // Para que la animación de salida se vea, espera un poco antes de ocultar
+                    setTimeout(() => {
+                        if (!mobileMenu.classList.contains('active')) {
+                            mobileMenu.classList.add('hidden');
+                            menuOverlay.classList.add('hidden');
+                        }
+                    }, 300); // coincide con la duración de la transición CSS
+                }
             }
             // Función para cerrar el menú
             function closeMenu() {
@@ -1465,6 +1477,12 @@
                 mobileMenu.classList.remove('active');
                 menuOverlay.classList.remove('active');
                 document.body.classList.remove('overflow-hidden');
+                setTimeout(() => {
+                    if (!mobileMenu.classList.contains('active')) {
+                        mobileMenu.classList.add('hidden');
+                        menuOverlay.classList.add('hidden');
+                    }
+                }, 300);
             }
             // Event listeners
             mobileMenuButton.addEventListener('click', toggleMenu);

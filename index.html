@@ -1985,12 +1985,7 @@
             matchDetails.classList.add('hidden');
             statsSection.classList.add('hidden'); // Ocultar estadísticas si están visibles
             partidos.classList.remove('hidden');
-            const title = document.getElementById('partidos-title');
-            const offset = 30; // Ajusta según tu navbar fijo
-            const topPosition = title.getBoundingClientRect().top + window.scrollY - offset;
-            window.scrollTo({
-                top: topPosition,
-                behavior: 'smooth'
+            matchSection.scrollIntoView({ behavior: 'smooth' });
             });
         }
         // BUSCADOR DE JUGADORES - SECCIÓN PRINCIPAL

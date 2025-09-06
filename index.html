@@ -1545,12 +1545,6 @@
                     document.getElementById('equipo').scrollIntoView({ behavior: 'smooth' });
                 });
             });
-            // Agregar evento al botón "Volver"
-            document.getElementById('volver').addEventListener('click', function() {
-                // Aquí asumimos que el ID de la sección de la plantilla es "inicio"
-                const seccionId = 'inicio'; // Cambia esto si el ID es diferente
-                const seccion = document.getElementById(seccionId);
-    
                 // Mostrar la sección de la plantilla
                 document.querySelectorAll('section').forEach(seccion => {
                     seccion.style.display = 'none';

@@ -1669,6 +1669,7 @@
             document.getElementById('historia').classList.add('hidden');
             document.getElementById('equipo').classList.add('hidden');
             document.getElementById('partidos').classList.add('hidden');
+            document.getElementById('match-details-section').classList.add('hidden');
             document.getElementById('stats-section').classList.remove('hidden');
             const statsSection = document.getElementById('stats-section');
             const offset = 50;
@@ -1978,12 +1979,14 @@
             }
         }
         function backToMatches() {
-            document.getElementById('match-details-section').classList.add('hidden');
-            document.getElementById('match-details-section').style.display = 'none';
-            document.getElementById('partidos').classList.remove('hidden');
-            document.getElementById('partidos').style.display = 'block';
+            const matchDetails = document.getElementById('match-details-section');
+            const partidos = document.getElementById('partidos');
+            const statsSection = document.getElementById('stats-section');
+            matchDetails.classList.add('hidden');
+            statsSection.classList.add('hidden'); // Ocultar estadísticas si están visibles
+            partidos.classList.remove('hidden');
             const title = document.getElementById('partidos-title');
-            const offset = 50; // Ajusta según tu navbar fijo
+            const offset = 30; // Ajusta según tu navbar fijo
             const topPosition = title.getBoundingClientRect().top + window.scrollY - offset;
             window.scrollTo({
                 top: topPosition,

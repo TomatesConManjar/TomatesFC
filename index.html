@@ -2115,6 +2115,9 @@
             if (!jugador) return;
             // Ocultar sección del equipo y mostrar detalles
             document.getElementById('equipo').classList.add('hidden');
+            document.getElementById('partidos').classList.add('hidden');
+            document.getElementById('historia').classList.add('hidden');
+            document.getElementById('inicio').classList.add('hidden');
             document.getElementById('stats-section').classList.add('hidden');
             document.getElementById('player-details-section').classList.remove('hidden');
             // Cambiar URL sin recargar página
@@ -2237,6 +2240,9 @@
         window.backToTeam = function() {
             document.getElementById('player-details-section').classList.add('hidden');
             document.getElementById('equipo').classList.remove('hidden');
+            document.getElementById('partidos').classList.remove('hidden');
+            document.getElementById('historia').classList.remove('hidden');
+            document.getElementById('inicio').classList.remove('hidden');
             window.history.pushState({section: 'equipo'}, '', '#equipo');
         }
         // Manejar navegación del navegador

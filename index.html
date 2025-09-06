@@ -538,7 +538,7 @@
         </div>
     </section>
     <!-- Sección de estadísticas -->
-    <section id="stats-section" style="display: none;" class="py-16 bg-white">
+    <section id="stats-section" class="hidden py-16 bg-white">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold text-center mb-12 text-red-800">Estadísticas de Jugadores</h2>
             <div class="mb-8">
@@ -948,7 +948,7 @@
         </div>
     </section>
     <!-- Sección de detalles del jugador -->
-    <section id="player-details-section" style="display: none;" class="player-detail-section py-16 bg-gray-50">
+    <section id="player-details-section" class="hidden player-detail-section py-16 bg-gray-50">
         <div class="container mx-auto px-6">
             <!-- Botón volver -->
             <button onclick="backToTeam()" class="bg-red-800 hover:bg-red-900 text-white font-bold py-2 px-6 rounded-full transition mb-8">
@@ -1339,7 +1339,7 @@
         </div>
     </section>
     <!-- Sección de detalles del partido -->
-    <section id="match-details-section" style="display: none;" class="py-16 bg-gray-100">
+    <section id="match-details-section" class="hidden py-16 bg-gray-100">
         <div class="container mx-auto px-6">
             <div class="mb-8">
                 <button onclick="backToMatches()" class="bg-red-800 hover:bg-red-900 text-white font-bold py-2 px-6 rounded-full transition mb-4">
@@ -1629,11 +1629,11 @@
     </script>
     <script>
         function showStats() {
-            document.getElementById('inicio').style.display = 'none';
-            document.getElementById('historia').style.display = 'none';
-            document.getElementById('equipo').style.display = 'none';
-            document.getElementById('partidos').style.display = 'none';
-            document.getElementById('stats-section').style.display = 'block';
+            document.getElementById('inicio').classList.add('hidden');
+            document.getElementById('historia').classList.add('hidden');
+            document.getElementById('equipo').classList.add('hidden');
+            document.getElementById('partidos').classList.add('hidden');
+            document.getElementById('stats-section').classList.remove('hidden');
             const statsSection = document.getElementById('stats-section');
             const offset = 50;
             const topPosition = statsSection.getBoundingClientRect().top + window.scrollY - offset;
@@ -1643,11 +1643,11 @@
             });
         }
         function goBack() {
-            document.getElementById('inicio').style.display = 'block';
-            document.getElementById('historia').style.display = 'block';
-            document.getElementById('equipo').style.display = 'block';
-            document.getElementById('partidos').style.display = 'block';
-            document.getElementById('stats-section').style.display = 'none';
+            document.getElementById('inicio').classList.remove('hidden');
+            document.getElementById('historia').classList.remove('hidden');
+            document.getElementById('equipo').classList.remove('hidden');
+            document.getElementById('partidos').classList.remove('hidden');
+            document.getElementById('stats-section').classList.add('hidden');
             // Desplazamiento suave a la sección de plantilla
             const equipoSection = document.getElementById('equipo');
             const offset = 50; // Ajusta este valor según sea necesario
@@ -1857,10 +1857,10 @@
             }
         };
         function showMatchDetails(partidoId) {
-        document.getElementById('partidos').style.display = 'none';
-        document.getElementById('stats-section').style.display = 'none';
-        document.getElementById('player-details-section').style.display = 'none';
-        document.getElementById('match-details-section').style.display = 'block';
+        document.getElementById('partidos').classList.add('hidden');
+        document.getElementById('stats-section').classList.add('hidden');
+        document.getElementById('player-details-section').classList.add('hidden');
+        document.getElementById('match-details-section').classList.remove('hidden');
         const detailsSection = document.getElementById('match-details-section');
         detailsSection.style.display = 'block';
         detailsSection.scrollIntoView({ behavior: 'smooth' });
@@ -1937,8 +1937,8 @@
             }
         }
         function backToMatches() {
-            document.getElementById('match-details-section').style.display = 'none';
-            document.getElementById('partidos').style.display = 'block';
+            document.getElementById('match-details-section').classList.add('hidden');
+            document.getElementById('partidos').classList.remove('hidden');
         }
         // BUSCADOR DE JUGADORES - SECCIÓN PRINCIPAL
         document.getElementById('playerSearch').addEventListener('input', function(e) {
@@ -2090,9 +2090,9 @@
             const jugador = jugadoresData[playerId];
             if (!jugador) return;
             // Ocultar sección del equipo y mostrar detalles
-            document.getElementById('equipo').style.display = 'none';
-            document.getElementById('stats-section').style.display = 'none';
-            document.getElementById('player-details-section').style.display = 'block';
+            document.getElementById('equipo').classList.add('hidden');
+            document.getElementById('stats-section').classList.add('hidden');
+            document.getElementById('player-details-section').classList.remove('hidden');
             // Cambiar URL sin recargar página
             window.history.pushState({section: 'player-details', playerId: playerId}, '', `#jugador/${playerId}`);
             // Crear header del jugador
@@ -2211,8 +2211,8 @@
         }
         // Función para volver al equipo
         function backToTeam() {
-            document.getElementById('player-details-section').style.display = 'none';
-            document.getElementById('equipo').style.display = 'block';
+            document.getElementById('player-details-section').classList.add('hidden');
+            document.getElementById('equipo').classList.remove('hidden');
             window.history.pushState({section: 'equipo'}, '', '#equipo');
         }
         // Manejar navegación del navegador

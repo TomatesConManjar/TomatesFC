@@ -1548,7 +1548,7 @@
                             behavior: 'smooth'
                         });
                     } else {
-                        const offset = 70;
+                        const offset = 50;
                         const seccion = document.getElementById(seccionId);
                         const elementPosition = seccion.getBoundingClientRect().top + window.scrollY;
                         const offsetPosition = elementPosition - offset;
@@ -1557,15 +1557,6 @@
                             behavior: 'smooth'
                         });
                     }
-                    // Desplazarse suavemente a la sección con un ajuste
-                    const offset = 70; // Ajusta este valor según sea necesario
-                    const seccion = document.getElementById(seccionId);
-                    const elementPosition = seccion.getBoundingClientRect().top + window.scrollY; // Obtener la posición de la sección
-                    const offsetPosition = elementPosition - offset; // Ajustar la posición
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                    });
                 });
             });
             // Manejar enlaces del navbar desktop
@@ -1579,20 +1570,6 @@
                       window.history.pushState({section: 'equipo'}, '', '#equipo');
                     // Scroll suave al equipo
                     document.getElementById('equipo').scrollIntoView({ behavior: 'smooth' });
-                });
-            });
-                // Mostrar la sección de la plantilla
-                document.querySelectorAll('section').forEach(seccion => {
-                    seccion.style.display = 'none';
-                });
-                seccion.style.display = 'block';
-                // Desplazarse suavemente a la sección de la plantilla
-                const offset = 70; // Ajusta este valor según sea necesario
-                const elementPosition = seccion.getBoundingClientRect().top + window.scrollY; // Obtener la posición de la sección
-                const offsetPosition = elementPosition - offset; // Ajustar la posición
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
                 });
             });
             // Cerrar menú con ESC
@@ -1985,8 +1962,7 @@
             matchDetails.classList.add('hidden');
             statsSection.classList.add('hidden'); // Ocultar estadísticas si están visibles
             partidos.classList.remove('hidden');
-            matchSection.scrollIntoView({ behavior: 'smooth' });
-            });
+            partidos.scrollIntoView({ behavior: 'smooth' });
         }
         // BUSCADOR DE JUGADORES - SECCIÓN PRINCIPAL
         document.getElementById('playerSearch').addEventListener('input', function(e) {

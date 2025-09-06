@@ -1962,7 +1962,13 @@
             matchDetails.classList.add('hidden');
             statsSection.classList.add('hidden'); // Ocultar estadísticas si están visibles
             partidos.classList.remove('hidden');
-            partidos.scrollIntoView({ behavior: 'smooth' });
+            const title = document.getElementById('partidos-title');
+            const offset = 50; // Ajusta según altura navbar
+            const topPosition = title.getBoundingClientRect().top + window.scrollY - offset;
+            window.scrollTo({
+                top: topPosition,
+                behavior: 'smooth'
+            });
         }
         // BUSCADOR DE JUGADORES - SECCIÓN PRINCIPAL
         document.getElementById('playerSearch').addEventListener('input', function(e) {

@@ -1879,7 +1879,7 @@
         document.getElementById('player-details-section').style.display = 'none';
         document.getElementById('match-details-section').classList.remove('hidden');
         document.getElementById('match-details-section').style.display = 'block';
-
+        window.history.pushState({section: 'match-details', partidoId: partidoId}, '', `#partido/${partidoId}`);
         const detailsSection = document.getElementById('match-details-section');
         detailsSection.style.display = 'block';
         detailsSection.scrollIntoView({ behavior: 'smooth' });
@@ -1962,6 +1962,7 @@
             matchDetails.classList.add('hidden');
             statsSection.classList.add('hidden'); // Ocultar estadísticas si están visibles
             partidos.classList.remove('hidden');
+            window.history.pushState({section: 'partidos'}, '', '#partidos');
             const title = document.getElementById('partidos-title');
             const offset = 50; // Ajusta según altura navbar
             const topPosition = title.getBoundingClientRect().top + window.scrollY - offset;
@@ -2265,7 +2266,20 @@
                     showPlayerDetails(event.state.playerId);
                 } else if (event.state.section === 'equipo') {
                     backToTeam();
+                } else if (event.state.section === 'match-details' && event.state.partidoId) {
+                    showMatchDetails(event.state.partidoId);
+                } else if (event.state.section === 'partidos') {
+                    backToMatches();
                 }
+            } else {
+                // Estado inicial o sin estado, mostrar inicio o lo que corresponda
+                document.getElementById('inicio').classList.remove('hidden');
+                document.getElementById('historia').classList.remove('hidden');
+                document.getElementById('equipo').classList.remove('hidden');
+                document.getElementById('partidos').classList.remove('hidden');
+                document.getElementById('stats-section').classList.add('hidden');
+                document.getElementById('player-details-section').classList.add('hidden');
+                document.getElementById('match-details-section').classList.add('hidden');
             }
         });
     </script>

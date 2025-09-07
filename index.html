@@ -1533,19 +1533,6 @@
                     window.history.pushState({section: seccionId}, '', `#${seccionId}`);
                 });
             });
-            // Manejar enlaces del navbar desktop
-            document.querySelectorAll('nav a[href="#equipo"]').forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    document.getElementById('player-details-section').classList.add('hidden');
-                    document.getElementById('stats-section').classList.add('hidden');
-                    document.getElementById('equipo').classList.remove('hidden');
-                    // Actualizar URL
-                    window.history.pushState({section: 'equipo'}, '', '#equipo');
-                    // Scroll suave al equipo
-                    document.getElementById('equipo').scrollIntoView({ behavior: 'smooth' });
-                });
-            });
             // Cerrar menú con ESC
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape') {

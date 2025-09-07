@@ -1507,7 +1507,14 @@
                         if (el) el.classList.add('hidden');
                     });
                     // Mostrar la sección seleccionada si es una sección principal
-                    if (['inicio', 'historia', 'equipo', 'partidos'].includes(seccionId)) {
+                    if (seccionId === 'inicio') {
+                        // Mostrar todas las secciones deseadas al hacer clic en "Inicio"
+                        ['inicio', 'historia', 'equipo', 'partidos'].forEach(id => {
+                            const el = document.getElementById(id);
+                            if (el) el.classList.remove('hidden');
+                        });
+                    } else if (['historia', 'equipo', 'partidos'].includes(seccionId)) {
+                        // Mostrar solo la sección seleccionada
                         const el = document.getElementById(seccionId);
                         if (el) el.classList.remove('hidden');
                     }

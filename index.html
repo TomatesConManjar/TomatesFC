@@ -1491,31 +1491,7 @@
             mobileMenuLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     closeMenu();
-                    // Si el enlace es #equipo, asegurarse de mostrar la plantilla correcta
-                    if (this.getAttribute('href') === '#equipo') {
-                        e.preventDefault();
-                        document.getElementById('player-details-section').style.display = 'block';
-                        // Scroll suave al título de la sección
-                        setTimeout(() => {
-                            document.getElementById('player-details-section').scrollIntoView({ 
-                                behavior: 'smooth', 
-                                block: 'start' 
-                            });
-                        }, 100);
-                        document.getElementById('stats-section').style.display = 'block';
-                        // Scroll suave al título de la sección
-                        setTimeout(() => {
-                            document.getElementById('stats-section').scrollIntoView({ 
-                                behavior: 'smooth', 
-                                block: 'start' 
-                            });
-                        }, 100);
-                        document.getElementById('equipo').style.display = 'block';
-                        // Actualizar URL
-                        window.history.pushState({section: 'equipo'}, '', '#equipo');
-                        // Scroll suave al equipo
-                        document.getElementById('equipo').scrollIntoView({ behavior: 'smooth' });
-                    }
+                    // No manipular visibilidad aquí, solo cerrar menú
                 });
             });
             // Obtener los enlaces del navbar
@@ -1523,40 +1499,31 @@
             // Agregar evento de clic a los enlaces del navbar
             navbarEnlaces.forEach(enlace => {
                 enlace.addEventListener('click', function(e) {
-                    // Obtener el ID de la sección que se debe mostrar
-                    const seccionId = e.target.getAttribute('href').split('#')[1];
-                    // Si el enlace es "Inicio", mostrar todas las secciones
-                    if (seccionId === 'inicio') {
-                        document.getElementById('inicio').style.display = 'block';
-                        document.getElementById('historia').style.display = 'block';
-                        document.getElementById('equipo').style.display = 'block';
-                        document.getElementById('partidos').style.display = 'block';
-                    } else {
-                        // Ocultar todas las secciones
-                        document.querySelectorAll('section').forEach(seccion => {
-                            seccion.style.display = 'none';
-                        });
-                        // Mostrar la sección correspondiente
-                        document.getElementById(seccionId).style.display = 'block';
+                    e.preventDefault();
+                    const seccionId = this.getAttribute('href').split('#')[1];
+                    // Ocultar todas las secciones principales y detalles
+                    ['inicio', 'historia', 'equipo', 'partidos', 'stats-section', 'player-details-section', 'match-details-section'].forEach(id => {
+                        const el = document.getElementById(id);
+                        if (el) el.classList.add('hidden');
+                    });
+                    // Mostrar la sección seleccionada si es una sección principal
+                    if (['inicio', 'historia', 'equipo', 'partidos'].includes(seccionId)) {
+                        const el = document.getElementById(seccionId);
+                        if (el) el.classList.remove('hidden');
                     }
-                    if (seccionId === 'partidos') {
-                        const title = document.getElementById('partidos-title');
-                        const offset = 50;
-                        const topPosition = title.getBoundingClientRect().top + window.scrollY - offset;
-                        window.scrollTo({
-                            top: topPosition,
-                            behavior: 'smooth'
-                        });
-                    } else {
-                        const offset = 50;
-                        const seccion = document.getElementById(seccionId);
-                        const elementPosition = seccion.getBoundingClientRect().top + window.scrollY;
+                    // Scroll con offset
+                    const offset = 50;
+                    const el = document.getElementById(seccionId);
+                    if (el) {
+                        const elementPosition = el.getBoundingClientRect().top + window.scrollY;
                         const offsetPosition = elementPosition - offset;
                         window.scrollTo({
                             top: offsetPosition,
                             behavior: 'smooth'
                         });
                     }
+                    // Actualizar URL
+                    window.history.pushState({section: seccionId}, '', `#${seccionId}`);
                 });
             });
             // Manejar enlaces del navbar desktop

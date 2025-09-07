@@ -1629,6 +1629,9 @@
             document.getElementById('equipo').classList.remove('hidden');
             document.getElementById('partidos').classList.remove('hidden');
             document.getElementById('stats-section').classList.add('hidden');
+            document.getElementById('player-details-section').classList.add('hidden');
+            document.getElementById('match-details-section').classList.add('hidden');
+            window.history.pushState({section: 'equipo'}, '', '#equipo');
             // Desplazamiento suave a la sección de plantilla
             const equipoSection = document.getElementById('equipo');
             const offset = 50; // Ajusta este valor según sea necesario
@@ -1838,18 +1841,21 @@
             }
         };
         window.showMatchDetails = function(partidoId) {
+        document.getElementById('inicio').classList.add('hidden');
+        document.getElementById('historia').classList.add('hidden');
+        document.getElementById('equipo').classList.add('hidden');
         document.getElementById('partidos').classList.add('hidden');
-        document.getElementById('partidos').style.display = 'none';
         document.getElementById('stats-section').classList.add('hidden');
-        document.getElementById('stats-section').style.display = 'none';
         document.getElementById('player-details-section').classList.add('hidden');
-        document.getElementById('player-details-section').style.display = 'none';
-        document.getElementById('match-details-section').classList.remove('hidden');
-        document.getElementById('match-details-section').style.display = 'block';
+        const matchDetailsSection = document.getElementById('match-details-section');
+        matchDetailsSection.classList.remove('hidden');
         window.history.pushState({section: 'match-details', partidoId: partidoId}, '', `#partido/${partidoId}`);
-        const detailsSection = document.getElementById('match-details-section');
-        detailsSection.style.display = 'block';
-        detailsSection.scrollIntoView({ behavior: 'smooth' });
+        const offset = 50;
+        const topPosition = matchDetailsSection.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({
+            top: topPosition,
+            behavior: 'smooth'
+        });
         const partido = partidosData[partidoId];
         if (partido) {
             // Obtener escudo del rival según el nombre
@@ -1899,36 +1905,36 @@
                 </div>
             `;
             document.getElementById('match-header').innerHTML = matchHeader;
-                // Cargar jugadores
-                const playersContainer = document.getElementById('match-players');
-                playersContainer.innerHTML = '';
-                partido.jugadores.forEach(jugador => {
-                    const playerCard = `
-                        <div class="bg-white rounded-lg p-6 shadow-lg border-2 border-red-100 hover:border-red-300 transition">
-                            <h3 class="font-bold text-xl mb-3 text-red-800">${jugador.nombre}</h3>
-                            <div class="space-y-2">
-                                <div class="flex justify-between items-center">
-                                    <span class="text-gray-600">⚽ Goles:</span>
-                                    <span class="font-bold text-green-600">${jugador.goles}</span>
-                                </div>
-                                <div class="flex justify-between items-center">
-                                    <span class="text-gray-600">🎯 Asistencias:</span>
-                                    <span class="font-bold text-blue-600">${jugador.asistencias}</span>
-                                </div>
+            // Cargar jugadores
+            const playersContainer = document.getElementById('match-players');
+            playersContainer.innerHTML = '';
+            partido.jugadores.forEach(jugador => {
+                const playerCard = `
+                    <div class="bg-white rounded-lg p-6 shadow-lg border-2 border-red-100 hover:border-red-300 transition">
+                        <h3 class="font-bold text-xl mb-3 text-red-800">${jugador.nombre}</h3>
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600">⚽ Goles:</span>
+                                <span class="font-bold text-green-600">${jugador.goles}</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600">🎯 Asistencias:</span>
+                                <span class="font-bold text-blue-600">${jugador.asistencias}</span>
                             </div>
                         </div>
-                    `;
-                    playersContainer.innerHTML += playerCard;
-                });
-            }
+                    </div>
+                `;
+                playersContainer.innerHTML += playerCard;
+            });
         }
         window.backToMatches = function() {
-            const matchDetails = document.getElementById('match-details-section');
-            const partidos = document.getElementById('partidos');
-            const statsSection = document.getElementById('stats-section');
-            matchDetails.classList.add('hidden');
-            statsSection.classList.add('hidden'); // Ocultar estadísticas si están visibles
-            partidos.classList.remove('hidden');
+            document.getElementById('match-details-section').classList.add('hidden');
+            document.getElementById('stats-section').classList.add('hidden');
+            document.getElementById('player-details-section').classList.add('hidden');
+            document.getElementById('inicio').classList.remove('hidden');
+            document.getElementById('historia').classList.remove('hidden');
+            document.getElementById('equipo').classList.remove('hidden');
+            document.getElementById('partidos').classList.remove('hidden');
             window.history.pushState({section: 'partidos'}, '', '#partidos');
             const title = document.getElementById('partidos-title');
             const offset = 50; // Ajusta según altura navbar
@@ -2093,9 +2099,17 @@
             document.getElementById('historia').classList.add('hidden');
             document.getElementById('inicio').classList.add('hidden');
             document.getElementById('stats-section').classList.add('hidden');
+            document.getElementById('match-details-section').classList.add('hidden');
             document.getElementById('player-details-section').classList.remove('hidden');
             // Cambiar URL sin recargar página
             window.history.pushState({section: 'player-details', playerId: playerId}, '', `#jugador/${playerId}`);
+            const playerDetailsSection = document.getElementById('player-details-section');
+            const offset = 50;
+            const topPosition = playerDetailsSection.getBoundingClientRect().top + window.scrollY - offset;
+            window.scrollTo({
+                top: topPosition,
+                behavior: 'smooth'
+            });
             // Crear header del jugador
             const totalGoles = jugador.partidos.reduce((sum, partido) => sum + partido.goles, 0);
             const totalAsistencias = jugador.partidos.reduce((sum, partido) => sum + partido.asistencias, 0);

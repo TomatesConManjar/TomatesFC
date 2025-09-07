@@ -1530,11 +1530,11 @@
             document.querySelectorAll('nav a[href="#equipo"]').forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
-                    document.getElementById('player-details-section').style.display = 'none';
-                    document.getElementById('stats-section').style.display = 'none';
-                    document.getElementById('equipo').style.display = 'block';
+                    document.getElementById('player-details-section').classList.add('hidden');
+                    document.getElementById('stats-section').classList.add('hidden');
+                    document.getElementById('equipo').classList.remove('hidden');
                     // Actualizar URL
-                      window.history.pushState({section: 'equipo'}, '', '#equipo');
+                    window.history.pushState({section: 'equipo'}, '', '#equipo');
                     // Scroll suave al equipo
                     document.getElementById('equipo').scrollIntoView({ behavior: 'smooth' });
                 });
@@ -1834,7 +1834,7 @@
                 jugadores: [
                     { nombre: "Leandro Zavala", goles: 0, asistencias: 1 },
                     { nombre: "Benjamín Garcés", goles: 1, asistencias: 3 },
-                    { nombre: "Cristobal Santibáñez", goles: 3, asistencias: 0 },
+                    { nombre: "Cristóbal Santíbáñez", goles: 3, asistencias: 0 },
                     { nombre: "Diego Manque", goles: 2, asistencias: 0 },
                     { nombre: "Sebastián Sandoval", goles: 1, asistencias: 2 }
                 ]

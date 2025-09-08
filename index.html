@@ -1641,20 +1641,28 @@
     </script>
     <script>
         window.showStats = function() {
-            document.getElementById('inicio').classList.add('hidden');
-            document.getElementById('historia').classList.add('hidden');
-            document.getElementById('equipo').classList.add('hidden');
-            document.getElementById('partidos').classList.add('hidden');
-            document.getElementById('match-details-section').classList.add('hidden');
-            document.getElementById('stats-section').classList.remove('hidden');
-            const statsSection = document.getElementById('stats-section');
-            const offset = 50;
-            const topPosition = statsSection.getBoundingClientRect().top + window.scrollY - offset;
-            window.scrollTo({
-                top: topPosition,
-                behavior: 'smooth'
-            });
-        }
+            try {
+                document.getElementById('inicio').classList.add('hidden');
+                document.getElementById('historia').classList.add('hidden');
+                document.getElementById('equipo').classList.add('hidden');
+                document.getElementById('partidos').classList.add('hidden');
+                document.getElementById('match-details-section').classList.add('hidden');
+                document.getElementById('stats-section').classList.remove('hidden');
+                const statsSection = document.getElementById('stats-section');
+                if (!statsSection) {
+                    console.error('No se encontró el elemento stats-section');
+                    return;
+                }
+                const offset = 50;
+                const topPosition = statsSection.getBoundingClientRect().top + window.scrollY - offset;
+                window.scrollTo({
+                    top: topPosition,
+                    behavior: 'smooth'
+                });
+            } catch (error) {
+                console.error('Error en showStats:', error);
+            } 
+        };  
         window.goBack = function() {
             document.getElementById('inicio').classList.remove('hidden');
             document.getElementById('historia').classList.remove('hidden');
@@ -1873,92 +1881,107 @@
             }
         };
         window.showMatchDetails = function(partidoId) {
-        document.getElementById('inicio').classList.add('hidden');
-        document.getElementById('historia').classList.add('hidden');
-        document.getElementById('equipo').classList.add('hidden');
-        document.getElementById('partidos').classList.add('hidden');
-        document.getElementById('stats-section').classList.add('hidden');
-        document.getElementById('player-details-section').classList.add('hidden');
-        const matchDetailsSection = document.getElementById('match-details-section');
-        matchDetailsSection.classList.remove('hidden');
-        window.history.pushState({section: 'match-details', partidoId: partidoId}, '', `#partido/${partidoId}`);
-        const offset = 50;
-        const topPosition = matchDetailsSection.getBoundingClientRect().top + window.scrollY - offset;
-        window.scrollTo({
-            top: topPosition,
-            behavior: 'smooth'
-        });
-        const partido = partidosData[partidoId];
-        if (partido) {
-            // Obtener escudo del rival según el nombre
-            let escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/500x500__4_-removebg-preview.png'; // Default
-            switch(partido.rival) {
-                case 'Vaqueros':
-                    escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__4_-removebg-preview.png';
-                    break;
-                case 'Manchester ICI':
-                    escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__2_-removebg-preview.png';
-                    break;
-                case 'Real Justicia':
-                    escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__3___1_-removebg-preview.png';
-                    break;
-                case 'Resistencia IC':
-                    escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__1_-removebg-preview%20(1).png';
-                    break;
-                case 'Microdosis':
-                    escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__4_-removebg-preview.png';
-                    break;
-                case 'Equipo Pablismo':
-                    escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__4_-removebg-preview.png';
-                    break;
-                case 'Equipo Maradona':
-                    escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__4_-removebg-preview.png';
-                    break;
-            }    
-            // Crear HTML con escudos y resultado
-            const [golesLocal, golesVisitante] = partido.resultado.split('-');
-            const matchHeader = `
-                <div class="flex items-center justify-center space-x-8 mb-8">
-                    <div class="text-center">
-                        <img src="https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/Tomates_FC__13_-removebg-preview%20(1).png" alt="Escudo Tomates FC" class="h-20 w-20 mx-auto mb-2">
-                        <p class="font-bold text-lg">Tomates FC</p>
-                        <span class="text-4xl font-bold text-red-800">${golesLocal}</span>
-                    </div>
-                    <div class="text-center">
-                        <p class="text-2xl font-bold text-gray-600">VS</p>
-                        <p class="text-sm text-green-600 font-semibold">${partido.tipo} • ${partido.hora}</p>
-                        <p class="text-sm text-blue-600 font-semibold"> ${partido.lugar}</p>
-                    </div>
-                    <div class="text-center">
-                        <img src="${escudoRival}" alt="Escudo ${partido.rival}" class="h-20 w-20 mx-auto mb-2">
-                        <p class="font-bold text-lg">${partido.rival}</p>
-                        <span class="text-4xl font-bold text-gray-800">${golesVisitante}</span>
-                    </div>
-                </div>
-            `;
-            document.getElementById('match-header').innerHTML = matchHeader;
-            // Cargar jugadores
-            const playersContainer = document.getElementById('match-players');
-            playersContainer.innerHTML = '';
-            partido.jugadores.forEach(jugador => {
-                const playerCard = `
-                    <div class="bg-white rounded-lg p-6 shadow-lg border-2 border-red-100 hover:border-red-300 transition">
-                        <h3 class="font-bold text-xl mb-3 text-red-800">${jugador.nombre}</h3>
-                        <div class="space-y-2">
-                            <div class="flex justify-between items-center">
-                                <span class="text-gray-600">⚽ Goles:</span>
-                                <span class="font-bold text-green-600">${jugador.goles}</span>
-                            </div>
-                            <div class="flex justify-between items-center">
-                                <span class="text-gray-600">🎯 Asistencias:</span>
-                                <span class="font-bold text-blue-600">${jugador.asistencias}</span>
-                            </div>
+            try {
+                document.getElementById('inicio').classList.add('hidden');
+                document.getElementById('historia').classList.add('hidden');
+                document.getElementById('equipo').classList.add('hidden');
+                document.getElementById('partidos').classList.add('hidden');
+                document.getElementById('stats-section').classList.add('hidden');
+                document.getElementById('player-details-section').classList.add('hidden');
+                const matchDetailsSection = document.getElementById('match-details-section');
+                if (!matchDetailsSection) {
+                    console.error('No se encontró el elemento match-details-section');
+                    return;
+                }
+                matchDetailsSection.classList.remove('hidden');
+                window.history.pushState({section: 'match-details', partidoId: partidoId}, '', `#partido/${partidoId}`);
+                const offset = 50;
+                const topPosition = matchDetailsSection.getBoundingClientRect().top + window.scrollY - offset;
+                window.scrollTo({
+                    top: topPosition,
+                    behavior: 'smooth'
+                });
+                const partido = partidosData[partidoId];
+                if (!partido) {
+                    console.error('No se encontró información para el partido con ID:', partidoId);
+                    return;
+                }
+                // Obtener escudo del rival según el nombre
+                let escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/500x500__4_-removebg-preview.png'; // Default
+                switch(partido.rival) {
+                    case 'Vaqueros':
+                        escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__4_-removebg-preview.png';
+                        break;
+                    case 'Manchester ICI':
+                        escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__2_-removebg-preview.png';
+                        break;
+                    case 'Real Justicia':
+                        escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__3___1_-removebg-preview.png';
+                        break;
+                    case 'Resistencia IC':
+                        escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__1_-removebg-preview%20(1).png';
+                        break;
+                    case 'Microdosis':
+                        escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__4_-removebg-preview.png';
+                        break;
+                    case 'Equipo Pablismo':
+                        escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__4_-removebg-preview.png';
+                        break;
+                    case 'Equipo Maradona':
+                        escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__4_-removebg-preview.png';
+                        break;
+                }    
+                // Crear HTML con escudos y resultado
+                const [golesLocal, golesVisitante] = partido.resultado.split('-');
+                const matchHeader = `
+                    <div class="flex items-center justify-center space-x-8 mb-8">
+                        <div class="text-center">
+                            <img src="https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/Tomates_FC__13_-removebg-preview%20(1).png" alt="Escudo Tomates FC" class="h-20 w-20 mx-auto mb-2">
+                            <p class="font-bold text-lg">Tomates FC</p>
+                            <span class="text-4xl font-bold text-red-800">${golesLocal}</span>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-2xl font-bold text-gray-600">VS</p>
+                            <p class="text-sm text-green-600 font-semibold">${partido.tipo} • ${partido.hora}</p>
+                            <p class="text-sm text-blue-600 font-semibold"> ${partido.lugar}</p>
+                        </div>
+                        <div class="text-center">
+                            <img src="${escudoRival}" alt="Escudo ${partido.rival}" class="h-20 w-20 mx-auto mb-2">
+                            <p class="font-bold text-lg">${partido.rival}</p>
+                            <span class="text-4xl font-bold text-gray-800">${golesVisitante}</span>
                         </div>
                     </div>
                 `;
-                playersContainer.innerHTML += playerCard;
-            });
-        }
+                document.getElementById('match-header').innerHTML = matchHeader;
+                // Cargar jugadores
+                const playersContainer = document.getElementById('match-players');
+                if (!playersContainer) {
+                    console.error('No se encontró el contenedor match-players');
+                    return;
+                }
+                playersContainer.innerHTML = '';
+                partido.jugadores.forEach(jugador => {
+                    const playerCard = `
+                        <div class="bg-white rounded-lg p-6 shadow-lg border-2 border-red-100 hover:border-red-300 transition">
+                            <h3 class="font-bold text-xl mb-3 text-red-800">${jugador.nombre}</h3>
+                            <div class="space-y-2">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-600">⚽ Goles:</span>
+                                    <span class="font-bold text-green-600">${jugador.goles}</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-600">🎯 Asistencias:</span>
+                                    <span class="font-bold text-blue-600">${jugador.asistencias}</span>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    playersContainer.innerHTML += playerCard;
+                });
+            } catch (error) {
+                console.error('Error en showMatchDetails:', error);
+            }
+        };
         window.backToMatches = function() {
             document.getElementById('match-details-section').classList.add('hidden');
             document.getElementById('stats-section').classList.add('hidden');
@@ -2123,138 +2146,146 @@
         };
         // Función para mostrar detalles del jugador
         window.showPlayerDetails = function(playerId) {
-            const jugador = jugadoresData[playerId];
-            if (!jugador) return;
-            // Ocultar sección del equipo y mostrar detalles
-            document.getElementById('equipo').classList.add('hidden');
-            document.getElementById('partidos').classList.add('hidden');
-            document.getElementById('historia').classList.add('hidden');
-            document.getElementById('inicio').classList.add('hidden');
-            document.getElementById('stats-section').classList.add('hidden');
-            document.getElementById('match-details-section').classList.add('hidden');
-            document.getElementById('player-details-section').classList.remove('hidden');
-            // Cambiar URL sin recargar página
-            window.history.pushState({section: 'player-details', playerId: playerId}, '', `#jugador/${playerId}`);
-            const playerDetailsSection = document.getElementById('player-details-section');
-            const offset = 50;
-            const topPosition = playerDetailsSection.getBoundingClientRect().top + window.scrollY - offset;
-            window.scrollTo({
-                top: topPosition,
-                behavior: 'smooth'
-            });
-            // Crear header del jugador
-            const totalGoles = jugador.partidos.reduce((sum, partido) => sum + partido.goles, 0);
-            const totalAsistencias = jugador.partidos.reduce((sum, partido) => sum + partido.asistencias, 0);
-            const partidosJugados = jugador.partidos.length;
-            document.getElementById('player-header').innerHTML = `
-                <div class="flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-8">
-                    <div class="relative">
-                        <div class="w-48 h-60 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-lg shadow-lg relative">
-                            <i class="fas fa-user text-8xl mb-4 text-gray-300"></i>
-                        </div>
-                        <div class="absolute -top-3 -right-3 bg-gradient-to-r from-red-600 to-red-800 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl shadow-lg">
-                            ${jugador.numero}
-                        </div>
-                    </div>
-                    <div class="flex-1 text-center md:text-left">
-                        <h1 class="text-4xl font-bold text-red-800 mb-2">${jugador.nombre}</h1>
-                        <p class="text-xl text-gray-600 mb-4">${jugador.posicion} • #${jugador.numero}</p>
-                        <p class="text-lg text-gray-700 italic mb-6">"${jugador.frase}"</p>
-                        <div class="grid grid-cols-3 gap-4 max-w-md mx-auto md:mx-0">
-                            <div class="text-center">
-                                <div class="text-2xl font-bold text-green-600">${totalGoles}</div>
-                                <div class="text-sm text-gray-600">Goles</div>
-                            </div>
-                            <div class="text-center">
-                                <div class="text-2xl font-bold text-blue-600">${totalAsistencias}</div>
-                                <div class="text-sm text-gray-600">Asistencias</div>
-                            </div>
-                            <div class="text-center">
-                                <div class="text-2xl font-bold text-purple-600">${partidosJugados}</div>
-                                <div class="text-sm text-gray-600">Partidos</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `;
-            // Crear estadísticas generales
-            const promedioGoles = (totalGoles / partidosJugados).toFixed(2);
-            const promedioAsistencias = (totalAsistencias / partidosJugados).toFixed(2);
-            document.getElementById('general-stats').innerHTML = `
-                <div class="stat-card bg-white rounded-lg p-6 shadow-lg text-center">
-                    <div class="text-3xl font-bold text-green-600 mb-2">${totalGoles}</div>
-                    <div class="text-sm text-gray-600">Goles Totales</div>
-                    <div class="text-xs text-gray-500 mt-1">${promedioGoles} por partido</div>
-                </div>
-                <div class="stat-card bg-white rounded-lg p-6 shadow-lg text-center">
-                    <div class="text-3xl font-bold text-blue-600 mb-2">${totalAsistencias}</div>
-                    <div class="text-sm text-gray-600">Asistencias Totales</div>
-                    <div class="text-xs text-gray-500 mt-1">${promedioAsistencias} por partido</div>
-                </div>
-                <div class="stat-card bg-white rounded-lg p-6 shadow-lg text-center">
-                    <div class="text-3xl font-bold text-purple-600 mb-2">${partidosJugados}</div>
-                    <div class="text-sm text-gray-600">Partidos Jugados</div>
-                    <div class="text-xs text-gray-500 mt-1">de 13 totales</div>
-                </div>
-                <div class="stat-card bg-white rounded-lg p-6 shadow-lg text-center">
-                    <div class="text-3xl font-bold text-orange-600 mb-2">${totalGoles + totalAsistencias}</div>
-                    <div class="text-sm text-gray-600">Contribuciones</div>
-                    <div class="text-xs text-gray-500 mt-1">Goles + Asistencias</div>
-                </div>
-            `;
-            // Crear rendimiento por partido
-            let matchPerformancesHTML = '';
-            jugador.partidos.forEach(partido => {
-                const resultado = partidosData[partido.id]?.resultado || 'N/A';
-                const [golesLocal, golesVisitante] = resultado.split('-');
-                const esVictoria = parseInt(golesLocal) > parseInt(golesVisitante);
-                const esEmpate = parseInt(golesLocal) === parseInt(golesVisitante);
-                let resultColor = 'bg-red-100 border-red-300';
-                let resultText = 'Derrota';
-                if (esVictoria) {
-                    resultColor = 'bg-green-100 border-green-300';
-                    resultText = 'Victoria';
-                } else if (esEmpate) {
-                    resultColor = 'bg-yellow-100 border-yellow-300';
-                    resultText = 'Empate';
+            try {
+                const jugador = jugadoresData[playerId];
+                if (!jugador) return;
+                // Ocultar sección del equipo y mostrar detalles
+                document.getElementById('equipo').classList.add('hidden');
+                document.getElementById('partidos').classList.add('hidden');
+                document.getElementById('historia').classList.add('hidden');
+                document.getElementById('inicio').classList.add('hidden');
+                document.getElementById('stats-section').classList.add('hidden');
+                document.getElementById('match-details-section').classList.add('hidden');
+                document.getElementById('player-details-section').classList.remove('hidden');
+                // Cambiar URL sin recargar página
+                window.history.pushState({section: 'player-details', playerId: playerId}, '', `#jugador/${playerId}`);
+                const playerDetailsSection = document.getElementById('player-details-section');
+                if (!playerDetailsSection) {
+                    console.error('No se encontró el elemento player-details-section');
+                    return;
                 }
-                matchPerformancesHTML += `
-                    <div class="match-performance-card bg-white rounded-lg p-6 shadow-lg border-2 ${resultColor}">
-                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-4 md:space-y-0">
-                            <div class="flex-1">
-                                <div class="flex items-center space-x-4 mb-2">
-                                    <h4 class="font-bold text-lg text-gray-800">vs ${partido.rival}</h4>
-                                    <span class="px-3 py-1 text-xs font-semibold rounded-full ${resultColor.replace('bg-', 'bg-').replace('-100', '-200')}">${resultText}</span>
-                                </div>
-                                <p class="text-gray-600 text-sm">${partido.fecha} • Resultado: ${resultado}</p>
+                const offset = 50;
+                const topPosition = playerDetailsSection.getBoundingClientRect().top + window.scrollY - offset;
+                window.scrollTo({
+                    top: topPosition,
+                    behavior: 'smooth'
+                });
+                // Crear header del jugador
+                const totalGoles = jugador.partidos.reduce((sum, partido) => sum + partido.goles, 0);
+                const totalAsistencias = jugador.partidos.reduce((sum, partido) => sum + partido.asistencias, 0);
+                const partidosJugados = jugador.partidos.length;
+                document.getElementById('player-header').innerHTML = `
+                    <div class="flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-8">
+                        <div class="relative">
+                            <div class="w-48 h-60 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-lg shadow-lg relative">
+                                <i class="fas fa-user text-8xl mb-4 text-gray-300"></i>
                             </div>
-                            <div class="flex space-x-6">
+                            <div class="absolute -top-3 -right-3 bg-gradient-to-r from-red-600 to-red-800 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl shadow-lg">
+                                ${jugador.numero}
+                            </div>
+                        </div>
+                        <div class="flex-1 text-center md:text-left">
+                            <h1 class="text-4xl font-bold text-red-800 mb-2">${jugador.nombre}</h1>
+                            <p class="text-xl text-gray-600 mb-4">${jugador.posicion} • #${jugador.numero}</p>
+                            <p class="text-lg text-gray-700 italic mb-6">"${jugador.frase}"</p>
+                            <div class="grid grid-cols-3 gap-4 max-w-md mx-auto md:mx-0">
                                 <div class="text-center">
-                                    <div class="text-2xl font-bold text-green-600">${partido.goles}</div>
-                                    <div class="text-xs text-gray-600">Goles</div>
+                                    <div class="text-2xl font-bold text-green-600">${totalGoles}</div>
+                                    <div class="text-sm text-gray-600">Goles</div>
                                 </div>
                                 <div class="text-center">
-                                    <div class="text-2xl font-bold text-blue-600">${partido.asistencias}</div>
-                                    <div class="text-xs text-gray-600">Asistencias</div>
+                                    <div class="text-2xl font-bold text-blue-600">${totalAsistencias}</div>
+                                    <div class="text-sm text-gray-600">Asistencias</div>
                                 </div>
                                 <div class="text-center">
-                                    <div class="text-2xl font-bold text-purple-600">${partido.goles + partido.asistencias}</div>
-                                    <div class="text-xs text-gray-600">Total</div>
+                                    <div class="text-2xl font-bold text-purple-600">${partidosJugados}</div>
+                                    <div class="text-sm text-gray-600">Partidos</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 `;
-            });
-            document.getElementById('match-performances').innerHTML = matchPerformancesHTML;
-            // Desplazamiento suave al título del jugador
-            const playerDetailsSection = document.getElementById('player-details-section');
-            const offset = 50; // Ajusta este valor según sea necesario
-            const topPosition = playerDetailsSection.getBoundingClientRect().top + window.scrollY - offset;
-            window.scrollTo({
-                top: topPosition,
-                behavior: 'smooth'
-            });
+                // Crear estadísticas generales
+                const promedioGoles = (totalGoles / partidosJugados).toFixed(2);
+                const promedioAsistencias = (totalAsistencias / partidosJugados).toFixed(2);
+                document.getElementById('general-stats').innerHTML = `
+                    <div class="stat-card bg-white rounded-lg p-6 shadow-lg text-center">
+                        <div class="text-3xl font-bold text-green-600 mb-2">${totalGoles}</div>
+                        <div class="text-sm text-gray-600">Goles Totales</div>
+                        <div class="text-xs text-gray-500 mt-1">${promedioGoles} por partido</div>
+                    </div>
+                    <div class="stat-card bg-white rounded-lg p-6 shadow-lg text-center">
+                        <div class="text-3xl font-bold text-blue-600 mb-2">${totalAsistencias}</div>
+                        <div class="text-sm text-gray-600">Asistencias Totales</div>
+                        <div class="text-xs text-gray-500 mt-1">${promedioAsistencias} por partido</div>
+                    </div>
+                    <div class="stat-card bg-white rounded-lg p-6 shadow-lg text-center">
+                        <div class="text-3xl font-bold text-purple-600 mb-2">${partidosJugados}</div>
+                        <div class="text-sm text-gray-600">Partidos Jugados</div>
+                        <div class="text-xs text-gray-500 mt-1">de 13 totales</div>
+                    </div>
+                    <div class="stat-card bg-white rounded-lg p-6 shadow-lg text-center">
+                        <div class="text-3xl font-bold text-orange-600 mb-2">${totalGoles + totalAsistencias}</div>
+                        <div class="text-sm text-gray-600">Contribuciones</div>
+                        <div class="text-xs text-gray-500 mt-1">Goles + Asistencias</div>
+                    </div>
+                `;
+                // Crear rendimiento por partido
+                let matchPerformancesHTML = '';
+                jugador.partidos.forEach(partido => {
+                    const resultado = partidosData[partido.id]?.resultado || 'N/A';
+                    const [golesLocal, golesVisitante] = resultado.split('-');
+                    const esVictoria = parseInt(golesLocal) > parseInt(golesVisitante);
+                    const esEmpate = parseInt(golesLocal) === parseInt(golesVisitante);
+                    let resultColor = 'bg-red-100 border-red-300';
+                    let resultText = 'Derrota';
+                    if (esVictoria) {
+                        resultColor = 'bg-green-100 border-green-300';
+                        resultText = 'Victoria';
+                    } else if (esEmpate) {
+                        resultColor = 'bg-yellow-100 border-yellow-300';
+                        resultText = 'Empate';
+                    }
+                    matchPerformancesHTML += `
+                        <div class="match-performance-card bg-white rounded-lg p-6 shadow-lg border-2 ${resultColor}">
+                            <div class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-4 md:space-y-0">
+                                <div class="flex-1">
+                                    <div class="flex items-center space-x-4 mb-2">
+                                        <h4 class="font-bold text-lg text-gray-800">vs ${partido.rival}</h4>
+                                        <span class="px-3 py-1 text-xs font-semibold rounded-full ${resultColor.replace('bg-', 'bg-').replace('-100', '-200')}">${resultText}</span>
+                                    </div>
+                                    <p class="text-gray-600 text-sm">${partido.fecha} • Resultado: ${resultado}</p>
+                                </div>
+                                <div class="flex space-x-6">
+                                    <div class="text-center">
+                                        <div class="text-2xl font-bold text-green-600">${partido.goles}</div>
+                                        <div class="text-xs text-gray-600">Goles</div>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="text-2xl font-bold text-blue-600">${partido.asistencias}</div>
+                                        <div class="text-xs text-gray-600">Asistencias</div>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="text-2xl font-bold text-purple-600">${partido.goles + partido.asistencias}</div>
+                                        <div class="text-xs text-gray-600">Total</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+                document.getElementById('match-performances').innerHTML = matchPerformancesHTML;
+                // Desplazamiento suave al título del jugador
+                const playerDetailsSection = document.getElementById('player-details-section');
+                const offset = 50; // Ajusta este valor según sea necesario
+                const topPosition = playerDetailsSection.getBoundingClientRect().top + window.scrollY - offset;
+                window.scrollTo({
+                    top: topPosition,
+                    behavior: 'smooth'
+                });
+            } catch (error) {
+                console.error('Error en showPlayerDetails:', error);
+            }
         }
         // Función para volver al equipo
         window.backToTeam = function() {

@@ -1561,9 +1561,31 @@
             const filterButtons = document.querySelectorAll('.filter-btn');
             filterButtons.forEach(btn => {
                 if (btn.dataset.filter === filter) {
-                    btn.className = 'filter-btn bg-red-800 text-white px-6 py-2 rounded-full font-bold transition hover:bg-red-900';
+                    // Botón activo: usar bg-red-800 y texto blanco
+                    btn.classList.remove('bg-gray-200', 'text-gray-700', 'hover:bg-gray-300', 'hover:bg-green-200', 'hover:bg-yellow-200', 'hover:bg-red-200');
+                    btn.classList.add('bg-red-800', 'text-white', 'hover:bg-red-900');
                 } else {
-                    btn.className = 'filter-btn bg-gray-200 text-gray-700 px-6 py-2 rounded-full font-bold transition hover:bg-gray-300';
+                    // Botones inactivos: bg-gray-200 y texto gris
+                    btn.classList.remove('bg-red-800', 'text-white', 'hover:bg-red-900');
+                    btn.classList.add('bg-gray-200', 'text-gray-700');
+                    // Ajustar hover según filtro para mejor UX
+                    switch(btn.dataset.filter) {
+                        case 'victorias':
+                            btn.classList.add('hover:bg-green-200');
+                            btn.classList.remove('hover:bg-gray-300', 'hover:bg-yellow-200', 'hover:bg-red-200');
+                            break;
+                        case 'empates':
+                            btn.classList.add('hover:bg-yellow-200');
+                            btn.classList.remove('hover:bg-gray-300', 'hover:bg-green-200', 'hover:bg-red-200');
+                            break;
+                        case 'derrotas':
+                            btn.classList.add('hover:bg-red-200');
+                            btn.classList.remove('hover:bg-gray-300', 'hover:bg-green-200', 'hover:bg-yellow-200');
+                            break;
+                        default:
+                            btn.classList.add('hover:bg-gray-300');
+                            btn.classList.remove('hover:bg-green-200', 'hover:bg-yellow-200', 'hover:bg-red-200');
+                    }
                 }
             });
             matchCards.forEach(card => {

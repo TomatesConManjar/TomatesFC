@@ -2148,7 +2148,11 @@
         };
         // Función para mostrar detalles del jugador
         window.showPlayerDetails = function(playerId) {
-            console.log('showPlayerDetails llamado con:', playerId);
+            const jugador = jugadoresData[playerId];
+            if (!jugador) {
+                console.error('Jugador no encontrado:', playerId);
+                return;
+            }
             // Ocultar secciones principales
             ['inicio', 'historia', 'equipo', 'partidos', 'stats-section', 'match-details-section'].forEach(id => {
                 const el = document.getElementById(id);
@@ -2156,8 +2160,59 @@
             });
             // Mostrar sección detalles jugador
             const detalles = document.getElementById('player-details-section');
-            if (detalles) detalles.classList.remove('hidden');
-            else console.error('No se encontró player-details-section');
+            if (!detalles) {
+                console.error('No se encontró player-details-section');
+                return;
+            }
+            detalles.classList.remove('hidden');
+            // Limpiar contenido previo
+            document.getElementById('player-header').innerHTML = '';
+            document.getElementById('general-stats').innerHTML = '';
+            document.getElementById('match-performances').innerHTML = '';
+            // Insertar contenido básico en player-header
+            document.getElementById('player-header').innerHTML = `
+                <h1 class="text-4xl font-bold text-red-800 mb-4">${jugador.nombre}</h1>
+                <p class="text-lg text-gray-700 italic mb-6">"${jugador.frase}"</p>
+                <p><strong>Posición:</strong> ${jugador.posicion}</p>
+                <p><strong>Número:</strong> ${jugador.numero}</p>
+            `;
+            // Calcular totales simples
+            const totalGoles = jugador.partidos.reduce((sum, p) => sum + p.goles, 0);
+            const totalAsistencias = jugador.partidos.reduce((sum, p) => sum + p.asistencias, 0);
+            const partidosJugados = jugador.partidos.length;
+            // Insertar estadísticas generales
+            document.getElementById('general-stats').innerHTML = `
+                <div class="stat-card bg-white rounded-lg p-6 shadow-lg text-center">
+                    <div class="text-3xl font-bold text-green-600 mb-2">${totalGoles}</div>
+                    <div class="text-sm text-gray-600">Goles Totales</div>
+                </div>
+                <div class="stat-card bg-white rounded-lg p-6 shadow-lg text-center">
+                    <div class="text-3xl font-bold text-blue-600 mb-2">${totalAsistencias}</div>
+                    <div class="text-sm text-gray-600">Asistencias Totales</div>
+                </div>
+                <div class="stat-card bg-white rounded-lg p-6 shadow-lg text-center">
+                    <div class="text-3xl font-bold text-purple-600 mb-2">${partidosJugados}</div>
+                    <div class="text-sm text-gray-600">Partidos Jugados</div>
+                </div>
+    `        ;
+            // Insertar rendimiento por partido (lista simple)
+            let matchHTML = '';
+            jugador.partidos.forEach(partido => {
+                matchHTML += `
+                    <div class="match-performance-card bg-white rounded-lg p-4 shadow mb-4">
+                        <h4 class="font-semibold text-red-800 mb-1">vs ${partido.rival} (${partido.fecha})</h4>
+                        <p>Goles: <strong>${partido.goles}</strong> | Asistencias: <strong>${partido.asistencias}</strong></p>
+                    </div>
+                `;
+            });
+            document.getElementById('match-performances').innerHTML = matchHTML;
+            // Scroll suave a la sección detalles
+            const offset = 50;
+            const topPosition = detalles.getBoundingClientRect().top + window.scrollY - offset;
+            window.scrollTo({
+                top: topPosition,
+                behavior: 'smooth'
+            });
         };
         // Función para volver al equipo
         window.backToTeam = function() {

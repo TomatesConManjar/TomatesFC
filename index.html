@@ -1641,6 +1641,7 @@
     </script>
     <script>
         window.showStats = function() {
+            console.log('showStats llamado');
             try {
                 document.getElementById('inicio').classList.add('hidden');
                 document.getElementById('historia').classList.add('hidden');
@@ -1881,6 +1882,7 @@
             }
         };
         window.showMatchDetails = function(partidoId) {
+            console.log('showMatchDetails llamado con:', partidoId);
             try {
                 document.getElementById('inicio').classList.add('hidden');
                 document.getElementById('historia').classList.add('hidden');
@@ -2146,6 +2148,7 @@
         };
         // Función para mostrar detalles del jugador
         window.showPlayerDetails = function(playerId) {
+            console.log('showPlayerDetails llamado con:', playerId);
             try {
                 const jugador = jugadoresData[playerId];
                 if (!jugador) return;

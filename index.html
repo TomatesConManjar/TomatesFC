@@ -2149,7 +2149,15 @@
         // Función para mostrar detalles del jugador
         window.showPlayerDetails = function(playerId) {
             console.log('showPlayerDetails llamado con:', playerId);
-            alert('Jugador seleccionado: ' + playerId);
+            // Ocultar secciones principales
+            ['inicio', 'historia', 'equipo', 'partidos', 'stats-section', 'match-details-section'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.classList.add('hidden');
+            });
+            // Mostrar sección detalles jugador
+            const detalles = document.getElementById('player-details-section');
+            if (detalles) detalles.classList.remove('hidden');
+            else console.error('No se encontró player-details-section');
         };
         // Función para volver al equipo
         window.backToTeam = function() {

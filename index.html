@@ -2171,41 +2171,104 @@
             document.getElementById('match-performances').innerHTML = '';
             // Insertar contenido básico en player-header
             document.getElementById('player-header').innerHTML = `
-                <h1 class="text-4xl font-bold text-red-800 mb-4">${jugador.nombre}</h1>
-                <p class="text-lg text-gray-700 italic mb-6">"${jugador.frase}"</p>
-                <p><strong>Posición:</strong> ${jugador.posicion}</p>
-                <p><strong>Número:</strong> ${jugador.numero}</p>
+                <div class="flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-8">
+                    <div class="relative">
+                        <div class="w-48 h-60 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-lg shadow-lg relative">
+                            <i class="fas fa-user text-8xl mb-4 text-gray-300"></i>
+                        </div>
+                        <div class="absolute -top-3 -right-3 bg-gradient-to-r from-red-600 to-red-800 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl shadow-lg">
+                            ${jugador.numero}
+                        </div>
+                    </div>
+                    <div class="flex-1 text-center md:text-left">
+                        <h1 class="text-4xl font-bold text-red-800 mb-2">${jugador.nombre}</h1>
+                        <p class="text-xl text-gray-600 mb-4">${jugador.posicion} • #${jugador.numero}</p>
+                        <p class="text-lg text-gray-700 italic mb-6">"${jugador.frase}"</p>
+                    </div>
+                </div>
             `;
             // Calcular totales simples
             const totalGoles = jugador.partidos.reduce((sum, p) => sum + p.goles, 0);
             const totalAsistencias = jugador.partidos.reduce((sum, p) => sum + p.asistencias, 0);
             const partidosJugados = jugador.partidos.length;
-            // Insertar estadísticas generales
+            const totalContribuciones = totalGoles + totalAsistencias;
+            // Insertar estadísticas generales con contribuciones en naranja
             document.getElementById('general-stats').innerHTML = `
                 <div class="stat-card bg-white rounded-lg p-6 shadow-lg text-center">
                     <div class="text-3xl font-bold text-green-600 mb-2">${totalGoles}</div>
                     <div class="text-sm text-gray-600">Goles Totales</div>
+                    <div class="text-xs text-gray-500 mt-1">${(totalGoles / partidosJugados).toFixed(2)} por partido</div>
                 </div>
                 <div class="stat-card bg-white rounded-lg p-6 shadow-lg text-center">
                     <div class="text-3xl font-bold text-blue-600 mb-2">${totalAsistencias}</div>
                     <div class="text-sm text-gray-600">Asistencias Totales</div>
+                    <div class="text-xs text-gray-500 mt-1">${(totalAsistencias / partidosJugados).toFixed(2)} por partido</div>
                 </div>
                 <div class="stat-card bg-white rounded-lg p-6 shadow-lg text-center">
                     <div class="text-3xl font-bold text-purple-600 mb-2">${partidosJugados}</div>
                     <div class="text-sm text-gray-600">Partidos Jugados</div>
+                    <div class="text-xs text-gray-500 mt-1">de 13 totales</div>
                 </div>
-    `        ;
-            // Insertar rendimiento por partido (lista simple)
-            let matchHTML = '';
+                <div class="stat-card bg-white rounded-lg p-6 shadow-lg text-center">
+                    <div class="text-3xl font-bold text-orange-600 mb-2">${totalContribuciones}</div>
+                    <div class="text-sm text-gray-600">Contribuciones</div>
+                    <div class="text-xs text-gray-500 mt-1">Goles + Asistencias</div>
+                </div>
+            `;
+            // Crear rendimiento por partido con colores según resultado
+            let matchPerformancesHTML = '';
             jugador.partidos.forEach(partido => {
-                matchHTML += `
-                    <div class="match-performance-card bg-white rounded-lg p-4 shadow mb-4">
-                        <h4 class="font-semibold text-red-800 mb-1">vs ${partido.rival} (${partido.fecha})</h4>
-                        <p>Goles: <strong>${partido.goles}</strong> | Asistencias: <strong>${partido.asistencias}</strong></p>
+                // Obtener resultado del partido para determinar color
+                const partidoData = partidosData[partido.id];
+                let resultado = partidoData ? partidoData.resultado : null;
+                let esVictoria = false, esEmpate = false;
+                if (resultado) {
+                    const [golesLocal, golesVisitante] = resultado.split('-').map(n => parseInt(n));
+                    esVictoria = golesLocal > golesVisitante;
+                    esEmpate = golesLocal === golesVisitante;
+                }
+                // Definir clases de color para fondo y borde
+                let bgColor = 'bg-red-100';
+                let borderColor = 'border-red-300';
+                let textoResultado = 'Derrota';
+                if (esVictoria) {
+                    bgColor = 'bg-green-100';
+                    borderColor = 'border-green-300';
+                    textoResultado = 'Victoria';
+                } else if (esEmpate) {
+                    bgColor = 'bg-yellow-100';
+                    borderColor = 'border-yellow-300';
+                    textoResultado = 'Empate';
+                }
+                matchPerformancesHTML += `
+                    <div class="match-performance-card ${bgColor} rounded-lg p-6 shadow-lg border-2 ${borderColor} transition mb-4">
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-4 md:space-y-0">
+                            <div class="flex-1">
+                                <div class="flex items-center space-x-4 mb-2">
+                                    <h4 class="font-bold text-lg text-gray-800">vs ${partido.rival}</h4>
+                                    <span class="px-3 py-1 text-xs font-semibold rounded-full ${bgColor.replace('bg-', 'bg-').replace('-100', '-200')}">${textoResultado}</span>
+                                </div>
+                                <p class="text-gray-600 text-sm">${partido.fecha} • Resultado: ${resultado || 'N/A'}</p>
+                            </div>
+                            <div class="flex space-x-6 text-center">
+                                <div>
+                                    <div class="text-2xl font-bold text-green-600">${partido.goles}</div>
+                                    <div class="text-xs text-gray-600">Goles</div>
+                                </div>
+                                <div>
+                                    <div class="text-2xl font-bold text-blue-600">${partido.asistencias}</div>
+                                    <div class="text-xs text-gray-600">Asistencias</div>
+                                </div>
+                                <div>
+                                    <div class="text-2xl font-bold text-orange-600">${partido.goles + partido.asistencias}</div>
+                                    <div class="text-xs text-gray-600">Total</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 `;
             });
-            document.getElementById('match-performances').innerHTML = matchHTML;
+            document.getElementById('match-performances').innerHTML = matchPerformancesHTML;
             // Scroll suave a la sección detalles
             const offset = 50;
             const topPosition = detalles.getBoundingClientRect().top + window.scrollY - offset;

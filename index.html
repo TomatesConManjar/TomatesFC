@@ -1517,9 +1517,12 @@
             }
         };
         function renderMatches(filter = 'todos') {
-            console.log('Renderizando partidos con filtro:', filter);
+            console.log('renderMatches llamado con filtro:', filter);
             const container = document.getElementById('matches-container');
-            if (!container) return;
+            if (!container) {
+                console.error('No se encontró el contenedor matches-container');
+                return;
+            }
             container.innerHTML = ''; // limpiar contenido previo
             // Contadores para estadísticas
             let total = 0, victorias = 0, empates = 0, derrotas = 0;

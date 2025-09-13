@@ -1217,6 +1217,7 @@
                 }
             });
         window.filterMatches = function(filter) {
+            console.log('Filtro seleccionado:', filter);
             renderMatches(filter);
             const filterButtons = document.querySelectorAll('.filter-btn');
             filterButtons.forEach(btn => {
@@ -1516,6 +1517,7 @@
             }
         };
         function renderMatches(filter = 'todos') {
+            console.log('Renderizando partidos con filtro:', filter);
             const container = document.getElementById('matches-container');
             if (!container) return;
             container.innerHTML = ''; // limpiar contenido previo
@@ -1533,7 +1535,11 @@
                 else if (resultado === 'empate') empates++;
                 else if (resultado === 'derrota') derrotas++;
                 // Filtrar partidos según filtro
-                if (filter !== 'todos' && filter !== resultado) return;
+                if (filter !== 'todos' && filter !== resultado)
+                    console.log(`Omitiendo partido ${id} por filtro ${filter} (resultado: ${resultado})`);
+                    return;
+                }
+                console.log(`Mostrando partido ${id} (resultado: ${resultado})`);
                 // Obtener escudo rival
                 let escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/500x500__4_-removebg-preview.png';
                 switch(partido.rival) {

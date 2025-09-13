@@ -1538,7 +1538,7 @@
                 else if (resultado === 'empate') empates++;
                 else if (resultado === 'derrota') derrotas++;
                 // Filtrar partidos según filtro
-                if (filter !== 'todos' && filter !== resultado)
+                if (filter !== 'todos' && filter !== resultado) {
                     console.log(`Omitiendo partido ${id} por filtro ${filter} (resultado: ${resultado})`);
                     return;
                 }

@@ -2059,7 +2059,7 @@
             document.getElementById('inicio').classList.remove('hidden');
             window.history.pushState({section: 'equipo'}, '', '#equipo');
             const equipoSection = document.getElementById('equipo');
-            const offset = 50; // Ajusta según el tamaño del navbar fijo
+            const offset = 80; // Ajusta según el tamaño del navbar fijo
             const topPosition = equipoSection.getBoundingClientRect().top + window.scrollY - offset;
             window.scrollTo({
                 top: topPosition,

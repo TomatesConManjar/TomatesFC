@@ -1295,7 +1295,7 @@
             window.history.pushState({section: 'equipo'}, '', '#equipo');
             // Desplazamiento suave a la sección de plantilla
             const equipoSection = document.getElementById('equipo');
-            const offset = 50; // Ajusta este valor según sea necesario
+            const offset = 80; // Ajusta este valor según sea necesario
             const topPosition = equipoSection.getBoundingClientRect().top + window.scrollY - offset;
             window.scrollTo({
                 top: topPosition,

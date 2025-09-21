@@ -1274,12 +1274,14 @@
                     console.error('No se encontró el elemento stats-section');
                     return;
                 }
-                const offset = 50;
-                const topPosition = statsSection.getBoundingClientRect().top + window.scrollY - offset;
-                window.scrollTo({
-                    top: topPosition,
-                    behavior: 'smooth'
-                });
+                const offset = 80;
+                setTimeout(() => {  // Pequeño delay para asegurar DOM update
+                    const topPosition = statsSection.getBoundingClientRect().top + window.scrollY - offset;
+                    window.scrollTo({
+                        top: topPosition,
+                        behavior: 'smooth'
+                    });
+                }, 100);
             } catch (error) {
                 console.error('Error en showStats:', error);
             } 
@@ -1296,11 +1298,13 @@
             // Desplazamiento suave a la sección de plantilla
             const equipoSection = document.getElementById('equipo');
             const offset = 80; // Ajusta este valor según sea necesario
-            const topPosition = equipoSection.getBoundingClientRect().top + window.scrollY - offset;
-            window.scrollTo({
-                top: topPosition,
-                behavior: 'smooth'
-            });
+            setTimeout(() => {
+                const topPosition = equipoSection.getBoundingClientRect().top + window.scrollY - offset;
+                window.scrollTo({
+                    top: topPosition,
+                    behavior: 'smooth'
+                });
+            }, 100);
         }
         // Datos de los partidos con jugadores
         const partidosData = {
@@ -1756,13 +1760,17 @@
             document.getElementById('equipo').classList.remove('hidden');
             document.getElementById('partidos').classList.remove('hidden');
             window.history.pushState({section: 'partidos'}, '', '#partidos');
-            const title = document.getElementById('partidos-title');
-            const offset = 50; // Ajusta según altura navbar
-            const topPosition = title.getBoundingClientRect().top + window.scrollY - offset;
-            window.scrollTo({
-                top: topPosition,
-                behavior: 'smooth'
-            });
+            setTimeout(() => {
+                const title = document.getElementById('partidos-title');
+                if (title) {
+                    const offset = 80;  // Aumentado de 50 a 80px para compensar navbar (ajusta si es necesario)
+                    const topPosition = title.getBoundingClientRect().top + window.scrollY - offset;
+                    window.scrollTo({
+                        top: topPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            }, 100);  // Delay pequeño para asegurar que las clases hidden se apliquen
         }
         // BUSCADOR DE JUGADORES - SECCIÓN PRINCIPAL
         document.getElementById('playerSearch').addEventListener('input', function(e) {
@@ -2060,11 +2068,13 @@
             window.history.pushState({section: 'equipo'}, '', '#equipo');
             const equipoSection = document.getElementById('equipo');
             const offset = 80; // Ajusta según el tamaño del navbar fijo
-            const topPosition = equipoSection.getBoundingClientRect().top + window.scrollY - offset;
-            window.scrollTo({
-                top: topPosition,
-                behavior: 'smooth'
-            });
+            setTimeout(() => {
+                const topPosition = equipoSection.getBoundingClientRect().top + window.scrollY - offset;
+                window.scrollTo({
+                    top: topPosition,
+                    behavior: 'smooth'
+                });
+            }, 100);
         }
         // Manejar navegación del navegador
         window.addEventListener('popstate', function(event) {

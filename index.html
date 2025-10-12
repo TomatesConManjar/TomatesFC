@@ -288,6 +288,132 @@
         button:hover {
             transform: scale(1.05); /* Aumentar ligeramente el tamaño al pasar el mouse */
         }
+        /* Estilos para la sección de rivales (sin cambios principales, solo agregar estos para jugadores) */
+        #rivales {
+            background-color: #f9f9f9;
+            padding: 40px 0;
+        }
+        .rival-card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            padding: 1.5rem;
+        }
+        .rival-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        }
+        .rival-name {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #dc2626;
+            margin-bottom: 0.5rem;
+        }
+        .rival-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        .rival-stat {
+            text-align: center;
+            padding: 0.5rem;
+            background: #f3f4f6;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+        }
+        .rival-stat strong {
+            display: block;
+            font-size: 1.25rem;
+            color: #dc2626;
+        }
+        .rival-detail-container {
+            display: none;
+            animation: fadeIn 0.3s ease-in;
+        }
+        .rival-detail-container.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .rival-match-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-left: 4px solid #dc2626;
+            margin-bottom: 1rem;
+        }
+        .rival-match-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        .rival-match-result {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+            margin: 0.5rem 0;
+            flex: 1;
+        }
+        .victoria { color: #10b981; }
+        .empate { color: #f59e0b; }
+        .derrota { color: #ef4444; }
+        .rival-players-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 0.75rem;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e5e7eb;
+        }
+        .rival-player-card {
+            background: #f9fafb;
+            border-radius: 8px;
+            padding: 0.75rem;
+            text-align: center;
+            border: 1px solid #d1d5db;
+            font-size: 0.875rem;
+        }
+        .rival-player-name {
+            font-weight: bold;
+            color: #374151;
+            margin-bottom: 0.25rem;
+        }
+        .rival-player-goles {
+            color: #059669;
+            font-weight: bold;
+        }
+        .rival-player-asist {
+            color: #3b82f6;
+            font-weight: bold;
+        }
+        /* Modo oscuro para rivales y jugadores */
+        .dark .rival-card {
+            background-color: #2d3748;
+            color: #e2e8f0;
+        }
+        .dark .rival-stat {
+            background: #4a5568;
+        }
+        .dark .rival-match-card {
+            background: #2d3748;
+            border-left-color: #fc8181;
+        }
+        .dark .rival-player-card {
+            background: #4a5568;
+            border-color: #718096;
+            color: #e2e8f0;
+        }
+        .dark .rival-player-name {
+            color: #e2e8f0;
+        }
     </style>
 </head>
 <body>
@@ -644,6 +770,25 @@
             </div>
         </div>
     </section>
+    <!-- Sección de Rivales -->
+    <section id="rivales" class="py-16 bg-gray-100"> <!-- bg-gray-100 para alternar con #partidos -->
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12 text-red-800">RENDIMIENTO CONTRA RIVALES</h2>
+            <p class="text-center text-gray-600 mb-8 max-w-2xl mx-auto">Aquí puedes ver el historial y rendimiento de Tomates FC contra cada equipo. Incluye todos los rivales, incluso aquellos con un solo encuentro. Haz clic en un rival para ver detalles de partidos y jugadores.</p>
+            <!-- Contenedor para tarjetas de rivales -->
+            <div id="rivales-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+            <!-- Contenedor para detalles de un rival específico (se muestra al hacer clic) -->
+            <div id="rival-details" class="mt-12 hidden">
+                <button onclick="backToRivales()" class="bg-red-800 hover:bg-red-900 text-white font-bold py-2 px-6 rounded-full transition mb-8">
+                    ← Volver a Rivales
+                </button>
+                <div id="rival-header" class="bg-white rounded-lg p-8 shadow-lg mb-8"></div>
+                <div id="rival-matches-container" class="space-y-6"> <!-- Cambiado a space-y-6 para más espacio entre partidos -->
+                    <!-- Aquí se renderizarán los partidos con jugadores -->
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- Pie de página -->
     <footer class="bg-gray-900 text-white py-12">
         <div class="container mx-auto px-6">
@@ -868,6 +1013,39 @@
         }
             renderMatches('todos');
             updateTeamStats();
+        // NUEVO: Renderizar rivales al cargar la página
+        renderRivales();
+        // NUEVO: Manejar navegación para #rivales (agrega esto dentro del forEach de navbarEnlaces)
+        const navbarEnlaces = document.querySelectorAll('nav a');
+        navbarEnlaces.forEach(enlace => {
+            enlace.addEventListener('click', function(e) {
+                e.preventDefault();
+                const seccionId = this.getAttribute('href').split('#')[1];
+                if (seccionId === 'rivales') {
+                    // Ocultar otras secciones principales
+                    ['inicio', 'historia', 'equipo', 'partidos', 'stats-section', 'player-details-section', 'match-details-section'].forEach(id => {
+                        const el = document.getElementById(id);
+                        if (el) el.classList.add('hidden');
+                    });
+                    // Mostrar sección rivales
+                    const rivalesSection = document.getElementById('rivales');
+                    if (rivalesSection) {
+                        rivalesSection.classList.remove('hidden');
+                        renderRivales(); // Renderizar tarjetas
+                    }
+                    // Scroll suave a rivales
+                    const offset = 80;
+                    const el = document.getElementById('rivales');
+                    if (el) {
+                        const elementPosition = el.getBoundingClientRect().top + window.scrollY;
+                        const offsetPosition = elementPosition - offset;
+                        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                    }
+                    window.history.pushState({section: 'rivales'}, '', `#${seccionId}`);
+                    return; // Salir para no ejecutar el resto de la lógica
+                }
+                // ... tu código existente para otras secciones (inicio, historia, etc.) ...
+            });
         });
         // Función para renderizar estadísticas del equipo dinámicamente
         function renderTeamStats(searchTerm = '') {
@@ -1440,9 +1618,6 @@
                     case 'Pirula':
                         escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__4_-removebg-preview.png';
                         break;
-                    case 'Equipo Maradona':
-                        escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__4_-removebg-preview.png';
-                        break;
                 }    
                 // Crear HTML con escudos y resultado
                 const [golesLocal, golesVisitante] = partido.resultado.split('-');
@@ -1838,6 +2013,27 @@
                     showMatchDetails(event.state.partidoId);
                 } else if (event.state.section === 'partidos') {
                     backToMatches();
+                } else if (event.state.section === 'rival-details' && event.state.rival) {
+                    showRivalDetails(event.state.rival);
+                } else if (event.state.section === 'rivales') {
+                    // Ocultar detalles y mostrar lista de rivales
+                    document.getElementById('rival-details').classList.add('hidden');
+                    document.getElementById('rivales-container').classList.remove('hidden');
+                    // Ocultar otras secciones
+                    ['inicio', 'historia', 'equipo', 'partidos', 'stats-section', 'player-details-section', 'match-details-section'].forEach(id => {
+                        const el = document.getElementById(id);
+                        if (el) el.classList.add('hidden');
+                    });
+                    // Mostrar sección rivales
+                    document.getElementById('rivales').classList.remove('hidden');
+                    renderRivales();
+                    // Scroll a rivales
+                    const offset = 80;
+                    const el = document.getElementById('rivales');
+                    if (el) {
+                        const topPosition = el.getBoundingClientRect().top + window.scrollY - offset;
+                        window.scrollTo({ top: topPosition, behavior: 'smooth' });
+                    }
                 }
             } else {
                 // Estado inicial o sin estado, mostrar inicio o lo que corresponda
@@ -1850,6 +2046,173 @@
                 document.getElementById('match-details-section').classList.add('hidden');
             }
         });
+        // NUEVO: Función para obtener rivales únicos y sus stats
+        function getRivalesStats() {
+            const rivalesStats = {};
+            Object.values(partidosData).forEach(partido => {
+                const rival = partido.rival;
+                if (!rivalesStats[rival]) {
+                    rivalesStats[rival] = {
+                        partidos: 0,
+                        victorias: 0,
+                        empates: 0,
+                        derrotas: 0,
+                        golesFavor: 0,
+                        golesContra: 0,
+                        matches: [] // Array de partidos contra este rival (incluye jugadores)
+                    };
+                }
+                const [gf, gc] = partido.resultado.split('-').map(Number);
+                rivalesStats[rival].partidos++;
+                rivalesStats[rival].golesFavor += gf;
+                rivalesStats[rival].golesContra += gc;
+                rivalesStats[rival].matches.push(partido); // Mantiene el objeto completo con 'jugadores'
+                if (gf > gc) rivalesStats[rival].victorias++;
+                else if (gf === gc) rivalesStats[rival].empates++;
+                else rivalesStats[rival].derrotas++;
+            });
+            // Ordenar por partidos jugados (descendente)
+            return Object.entries(rivalesStats)
+                .sort(([,a], [,b]) => b.partidos - a.partidos)
+                .map(([rival, stats]) => ({ rival, ...stats, porcentajeVictorias: ((stats.victorias / stats.partidos) * 100).toFixed(1) }));
+        }
+        // NUEVO: Función para renderizar tarjetas de rivales
+        window.renderRivales = function() {
+            const rivales = getRivalesStats();
+            const container = document.getElementById('rivales-container');
+            if (!container) return;
+            container.innerHTML = '';
+            rivales.forEach((rivalData) => {
+                const escudoRival = getEscudoRival(rivalData.rival);
+                const cardHTML = `
+                    <div class="rival-card" onclick="showRivalDetails('${rivalData.rival}')">
+                        <img src="${escudoRival}" alt="Escudo ${rivalData.rival}" class="mx-auto h-16 w-16 object-contain mb-4">
+                        <h3 class="rival-name text-center">${rivalData.rival}</h3>
+                        <div class="rival-stats">
+                            <div class="rival-stat">
+                                <strong>${rivalData.partidos}</strong>
+                                Partidos
+                            </div>
+                            <div class="rival-stat">
+                                <strong>${rivalData.victorias}</strong>
+                                W
+                            </div>
+                            <div class="rival-stat">
+                                <strong>${rivalData.empates}</strong>
+                                D
+                            </div>
+                            <div class="rival-stat">
+                                <strong>${rivalData.derrotas}</strong>
+                                L
+                            </div>
+                            <div class="rival-stat">
+                                <strong>${rivalData.golesFavor} - ${rivalData.golesContra}</strong>
+                                GF - GC
+                            </div>
+                            <div class="rival-stat">
+                                <strong>${rivalData.porcentajeVictorias}%</strong>
+                                Victorias
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += cardHTML;
+            });
+        };
+        // NUEVO: Función para mostrar detalles de un rival (incluye jugadores por partido)
+        window.showRivalDetails = function(rivalName) {
+            const rivales = getRivalesStats();
+            const rivalData = rivales.find(r => r.rival === rivalName);
+            if (!rivalData) return;
+            // Ocultar contenedor principal y mostrar detalles
+            document.getElementById('rivales-container').classList.add('hidden');
+            document.getElementById('rival-details').classList.remove('hidden');
+            // Header con stats generales
+            const escudoRival = getEscudoRival(rivalName);
+            document.getElementById('rival-header').innerHTML = `
+                <div class="flex items-center justify-between mb-6">
+                    <div class="text-center">
+                        <img src="https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/Tomates_FC__13_-removebg-preview%20(1).png" alt="Tomates FC" class="h-16 w-16 mx-auto mb-2">
+                        <p class="font-bold">Tomates FC</p>
+                    </div>
+                    <div class="text-center">
+                        <h2 class="text-2xl font-bold text-red-800 mb-2">${rivalName}</h2>
+                        <p class="text-gray-600">Partidos: ${rivalData.partidos} | W: ${rivalData.victorias} D: ${rivalData.empates} L: ${rivalData.derrotas} | GF: ${rivalData.golesFavor} - ${rivalData.golesContra}</p>
+                    </div>
+                    <div class="text-center">
+                        <img src="${escudoRival}" alt="${rivalName}" class="h-16 w-16 mx-auto mb-2">
+                        <p class="font-bold">${rivalName}</p>
+                    </div>
+                </div>
+            `;
+            // Renderizar partidos contra este rival, INCLUYENDO JUGADORES
+            const matchesContainer = document.getElementById('rival-matches-container');
+            matchesContainer.innerHTML = '';
+            rivalData.matches.forEach(partido => {
+                const [gf, gc] = partido.resultado.split('-');
+                let resultadoClass = 'derrota', resultadoText = 'Derrota';
+                if (parseInt(gf) > parseInt(gc)) { 
+                    resultadoClass = 'victoria'; 
+                    resultadoText = 'Victoria'; 
+                } else if (parseInt(gf) === parseInt(gc)) { 
+                    resultadoClass = 'empate'; 
+                    resultadoText = 'Empate'; 
+                }
+                // Generar HTML para jugadores de este partido
+                let jugadoresHTML = '';
+                if (partido.jugadores && partido.jugadores.length > 0) {
+                    jugadoresHTML = `
+                        <div class="rival-players-container">
+                            ${partido.jugadores.map(jugador => `
+                                <div class="rival-player-card">
+                                    <div class="rival-player-name">${jugador.nombre}</div>
+                                    <div>⚽ <span class="rival-player-goles">${jugador.goles}</span> Goles</div>
+                                    <div>🎯 <span class="rival-player-asist">${jugador.asistencias}</span> Asist.</div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    `;
+                } else {
+                    jugadoresHTML = '<p class="text-gray-500 text-sm italic mt-2">No hay datos de jugadores disponibles para este partido.</p>';
+                }
+                const matchHTML = `
+                    <div class="rival-match-card">
+                        <div class="rival-match-header">
+                            <p class="text-sm text-gray-600 flex-1">${partido.fecha} • ${partido.lugar} • ${partido.hora}</p>
+                            <p class="text-sm text-gray-500 flex-1 text-right">${partido.tipo}</p>
+                        </div>
+                        <div class="rival-match-result ${resultadoClass}">${partido.resultado} (${resultadoText})</div>
+                        ${jugadoresHTML}
+                    </div>
+                `;
+                matchesContainer.innerHTML += matchHTML;
+            });
+            // Scroll suave
+            const detailsSection = document.getElementById('rival-details');
+            const offset = 80;
+            const topPosition = detailsSection.getBoundingClientRect().top + window.scrollY - offset;
+            window.scrollTo({ top: topPosition, behavior: 'smooth' });
+            // Actualizar URL
+            window.history.pushState({ section: 'rival-details', rival: rivalName }, '', `#rivales/${rivalName}`);
+        };
+        // NUEVO: Función para volver a la lista de rivales
+        window.backToRivales = function() {
+            document.getElementById('rival-details').classList.add('hidden');
+            document.getElementById('rivales-container').classList.remove('hidden');
+            window.history.pushState({ section: 'rivales' }, '', '#rivales');
+            renderRivales();
+        };
+        // NUEVO: Función helper para escudo (reusa o agrega si no la tienes)
+        function getEscudoRival(rival) {
+            const escudos = {
+                'Vaqueros': 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__4_-removebg-preview.png',
+                'Real Justicia': 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__3___1_-removebg-preview.png',
+                'Equipo Maradona': 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__4_-removebg-preview.png',
+                // Agrega más rivales si tienes escudos específicos; default para otros
+                'default': 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/500x500__4_-removebg-preview.png'
+            };
+            return escudos[rival] || escudos['default'];
+        }
     </script>
 </body>
 </html>

@@ -993,30 +993,6 @@
         });
     </script>
     <script>
-        window.showStats = function() {
-            console.log('showStats llamado');
-            try {
-                document.getElementById('inicio').classList.add('hidden');
-                document.getElementById('historia').classList.add('hidden');
-                document.getElementById('equipo').classList.add('hidden');
-                document.getElementById('partidos').classList.add('hidden');
-                document.getElementById('match-details-section').classList.add('hidden');
-                document.getElementById('stats-section').classList.remove('hidden');
-                const statsSection = document.getElementById('stats-section');
-                if (!statsSection) {
-                    console.error('No se encontró el elemento stats-section');
-                    return;
-                }
-                const offset = 80;
-                const topPosition = statsSection.getBoundingClientRect().top + window.scrollY - offset;
-                window.scrollTo({
-                    top: topPosition,
-                    behavior: 'smooth'
-                });
-            } catch (error) {
-                console.error('Error en showStats:', error);
-            } 
-        };  
         window.goBack = function() {
             document.getElementById('inicio').classList.remove('hidden');
             document.getElementById('historia').classList.remove('hidden');

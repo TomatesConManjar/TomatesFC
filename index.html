@@ -1017,39 +1017,6 @@
         }
             renderMatches('todos');
             updateTeamStats();
-        // NUEVO: Renderizar rivales al cargar la página
-        renderRivales();
-        // NUEVO: Manejar navegación para #rivales (agrega esto dentro del forEach de navbarEnlaces)
-        const navbarEnlaces = document.querySelectorAll('nav a');
-        navbarEnlaces.forEach(enlace => {
-            enlace.addEventListener('click', function(e) {
-                e.preventDefault();
-                const seccionId = this.getAttribute('href').split('#')[1];
-                if (seccionId === 'rivales') {
-                    // Ocultar otras secciones principales
-                    ['inicio', 'historia', 'equipo', 'partidos', 'stats-section', 'player-details-section', 'match-details-section'].forEach(id => {
-                        const el = document.getElementById(id);
-                        if (el) el.classList.add('hidden');
-                    });
-                    // Mostrar sección rivales
-                    const rivalesSection = document.getElementById('rivales');
-                    if (rivalesSection) {
-                        rivalesSection.classList.remove('hidden');
-                        renderRivales(); // Renderizar tarjetas
-                    }
-                    // Scroll suave a rivales
-                    const offset = 80;
-                    const el = document.getElementById('rivales');
-                    if (el) {
-                        const elementPosition = el.getBoundingClientRect().top + window.scrollY;
-                        const offsetPosition = elementPosition - offset;
-                        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-                    }
-                    window.history.pushState({section: 'rivales'}, '', `#${seccionId}`);
-                    return; // Salir para no ejecutar el resto de la lógica
-                }
-                // ... tu código existente para otras secciones (inicio, historia, etc.) ...
-            });
         });
         // Función para renderizar estadísticas del equipo dinámicamente
         function renderTeamStats(searchTerm = '') {
@@ -1159,20 +1126,6 @@
                 console.error('Error en showStats:', error);
             }
         };
-        // Buscador para stats del equipo (similar al de equipo principal)
-        document.addEventListener('DOMContentLoaded', function() {
-            // ... (tu código existente aquí)
-            // Event listener para el buscador de stats
-            const playerSearchStats = document.getElementById('playerSearchStats');
-            if (playerSearchStats) {
-                playerSearchStats.addEventListener('input', function(e) {
-                    const searchTerm = e.target.value;
-                    renderTeamStats(searchTerm); // Re-render con filtro
-                });
-            }
-            // Llamar renderTeamStats al cargar la página si es necesario (pero solo se usa en showStats)
-            // updateTeamStats(); // Ya lo tienes, para totals generales
-        });
     </script>
     <script>
         window.goBack = function() {

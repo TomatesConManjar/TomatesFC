@@ -563,28 +563,9 @@
                            class="w-full px-4 py-3 border-2 border-red-200 rounded-full focus:border-red-500 focus:outline-none transition">
                 </div>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                <!-- Estadísticas de cada jugador -->
-                <section id="stats-section" class="hidden py-16 bg-white">
-                   <div class="container mx-auto px-6">
-                       <h2 class="text-3xl font-bold text-center mb-12 text-red-800">Estadísticas de Jugadores</h2>
-                       <div class="mb-8">
-                           <div class="max-w-md mx-auto">
-                               <input type="text" id="playerSearchStats" placeholder="🔍 Buscar jugador..." 
-                                      class="w-full px-4 py-3 border-2 border-red-200 rounded-full focus:border-red-500 focus:outline-none transition">
-                           </div>
-                       </div>
-                       <!-- Contenedor dinámico para las tarjetas de stats -->
-                       <div id="stats-players-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                           <!-- Las tarjetas se generarán aquí dinámicamente con JS -->
-                       </div>
-                       <div class="text-center mt-12">
-                           <button onclick="goBack()" class="bg-red-800 hover:bg-red-900 text-white font-bold py-3 px-8 rounded-full transition">
-                               Volver
-                           </button>
-                       </div>
-                   </div>
-               </section>
+            <!-- Contenedor dinámico para las tarjetas de stats -->
+            <div id="stats-players-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                <!-- Las tarjetas se generarán aquí dinámicamente con JS -->
             </div>
             <div class="text-center mt-12">
                 <button onclick="goBack()" class="bg-red-800 hover:bg-red-900 text-white font-bold py-3 px-8 rounded-full transition">

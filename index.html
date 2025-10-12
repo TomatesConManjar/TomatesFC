@@ -939,21 +939,35 @@
                     e.preventDefault();
                     const seccionId = this.getAttribute('href').split('#')[1];
                     // Ocultar todas las secciones principales y detalles
-                    ['inicio', 'historia', 'equipo', 'partidos', 'stats-section', 'player-details-section', 'match-details-section'].forEach(id => {
+                    ['inicio', 'historia', 'equipo', 'partidos', 'rivales', 'stats-section', 'player-details-section', 'match-details-section'].forEach(id => {
                         const el = document.getElementById(id);
                         if (el) el.classList.add('hidden');
                     });
                     // Mostrar la sección seleccionada si es una sección principal
                     if (seccionId === 'inicio') {
                         // Mostrar todas las secciones deseadas al hacer clic en "Inicio"
-                        ['inicio', 'historia', 'equipo', 'partidos'].forEach(id => {
+                        ['inicio', 'historia', 'equipo', 'partidos', 'rivales'].forEach(id => {
                             const el = document.getElementById(id);
                             if (el) el.classList.remove('hidden');
                         });
-                    } else if (['historia', 'equipo', 'partidos'].includes(seccionId)) {
+                        // Renderizar contenido dinámico para todas
+                        renderMatches('todos');
+                        renderRivales();
+                    } else if (['historia', 'equipo', 'partidos', 'rivales'].includes(seccionId)) {
                         // Mostrar solo la sección seleccionada
                         const el = document.getElementById(seccionId);
                         if (el) el.classList.remove('hidden');
+                        // Renderizar contenido dinámico específico
+                        if (seccionId === 'partidos') renderMatches('todos');
+                        if (seccionId === 'rivales') renderRivales();
+                    }
+                    // Lógica específica para rivales (si no se capturó arriba)
+                    if (seccionId === 'rivales') {
+                    const rivalesSection = document.getElementById('rivales');
+                        if (rivalesSection) {
+                            rivalesSection.classList.remove('hidden');
+                            renderRivales(); // Renderizar tarjetas de rivales
+                        }
                     }
                     // Scroll con offset
                     const offset = 80;
@@ -1017,6 +1031,31 @@
         }
             renderMatches('todos');
             updateTeamStats();
+            renderRivales();
+        // Event listener para el buscador de stats del equipo
+        const playerSearchStats = document.getElementById('playerSearchStats');
+        if (playerSearchStats) {
+            playerSearchStats.addEventListener('input', function(e) {
+                const searchTerm = e.target.value;
+                renderTeamStats(searchTerm);
+            });
+        }
+        // Buscador de jugadores en la sección equipo
+        const playerSearch = document.getElementById('playerSearch');
+        if (playerSearch) {
+            playerSearch.addEventListener('input', function(e) {
+                const searchTerm = e.target.value.toLowerCase();
+                const playerCards = document.querySelectorAll('#equipo .player-card');
+                playerCards.forEach(card => {
+                    const playerName = card.querySelector('h3').textContent.toLowerCase();
+                    if (playerName.includes(searchTerm)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        }
         });
         // Función para renderizar estadísticas del equipo dinámicamente
         function renderTeamStats(searchTerm = '') {
@@ -1106,6 +1145,7 @@
                 document.getElementById('historia').classList.add('hidden');
                 document.getElementById('equipo').classList.add('hidden');
                 document.getElementById('partidos').classList.add('hidden');
+                document.getElementById('rivales').classList.add('hidden');
                 document.getElementById('match-details-section').classList.add('hidden');
                 document.getElementById('player-details-section').classList.add('hidden');
                 // Mostrar stats-section

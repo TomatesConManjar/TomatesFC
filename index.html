@@ -793,7 +793,7 @@
     <section id="rivales" class="py-16 bg-gray-100"> <!-- bg-gray-100 para alternar con #partidos -->
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold text-center mb-12 text-red-800">RENDIMIENTO CONTRA RIVALES</h2>
-            <p class="text-center text-gray-600 mb-8 max-w-2xl mx-auto">Aquí puedes ver el historial y rendimiento de Tomates FC contra cada equipo. Incluye todos los rivales, incluso aquellos con un solo encuentro. Haz clic en un rival para ver detalles de partidos y jugadores.</p>
+            <p id= "rivales-descripcion" class="text-center text-gray-600 mb-8 max-w-2xl mx-auto">Aquí puedes ver el historial y rendimiento de Tomates FC contra cada equipo. Incluye todos los rivales, incluso aquellos con un solo encuentro. Haz clic en un rival para ver detalles de partidos y jugadores.</p>
             <!-- Contenedor para tarjetas de rivales -->
             <div id="rivales-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
             <!-- Contenedor para detalles de un rival específico (se muestra al hacer clic) -->
@@ -2146,6 +2146,9 @@
             // Ocultar contenedor principal y mostrar detalles
             document.getElementById('rivales-container').classList.add('hidden');
             document.getElementById('rival-details').classList.remove('hidden');
+            // NUEVO: Ocultar descripción al entrar a detalles
+             const descripcion = document.getElementById('rivales-descripcion');
+             if (descripcion) descripcion.classList.add('hidden');
             // Header con stats generales
             const escudoRival = getEscudoRival(rivalName);
             document.getElementById('rival-header').innerHTML = `
@@ -2220,6 +2223,9 @@
             document.getElementById('rivales-container').classList.remove('hidden');
             window.history.pushState({ section: 'rivales' }, '', '#rivales');
             renderRivales();
+            // NUEVO: Mostrar descripción al volver a la lista
+             const descripcion = document.getElementById('rivales-descripcion');
+             if (descripcion) descripcion.classList.remove('hidden');
             // NUEVO: Scroll suave al título de la sección rivales
             const tituloRivales = document.querySelector('#rivales h2'); // Selecciona el <h2> "RENDIMIENTO CONTRA RIVALES"
             if (tituloRivales) {

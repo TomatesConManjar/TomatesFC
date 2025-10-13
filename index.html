@@ -2220,6 +2220,11 @@
             document.getElementById('rivales-container').classList.remove('hidden');
             window.history.pushState({ section: 'rivales' }, '', '#rivales');
             renderRivales();
+            // NUEVO: Scroll suave al título de la sección rivales
+            const tituloRivales = document.querySelector('#rivales h2'); // Selecciona el <h2> "RENDIMIENTO CONTRA RIVALES"
+            if (tituloRivales) {
+                tituloRivales.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
         };
         // NUEVO: Función helper para escudo (reusa o agrega si no la tienes)
         function getEscudoRival(rival) {

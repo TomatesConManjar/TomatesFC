@@ -2219,10 +2219,24 @@
         };
         // NUEVO: Función para volver a la lista de rivales
         window.backToRivales = function() {
+            // Ocultar todas las secciones de detalles
             document.getElementById('rival-details').classList.add('hidden');
-            document.getElementById('rivales-container').classList.remove('hidden');
+            document.getElementById('stats-section').classList.add('hidden');
+            document.getElementById('player-details-section').classList.add('hidden');
+            document.getElementById('match-details-section').classList.add('hidden');
+            document.getElementById('inicio').classList.remove('hidden');
+            document.getElementById('historia').classList.remove('hidden');
+            document.getElementById('equipo').classList.remove('hidden');
+            document.getElementById('partidos').classList.remove('hidden');
+            document.getElementById('rivales').classList.remove('hidden');
+            // Renderizar contenido dinámico para las secciones si es necesario
+            renderRivales();  // Actualiza la lista de rivales
+            renderMatches('todos');  // Actualiza los partidos para que se muestren correctamente
             window.history.pushState({ section: 'rivales' }, '', '#rivales');
-            renderRivales();
+            const rivalesSection = document.getElementById('rivales');
+            if (rivalesSection) {
+                rivalesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
             // NUEVO: Mostrar descripción al volver a la lista
              const descripcion = document.getElementById('rivales-descripcion');
              if (descripcion) descripcion.classList.remove('hidden');

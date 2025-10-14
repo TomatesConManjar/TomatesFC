@@ -2230,14 +2230,19 @@
             renderRivales();  // Actualiza la lista de rivales
             renderMatches('todos');  // Actualiza los partidos para que se muestren correctamente
             window.history.pushState({ section: 'rivales' }, '', '#rivales');
+            // Hacer scroll suave al título de rivales con offset para el navbar
+            const tituloRivales = document.querySelector('#rivales h2');  // Selecciona el h2 "RENDIMIENTO CONTRA RIVALES"
+            if (tituloRivales) {
+                const offset = 80;  // Ajusta este valor si el navbar es más alto o bajo (por ejemplo, mide su altura en píxeles)
+                const elementPosition = tituloRivales.getBoundingClientRect().top + window.scrollY - offset;
+                window.scrollTo({
+                    top: elementPosition,
+                    behavior: 'smooth'
+                });
+            }
             const rivalesSection = document.getElementById('rivales');
             if (rivalesSection) {
                 rivalesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-            // NUEVO: Scroll suave al título de la sección rivales
-            const tituloRivales = document.querySelector('#rivales h2'); // Selecciona el <h2> "RENDIMIENTO CONTRA RIVALES"
-            if (tituloRivales) {
-                tituloRivales.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         };
         // NUEVO: Función helper para escudo (reusa o agrega si no la tienes)

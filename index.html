@@ -2142,13 +2142,13 @@
                 if (el) el.classList.add('hidden');
             });
             // Mostrar solo la sección rivales (que incluye navbar y footer siempre visibles)
-             document.getElementById('rivales').classList.remove('hidden');
+            document.getElementById('rivales').classList.remove('hidden');
             // Ocultar contenedor principal y mostrar detalles
             document.getElementById('rivales-container').classList.add('hidden');
             document.getElementById('rival-details').classList.remove('hidden');
             // NUEVO: Ocultar descripción al entrar a detalles
-             const descripcion = document.getElementById('rivales-descripcion');
-             if (descripcion) descripcion.classList.add('hidden');
+            const descripcion = document.getElementById('rivales-descripcion');
+            if (descripcion) descripcion.classList.add('hidden');
             // Header con stats generales
             const escudoRival = getEscudoRival(rivalName);
             document.getElementById('rival-header').innerHTML = `
@@ -2229,6 +2229,7 @@
             document.getElementById('equipo').classList.remove('hidden');
             document.getElementById('partidos').classList.remove('hidden');
             document.getElementById('rivales').classList.remove('hidden');
+            document.getElementById('rivales-container').classList.remove('hidden');
             // Renderizar contenido dinámico para las secciones si es necesario
             renderRivales();  // Actualiza la lista de rivales
             renderMatches('todos');  // Actualiza los partidos para que se muestren correctamente

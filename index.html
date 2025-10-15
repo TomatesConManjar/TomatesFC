@@ -580,15 +580,16 @@
     </section>
     <!-- Sección del equipo -->
     <section id="equipo" class="py-16 bg-gray-100">
-    <div class="container mx-auto px-6">
-        <h2 class="text-3xl font-bold text-center mb-12 text-red-800">PLANTILLA</h2>
-        <div class="mb-8">
-            <div class="max-w-md mx-auto">
-                <input type="text" id="playerSearch" placeholder="🔍 Buscar jugador..." 
-                       class="w-full px-4 py-3 border-2 border-red-200 rounded-full focus:border-red-500 focus:outline-none transition">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12 text-red-800">PLANTILLA</h2>
+            <div class="mb-8">
+                <div class="max-w-md mx-auto">
+                    <input type="text" id="playerSearch" placeholder="🔍 Buscar jugador..." 
+                           class="w-full px-4 py-3 border-2 border-red-200 rounded-full focus:border-red-500 focus:outline-none transition">
+                </div>
             </div>
-        </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">     
+            <!-- Vista responsive para móvil/tablet: Grid original con todos los jugadores -->
+            <div id="mobile-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 lg:hidden">
                 <!-- Jugador 1 -->
                 <div class="player-card rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer" onclick="showPlayerDetails('leandro-zavala')">
                     <div class="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-t-lg relative">
@@ -693,6 +694,123 @@
                         <p class="text-gray-700">"No hay balón perdido si yo estoy cerca, de un área a la otra"</p>
                     </div>
                 </div>
+            </div>
+            <!-- Carrusel para desktop (lg+): Muestra 4 jugadores por slide en fila horizontal -->
+            <div id="desktop-carousel" class="hidden lg:block relative overflow-hidden">
+                <div id="players-carousel" class="flex gap-8 transition-transform duration-500 ease-in-out w-[200%] transform translate-x-0">
+                    <!-- Los mismos 8 jugadores, pero con clases para carrusel: flex-none w-1/4 -->
+                    <!-- Jugador 1 -->
+                    <div class="player-card rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer flex-none w-1/4" onclick="showPlayerDetails('leandro-zavala')">
+                        <div class="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-t-lg relative">
+                            <i class="fas fa-user text-6xl mb-3 text-gray-300"></i>
+                            <span class="text-sm font-semibold mt-2">L. ZAVALA</span>
+                        </div>
+                        <div class="p-6 relative">
+                            <div class="player-number">5</div>
+                            <h3 class="font-bold text-xl mb-2 text-red-800">Leandro Zavala</h3>
+                            <p class="text-gray-600 mb-2">Defensa</p>
+                            <p class="text-gray-700">"La defensa es el pilar de todo gran equipo"</p>
+                        </div>
+                    </div>
+                    <!-- Jugador 2 -->
+                    <div class="player-card rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer flex-none w-1/4" onclick="showPlayerDetails('francisco-lizama')">
+                        <div class="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-t-lg relative">
+                            <i class="fas fa-user text-6xl mb-3 text-gray-300"></i>
+                            <span class="text-sm font-semibold mt-2">F. LIZAMA</span>
+                        </div>
+                        <div class="p-6 relative">
+                            <div class="player-number">6</div>
+                            <h3 class="font-bold text-xl mb-2 text-red-800">Francisco Lizama</h3>
+                            <p class="text-gray-600 mb-2">Defensa</p>
+                            <p class="text-gray-700">"La última línea de defensa, siempre alerta"</p>
+                        </div>
+                    </div>
+                    <!-- Jugador 3 -->
+                    <div class="player-card rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer flex-none w-1/4" onclick="showPlayerDetails('benjamin-garces')">
+                        <div class="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-t-lg relative">
+                            <i class="fas fa-user text-6xl mb-3 text-gray-300"></i>
+                            <span class="text-sm font-semibold mt-2">B. GARCES</span>
+                        </div>
+                        <div class="p-6 relative">
+                            <div class="player-number">7</div>
+                            <h3 class="font-bold text-xl mb-2 text-red-800">Benjamín Garcés</h3>
+                            <p class="text-gray-600 mb-2">Delantero</p>
+                            <p class="text-gray-700">"Cada gol cuenta, y yo estoy aquí para marcar la diferencia"</p>
+                        </div>
+                    </div>
+                    <!-- Jugador 4 -->
+                    <div class="player-card rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer flex-none w-1/4" onclick="showPlayerDetails('cristobal-santibanez')">
+                        <div class="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-t-lg relative">
+                            <i class="fas fa-user text-6xl mb-3 text-gray-300"></i>
+                            <span class="text-sm font-semibold mt-2">C. SANTIBAÑEZ</span>
+                        </div>
+                        <div class="p-6 relative">
+                            <div class="player-number">8</div>
+                            <h3 class="font-bold text-xl mb-2 text-red-800">Cristóbal Santibáñez</h3>
+                            <p class="text-gray-600 mb-2">Delantero</p>
+                            <p class="text-gray-700">"Anticipar el juego es lo que me define como delantero"</p>
+                        </div>
+                    </div>
+                    <!-- Jugador 5 -->
+                    <div class="player-card rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer flex-none w-1/4" onclick="showPlayerDetails('matias-paredes')">
+                        <div class="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-t-lg relative">
+                            <i class="fas fa-user text-6xl mb-3 text-gray-300"></i>
+                            <span class="text-sm font-semibold mt-2">M. PAREDES</span>
+                        </div>
+                        <div class="p-6 relative">
+                            <div class="player-number">9</div>
+                            <h3 class="font-bold text-xl mb-2 text-red-800">Matías Paredes</h3>
+                            <p class="text-gray-600 mb-2">Delantero</p>
+                            <p class="text-gray-700">"Cada gol es un paso más hacia la victoria"</p>
+                        </div>
+                    </div>
+                    <!-- Jugador 6 -->
+                    <div class="player-card rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer flex-none w-1/4" onclick="showPlayerDetails('diego-manque')">
+                        <div class="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-t-lg relative">
+                            <i class="fas fa-user text-6xl mb-3 text-gray-300"></i>
+                            <span class="text-sm font-semibold mt-2">D. MANQUE</span>
+                        </div>
+                        <div class="p-6 relative">
+                            <div class="player-number">10</div>
+                            <h3 class="font-bold text-xl mb-2 text-red-800">Diego Manque</h3>
+                            <p class="text-gray-600 mb-2">Mediocampista</p>
+                            <p class="text-gray-700">"Crear oportunidades es mi pasión en el campo"</p>
+                        </div>
+                    </div>
+                    <!-- Jugador 7 -->
+                    <div class="player-card rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer flex-none w-1/4" onclick="showPlayerDetails('sebastian-sandoval')">
+                        <div class="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-t-lg relative">
+                            <i class="fas fa-user text-6xl mb-3 text-gray-300"></i>
+                            <span class="text-sm font-semibold mt-2">S. SANDOVAL</span>
+                        </div>
+                        <div class="p-6 relative">
+                            <div class="player-number">11</div>
+                            <h3 class="font-bold text-xl mb-2 text-red-800">Sebastián Sandoval</h3>
+                            <p class="text-gray-600 mb-2">Mediocampista</p>
+                            <p class="text-gray-700">"Siempre listo para recuperar el balón y apoyar al equipo"</p>
+                        </div>
+                    </div>
+                    <!-- Jugador 8 -->
+                    <div class="player-card rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer flex-none w-1/4" onclick="showPlayerDetails('matias-bustamante')">
+                        <div class="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-t-lg relative">
+                            <i class="fas fa-user text-6xl mb-3 text-gray-300"></i>
+                            <span class="text-sm font-semibold mt-2">M. BUSTAMANTE</span>
+                        </div>
+                        <div class="p-6 relative">
+                            <div class="player-number">14</div>
+                            <h3 class="font-bold text-xl mb-2 text-red-800">Matías Bustamante</h3>
+                            <p class="text-gray-600 mb-2">Mediocampista</p>
+                            <p class="text-gray-700">"No hay balón perdido si yo estoy cerca, de un área a la otra"</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Botones de navegación (solo en desktop) -->
+                <button id="carousel-prev" class="absolute left-4 top-1/2 -translate-y-1/2 bg-red-800 hover:bg-red-900 text-white p-3 rounded-full shadow-lg transition z-10 disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button id="carousel-next" class="absolute right-4 top-1/2 -translate-y-1/2 bg-red-800 hover:bg-red-900 text-white p-3 rounded-full shadow-lg transition z-10">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
             </div>
             <div class="text-center mt-12">
                 <button onclick="showStats()" class="bg-red-800 hover:bg-red-900 text-white font-bold py-3 px-8 rounded-full transition">
@@ -1071,8 +1189,67 @@
                         card.style.display = 'none';
                     }
                 });
+            });    
+            // Inicializar carrusel
+            if (window.innerWidth >= 1024) { // lg breakpoint en Tailwind
+                initCarousel();
+            }
+            // Re-inicializar en resize (para responsive)
+            window.addEventListener('resize', function() {
+                if (window.innerWidth >= 1024) {
+                    initCarousel();
+                }
             });
-        }
+            // Función para inicializar el carrusel
+            function initCarousel() {
+                const carousel = document.getElementById('players-carousel');
+                const prevBtn = document.getElementById('carousel-prev');
+                const nextBtn = document.getElementById('carousel-next');
+                let currentSlide = 0;
+                const totalSlides = 2; // 8 jugadores / 4 por slide
+                if (!carousel || !prevBtn || !nextBtn) return;
+                function updateCarousel() {
+                    const translateX = - (currentSlide * 50); // 50% por slide (para 4 cards)
+                    carousel.style.transform = `translateX(${translateX}%)`;
+                    prevBtn.disabled = currentSlide === 0;
+                    nextBtn.disabled = currentSlide === totalSlides - 1;
+                }
+                nextBtn.addEventListener('click', function() {
+                    if (currentSlide < totalSlides - 1) {
+                        currentSlide++;
+                        updateCarousel();
+                    }
+                });
+                prevBtn.addEventListener('click', function() {
+                    if (currentSlide > 0) {
+                        currentSlide--;
+                        updateCarousel();
+                    }
+                });
+                // Actualizar búsqueda para incluir carrusel
+                const playerSearch = document.getElementById('playerSearch');
+                if (playerSearch) {
+                    playerSearch.addEventListener('input', function(e) {
+                        const searchTerm = e.target.value.toLowerCase();
+                        // Buscar en mobile grid
+                        const mobileCards = document.querySelectorAll('#mobile-grid .player-card');
+                        mobileCards.forEach(card => {
+                            const playerName = card.querySelector('h3').textContent.toLowerCase();
+                            card.style.display = playerName.includes(searchTerm) ? 'block' : 'none';
+                        });
+                        // Buscar en desktop carousel
+                        const desktopCards = document.querySelectorAll('#players-carousel .player-card');
+                        desktopCards.forEach(card => {
+                            const playerName = card.querySelector('h3').textContent.toLowerCase();
+                            card.style.display = playerName.includes(searchTerm) ? 'block' : 'none';
+                        });
+                        // Opcional: Si hay filtros, reset slide a 0
+                        if (searchTerm) currentSlide = 0; updateCarousel();
+                    });
+                }
+                // Inicial slide
+                updateCarousel();
+            }
         });
         // Función para renderizar estadísticas del equipo dinámicamente
         function renderTeamStats(searchTerm = '') {

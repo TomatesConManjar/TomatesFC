@@ -1213,6 +1213,8 @@
                     carousel.style.transform = `translateX(${translateX}%)`;
                     prevBtn.disabled = currentSlide === 0;
                     nextBtn.disabled = currentSlide === totalSlides - 1;
+                    // Ajuste adicional: Asegura que el carrusel sea visible
+                    carousel.style.overflowX = 'visible';  // Forzar visibilidad para depuración
                 }
                 nextBtn.addEventListener('click', function() {
                     if (currentSlide < totalSlides - 1) {
@@ -1250,8 +1252,10 @@
                                 card.classList.add('hidden');  // Añade la clase para ocultar
                             }
                         });
-                        // Opcional: Si hay filtros, reset slide a 0
-                        if (searchTerm) currentSlide = 0; updateCarousel();
+                        if (searchTerm) {
+                            currentSlide = 0;  // Vuelve al primer slide
+                            updateCarousel();
+                        }
                     });
                 }
                 // Inicial slide

@@ -1184,11 +1184,12 @@
                 playerCards.forEach(card => {
                     const playerName = card.querySelector('h3').textContent.toLowerCase();
                     if (playerName.includes(searchTerm)) {
-                        card.style.display = 'block';
+                        card.classList.remove('hidden');  // Muestra el card
                     } else {
-                        card.style.display = 'none';
+                        card.classList.add('hidden');  // Oculta el card
                     }
                 });
+            }
             });    
             // Inicializar carrusel
             if (window.innerWidth >= 1024) { // lg breakpoint en Tailwind

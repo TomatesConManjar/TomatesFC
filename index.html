@@ -1237,11 +1237,14 @@
                             const playerName = card.querySelector('h3').textContent.toLowerCase();
                             card.style.display = playerName.includes(searchTerm) ? 'block' : 'none';
                         });
-                        // Buscar en desktop carousel
                         const desktopCards = document.querySelectorAll('#players-carousel .player-card');
                         desktopCards.forEach(card => {
                             const playerName = card.querySelector('h3').textContent.toLowerCase();
-                            card.style.display = playerName.includes(searchTerm) ? 'block' : 'none';
+                            if (playerName.includes(searchTerm)) {
+                                card.classList.remove('hidden');  // Remueve la clase para mostrar
+                            } else {
+                                card.classList.add('hidden');  // Añade la clase para ocultar
+                            }
                         });
                         // Opcional: Si hay filtros, reset slide a 0
                         if (searchTerm) currentSlide = 0; updateCarousel();

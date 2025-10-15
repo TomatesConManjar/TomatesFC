@@ -1206,10 +1206,10 @@
                 const prevBtn = document.getElementById('carousel-prev');
                 const nextBtn = document.getElementById('carousel-next');
                 let currentSlide = 0;
-                const totalSlides = 2; // 8 jugadores / 4 por slide
+                const totalSlides = 4; // 8 jugadores / 4 por slide
                 if (!carousel || !prevBtn || !nextBtn) return;
                 function updateCarousel() {
-                    const translateX = - (currentSlide * 50); // 50% por slide (para 4 cards)
+                    const translateX = - (currentSlide * 25); // 50% por slide (para 4 cards)
                     carousel.style.transform = `translateX(${translateX}%)`;
                     prevBtn.disabled = currentSlide === 0;
                     nextBtn.disabled = currentSlide === totalSlides - 1;

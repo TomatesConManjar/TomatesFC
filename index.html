@@ -1189,7 +1189,6 @@
                         card.classList.add('hidden');  // Oculta el card
                     }
                 });
-            }
             });    
             // Inicializar carrusel
             if (window.innerWidth >= 1024) { // lg breakpoint en Tailwind
@@ -1236,7 +1235,11 @@
                         const mobileCards = document.querySelectorAll('#mobile-grid .player-card');
                         mobileCards.forEach(card => {
                             const playerName = card.querySelector('h3').textContent.toLowerCase();
-                            card.style.display = playerName.includes(searchTerm) ? 'block' : 'none';
+                            if (playerName.includes(searchTerm)) {
+                                card.classList.remove('hidden');  // Muestra el card
+                            } else {
+                                card.classList.add('hidden');  // Oculta el card
+                            }
                         });
                         const desktopCards = document.querySelectorAll('#players-carousel .player-card');
                         desktopCards.forEach(card => {
@@ -1254,6 +1257,7 @@
                 // Inicial slide
                 updateCarousel();
             }
+        }
         });
         // Función para renderizar estadísticas del equipo dinámicamente
         function renderTeamStats(searchTerm = '') {

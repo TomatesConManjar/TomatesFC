@@ -1375,6 +1375,7 @@
             document.getElementById('historia').classList.remove('hidden');
             document.getElementById('equipo').classList.remove('hidden');
             document.getElementById('partidos').classList.remove('hidden');
+            document.getElementById('rivales').classList.remove('hidden');
             document.getElementById('stats-section').classList.add('hidden');
             document.getElementById('player-details-section').classList.add('hidden');
             document.getElementById('match-details-section').classList.add('hidden');
@@ -1912,6 +1913,7 @@
             document.getElementById('historia').classList.remove('hidden');
             document.getElementById('equipo').classList.remove('hidden');
             document.getElementById('partidos').classList.remove('hidden');
+            document.getElementById('rivales').classList.remove('hidden');
             window.history.pushState({section: 'partidos'}, '', '#partidos');
             const title = document.getElementById('partidos-title');
             const offset = 80;  // Aumentado de 50 a 80px para compensar navbar (ajusta si es necesario)
@@ -2236,6 +2238,7 @@
             document.getElementById('player-details-section').classList.add('hidden');
             document.getElementById('equipo').classList.remove('hidden');
             document.getElementById('partidos').classList.remove('hidden');
+            document.getElementById('rivales').classList.remove('hidden');
             document.getElementById('historia').classList.remove('hidden');
             document.getElementById('inicio').classList.remove('hidden');
             window.history.pushState({section: 'equipo'}, '', '#equipo');

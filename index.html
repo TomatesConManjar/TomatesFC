@@ -1795,6 +1795,7 @@
                 document.getElementById('historia').classList.add('hidden');
                 document.getElementById('equipo').classList.add('hidden');
                 document.getElementById('partidos').classList.add('hidden');
+                document.getElementById('rivales').classList.add('hidden');
                 document.getElementById('stats-section').classList.add('hidden');
                 document.getElementById('player-details-section').classList.add('hidden');
                 const matchDetailsSection = document.getElementById('match-details-section');
@@ -2107,7 +2108,7 @@
                 return;
             }
             // Ocultar secciones principales
-            ['inicio', 'historia', 'equipo', 'partidos', 'stats-section', 'match-details-section'].forEach(id => {
+            ['inicio', 'historia', 'equipo', 'partidos', 'rivales', 'stats-section', 'match-details-section'].forEach(id => {
                 const el = document.getElementById(id);
                 if (el) el.classList.add('hidden');
             });

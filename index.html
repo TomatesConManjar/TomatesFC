@@ -407,7 +407,7 @@
         }
         .dark .rival-match-card {
             background: #2d3748;
-            border-left-color: #fc8181;
+            border-left-color: #fc8181;  /* Por defecto rojo, pero lo cambiaremos por resultado */
         }
         .dark .rival-player-card {
             background: #4a5568;
@@ -423,14 +423,28 @@
         .dark #rivales .rival-stat strong {
             color: #fc8181 !important; 
         }
-        .dark #rivales .rival-match-card {
-            border-left-color: #fc8181 !important; 
-        }
         .dark #rivales .rival-match-result {
-            color: #fc8181 !important; 
+            /* Removido el color fijo para que use los específicos por clase */
         }
-        .dark #rivales .victoria, .dark #rivales .derrota, .dark #rivales .empate {
-            color: #fc8181 !important; 
+        /* Colores específicos por resultado en modo oscuro */
+        .dark #rivales .victoria {
+            color: #68d391 !important;  /* Verde claro para victoria */
+        }
+        .dark #rivales .empate {
+            color: #f6e05e !important;  /* Amarillo claro para empate */
+        }
+        .dark #rivales .derrota {
+            color: #fc8181 !important;  /* Rojo claro para derrota */
+        }
+        /* Opcional: Cambiar borde izquierdo de la tarjeta según resultado en modo oscuro */
+        .dark #rivales .rival-match-card.victoria {
+            border-left-color: #68d391 !important;
+        }
+        .dark #rivales .rival-match-card.empate {
+            border-left-color: #f6e05e !important;
+        }
+        .dark #rivales .rival-match-card.derrota {
+            border-left-color: #fc8181 !important;
         }
         .player-card img {
             object-fit: cover; /* Asegura que la imagen cubra el área sin distorsiones */

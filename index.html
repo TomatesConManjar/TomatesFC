@@ -1079,7 +1079,7 @@
                 });
             });
             // Obtener los enlaces del navbar
-            const navbarEnlaces = document.querySelectorAll('nav a');
+            const navbarEnlaces = document.querySelectorAll('nav a[href^="#"]');
             // Agregar evento de clic a los enlaces del navbar
             navbarEnlaces.forEach(enlace => {
                 enlace.addEventListener('click', function(e) {

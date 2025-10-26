@@ -2367,15 +2367,15 @@
                             </div>
                             <div class="rival-stat">
                                 <strong>${rivalData.victorias}</strong>
-                                W
+                                G
                             </div>
                             <div class="rival-stat">
                                 <strong>${rivalData.empates}</strong>
-                                D
+                                E
                             </div>
                             <div class="rival-stat">
                                 <strong>${rivalData.derrotas}</strong>
-                                L
+                                P
                             </div>
                             <div class="rival-stat">
                                 <strong>${rivalData.golesFavor} - ${rivalData.golesContra}</strong>
@@ -2386,6 +2386,9 @@
                                 Victorias
                             </div>
                         </div>
+                        <button onclick="showRivalDetails('${rivalData.rival}')" class="w-full bg-gray-100 hover:bg-red-100 text-red-800 py-2 rounded-full transition mt-4">
+                            Ver detalles
+                        </button>
                     </div>
                 `;
                 container.innerHTML += cardHTML;

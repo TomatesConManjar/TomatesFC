@@ -2468,7 +2468,7 @@
             // Ordenar por partidos jugados (descendente)
             return Object.entries(rivalesStats)
                 .sort(([,a], [,b]) => b.partidos - a.partidos)
-                .map(([rival, stats]) => ({ rival, ...stats, porcentajeVictorias: ((stats.victorias / stats.partidos) * 100).toFixed(1) }));
+                .map(([rival, stats]) => ({ rival, ...stats, porcentajeVictorias: Math.round((stats.victorias / stats.partidos) * 100) }));
         }
         // NUEVO: Función para renderizar tarjetas de rivales
         window.renderRivales = function() {

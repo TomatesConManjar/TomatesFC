@@ -1343,11 +1343,10 @@
                 const playerCardHTML = `
                     <div class="player-card player-card-enhanced rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer" onclick="showPlayerDetails('${playerId}')">
                         <div class="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-t-lg relative">
-                            <i class="fas fa-user text-6xl mb-3 text-gray-300"></i>
+                            <img src="${jugador.imagenCamiseta}" alt="Camiseta de ${jugador.nombre}" class="w-full h-full object-cover rounded-t-lg" onerror="this.src='https://via.placeholder.com/300x400?text=Imagen+No+Cargada'">
                             <div class="absolute top-4 right-4 bg-red-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg">
                                 ${jugador.numero}
                             </div>
-                            <span class="text-sm font-semibold mt-2">${jugador.nombre.split(' ')[1]?.charAt(0)}. ${jugador.nombre.split(' ').pop()}</span>
                         </div>
                         <div class="p-6">
                             <h3 class="font-bold text-xl mb-2 text-red-800">${jugador.nombre}</h3>
@@ -2067,6 +2066,7 @@
                 numero: 5,
                 posicion: 'Defensa',
                 frase: 'La defensa es el pilar de todo gran equipo',
+                imagenCamiseta: 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/camisetas/camiseta_francisco.jpg',
                 partidos: [
                     { id: 1, rival: 'Vaqueros', fecha: 'Lunes 20 Enero', goles: 0, asistencias: 1 },
                     { id: 2, rival: 'Vaqueros', fecha: 'Lunes 3 Marzo', goles: 1, asistencias: 0 },
@@ -2088,6 +2088,7 @@
                 numero: 6,
                 posicion: 'Defensa',
                 frase: 'La última línea de defensa, siempre alerta',
+                imagenCamiseta: 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/camisetas/camiseta_francisco.jpg',
                 partidos: [
                     { id: 4, rival: 'Vaqueros', fecha: 'Jueves 1 Mayo', goles: 1, asistencias: 0 },
                     { id: 5, rival: 'Real Justicia', fecha: 'Viernes 9 Mayo', goles: 0, asistencias: 0 },
@@ -2108,6 +2109,7 @@
                 numero: 7,
                 posicion: 'Delantero',
                 frase: 'Cada gol cuenta, y yo estoy aquí para marcar la diferencia',
+                imagenCamiseta: 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/camisetas/camiseta_francisco.jpg',
                 partidos: [
                     { id: 1, rival: 'Vaqueros', fecha: 'Lunes 20 Enero', goles: 12, asistencias: 4 },
                     { id: 2, rival: 'Vaqueros', fecha: 'Lunes 3 Marzo', goles: 7, asistencias: 1 },
@@ -2139,6 +2141,7 @@
                 numero: 8,
                 posicion: 'Delantero',
                 frase: 'Anticipar el juego es lo que me define como delantero',
+                imagenCamiseta: 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/camisetas/camiseta_francisco.jpg',
                 partidos: [
                     { id: 2, rival: 'Vaqueros', fecha: 'Lunes 3 Marzo', goles: 7, asistencias: 1 },
                     { id: 3, rival: 'Manchester ICI', fecha: 'Viernes 28 Marzo', goles: 0, asistencias: 0 },
@@ -2161,6 +2164,7 @@
                 numero: 9,
                 posicion: 'Delantero',
                 frase: 'Cada gol es un paso más hacia la victoria',
+                imagenCamiseta: 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/camisetas/camiseta_francisco.jpg',
                 partidos: [
                     { id: 6, rival: 'Microdosis', fecha: 'Sábado 24 Mayo', goles: 0, asistencias: 1 },
                     { id: 9, rival: 'Vaqueros', fecha: 'Lunes 14 Julio', goles: 5, asistencias: 1 },
@@ -2177,6 +2181,7 @@
                 numero: 10,
                 posicion: 'Mediocampista',
                 frase: 'Crear oportunidades es mi pasión en el campo',
+                imagenCamiseta: 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/camisetas/camiseta_francisco.jpg',
                 partidos: [
                     { id: 1, rival: 'Vaqueros', fecha: 'Lunes 20 Enero', goles: 7, asistencias: 8 },
                     { id: 2, rival: 'Vaqueros', fecha: 'Lunes 3 Marzo', goles: 3, asistencias: 5 },
@@ -2208,6 +2213,7 @@
                 numero: 11,
                 posicion: 'Mediocampista',
                 frase: 'Siempre listo para recuperar el balón y apoyar al equipo',
+                imagenCamiseta: 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/camisetas/camiseta_francisco.jpg',
                 partidos: [
                     { id: 1, rival: 'Vaqueros', fecha: 'Lunes 20 Enero', goles: 1, asistencias: 1 },
                     { id: 2, rival: 'Vaqueros', fecha: 'Lunes 3 Marzo', goles: 1, asistencias: 7 },
@@ -2239,6 +2245,7 @@
                 numero: 14,
                 posicion: 'Mediocampista',
                 frase: 'No hay balón perdido si yo estoy cerca, de un área a la otra',
+                imagenCamiseta: 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/camisetas/camiseta_francisco.jpg',
                 partidos: [
                     { id: 9, rival: 'Vaqueros', fecha: 'Lunes 14 Julio', goles: 1, asistencias: 1 },
                     { id: 12, rival: 'Equipo Pablismo', fecha: 'Sábado 23 Agosto', goles: 0, asistencias: 1 },

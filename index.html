@@ -464,9 +464,30 @@
             color: inherit; /* Hereda color del padre */
         }
         .hero {
-            background: linear-gradient(45deg, #dc2626, #991b1b, #f59e0b);
-            background-size: 400% 400%;
-            animation: gradientShift 10s ease infinite;
+            position: relative; /* Necesario para posicionar el ::before */
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://img.freepik.com/foto-gratis/detalles-pelota-deporte_23-2151869781.jpg?semt=ais_hybrid&w=740&q=80') no-repeat center center;
+            background-size: cover;
+            height: 60vh;
+            overflow: hidden; /* Evita que el gradiente se salga */
+        }
+        /* Nuevo: Gradiente animado como overlay */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, #dc2626, #991b1b, #f59e0b); /* Colores rojo y amarillo del equipo */
+            background-size: 400% 400%; /* Para el movimiento */
+            animation: gradientShift 10s ease infinite; /* Animación suave */
+            opacity: 0.4; /* Ajusta esto: 0.3-0.5 para que la imagen se vea, pero el gradiente brille */
+            z-index: 1; /* Encima de la imagen, pero debajo del texto */
+        }
+        /* Asegura que el texto esté encima del gradiente */
+        .hero > div {
+            position: relative;
+            z-index: 2; /* Texto y botón encima de todo */
         }
         @keyframes gradientShift {
             0% { background-position: 0% 50%; }

@@ -463,6 +463,16 @@
             text-decoration: none; /* Sin subrayado */
             color: inherit; /* Hereda color del padre */
         }
+        .hero {
+            background: linear-gradient(45deg, #dc2626, #991b1b, #f59e0b);
+            background-size: 400% 400%;
+            animation: gradientShift 10s ease infinite;
+        }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
     </style>
 </head>
 <body>

@@ -654,7 +654,7 @@
                     <div class="bg-gray-50 p-6 rounded-lg text-center border-2 border-green-100">
                         <div class="text-blue-900 text-4xl mb-4">🏆</div>
                         <h3 class="text-xl font-semibold mb-2">23 partidos</h3>
-                        <p class="text-gray-600">Hemos disputado 23 partidos con un porcentaje de victoria del 39%.</p>
+                        <p class="text-gray-600">Hemos disputado 23 partidos con un porcentaje de victoria del 40%.</p>
                     </div>
                     <div class="bg-gray-50 p-6 rounded-lg text-center border-2 border-green-100">
                         <div class="text-blue-900 text-4xl mb-4">👥</div>
@@ -663,8 +663,8 @@
                     </div>
                     <div class="bg-gray-50 p-6 rounded-lg text-center border-2 border-green-100">
                         <div class="text-blue-900 text-4xl mb-4">⚽</div>
-                        <h3 class="text-xl font-semibold mb-2">215 Goles</h3>
-                        <p class="text-gray-600">Tenemos la gran cantidad de 215 goles como equipo y con un promedio de 9.4 goles por partido.</p>
+                        <h3 class="text-xl font-semibold mb-2">237 Goles</h3>
+                        <p class="text-gray-600">Tenemos la gran cantidad de 237 goles como equipo y con un promedio de 9.5 goles por partido.</p>
                     </div>
                 </div>
             </div>
@@ -958,11 +958,11 @@
             <div class="flex flex-wrap gap-4 mb-8 justify-center">
                 <button class="filter-btn bg-red-800 text-white px-6 py-2 rounded-full font-bold transition hover:bg-red-900" 
                         data-filter="todos" onclick="filterMatches('todos')">
-                    Todos (23)
+                    Todos (25)
                 </button>
                 <button class="filter-btn bg-gray-200 text-gray-700 px-6 py-2 rounded-full font-bold transition hover:bg-green-200" 
                         data-filter="victoria" onclick="filterMatches('victoria')">
-                    Victorias (9)
+                    Victorias (10)
                 </button>
                 <button class="filter-btn bg-gray-200 text-gray-700 px-6 py-2 rounded-full font-bold transition hover:bg-yellow-200" 
                         data-filter="empate" onclick="filterMatches('empate')">
@@ -970,7 +970,7 @@
                 </button>
                 <button class="filter-btn bg-gray-200 text-gray-700 px-6 py-2 rounded-full font-bold transition hover:bg-red-200" 
                         data-filter="derrota" onclick="filterMatches('derrota')">
-                    Derrotas (12)
+                    Derrotas (13)
                 </button>
             </div>
             <div id="matches-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
@@ -1052,11 +1052,11 @@
                 <div>
                     <h4 class="text-lg font-semibold mb-4 text-red-400">Estadísticas</h4>
                     <ul class="space-y-2 text-gray-300">
-                        <li><span class="font-semibold">Partidos:</span> 23</li>
-                        <li><span class="font-semibold">Victorias:</span> 9</li>
+                        <li><span class="font-semibold">Partidos:</span> 25</li>
+                        <li><span class="font-semibold">Victorias:</span> 10</li>
                         <li><span class="font-semibold">Empates:</span> 2</li>
-                        <li><span class="font-semibold">Derrotas:</span> 12</li>
-                        <li><span class="font-semibold">Goles anotados:</span> 215</li>
+                        <li><span class="font-semibold">Derrotas:</span> 13</li>
+                        <li><span class="font-semibold">Goles anotados:</span> 237</li>
                     </ul>
                 </div>
                 <!-- Contacto -->
@@ -1825,7 +1825,36 @@
                     { nombre: "Francisco Lizama", goles: 0, asistencias: 1 },
                     { nombre: "Benjamín Garcés", goles: 4, asistencias: 0 },
                     { nombre: "Diego Manque", goles: 1, asistencias: 2 },
-                    { nombre: "Sebastián Sandoval", goles: 0, asistencias: 1 }
+                    { nombre: "Sebastián Sandoval", goles: 0, asistencias: 1 },
+                ]
+            },
+            24: {
+                fecha: "Jueves 13 Noviembre",
+                rival: "Pirula",
+                resultado: "15-12",
+                lugar: "Canchas Santa Laura",
+                tipo: "Amistoso",
+                hora: "17:00 hrs",
+                jugadores: [
+                    { nombre: "Benjamín Garcés", goles: 0, asistencias: 2 },
+                    { nombre: "Matías Paredes", goles: 6, asistencias: 2 },
+                    { nombre: "Diego Manque", goles: 2, asistencias: 2 },
+                    { nombre: "Sebastián Sandoval", goles: 4, asistencias: 0 },
+                ]
+            },
+            25: {
+                fecha: "Viernes 14 Noviembre",
+                rival: "Vaqueros",
+                resultado: "7-13",
+                lugar: "Canchas Santa Laura",
+                tipo: "Amistoso",
+                hora: "17:00 hrs",
+                jugadores: [
+                    { nombre: "Benjamín Garcés", goles: 1, asistencias: 1 },
+                    { nombre: "Cristóbal Santibáñez", goles: 2, asistencias: 1 },
+                    { nombre: "Diego Manque", goles: 1, asistencias: 2 },
+                    { nombre: "Sebastián Sandoval", goles: 3, asistencias: 1 },
+                    { nombre: "Matías Bustamante", goles: 0, asistencias: 1 }
                 ]
             }
         };
@@ -2160,7 +2189,9 @@
                     { id: 20, rival: 'Equipo Maradona', fecha: 'Viernes 24 Octubre', goles: 0, asistencias: 1 },
                     { id: 21, rival: 'Pirula', fecha: 'Jueves 30 Octubre', goles: 1, asistencias: 1 },
                     { id: 22, rival: 'Equipo Giovanni', fecha: 'Martes 04 Noviembre', goles: 0, asistencias: 0 },
-                    { id: 23, rival: 'Pirula', fecha: 'Miercoles 05 Noviembre', goles: 4, asistencias: 0 }
+                    { id: 23, rival: 'Pirula', fecha: 'Miercoles 05 Noviembre', goles: 4, asistencias: 0 },
+                    { id: 24, rival: 'Pirula', fecha: 'Jueves 13 Noviembre', goles: 0, asistencias: 2 },
+                    { id: 25, rival: 'Vaqueros', fecha: 'Viernes 14 Noviembre', goles: 1, asistencias: 1 }
                 ]
             },
             'cristobal-santibanez': {
@@ -2183,7 +2214,8 @@
                     { id: 18, rival: 'Equipo Maxius', fecha: 'Martes 14 Octubre', goles: 2, asistencias: 0 },
                     { id: 20, rival: 'Equipo Maradona', fecha: 'Viernes 24 Octubre', goles: 1, asistencias: 0 },
                     { id: 21, rival: 'Pirula', fecha: 'Jueves 30 Octubre', goles: 1, asistencias: 0 },
-                    { id: 22, rival: 'Equipo Giovanni', fecha: 'Martes 04 Noviembre', goles: 1, asistencias: 1 }
+                    { id: 22, rival: 'Equipo Giovanni', fecha: 'Martes 04 Noviembre', goles: 1, asistencias: 1 },
+                    { id: 25, rival: 'Vaqueros', fecha: 'Viernes 14 Noviembre', goles: 2, asistencias: 1 }
                 ]
             },
             'matias-paredes': {
@@ -2200,7 +2232,8 @@
                     { id: 17, rival: 'Equipo Maradona', fecha: 'Viernes 10 Octubre', goles: 3, asistencias: 1 },
                     { id: 20, rival: 'Equipo Maradona', fecha: 'Viernes 24 Octubre', goles: 5, asistencias: 1 },
                     { id: 21, rival: 'Pirula', fecha: 'Jueves 30 Octubre', goles: 3, asistencias: 2 },
-                    { id: 22, rival: 'Equipo Giovanni', fecha: 'Martes 04 Noviembre', goles: 4, asistencias: 0 }
+                    { id: 22, rival: 'Equipo Giovanni', fecha: 'Martes 04 Noviembre', goles: 4, asistencias: 0 },
+                    { id: 24, rival: 'Pirula', fecha: 'Jueves 13 Noviembre', goles: 6, asistencias: 2 }
                 ]
             },
             'diego-manque': {
@@ -2232,7 +2265,9 @@
                     { id: 20, rival: 'Equipo Maradona', fecha: 'Viernes 24 Octubre', goles: 1, asistencias: 0 },
                     { id: 21, rival: 'Pirula', fecha: 'Jueves 30 Octubre', goles: 0, asistencias: 0 },
                     { id: 22, rival: 'Equipo Giovanni', fecha: 'Martes 04 Noviembre', goles: 0, asistencias: 1 },
-                    { id: 23, rival: 'Pirula', fecha: 'Miercoles 05 Noviembre', goles: 1, asistencias: 2 }
+                    { id: 23, rival: 'Pirula', fecha: 'Miercoles 05 Noviembre', goles: 1, asistencias: 2 },
+                    { id: 24, rival: 'Pirula', fecha: 'Jueves 14 Noviembre', goles: 2, asistencias: 2 },
+                    { id: 25, rival: 'Vaqueros', fecha: 'Viernes 15 Noviembre', goles: 1, asistencias: 2 }
                 ]
             },
             'sebastian-sandoval': {
@@ -2264,7 +2299,9 @@
                     { id: 20, rival: 'Equipo Maradona', fecha: 'Viernes 24 Octubre', goles: 2, asistencias: 1 },
                     { id: 21, rival: 'Pirula', fecha: 'Jueves 30 Octubre', goles: 0, asistencias: 1 },
                     { id: 22, rival: 'Equipo Giovanni', fecha: 'Martes 04 Noviembre', goles: 0, asistencias: 1 },
-                    { id: 23, rival: 'Pirula', fecha: 'Miercoles 05 Noviembre', goles: 0, asistencias: 1 }
+                    { id: 23, rival: 'Pirula', fecha: 'Miercoles 05 Noviembre', goles: 0, asistencias: 1 },
+                    { id: 24, rival: 'Pirula', fecha: 'Jueves 14 Noviembre', goles: 4, asistencias: 0 },
+                    { id: 25, rival: 'Vaqueros', fecha: 'Viernes 15 Noviembre', goles: 3, asistencias: 1 }
                 ]
             },
             'matias-bustamante': {
@@ -2278,7 +2315,8 @@
                     { id: 12, rival: 'Equipo Pablismo', fecha: 'Sábado 23 Agosto', goles: 0, asistencias: 1 },
                     { id: 16, rival: 'Pirula', fecha: 'Viernes 26 Septiembre', goles: 0, asistencias: 1 },
                     { id: 17, rival: 'Equipo Maradona', fecha: 'Viernes 10 Octubre', goles: 0, asistencias: 0 },
-                    { id: 20, rival: 'Equipo Maradona', fecha: 'Viernes 24 Octubre', goles: 1, asistencias: 1 }
+                    { id: 20, rival: 'Equipo Maradona', fecha: 'Viernes 24 Octubre', goles: 1, asistencias: 1 },
+                    { id: 25, rival: 'Vaqueros', fecha: 'Viernes 15 Noviembre', goles: 0, asistencias: 1 }
                 ]
             }
         };
@@ -2343,7 +2381,7 @@
                 <div class="stat-card bg-white rounded-lg p-6 shadow-lg text-center">
                     <div class="text-3xl font-bold text-purple-600 mb-2">${partidosJugados}</div>
                     <div class="text-sm text-gray-600">Partidos Jugados</div>
-                    <div class="text-xs text-gray-500 mt-1">de 23 totales</div>
+                    <div class="text-xs text-gray-500 mt-1">de 25 totales</div>
                 </div>
                 <div class="stat-card bg-white rounded-lg p-6 shadow-lg text-center">
                     <div class="text-3xl font-bold text-orange-600 mb-2">${totalContribuciones}</div>

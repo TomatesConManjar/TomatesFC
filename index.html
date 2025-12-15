@@ -653,8 +653,8 @@
                 <div class="grid md:grid-cols-3 gap-8">
                     <div class="bg-gray-50 p-6 rounded-lg text-center border-2 border-green-100">
                         <div class="text-blue-900 text-4xl mb-4">🏆</div>
-                        <h3 class="text-xl font-semibold mb-2">26 partidos</h3>
-                        <p class="text-gray-600">Hemos disputado 26 partidos con un porcentaje de victoria del 42%.</p>
+                        <h3 class="text-xl font-semibold mb-2">27 partidos</h3>
+                        <p class="text-gray-600">Hemos disputado 27 partidos con un porcentaje de victoria del 41%.</p>
                     </div>
                     <div class="bg-gray-50 p-6 rounded-lg text-center border-2 border-green-100">
                         <div class="text-blue-900 text-4xl mb-4">👥</div>
@@ -663,8 +663,8 @@
                     </div>
                     <div class="bg-gray-50 p-6 rounded-lg text-center border-2 border-green-100">
                         <div class="text-blue-900 text-4xl mb-4">⚽</div>
-                        <h3 class="text-xl font-semibold mb-2">248 Goles</h3>
-                        <p class="text-gray-600">Tenemos la gran cantidad de 248 goles como equipo y con un promedio de 9.5 goles por partido.</p>
+                        <h3 class="text-xl font-semibold mb-2">253 Goles</h3>
+                        <p class="text-gray-600">Tenemos la gran cantidad de 253 goles como equipo y con un promedio de 9.4 goles por partido.</p>
                     </div>
                 </div>
             </div>
@@ -952,7 +952,7 @@
             <div class="flex flex-wrap gap-4 mb-8 justify-center">
                 <button class="filter-btn bg-red-800 text-white px-6 py-2 rounded-full font-bold transition hover:bg-red-900" 
                         data-filter="todos" onclick="filterMatches('todos')">
-                    Todos (26)
+                    Todos (27)
                 </button>
                 <button class="filter-btn bg-gray-200 text-gray-700 px-6 py-2 rounded-full font-bold transition hover:bg-green-200" 
                         data-filter="victoria" onclick="filterMatches('victoria')">
@@ -964,7 +964,7 @@
                 </button>
                 <button class="filter-btn bg-gray-200 text-gray-700 px-6 py-2 rounded-full font-bold transition hover:bg-red-200" 
                         data-filter="derrota" onclick="filterMatches('derrota')">
-                    Derrotas (13)
+                    Derrotas (14)
                 </button>
             </div>
             <div id="matches-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
@@ -1863,7 +1863,23 @@
                     { nombre: "Benjamín Garcés", goles: 3, asistencias: 2 },
                     { nombre: "Diego Manque", goles: 1, asistencias: 3 },
                     { nombre: "Sebastián Sandoval", goles: 1, asistencias: 1 },
-                    { nombre: "Matías Bustamante", goles: 0, asistencias: 3 }
+                    { nombre: "Matías Bustamante", goles: 0, asistencias: 3 },
+                ]
+            },
+            27: {
+                fecha: "Domingo 14 Diciembre",
+                rival: "Equipo Pablismo",
+                resultado: "5-18",
+                lugar: "Canchas Santa Laura",
+                tipo: "Amistoso",
+                hora: "17:00 hrs",
+                jugadores: [
+                    { nombre: "Francisco Lizama", goles: 0, asistencias: 0 },
+                    { nombre: "Benjamín Garcés", goles: 2, asistencias: 0 },
+                    { nombre: "Cristóbal Santibáñez", goles: 1, asistencias: 0 },
+                    { nombre: "Diego Manque", goles: 2, asistencias: 1 },
+                    { nombre: "Sebastián Sandoval", goles: 0, asistencias: 0 },
+                    { nombre: "Matías Bustamante", goles: 0, asistencias: 1 }
                 ]
             }
         };
@@ -2167,7 +2183,8 @@
                     { id: 20, rival: 'Equipo Maradona', fecha: 'Viernes 24 Octubre', goles: 0, asistencias: 0 },
                     { id: 22, rival: 'Equipo Giovanni', fecha: 'Martes 04 Noviembre', goles: 0, asistencias: 0 },
                     { id: 23, rival: 'Pirula', fecha: 'Miercoles 05 Noviembre', goles: 0, asistencias: 1 },
-                    { id: 26, rival: 'Pirula', fecha: 'Sábado 29 Noviembre', goles: 0, asistencias: 1 }
+                    { id: 26, rival: 'Pirula', fecha: 'Sábado 29 Noviembre', goles: 0, asistencias: 1 },
+                    { id: 27, rival: 'Equipo Pablismo', fecha: 'Domingo 14 Diciembre', goles: 0, asistencias: 0 }
                 ]
             },
             'benjamin-garces': {
@@ -2202,7 +2219,8 @@
                     { id: 23, rival: 'Pirula', fecha: 'Miercoles 05 Noviembre', goles: 4, asistencias: 0 },
                     { id: 24, rival: 'Pirula', fecha: 'Jueves 13 Noviembre', goles: 0, asistencias: 2 },
                     { id: 25, rival: 'Real Justicia', fecha: 'Viernes 14 Noviembre', goles: 1, asistencias: 1 },
-                    { id: 26, rival: 'Pirula', fecha: 'Sábado 29 Noviembre', goles: 3, asistencias: 2 }
+                    { id: 26, rival: 'Pirula', fecha: 'Sábado 29 Noviembre', goles: 3, asistencias: 2 },
+                    { id: 27, rival: 'Equipo Pablismo', fecha: 'Domingo 14 Diciembre', goles: 2, asistencias: 0 }
                 ]
             },
             'cristobal-santibanez': {
@@ -2226,7 +2244,8 @@
                     { id: 20, rival: 'Equipo Maradona', fecha: 'Viernes 24 Octubre', goles: 1, asistencias: 0 },
                     { id: 21, rival: 'Pirula', fecha: 'Jueves 30 Octubre', goles: 1, asistencias: 0 },
                     { id: 22, rival: 'Equipo Giovanni', fecha: 'Martes 04 Noviembre', goles: 1, asistencias: 1 },
-                    { id: 25, rival: 'Real Justicia', fecha: 'Viernes 14 Noviembre', goles: 2, asistencias: 1 }
+                    { id: 25, rival: 'Real Justicia', fecha: 'Viernes 14 Noviembre', goles: 2, asistencias: 1 },
+                    { id: 27, rival: 'Equipo Pablismo', fecha: 'Domingo 14 Diciembre', goles: 1, asistencias: 0 }
                 ]
             },
             'matias-paredes': {
@@ -2279,7 +2298,8 @@
                     { id: 23, rival: 'Pirula', fecha: 'Miercoles 05 Noviembre', goles: 1, asistencias: 2 },
                     { id: 24, rival: 'Pirula', fecha: 'Jueves 14 Noviembre', goles: 2, asistencias: 2 },
                     { id: 25, rival: 'Real Justicia', fecha: 'Viernes 15 Noviembre', goles: 1, asistencias: 2 },
-                    { id: 26, rival: 'Pirula', fecha: 'Sábado 29 Noviembre', goles: 1, asistencias: 3 }
+                    { id: 26, rival: 'Pirula', fecha: 'Sábado 29 Noviembre', goles: 1, asistencias: 3 },
+                    { id: 27, rival: 'Equipo Pablismo', fecha: 'Domingo 14 Diciembre', goles: 2, asistencias: 1 }
                 ]
             },
             'sebastian-sandoval': {
@@ -2314,7 +2334,8 @@
                     { id: 23, rival: 'Pirula', fecha: 'Miercoles 05 Noviembre', goles: 0, asistencias: 1 },
                     { id: 24, rival: 'Pirula', fecha: 'Jueves 14 Noviembre', goles: 4, asistencias: 0 },
                     { id: 25, rival: 'Real Justicia', fecha: 'Viernes 15 Noviembre', goles: 3, asistencias: 1 },
-                    { id: 26, rival: 'Pirula', fecha: 'Sábado 29 Noviembre', goles: 1, asistencias: 1 }
+                    { id: 26, rival: 'Pirula', fecha: 'Sábado 29 Noviembre', goles: 1, asistencias: 1 },
+                    { id: 27, rival: 'Equipo Pablismo', fecha: 'Domingo 14 Diciembre', goles: 0, asistencias: 0 }
                 ]
             },
             'matias-bustamante': {
@@ -2330,7 +2351,8 @@
                     { id: 17, rival: 'Equipo Maradona', fecha: 'Viernes 10 Octubre', goles: 0, asistencias: 0 },
                     { id: 20, rival: 'Equipo Maradona', fecha: 'Viernes 24 Octubre', goles: 1, asistencias: 1 },
                     { id: 25, rival: 'Real Justicia', fecha: 'Viernes 15 Noviembre', goles: 0, asistencias: 1 },
-                    { id: 26, rival: 'Pirula', fecha: 'Sábado 29 Noviembre', goles: 0, asistencias: 3 }
+                    { id: 26, rival: 'Pirula', fecha: 'Sábado 29 Noviembre', goles: 0, asistencias: 3 },
+                    { id: 27, rival: 'Equipo Pablismo', fecha: 'Domingo 14 Diciembre', goles: 0, asistencias: 1 }
                 ]
             }
         };
@@ -2395,7 +2417,7 @@
                 <div class="stat-card bg-white rounded-lg p-6 shadow-lg text-center">
                     <div class="text-3xl font-bold text-purple-600 mb-2">${partidosJugados}</div>
                     <div class="text-sm text-gray-600">Partidos Jugados</div>
-                    <div class="text-xs text-gray-500 mt-1">de 26 totales</div>
+                    <div class="text-xs text-gray-500 mt-1">de 27 totales</div>
                 </div>
                 <div class="stat-card bg-white rounded-lg p-6 shadow-lg text-center">
                     <div class="text-3xl font-bold text-orange-600 mb-2">${totalContribuciones}</div>

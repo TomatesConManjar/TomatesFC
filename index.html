@@ -26,7 +26,144 @@
         }
         @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Futura+PT:wght@400;700&display=swap'); /* Nueva línea agregada */
-
+        /* Modo oscuro */
+        .dark {
+            background-color: #1a1a1a !important;
+            color: #f0f0f0 !important;
+        }
+        .dark .bg-white {
+            background-color: #2d2d2d !important;
+            color: #f0f0f0 !important;
+        }
+        .dark .bg-gray-100 {
+            background-color: #1f1f1f !important;
+        }
+        .dark .bg-gray-50 {
+        background-color: #2d3748 !important;
+        }
+        .dark .text-gray-600 {
+            color: #a0aec0 !important;
+        }
+        .dark .text-gray-700 {
+            color: #cbd5e0 !important;
+        }
+        /* Estilos para detalles del jugador en modo oscuro */
+        .dark .stat-card {
+            background-color: #2d3748 !important;
+            color: #e2e8f0 !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        }
+        .dark .match-performance-card {
+            background-color: #2d3748 !important;
+            color: #e2e8f0 !important;
+        }
+        .dark .bg-green-100 {
+            background-color: rgba(72, 187, 120, 0.2) !important;
+            color: #68d391 !important;
+        }
+        .dark .border-green-300 {
+            border-color: #68d391 !important;
+        }
+        .dark .bg-red-100 {
+            background-color: rgba(245, 101, 101, 0.2) !important;
+            color: #fc8181 !important;
+        }
+        .dark .border-red-300 {
+            border-color: #fc8181 !important;
+        }
+        .dark .bg-yellow-100 {
+            background-color: rgba(236, 201, 75, 0.2) !important;
+            color: #f6e05e !important;
+        }
+        .dark .border-yellow-300 {
+            border-color: #f6e05e !important;
+        }
+        .dark .bg-green-200 {
+            background-color: rgba(72, 187, 120, 0.3) !important;
+            color: #68d391 !important;
+        }
+        .dark .bg-red-200 {
+            background-color: rgba(245, 101, 101, 0.3) !important;
+            color: #fc8181 !important;
+        }
+        .dark .bg-yellow-200 {
+            background-color: rgba(236, 201, 75, 0.3) !important;
+            color: #f6e05e !important;
+        }
+        .dark .text-gray-800 {
+            color: #e2e8f0 !important;
+        }
+        .dark .text-red-800 {
+            color: #fc8181 !important;
+        }
+        .dark .border-red-200 {
+            border-color: #fc8181 !important;
+        }
+        .dark .border-green-100 {
+            border-color: #68d391 !important;
+        }
+        .dark .player-card {
+            background: rgba(45, 55, 72, 0.95) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            color: #e2e8f0 !important;
+        }
+        .dark .player-card:hover {
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 
+                        0 10px 25px -5px rgba(220, 38, 38, 0.2),
+                        0 0 0 1px rgba(255, 255, 255, 0.1) !important;
+        }
+        .dark [data-result] {
+            background-color: #2d3748 !important;
+            color: #e2e8f0 !important;
+            border-color: #fc8181 !important;
+        }
+        .dark .bg-red-800 {
+            background-color: #c53030 !important;
+        }
+        .dark .bg-gray-900 {
+            background-color: #0d1117 !important;
+        }
+        .dark nav {
+            background-color: #c53030 !important;
+        }
+        .dark .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://img.freepik.com/foto-gratis/detalles-pelota-deporte_23-2151869781.jpg?semt=ais_hybrid&w=740&q=80') no-repeat center center !important;
+            background-size: cover !important;
+        }
+        /* Botones de filtros en modo oscuro */
+        .dark .filter-btn {
+            background-color: #4a5568 !important;
+            color: #e2e8f0 !important;
+            border: 1px solid #718096 !important;
+        }
+        .dark .filter-btn:hover {
+            background-color: #2d3748 !important;
+            color: #e2e8f0 !important;
+        }
+        .dark .filter-btn[data-filter]:not([class*="bg-red-800"]) {
+            background-color: #4a5568 !important;
+            color: #e2e8f0 !important;
+        }
+        /* Botón activo en modo oscuro */
+        .dark .bg-red-800 {
+            background-color: #e53e3e !important;
+            color: #ffffff !important;
+        }
+        .dark .bg-red-800:hover {
+            background-color: #c53030 !important;
+            color: #ffffff !important;
+        }
+        /* Botones inactivos en modo oscuro */
+        .dark .bg-gray-200 {
+            background-color: #4a5568 !important;
+            color: #e2e8f0 !important;
+        }
+        .dark .text-gray-700 {
+            color: #e2e8f0 !important;
+        }
+        .dark .text-gray-700 {
+            color: #e2e8f0 !important;
+        }
         body {
             font-family: 'Futura PT', sans-serif;
             background-color: #f5f5f5;
@@ -128,16 +265,20 @@
         }
         .match-score span {
             position: absolute;
+            top: 20%; /* Ajusta este valor según sea necesario para centrar verticalmente */
+            font-size: 2rem; /* Asegúrate de que el tamaño de fuente sea adecuado */
             top: 20%; 
             font-size: 2rem;
         }
         /* Estilos para la sección de partidos */
         #partidos {
+            background-color: #f9f9f9; /* Color de fondo suave */
             background-color: #f9f9f9;
             padding: 40px 0; /* Espaciado superior e inferior */
         }
         /* Estilos para las tarjetas de partidos */
         .match-card {
+            background-color: #ffffff; /* Fondo blanco */
             background-color: #ffffff; 
             border-radius: 10px; /* Bordes redondeados */
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
@@ -260,10 +401,60 @@
             color: #3b82f6;
             font-weight: bold;
         }
-
-        
+        /* Modo oscuro para rivales y jugadores */
+        .dark .rival-card {
+            background-color: #2d3748;
+            color: #e2e8f0;
+        }
+        .dark .rival-stat {
+            background: #4a5568;
+        }
+        .dark .rival-match-card {
+            background: #2d3748;
+            border-left-color: #fc8181;  /* Por defecto rojo, pero lo cambiaremos por resultado */
+            border-left-color: #fc8181;  
+        }
+        .dark .rival-player-card {
+            background: #4a5568;
+            border-color: #718096;
+            color: #e2e8f0;
+        }
+        .dark .rival-player-name {
+            color: #e2e8f0;
+        }
+        .dark #rivales .rival-name {
+            color: #fc8181 !important; 
+        }
+        .dark #rivales .rival-stat strong {
+            color: #fc8181 !important; 
+        }
+        .dark #rivales .rival-match-result {
+            /* Removido el color fijo para que use los específicos por clase */
+        .dark #rivales .rival-match-result {    /* Removido el color fijo para que use los específicos por clase */
+        }
+        /* Colores específicos por resultado en modo oscuro */
+        .dark #rivales .victoria {
+            color: #68d391 !important;  /* Verde claro para victoria */
+        }
+        .dark #rivales .empate {
+            color: #f6e05e !important;  /* Amarillo claro para empate */
+        }
+        .dark #rivales .derrota {
+            color: #fc8181 !important;  /* Rojo claro para derrota */
+        }
+        /* Opcional: Cambiar borde izquierdo de la tarjeta según resultado en modo oscuro */
+        .dark #rivales .rival-match-card.victoria {
+            border-left-color: #68d391 !important;
+        }
+        .dark #rivales .rival-match-card.empate {
+            border-left-color: #f6e05e !important;
+        }
+        .dark #rivales .rival-match-card.derrota {
+            border-left-color: #fc8181 !important;
+        }
         .player-card img {
             object-fit: cover; /* Asegura que la imagen cubra el área sin distorsiones */
+            object-position: center; /* Centra la imagen */
             object-position: center; 
         }
         /* Estilos para submenús desplegables */
@@ -280,40 +471,9 @@
             text-decoration: none; /* Sin subrayado */
             color: inherit; /* Hereda color del padre */
         }
-        .hero {
-            position: relative; /* Necesario para posicionar el ::before */
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://img.freepik.com/foto-gratis/detalles-pelota-deporte_23-2151869781.jpg?semt=ais_hybrid&w=740&q=80') no-repeat center center;
-            background-size: cover;
-            height: 60vh;
-            overflow: hidden; /* Evita que el gradiente se salga */
-        }
-        /* Nuevo: Gradiente animado como overlay */
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, #dc2626, #991b1b, #f59e0b); /* Colores rojo y amarillo del equipo */
-            background-size: 400% 400%; /* Para el movimiento */
-            animation: gradientShift 10s ease infinite; /* Animación suave */
-            opacity: 0.4; /* Ajusta esto: 0.3-0.5 para que la imagen se vea, pero el gradiente brille */
-            z-index: 1; /* Encima de la imagen, pero debajo del texto */
-        }
-        /* Asegura que el texto esté encima del gradiente */
-        .hero > div {
-            position: relative;
-            z-index: 2; /* Texto y botón encima de todo */
-        }
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
     </style>
 </head>
-<body class="bg-gray-50 dark:bg-[#1a1a1a] text-gray-900 dark:text-gray-100 transition-colors duration-300">
+<body>
     <!-- Barra de navegación -->
     <nav class="bg-red-800 text-white shadow-lg sticky top-0 z-50">
         <div class="container mx-auto px-6 py-3">
@@ -362,15 +522,12 @@
                 </div>
                 <!-- Instagram y botón hamburguesa -->
                 <div class="flex items-center space-x-4">
-                    <button id="dark-mode-toggle" class="p-2 rounded-full hover:bg-red-700 transition duration-300 text-white focus:outline-none">
-                        <i id="dark-icon" class="fas fa-moon text-xl"></i>
-                    </button>
                     <a href="https://www.instagram.com/tomates._fc._?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="hover:text-yellow-400 transition duration-300">
                         <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                         </svg>
                     </a>
-                
+
                     <!-- Botón hamburguesa -->
                     <button id="mobile-menu-button" class="md:hidden focus:outline-none hamburger">
                         <div class="w-6 h-6 flex flex-col justify-center items-center">
@@ -473,8 +630,8 @@
                 <div class="grid md:grid-cols-3 gap-8">
                     <div class="bg-gray-50 p-6 rounded-lg text-center border-2 border-green-100">
                         <div class="text-blue-900 text-4xl mb-4">🏆</div>
-                        <h3 class="text-xl font-semibold mb-2">27 partidos</h3>
-                        <p class="text-gray-600">Hemos disputado 27 partidos con un porcentaje de victoria del 41%.</p>
+                        <h3 class="text-xl font-semibold mb-2">23 partidos</h3>
+                        <p class="text-gray-600">Hemos disputado 23 partidos con un porcentaje de victoria del 39%.</p>
                     </div>
                     <div class="bg-gray-50 p-6 rounded-lg text-center border-2 border-green-100">
                         <div class="text-blue-900 text-4xl mb-4">👥</div>
@@ -483,8 +640,8 @@
                     </div>
                     <div class="bg-gray-50 p-6 rounded-lg text-center border-2 border-green-100">
                         <div class="text-blue-900 text-4xl mb-4">⚽</div>
-                        <h3 class="text-xl font-semibold mb-2">253 Goles</h3>
-                        <p class="text-gray-600">Tenemos la gran cantidad de 253 goles como equipo y con un promedio de 9.4 goles por partido.</p>
+                        <h3 class="text-xl font-semibold mb-2">215 Goles</h3>
+                        <p class="text-gray-600">Tenemos la gran cantidad de 215 goles como equipo y con un promedio de 9.4 goles por partido.</p>
                     </div>
                 </div>
             </div>
@@ -517,7 +674,8 @@
                 <!-- Jugador 2 -->
                 <div class="player-card rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer" onclick="showPlayerDetails('francisco-lizama')">
                     <div class="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-t-lg relative">
-                        <img src="https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/imagen_2025-11-21_221504297.png" alt="Foto de Francisco Lizama" class="w-full h-full object-cover rounded-t-lg">
+                        <i class="fas fa-user text-6xl mb-3 text-gray-300"></i>
+                        <span class="text-sm font-semibold mt-2">F. LIZAMA</span>
                     </div>
                     <div class="p-6 relative">
                         <div class="player-number">6</div>
@@ -529,7 +687,7 @@
                 <!-- Jugador 3 -->
                 <div class="player-card rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer" onclick="showPlayerDetails('benjamin-garces')">
                     <div class="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-t-lg relative">
-                        <img src="https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/Imagen%20de%20WhatsApp%202025-10-15%20a%20las%2021.43.05_8d6a6a24.jpg" alt="Foto de Benjamín Garcés" class="w-full h-full object-cover rounded-t-lg">
+                        <img src="https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/Imagen%20de%20WhatsApp%202025-10-15%20a%20las%2021.43.05_8d6a6a24.jpg" alt="Foto de Critóbal Santibáñez" class="w-full h-full object-cover rounded-t-lg">
                     </div>
                     <div class="p-6 relative">
                         <div class="player-number">7</div>
@@ -553,7 +711,8 @@
                 <!-- Jugador 5 -->
                 <div class="player-card rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer" onclick="showPlayerDetails('matias-paredes')">
                     <div class="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-t-lg relative">
-                        <img src="https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/imagen_2025-12-20_001456417.png" alt="Foto de Matías Paredes" class="w-full h-full object-cover rounded-t-lg">
+                        <i class="fas fa-user text-6xl mb-3 text-gray-300"></i>
+                        <span class="text-sm font-semibold mt-2">M. PAREDES</span>
                     </div>
                     <div class="p-6 relative">
                         <div class="player-number">9</div>
@@ -565,7 +724,8 @@
                 <!-- Jugador 6 -->
                 <div class="player-card rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer" onclick="showPlayerDetails('diego-manque')">
                     <div class="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-t-lg relative">
-                        <img src="https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/imagen_2025-11-22_220723612.png" alt="Foto de Diego Manque" class="w-full h-full object-cover rounded-t-lg">
+                        <i class="fas fa-user text-6xl mb-3 text-gray-300"></i>
+                        <span class="text-sm font-semibold mt-2">D. MANQUE</span>
                     </div>
                     <div class="p-6 relative">
                         <div class="player-number">10</div>
@@ -589,12 +749,13 @@
                 <!-- Jugador 8 -->
                 <div class="player-card rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer" onclick="showPlayerDetails('matias-bustamante')">
                     <div class="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-t-lg relative">
-                        <img src="https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/imagen_2025-11-21_220052861.png" alt="Foto de Matías Bustamante" class="w-full h-full object-cover rounded-t-lg">
+                        <i class="fas fa-user text-6xl mb-3 text-gray-300"></i>
+                        <span class="text-sm font-semibold mt-2">M. BUSTAMANTE</span>
                     </div>
                     <div class="p-6 relative">
                         <div class="player-number">14</div>
                         <h3 class="font-bold text-xl mb-2 text-red-800">Matías Bustamante</h3>
-                        <p class="text-gray-600 mb-2">Defensa</p>
+                        <p class="text-gray-600 mb-2">Mediocampista</p>
                         <p class="text-gray-700">"No hay balón perdido si yo estoy cerca, de un área a la otra"</p>
                     </div>
                 </div>
@@ -618,7 +779,8 @@
                     <!-- Jugador 2 -->
                     <div class="player-card rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer flex-none w-1/4" onclick="showPlayerDetails('francisco-lizama')">
                         <div class="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-t-lg relative">
-                            <img src="https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/imagen_2025-11-21_221504297.png" alt="Foto de Francisco Lizama" class="w-full h-full object-cover rounded-t-lg">
+                            <i class="fas fa-user text-6xl mb-3 text-gray-300"></i>
+                            <span class="text-sm font-semibold mt-2">F. LIZAMA</span>
                         </div>
                         <div class="p-6 relative">
                             <div class="player-number">6</div>
@@ -654,7 +816,8 @@
                     <!-- Jugador 5 -->
                     <div class="player-card rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer flex-none w-1/4" onclick="showPlayerDetails('matias-paredes')">
                         <div class="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-t-lg relative">
-                            <img src="https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/imagen_2025-12-20_001456417.png" alt="Foto de Matías Paredes" class="w-full h-full object-cover rounded-t-lg">
+                            <i class="fas fa-user text-6xl mb-3 text-gray-300"></i>
+                            <span class="text-sm font-semibold mt-2">M. PAREDES</span>
                         </div>
                         <div class="p-6 relative">
                             <div class="player-number">9</div>
@@ -666,7 +829,8 @@
                     <!-- Jugador 6 -->
                     <div class="player-card rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer flex-none w-1/4" onclick="showPlayerDetails('diego-manque')">
                         <div class="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-t-lg relative">
-                            <img src="https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/imagen_2025-11-22_220723612.png" alt="Foto de Diego Manque" class="w-full h-full object-cover rounded-t-lg">
+                            <i class="fas fa-user text-6xl mb-3 text-gray-300"></i>
+                            <span class="text-sm font-semibold mt-2">D. MANQUE</span>
                         </div>
                         <div class="p-6 relative">
                             <div class="player-number">10</div>
@@ -690,12 +854,13 @@
                     <!-- Jugador 8 -->
                     <div class="player-card rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer flex-none w-1/4" onclick="showPlayerDetails('matias-bustamante')">
                         <div class="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-t-lg relative">
-                            <img src="https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/imagen_2025-11-21_220052861.png" alt="Foto de Matías Bustamante" class="w-full h-full object-cover rounded-t-lg">
+                            <i class="fas fa-user text-6xl mb-3 text-gray-300"></i>
+                            <span class="text-sm font-semibold mt-2">M. BUSTAMANTE</span>
                         </div>
                         <div class="p-6 relative">
                             <div class="player-number">14</div>
                             <h3 class="font-bold text-xl mb-2 text-red-800">Matías Bustamante</h3>
-                            <p class="text-gray-600 mb-2">Defensa</p>
+                            <p class="text-gray-600 mb-2">Mediocampista</p>
                             <p class="text-gray-700">"No hay balón perdido si yo estoy cerca, de un área a la otra"</p>
                         </div>
                     </div>
@@ -770,11 +935,11 @@
             <div class="flex flex-wrap gap-4 mb-8 justify-center">
                 <button class="filter-btn bg-red-800 text-white px-6 py-2 rounded-full font-bold transition hover:bg-red-900" 
                         data-filter="todos" onclick="filterMatches('todos')">
-                    Todos (27)
+                    Todos (23)
                 </button>
                 <button class="filter-btn bg-gray-200 text-gray-700 px-6 py-2 rounded-full font-bold transition hover:bg-green-200" 
                         data-filter="victoria" onclick="filterMatches('victoria')">
-                    Victorias (11)
+                    Victorias (9)
                 </button>
                 <button class="filter-btn bg-gray-200 text-gray-700 px-6 py-2 rounded-full font-bold transition hover:bg-yellow-200" 
                         data-filter="empate" onclick="filterMatches('empate')">
@@ -782,7 +947,7 @@
                 </button>
                 <button class="filter-btn bg-gray-200 text-gray-700 px-6 py-2 rounded-full font-bold transition hover:bg-red-200" 
                         data-filter="derrota" onclick="filterMatches('derrota')">
-                    Derrotas (14)
+                    Derrotas (12)
                 </button>
             </div>
             <div id="matches-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
@@ -864,11 +1029,11 @@
                 <div>
                     <h4 class="text-lg font-semibold mb-4 text-red-400">Estadísticas</h4>
                     <ul class="space-y-2 text-gray-300">
-                        <li><span class="font-semibold">Partidos:</span> 26</li>
-                        <li><span class="font-semibold">Victorias:</span> 11</li>
+                        <li><span class="font-semibold">Partidos:</span> 23</li>
+                        <li><span class="font-semibold">Victorias:</span> 9</li>
                         <li><span class="font-semibold">Empates:</span> 2</li>
-                        <li><span class="font-semibold">Derrotas:</span> 13</li>
-                        <li><span class="font-semibold">Goles anotados:</span> 248</li>
+                        <li><span class="font-semibold">Derrotas:</span> 12</li>
+                        <li><span class="font-semibold">Goles anotados:</span> 215</li>
                     </ul>
                 </div>
                 <!-- Contacto -->
@@ -1364,7 +1529,7 @@
                 ]
             },
             6: {
-                fecha: "Sábado 24 Mayo",
+                fecha: "Sabado 24 Mayo",
                 rival: "Microdosis",
                 resultado: "2-15",
                 lugar: "Canchas Santa Laura",
@@ -1377,7 +1542,7 @@
                     { nombre: "Matías Paredes", goles: 0, asistencias: 1 },
                     { nombre: "Diego Manque", goles: 0, asistencias: 0 },
                     { nombre: "Sebastián Sandoval", goles: 1, asistencias: 0 },
-                    
+
                 ]
             },
             7: {
@@ -1455,7 +1620,7 @@
                 ]
             },
             12: {
-                fecha: "Sábado 23 Agosto",
+                fecha: "Sabado 23 Agosto",
                 rival: "Equipo Pablismo",
                 resultado: "5-5",
                 lugar: "Canchas Santa Laura",
@@ -1500,7 +1665,7 @@
                 ]
             },
             15: {
-                fecha: "Miércoles 17 Septiembre",
+                fecha: "Miercoles 17 Septiembre",
                 rival: "Equipo Maxius",
                 resultado: "9-5",
                 lugar: "Canchas Santa Laura",
@@ -1627,7 +1792,7 @@
                 ]
             },
             23: {
-                fecha: "Miércoles 05 Noviembre",
+                fecha: "Miercoles 05 Noviembre",
                 rival: "Pirula",
                 resultado: "6-10",
                 lugar: "Canchas Santa Laura",
@@ -1695,7 +1860,7 @@
                     { nombre: "Francisco Lizama", goles: 0, asistencias: 0 },
                     { nombre: "Benjamín Garcés", goles: 2, asistencias: 0 },
                     { nombre: "Cristóbal Santibáñez", goles: 1, asistencias: 0 },
-                    { nombre: "Diego Manque", goles: 2, asistencias: 1 },
+                    { nombre: "Diego Manque", goles: 1, asistencias: 2 },
                     { nombre: "Sebastián Sandoval", goles: 0, asistencias: 0 },
                     { nombre: "Matías Bustamante", goles: 0, asistencias: 1 }
                 ]
@@ -1965,7 +2130,7 @@
                 numero: 5,
                 posicion: 'Defensa',
                 frase: 'La defensa es el pilar de todo gran equipo',
-                imagenCamiseta: 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/imagen_2025-11-09_160843042.png',
+                imagenCamiseta: 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/preview-2025-11-05T15_01_08.804Z.png',
                 partidos: [
                     { id: 1, rival: 'Vaqueros', fecha: 'Lunes 20 Enero', goles: 0, asistencias: 1 },
                     { id: 2, rival: 'Vaqueros', fecha: 'Lunes 3 Marzo', goles: 1, asistencias: 0 },
@@ -1976,9 +2141,9 @@
                     { id: 7, rival: 'Real Justicia', fecha: 'Viernes 30 Mayo', goles: 4, asistencias: 0 },
                     { id: 13, rival: 'Equipo Maradona', fecha: 'Jueves 04 Septiembre', goles: 0, asistencias: 1 },
                     { id: 14, rival: 'Equipo David', fecha: 'Jueves 11 Septiembre', goles: 1, asistencias: 0 },
-                    { id: 15, rival: 'Equipo Maxius', fecha: 'Miércoles 17 Septiembre', goles: 1, asistencias: 3 },
+                    { id: 15, rival: 'Hipogolemicos', fecha: 'Miércoles 17 Septiembre', goles: 1, asistencias: 3 },
                     { id: 16, rival: 'Pirula', fecha: 'Viernes 26 Septiembre', goles: 0, asistencias: 0 },
-                    { id: 18, rival: 'Equipo Maxius', fecha: 'Martes 14 Octubre', goles: 0, asistencias: 0 },
+                    { id: 18, rival: 'Hipogolemicos', fecha: 'Martes 14 Octubre', goles: 0, asistencias: 0 },
                     { id: 19, rival: 'Conoco Grande', fecha: 'Jueves 16 Octubre', goles: 1, asistencias: 4 }
                 ]
             },
@@ -1987,16 +2152,16 @@
                 numero: 6,
                 posicion: 'Defensa',
                 frase: 'La última línea de defensa, siempre alerta',
-                imagenCamiseta: 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/imagen_2025-11-09_161117595.png',
+                imagenCamiseta: 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/preview-2025-11-05T15_00_52.091Z.png',
                 partidos: [
                     { id: 4, rival: 'Vaqueros', fecha: 'Jueves 1 Mayo', goles: 1, asistencias: 0 },
                     { id: 5, rival: 'Real Justicia', fecha: 'Viernes 9 Mayo', goles: 0, asistencias: 0 },
                     { id: 6, rival: 'Microdosis', fecha: 'Sábado 24 Mayo', goles: 0, asistencias: 0 },
                     { id: 7, rival: 'Real Justicia', fecha: 'Viernes 30 Mayo', goles: 0, asistencias: 0 },
                     { id: 8, rival: 'Resistencia IC', fecha: 'Viernes 27 Junio', goles: 0, asistencias: 0 },
-                    { id: 15, rival: 'Equipo Maxius', fecha: 'Miércoles 17 Septiembre', goles: 0, asistencias: 0 },
+                    { id: 15, rival: 'Hipogolemicos', fecha: 'Miércoles 17 Septiembre', goles: 0, asistencias: 0 },
                     { id: 17, rival: 'Equipo Maradona', fecha: 'Viernes 10 Octubre', goles: 0, asistencias: 0 },
-                    { id: 18, rival: 'Equipo Maxius', fecha: 'Martes 14 Octubre', goles: 0, asistencias: 0 },
+                    { id: 18, rival: 'Hipogolemicos', fecha: 'Martes 14 Octubre', goles: 0, asistencias: 0 },
                     { id: 19, rival: 'Conoco Grande', fecha: 'Jueves 16 Octubre', goles: 0, asistencias: 0 },
                     { id: 20, rival: 'Equipo Maradona', fecha: 'Viernes 24 Octubre', goles: 0, asistencias: 0 },
                     { id: 22, rival: 'Equipo Giovanni', fecha: 'Martes 04 Noviembre', goles: 0, asistencias: 0 },
@@ -2010,7 +2175,7 @@
                 numero: 7,
                 posicion: 'Delantero',
                 frase: 'Cada gol cuenta, y yo estoy aquí para marcar la diferencia',
-                imagenCamiseta: 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/imagen_2025-11-09_161236129.png',
+                imagenCamiseta: 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/preview-2025-11-05T15_00_39.306Z.png',
                 partidos: [
                     { id: 1, rival: 'Vaqueros', fecha: 'Lunes 20 Enero', goles: 12, asistencias: 4 },
                     { id: 2, rival: 'Vaqueros', fecha: 'Lunes 3 Marzo', goles: 7, asistencias: 1 },
@@ -2026,10 +2191,10 @@
                     { id: 12, rival: 'Equipo Pablismo', fecha: 'Sábado 23 Agosto', goles: 0, asistencias: 1 },
                     { id: 13, rival: 'Equipo Maradona', fecha: 'Jueves 04 Septiembre', goles: 1, asistencias: 3 },
                     { id: 14, rival: 'Equipo David', fecha: 'Jueves 11 Septiembre', goles: 0, asistencias: 2 },
-                    { id: 15, rival: 'Equipo Maxius', fecha: 'Miércoles 17 Septiembre', goles: 1, asistencias: 2 },
+                    { id: 15, rival: 'Hipogolemicos', fecha: 'Miércoles 17 Septiembre', goles: 1, asistencias: 2 },
                     { id: 16, rival: 'Pirula', fecha: 'Viernes 26 Septiembre', goles: 3, asistencias: 3 },
                     { id: 17, rival: 'Equipo Maradona', fecha: 'Viernes 10 Octubre', goles: 1, asistencias: 1 },
-                    { id: 18, rival: 'Equipo Maxius', fecha: 'Martes 14 Octubre', goles: 3, asistencias: 2 },
+                    { id: 18, rival: 'Hipogolemicos', fecha: 'Martes 14 Octubre', goles: 3, asistencias: 2 },
                     { id: 19, rival: 'Conoco Grande', fecha: 'Jueves 16 Octubre', goles: 6, asistencias: 2 },
                     { id: 20, rival: 'Equipo Maradona', fecha: 'Viernes 24 Octubre', goles: 0, asistencias: 1 },
                     { id: 21, rival: 'Pirula', fecha: 'Jueves 30 Octubre', goles: 1, asistencias: 1 },
@@ -2046,7 +2211,7 @@
                 numero: 8,
                 posicion: 'Delantero',
                 frase: 'Anticipar el juego es lo que me define como delantero',
-                imagenCamiseta: 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/imagen_2025-11-09_161422250.png',
+                imagenCamiseta: 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/preview-2025-11-05T15_00_20.611Z.png',
                 partidos: [
                     { id: 2, rival: 'Vaqueros', fecha: 'Lunes 3 Marzo', goles: 7, asistencias: 1 },
                     { id: 3, rival: 'Manchester ICI', fecha: 'Viernes 28 Marzo', goles: 0, asistencias: 0 },
@@ -2058,7 +2223,7 @@
                     { id: 14, rival: 'Equipo David', fecha: 'Jueves 11 Septiembre', goles: 3, asistencias: 0 },
                     { id: 16, rival: 'Pirula', fecha: 'Viernes 26 Septiembre', goles: 1, asistencias: 1 },
                     { id: 17, rival: 'Equipo Maradona', fecha: 'Viernes 10 Octubre', goles: 1, asistencias: 0 },
-                    { id: 18, rival: 'Equipo Maxius', fecha: 'Martes 14 Octubre', goles: 2, asistencias: 0 },
+                    { id: 18, rival: 'Hipogolemicos', fecha: 'Martes 14 Octubre', goles: 2, asistencias: 0 },
                     { id: 20, rival: 'Equipo Maradona', fecha: 'Viernes 24 Octubre', goles: 1, asistencias: 0 },
                     { id: 21, rival: 'Pirula', fecha: 'Jueves 30 Octubre', goles: 1, asistencias: 0 },
                     { id: 22, rival: 'Equipo Giovanni', fecha: 'Martes 04 Noviembre', goles: 1, asistencias: 1 },
@@ -2071,7 +2236,7 @@
                 numero: 9,
                 posicion: 'Delantero',
                 frase: 'Cada gol es un paso más hacia la victoria',
-                imagenCamiseta: 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/imagen_2025-11-09_161449715.png',
+                imagenCamiseta: 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/preview-2025-11-05T15_00_04.125Z.png',
                 partidos: [
                     { id: 6, rival: 'Microdosis', fecha: 'Sábado 24 Mayo', goles: 0, asistencias: 1 },
                     { id: 9, rival: 'Vaqueros', fecha: 'Lunes 14 Julio', goles: 5, asistencias: 1 },
@@ -2089,7 +2254,7 @@
                 numero: 10,
                 posicion: 'Mediocampista',
                 frase: 'Crear oportunidades es mi pasión en el campo',
-                imagenCamiseta: 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/imagen_2025-11-09_161631512.png',
+                imagenCamiseta: 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/preview-2025-11-05T14_59_46.976Z.png',
                 partidos: [
                     { id: 1, rival: 'Vaqueros', fecha: 'Lunes 20 Enero', goles: 7, asistencias: 8 },
                     { id: 2, rival: 'Vaqueros', fecha: 'Lunes 3 Marzo', goles: 3, asistencias: 5 },
@@ -2105,17 +2270,17 @@
                     { id: 12, rival: 'Equipo Pablismo', fecha: 'Sábado 23 Agosto', goles: 2, asistencias: 0 },
                     { id: 13, rival: 'Equipo Maradona', fecha: 'Jueves 04 Septiembre', goles: 2, asistencias: 0 },
                     { id: 14, rival: 'Equipo David', fecha: 'Jueves 11 Septiembre', goles: 1, asistencias: 1 },
-                    { id: 15, rival: 'Equipo Maxius', fecha: 'Miércoles 17 Septiembre', goles: 2, asistencias: 1 },
+                    { id: 15, rival: 'Hipogolemicos', fecha: 'Miércoles 17 Septiembre', goles: 2, asistencias: 1 },
                     { id: 16, rival: 'Pirula', fecha: 'Viernes 26 Septiembre', goles: 1, asistencias: 6 },
                     { id: 17, rival: 'Equipo Maradona', fecha: 'Viernes 10 Octubre', goles: 1, asistencias: 2 },
-                    { id: 18, rival: 'Equipo Maxius', fecha: 'Martes 14 Octubre', goles: 1, asistencias: 1 },
+                    { id: 18, rival: 'Hipogolemicos', fecha: 'Martes 14 Octubre', goles: 1, asistencias: 1 },
                     { id: 19, rival: 'Conoco Grande', fecha: 'Jueves 16 Octubre', goles: 6, asistencias: 4 },
                     { id: 20, rival: 'Equipo Maradona', fecha: 'Viernes 24 Octubre', goles: 1, asistencias: 0 },
                     { id: 21, rival: 'Pirula', fecha: 'Jueves 30 Octubre', goles: 0, asistencias: 0 },
                     { id: 22, rival: 'Equipo Giovanni', fecha: 'Martes 04 Noviembre', goles: 0, asistencias: 1 },
                     { id: 23, rival: 'Pirula', fecha: 'Miercoles 05 Noviembre', goles: 1, asistencias: 2 },
-                    { id: 24, rival: 'Pirula', fecha: 'Jueves 14 Noviembre', goles: 2, asistencias: 2 },
-                    { id: 25, rival: 'Real Justicia', fecha: 'Viernes 15 Noviembre', goles: 1, asistencias: 2 },
+                    { id: 24, rival: 'Pirula', fecha: 'Jueves 13 Noviembre', goles: 2, asistencias: 2 },
+                    { id: 25, rival: 'Real Justicia', fecha: 'Viernes 14 Noviembre', goles: 1, asistencias: 2 },
                     { id: 26, rival: 'Pirula', fecha: 'Sábado 29 Noviembre', goles: 1, asistencias: 3 },
                     { id: 27, rival: 'Equipo Pablismo', fecha: 'Domingo 14 Diciembre', goles: 2, asistencias: 1 }
                 ]
@@ -2125,7 +2290,7 @@
                 numero: 11,
                 posicion: 'Mediocampista',
                 frase: 'Siempre listo para recuperar el balón y apoyar al equipo',
-                imagenCamiseta: 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/imagen_2025-11-09_161730357.png',
+                imagenCamiseta: 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/preview-2025-11-05T14_59_22.181Z.png',
                 partidos: [
                     { id: 1, rival: 'Vaqueros', fecha: 'Lunes 20 Enero', goles: 1, asistencias: 1 },
                     { id: 2, rival: 'Vaqueros', fecha: 'Lunes 3 Marzo', goles: 1, asistencias: 7 },
@@ -2141,17 +2306,17 @@
                     { id: 12, rival: 'Equipo Pablismo', fecha: 'Sábado 23 Agosto', goles: 1, asistencias: 1 },
                     { id: 13, rival: 'Equipo Maradona', fecha: 'Jueves 04 Septiembre', goles: 1, asistencias: 2 },
                     { id: 14, rival: 'Equipo David', fecha: 'Jueves 11 Septiembre', goles: 0, asistencias: 1 },
-                    { id: 15, rival: 'Equipo Maxius', fecha: 'Miércoles 17 Septiembre', goles: 2, asistencias: 2 },
+                    { id: 15, rival: 'Hipogolemicos', fecha: 'Miércoles 17 Septiembre', goles: 2, asistencias: 2 },
                     { id: 16, rival: 'Pirula', fecha: 'Viernes 26 Septiembre', goles: 7, asistencias: 0 },
                     { id: 17, rival: 'Equipo Maradona', fecha: 'Viernes 10 Octubre', goles: 1, asistencias: 0 },
-                    { id: 18, rival: 'Equipo Maxius', fecha: 'Martes 14 Octubre', goles: 2, asistencias: 1 },
+                    { id: 18, rival: 'Hipogolemicos', fecha: 'Martes 14 Octubre', goles: 2, asistencias: 1 },
                     { id: 19, rival: 'Conoco Grande', fecha: 'Jueves 16 Octubre', goles: 7, asistencias: 3 },
                     { id: 20, rival: 'Equipo Maradona', fecha: 'Viernes 24 Octubre', goles: 2, asistencias: 1 },
                     { id: 21, rival: 'Pirula', fecha: 'Jueves 30 Octubre', goles: 0, asistencias: 1 },
                     { id: 22, rival: 'Equipo Giovanni', fecha: 'Martes 04 Noviembre', goles: 0, asistencias: 1 },
                     { id: 23, rival: 'Pirula', fecha: 'Miercoles 05 Noviembre', goles: 0, asistencias: 1 },
-                    { id: 24, rival: 'Pirula', fecha: 'Jueves 14 Noviembre', goles: 4, asistencias: 0 },
-                    { id: 25, rival: 'Real Justicia', fecha: 'Viernes 15 Noviembre', goles: 3, asistencias: 1 },
+                    { id: 24, rival: 'Pirula', fecha: 'Jueves 13 Noviembre', goles: 4, asistencias: 0 },
+                    { id: 25, rival: 'Real Justicia', fecha: 'Viernes 14 Noviembre', goles: 3, asistencias: 1 },
                     { id: 26, rival: 'Pirula', fecha: 'Sábado 29 Noviembre', goles: 1, asistencias: 1 },
                     { id: 27, rival: 'Equipo Pablismo', fecha: 'Domingo 14 Diciembre', goles: 0, asistencias: 0 }
                 ]
@@ -2159,16 +2324,16 @@
             'matias-bustamante': {
                 nombre: 'Matias Bustamante',
                 numero: 14,
-                posicion: 'Defensa',
+                posicion: 'Mediocampista',
                 frase: 'No hay balón perdido si yo estoy cerca, de un área a la otra',
-                imagenCamiseta: 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/imagen_2025-11-09_161815877.png',
+                imagenCamiseta: 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/preview-2025-11-05T14_58_51.101Z.png',
                 partidos: [
                     { id: 9, rival: 'Vaqueros', fecha: 'Lunes 14 Julio', goles: 1, asistencias: 1 },
                     { id: 12, rival: 'Equipo Pablismo', fecha: 'Sábado 23 Agosto', goles: 0, asistencias: 1 },
                     { id: 16, rival: 'Pirula', fecha: 'Viernes 26 Septiembre', goles: 0, asistencias: 1 },
                     { id: 17, rival: 'Equipo Maradona', fecha: 'Viernes 10 Octubre', goles: 0, asistencias: 0 },
                     { id: 20, rival: 'Equipo Maradona', fecha: 'Viernes 24 Octubre', goles: 1, asistencias: 1 },
-                    { id: 25, rival: 'Real Justicia', fecha: 'Viernes 15 Noviembre', goles: 0, asistencias: 1 },
+                    { id: 25, rival: 'Real Justicia', fecha: 'Viernes 14 Noviembre', goles: 0, asistencias: 1 },
                     { id: 26, rival: 'Pirula', fecha: 'Sábado 29 Noviembre', goles: 0, asistencias: 3 },
                     { id: 27, rival: 'Equipo Pablismo', fecha: 'Domingo 14 Diciembre', goles: 0, asistencias: 1 }
                 ]
@@ -2235,7 +2400,7 @@
                 <div class="stat-card bg-white rounded-lg p-6 shadow-lg text-center">
                     <div class="text-3xl font-bold text-purple-600 mb-2">${partidosJugados}</div>
                     <div class="text-sm text-gray-600">Partidos Jugados</div>
-                    <div class="text-xs text-gray-500 mt-1">de 27 totales</div>
+                    <div class="text-xs text-gray-500 mt-1">de 23 totales</div>
                 </div>
                 <div class="stat-card bg-white rounded-lg p-6 shadow-lg text-center">
                     <div class="text-3xl font-bold text-orange-600 mb-2">${totalContribuciones}</div>
@@ -2566,21 +2731,5 @@
             return escudos[rival] || escudos['default'];
         }
     </script>
-    <script>
-        const darkModeBtn = document.getElementById('dark-mode-toggle');
-        const darkIcon = document.getElementById('dark-icon');
-        const rootHTML = document.documentElement;
-
-        darkModeBtn.addEventListener('click', () => {
-            rootHTML.classList.toggle('dark');
-            if (rootHTML.classList.contains('dark')) {
-                darkIcon.classList.replace('fa-moon', 'fa-sun');
-            } else {
-                darkIcon.classList.replace('fa-sun', 'fa-moon');
-            }
-        });
-    </script>
-
-</body> </html>
 </body>
 </html>

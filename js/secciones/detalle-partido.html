@@ -1,12 +1,14 @@
 <section class="py-16 bg-gray-100">
     <div class="container mx-auto px-6">
         <div class="mb-8">
+            <!-- Botón para volver -->
             <button onclick="cargarSeccion('partidos')" class="bg-red-800 hover:bg-red-900 text-white font-bold py-2 px-6 rounded-full transition mb-4">
                 ← Volver a Partidos
             </button>
             
             <h2 class="text-3xl font-bold text-center mb-8 text-red-800">Detalles del Partido</h2>
             
+            <!-- Header del partido (escudos, resultado, fecha) -->
             <div id="match-header" class="bg-white rounded-lg p-6 shadow-lg mb-8">
                 <!-- Los escudos y resultado se cargan aquí dinámicamente -->
             </div>
@@ -14,6 +16,7 @@
         
         <h3 class="text-2xl font-bold text-center mb-8 text-red-800">Rendimiento de Jugadores</h3>
         
+        <!-- Lista de jugadores del partido -->
         <div id="match-players" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             <!-- Los jugadores se cargan dinámicamente aquí -->
         </div>

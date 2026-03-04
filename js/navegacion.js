@@ -13,22 +13,33 @@ function cargarSeccion(seccion) {
             
             // Ejecutar código específico según la sección cargada
             if (seccion === 'partidos') {
-                renderMatches(); // Llamar función que renderiza partidos
+                renderMatches(); // Renderiza lista de partidos
             }
             if (seccion === 'equipo') {
-                renderTeam(); // Llamar función que renderiza equipo
+                renderTeam(); // Renderiza tarjetas de jugadores
             }
             if (seccion === 'rivales') {
-                renderRivals(); // Llamar función que renderiza rivales
+                renderRivales(); // Renderiza lista de rivales
+            }
+            if (seccion === 'estadisticas') {
+                renderTeamStats(); // Renderiza estadísticas del equipo
             }
             if (seccion === 'detalle-jugador' && jugadorSeleccionado) {
-                showPlayerDetails(jugadorSeleccionado);
+                showPlayerDetails(jugadorSeleccionado); // Muestra detalles del jugador
             }
             if (seccion === 'detalle-partido' && partidoSeleccionado) {
-                showMatchDetails(partidoSeleccionado);
+                showMatchDetails(partidoSeleccionado); // Muestra detalles del partido
             }
             if (seccion === 'detalle-rival' && rivalSeleccionado) {
-                showRivalDetails(rivalSeleccionado);
+                showRivalDetails(rivalSeleccionado); // Muestra detalles del rival
+            }
+            
+            // Cerrar menú móvil si está abierto
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuOverlay = document.getElementById('menu-overlay');
+            if (mobileMenu && menuOverlay) {
+                mobileMenu.classList.remove('active');
+                menuOverlay.classList.remove('active');
             }
         })
         .catch(error => {

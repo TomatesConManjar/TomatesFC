@@ -11,24 +11,24 @@ function cargarSeccion(seccion) {
             contenedor.innerHTML = html;
             actualizarNavbar(seccion);
             
-            // Ejecutar código específico según la sección
-            if (seccion === 'detalle-jugador' && jugadorSeleccionado) {
-                mostrarDetallesJugador();
-            }
-            if (seccion === 'detalle-partido' && partidoSeleccionado) {
-                mostrarDetallePartido();
-            }
-            if (seccion === 'detalle-rival' && rivalSeleccionado) {
-                mostrarDetalleRival();
-            }
+            // Ejecutar código específico según la sección cargada
             if (seccion === 'partidos') {
-                cargarPartidos();
+                renderMatches(); // Llamar función que renderiza partidos
             }
             if (seccion === 'equipo') {
-                cargarEquipo();
+                renderTeam(); // Llamar función que renderiza equipo
             }
             if (seccion === 'rivales') {
-                cargarRivales();
+                renderRivals(); // Llamar función que renderiza rivales
+            }
+            if (seccion === 'detalle-jugador' && jugadorSeleccionado) {
+                showPlayerDetails(jugadorSeleccionado);
+            }
+            if (seccion === 'detalle-partido' && partidoSeleccionado) {
+                showMatchDetails(partidoSeleccionado);
+            }
+            if (seccion === 'detalle-rival' && rivalSeleccionado) {
+                showRivalDetails(rivalSeleccionado);
             }
         })
         .catch(error => {
@@ -37,28 +37,25 @@ function cargarSeccion(seccion) {
         });
 }
 
-// Función para marcar botón activo
+// Función para marcar botón activo en navbar
 function actualizarNavbar(seccionActiva) {
-    const botones = document.querySelectorAll('nav button');
-    botones.forEach(btn => {
-        btn.classList.remove('activo');
-        if (btn.textContent.toLowerCase() === seccionActiva) {
-            btn.classList.add('activo');
-        }
+    const links = document.querySelectorAll('nav a');
+    links.forEach(link => {
+        link.classList.remove('text-yellow-400');
     });
 }
 
-// Cargar la sección de inicio al abrir la página
+// Cargar inicio al abrir la página
 window.addEventListener('DOMContentLoaded', () => {
     cargarSeccion('inicio');
 });
 
-// Variables globales para guardar selecciones
+// Variables globales para guardar qué se seleccionó
 let jugadorSeleccionado = null;
 let partidoSeleccionado = null;
 let rivalSeleccionado = null;
 
-// Funciones para ver detalles
+// Funciones para navegación a detalles
 function verDetalleJugador(nombreJugador) {
     jugadorSeleccionado = nombreJugador;
     cargarSeccion('detalle-jugador');

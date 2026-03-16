@@ -789,7 +789,7 @@
                 ]
             }
         };
-        function renderMatches(filter = 'todos') {
+        window.renderMatches = function(filter = 'todos') {
             console.log('renderMatches llamado con filtro:', filter);
             const container = document.getElementById('matches-container');
             if (!container) {

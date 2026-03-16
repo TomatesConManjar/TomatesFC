@@ -246,7 +246,7 @@
         }
         });
         // Función para renderizar estadísticas del equipo dinámicamente
-        fwindow.renderTeamStats = function(searchTerm = '') {
+        window.renderTeamStats = function(searchTerm = '') {
             const container = document.getElementById('stats-players-container');
             if (!container) {
                 console.error('No se encontró el contenedor stats-players-container');

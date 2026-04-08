@@ -26,8 +26,12 @@ function cargarSeccion(seccion) {
                     window.showRivalDetails(rivalSeleccionado);
                 }
                 // Para partidos
-                if (seccion === 'partidos' && typeof window.renderMatches === 'function') {
-                    window.renderMatches();
+                if (seccion === 'partidos') {
+                    if (typeof window.renderMatches === 'function') {
+                        window.renderMatches('todos'); // ← Agregar el parámetro 'todos'
+                    } else {
+                        console.error('window.renderMatches no está definida');
+                    }
                 }
                 // Para rivales
                 if (seccion === 'rivales' && typeof window.renderRivales === 'function') {

@@ -1,4 +1,3 @@
-#tercer script
     <script>
         // JavaScript para el menú móvil
         document.addEventListener('DOMContentLoaded', function() {

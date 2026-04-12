@@ -1535,16 +1535,6 @@
             const rivales = getRivalesStats();
             const rivalData = rivales.find(r => r.rival === rivalName);
             if (!rivalData) return;
-            // NUEVO: Ocultar todas las secciones principales excepto rivales
-            ['inicio', 'historia', 'equipo', 'partidos', 'stats-section', 'player-details-section', 'match-details-section'].forEach(id => {
-                const el = document.getElementById(id);
-                if (el) el.classList.add('hidden');
-            });
-            // Mostrar solo la sección rivales (que incluye navbar y footer siempre visibles)
-            document.getElementById('rivales').classList.remove('hidden');
-            // Ocultar contenedor principal y mostrar detalles
-            document.getElementById('rivales-container').classList.add('hidden');
-            document.getElementById('rival-details').classList.remove('hidden');
             // Header con stats generales
             const escudoRival = getEscudoRival(rivalName);
             document.getElementById('rival-header').innerHTML = `

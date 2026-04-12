@@ -1269,11 +1269,6 @@
                 console.error('Jugador no encontrado:', playerId);
                 return;
             }
-            // Ocultar secciones principales
-            ['inicio', 'historia', 'equipo', 'partidos', 'rivales', 'stats-section', 'match-details-section'].forEach(id => {
-                const el = document.getElementById(id);
-                if (el) el.classList.add('hidden');
-            });
             // Mostrar sección detalles jugador
             const detalles = document.getElementById('player-details-section');
             if (!detalles) {

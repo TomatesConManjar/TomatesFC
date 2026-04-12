@@ -897,27 +897,8 @@
         }
         window.showMatchDetails = function(partidoId) {
             console.log('showMatchDetails llamado con:', partidoId);
-            try {
-                document.getElementById('inicio').classList.add('hidden');
-                document.getElementById('historia').classList.add('hidden');
-                document.getElementById('equipo').classList.add('hidden');
-                document.getElementById('partidos').classList.add('hidden');
-                document.getElementById('rivales').classList.add('hidden');
-                document.getElementById('stats-section').classList.add('hidden');
-                document.getElementById('player-details-section').classList.add('hidden');
-                const matchDetailsSection = document.getElementById('match-details-section');
-                if (!matchDetailsSection) {
-                    console.error('No se encontró el elemento match-details-section');
-                    return;
-                }
-                matchDetailsSection.classList.remove('hidden');
-                window.history.pushState({section: 'match-details', partidoId: partidoId}, '', `#partido/${partidoId}`);
-                const offset = 50;
-                const topPosition = matchDetailsSection.getBoundingClientRect().top + window.scrollY - offset;
-                window.scrollTo({
-                    top: topPosition,
-                    behavior: 'smooth'
-                });
+                // Scroll al inicio cuando se carga el detalle
+                window.scrollTo({ top: 0, behavior: 'smooth' });
                 const partido = partidosData[partidoId];
                 if (!partido) {
                     console.error('No se encontró información para el partido con ID:', partidoId);
@@ -1014,24 +995,6 @@
                 console.error('Error en showMatchDetails:', error);
             }
         };
-        window.backToMatches = function() {
-            document.getElementById('match-details-section').classList.add('hidden');
-            document.getElementById('stats-section').classList.add('hidden');
-            document.getElementById('player-details-section').classList.add('hidden');
-            document.getElementById('inicio').classList.remove('hidden');
-            document.getElementById('historia').classList.remove('hidden');
-            document.getElementById('equipo').classList.remove('hidden');
-            document.getElementById('partidos').classList.remove('hidden');
-            document.getElementById('rivales').classList.remove('hidden');
-            window.history.pushState({section: 'partidos'}, '', '#partidos');
-            const title = document.getElementById('partidos-title');
-            const offset = 80;  // Aumentado de 50 a 80px para compensar navbar (ajusta si es necesario)
-            const topPosition = title.getBoundingClientRect().top + window.scrollY - offset;
-            window.scrollTo({
-                top: topPosition,
-                behavior: 'smooth'
-            });
-        }
         // BUSCADOR DE JUGADORES - SECCIÓN PRINCIPAL
         document.getElementById('playerSearch').addEventListener('input', function(e) {
             const searchTerm = e.target.value.toLowerCase();

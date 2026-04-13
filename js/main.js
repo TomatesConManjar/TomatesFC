@@ -1231,10 +1231,6 @@
                 console.error('Jugador no encontrado:', playerId);
                 return;
             }
-            // Limpiar contenido previo
-            document.getElementById('player-header').innerHTML = '';
-            document.getElementById('general-stats').innerHTML = '';
-            document.getElementById('match-performances').innerHTML = '';
             // Insertar contenido básico en player-header
             document.getElementById('player-header').innerHTML = `
                 <div class="flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-8">

@@ -11,37 +11,54 @@ function cargarSeccion(seccion) {
             contenedor.innerHTML = html;
             actualizarNavbar(seccion);
             
-            // Ejecutar funciones SOLO si existen
-            setTimeout(() => {
-                // Para detalles de jugador
-                if (seccion === 'detalle-jugador' && jugadorSeleccionado && typeof window.showPlayerDetails === 'function') {
-                    window.showPlayerDetails(jugadorSeleccionado);
-                }
-                // Para detalles de partido
-                if (seccion === 'detalle-partido' && partidoSeleccionado && typeof window.showMatchDetails === 'function') {
-                    window.showMatchDetails(partidoSeleccionado);
-                }
-                // Para detalles de rival
-                if (seccion === 'detalle-rival' && rivalSeleccionado && typeof window.showRivalDetails === 'function') {
-                    window.showRivalDetails(rivalSeleccionado);
-                }
-                // Para partidos
-                if (seccion === 'partidos') {
-                    if (typeof window.renderMatches === 'function') {
-                        window.renderMatches('todos'); // ← Agregar el parámetro 'todos'
-                    } else {
-                        console.error('window.renderMatches no está definida');
+            // Esperar a que el DOM se actualice
+            requestAnimationFrame(() => {
+                setTimeout(() => {
+                    // Para detalles de jugador
+                    if (seccion === 'detalle-jugador' && jugadorSeleccionado) {
+                        console.log('🔍 Intentando cargar jugador:', jugadorSeleccionado);
+                        const playerHeader = document.getElementById('player-header');
+                        console.log('📦 Elemento player-header:', playerHeader);
+            
+                        if (playerHeader && typeof window.showPlayerDetails === 'function') {
+                            console.log('✅ Ejecutando showPlayerDetails');
+                            window.showPlayerDetails(jugadorSeleccionado);
+                        } else {
+                            console.error('❌ Error: player-header no existe o función no definida');
+                        }
                     }
-                }
-                // Para rivales
-                if (seccion === 'rivales' && typeof window.renderRivales === 'function') {
-                    window.renderRivales();
-                }
-                // Para estadísticas
-                if (seccion === 'estadisticas' && typeof window.renderTeamStats === 'function') {
-                    window.renderTeamStats();
-                }
-            }, 500);
+        
+                    if (seccion === 'detalle-partido' && partidoSeleccionado) {
+                        if (typeof window.showMatchDetails === 'function') {
+                            window.showMatchDetails(partidoSeleccionado);
+                        }
+                    }
+        
+                    if (seccion === 'detalle-rival' && rivalSeleccionado) {
+                        if (typeof window.showRivalDetails === 'function') {
+                            window.showRivalDetails(rivalSeleccionado);
+                        }
+                    }
+        
+                    if (seccion === 'partidos') {
+                        if (typeof window.renderMatches === 'function') {
+                            window.renderMatches('todos');
+                        }
+                    }
+        
+                    if (seccion === 'rivales') {
+                        if (typeof window.renderRivales === 'function') {
+                            window.renderRivales();
+                        }
+                    }
+        
+                    if (seccion === 'estadisticas') {
+                        if (typeof window.renderTeamStats === 'function') {
+                            window.renderTeamStats();
+                        }
+                    }
+                }, 100);
+            });
             
             // Cerrar menú móvil si está abierto
             const mobileMenu = document.getElementById('mobile-menu');

@@ -41,7 +41,7 @@ function cargarSeccion(seccion) {
                 if (seccion === 'estadisticas' && typeof window.renderTeamStats === 'function') {
                     window.renderTeamStats();
                 }
-            }, 200);
+            }, 500);
             
             // Cerrar menú móvil si está abierto
             const mobileMenu = document.getElementById('mobile-menu');

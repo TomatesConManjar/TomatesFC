@@ -1231,13 +1231,6 @@
                 console.error('Jugador no encontrado:', playerId);
                 return;
             }
-            // Mostrar sección detalles jugador
-            const detalles = document.getElementById('player-details-section');
-            if (!detalles) {
-                console.error('No se encontró player-details-section');
-                return;
-            }
-            detalles.classList.remove('hidden');
             // Limpiar contenido previo
             document.getElementById('player-header').innerHTML = '';
             document.getElementById('general-stats').innerHTML = '';
@@ -1341,32 +1334,7 @@
                     </div>
                 `;
             });
-            document.getElementById('match-performances').innerHTML = matchPerformancesHTML;
-            // Scroll suave a la sección detalles
-            const offset = 50;
-            const topPosition = detalles.getBoundingClientRect().top + window.scrollY - offset;
-            window.scrollTo({
-                top: topPosition,
-                behavior: 'smooth'
-            });
         };
-        // Función para volver al equipo
-        window.backToTeam = function() {
-            document.getElementById('player-details-section').classList.add('hidden');
-            document.getElementById('equipo').classList.remove('hidden');
-            document.getElementById('partidos').classList.remove('hidden');
-            document.getElementById('rivales').classList.remove('hidden');
-            document.getElementById('historia').classList.remove('hidden');
-            document.getElementById('inicio').classList.remove('hidden');
-            window.history.pushState({section: 'equipo'}, '', '#equipo');
-            const equipoSection = document.getElementById('equipo');
-            const offset = 80; // Ajusta según el tamaño del navbar fijo
-            const topPosition = equipoSection.getBoundingClientRect().top + window.scrollY - offset;
-            window.scrollTo({
-                top: topPosition,
-                behavior: 'smooth'
-            });
-        }
         // Manejar navegación del navegador
         window.addEventListener('popstate', function(event) {
             if (event.state) {

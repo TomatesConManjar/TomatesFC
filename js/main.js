@@ -348,25 +348,6 @@
                 console.error('Error en showStats:', error);
             }
         };
-        window.goBack = function() {
-            document.getElementById('inicio').classList.remove('hidden');
-            document.getElementById('historia').classList.remove('hidden');
-            document.getElementById('equipo').classList.remove('hidden');
-            document.getElementById('partidos').classList.remove('hidden');
-            document.getElementById('rivales').classList.remove('hidden');
-            document.getElementById('stats-section').classList.add('hidden');
-            document.getElementById('player-details-section').classList.add('hidden');
-            document.getElementById('match-details-section').classList.add('hidden');
-            window.history.pushState({section: 'equipo'}, '', '#equipo');
-            // Desplazamiento suave a la sección de plantilla
-            const equipoSection = document.getElementById('equipo');
-            const offset = 80; // Ajusta este valor según sea necesario
-            const topPosition = equipoSection.getBoundingClientRect().top + window.scrollY - offset;
-            window.scrollTo({
-                top: topPosition,
-                behavior: 'smooth'
-            });
-        }
         // Datos de los partidos con jugadores
         const partidosData = {
             1: {

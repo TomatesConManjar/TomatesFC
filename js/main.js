@@ -1,4 +1,3 @@
-    <script>
         // JavaScript para el menú móvil
         document.addEventListener('DOMContentLoaded', function() {
             const mobileMenuButton = document.getElementById('mobile-menu-button');
@@ -349,11 +348,6 @@
                 console.error('Error en showStats:', error);
             }
         };
-    </script>
-
-#penultimo script
-  #cuarto script
-    <script>
         window.goBack = function() {
             document.getElementById('inicio').classList.remove('hidden');
             document.getElementById('historia').classList.remove('hidden');
@@ -1564,6 +1558,3 @@
             };
             return escudos[rival] || escudos['default'];
         }
-    </script>
-
-#ultimo script

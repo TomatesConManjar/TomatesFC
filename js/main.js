@@ -1499,34 +1499,6 @@
             // Actualizar URL
             window.history.pushState({ section: 'rival-details', rival: rivalName }, '', `#rivales/${rivalName}`);
         };
-        // NUEVO: Función para volver a la lista de rivales
-        window.backToRivales = function() {
-            // Ocultar todas las secciones de detalles
-            document.getElementById('rival-details').classList.add('hidden');
-            document.getElementById('stats-section').classList.add('hidden');
-            document.getElementById('player-details-section').classList.add('hidden');
-            document.getElementById('match-details-section').classList.add('hidden');
-            document.getElementById('inicio').classList.remove('hidden');
-            document.getElementById('historia').classList.remove('hidden');
-            document.getElementById('equipo').classList.remove('hidden');
-            document.getElementById('partidos').classList.remove('hidden');
-            document.getElementById('rivales').classList.remove('hidden');
-            document.getElementById('rivales-container').classList.remove('hidden');
-            // Renderizar contenido dinámico para las secciones si es necesario
-            renderRivales();  // Actualiza la lista de rivales
-            renderMatches('todos');  // Actualiza los partidos para que se muestren correctamente
-            window.history.pushState({ section: 'rivales' }, '', '#rivales');
-            // Hacer scroll suave al título de rivales con offset para el navbar
-            const tituloRivales = document.querySelector('#rivales h2');  // Selecciona el h2 "RENDIMIENTO CONTRA RIVALES"
-            if (tituloRivales) {
-                const offset = 80;  // Ajusta este valor si el navbar es más alto o bajo (por ejemplo, mide su altura en píxeles)
-                const elementPosition = tituloRivales.getBoundingClientRect().top + window.scrollY - offset;
-                window.scrollTo({
-                    top: elementPosition,
-                    behavior: 'smooth'
-                });
-            }
-        };
         // NUEVO: Función helper para escudo (reusa o agrega si no la tienes)
         function getEscudoRival(rival) {
             const escudos = {

@@ -1,1 +1,450 @@
-
+/* Scroll suave para todos los enlaces de ancla */
+        html {
+            scroll-behavior: smooth;
+        }
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Futura+PT:wght@400;700&display=swap'); /* Nueva línea agregada */
+        /* Modo oscuro */
+        .dark {
+            background-color: #1a1a1a !important;
+            color: #f0f0f0 !important;
+        }
+        .dark .bg-white {
+            background-color: #2d2d2d !important;
+            color: #f0f0f0 !important;
+        }
+        .dark .bg-gray-100 {
+            background-color: #1f1f1f !important;
+        }
+        .dark .bg-gray-50 {
+        background-color: #2d3748 !important;
+        }
+        .dark .text-gray-600 {
+            color: #a0aec0 !important;
+        }
+        .dark .text-gray-700 {
+            color: #cbd5e0 !important;
+        }
+        /* Estilos para detalles del jugador en modo oscuro */
+        .dark .stat-card {
+            background-color: #2d3748 !important;
+            color: #e2e8f0 !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        }
+        .dark .match-performance-card {
+            background-color: #2d3748 !important;
+            color: #e2e8f0 !important;
+        }
+        .dark .bg-green-100 {
+            background-color: rgba(72, 187, 120, 0.2) !important;
+            color: #68d391 !important;
+        }
+        .dark .border-green-300 {
+            border-color: #68d391 !important;
+        }
+        .dark .bg-red-100 {
+            background-color: rgba(245, 101, 101, 0.2) !important;
+            color: #fc8181 !important;
+        }
+        .dark .border-red-300 {
+            border-color: #fc8181 !important;
+        }
+        .dark .bg-yellow-100 {
+            background-color: rgba(236, 201, 75, 0.2) !important;
+            color: #f6e05e !important;
+        }
+        .dark .border-yellow-300 {
+            border-color: #f6e05e !important;
+        }
+        .dark .bg-green-200 {
+            background-color: rgba(72, 187, 120, 0.3) !important;
+            color: #68d391 !important;
+        }
+        .dark .bg-red-200 {
+            background-color: rgba(245, 101, 101, 0.3) !important;
+            color: #fc8181 !important;
+        }
+        .dark .bg-yellow-200 {
+            background-color: rgba(236, 201, 75, 0.3) !important;
+            color: #f6e05e !important;
+        }
+        .dark .text-gray-800 {
+            color: #e2e8f0 !important;
+        }
+        .dark .text-red-800 {
+            color: #fc8181 !important;
+        }
+        .dark .border-red-200 {
+            border-color: #fc8181 !important;
+        }
+        .dark .border-green-100 {
+            border-color: #68d391 !important;
+        }
+        .dark .player-card {
+            background: rgba(45, 55, 72, 0.95) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            color: #e2e8f0 !important;
+        }
+        .dark .player-card:hover {
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 
+                        0 10px 25px -5px rgba(220, 38, 38, 0.2),
+                        0 0 0 1px rgba(255, 255, 255, 0.1) !important;
+        }
+        .dark [data-result] {
+            background-color: #2d3748 !important;
+            color: #e2e8f0 !important;
+            border-color: #fc8181 !important;
+        }
+        .dark .bg-red-800 {
+            background-color: #c53030 !important;
+        }
+        .dark .bg-gray-900 {
+            background-color: #0d1117 !important;
+        }
+        .dark nav {
+            background-color: #c53030 !important;
+        }
+        .dark .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://img.freepik.com/foto-gratis/detalles-pelota-deporte_23-2151869781.jpg?semt=ais_hybrid&w=740&q=80') no-repeat center center !important;
+            background-size: cover !important;
+        }
+        /* Botones de filtros en modo oscuro */
+        .dark .filter-btn {
+            background-color: #4a5568 !important;
+            color: #e2e8f0 !important;
+            border: 1px solid #718096 !important;
+        }
+        .dark .filter-btn:hover {
+            background-color: #2d3748 !important;
+            color: #e2e8f0 !important;
+        }
+        .dark .filter-btn[data-filter]:not([class*="bg-red-800"]) {
+            background-color: #4a5568 !important;
+            color: #e2e8f0 !important;
+        }
+        /* Botón activo en modo oscuro */
+        .dark .bg-red-800 {
+            background-color: #e53e3e !important;
+            color: #ffffff !important;
+        }
+        .dark .bg-red-800:hover {
+            background-color: #c53030 !important;
+            color: #ffffff !important;
+        }
+        /* Botones inactivos en modo oscuro */
+        .dark .bg-gray-200 {
+            background-color: #4a5568 !important;
+            color: #e2e8f0 !important;
+        }
+        .dark .text-gray-700 {
+            color: #e2e8f0 !important;
+        }
+        .dark .text-gray-700 {
+            color: #e2e8f0 !important;
+        }
+        body {
+            font-family: 'Futura PT', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://img.freepik.com/foto-gratis/detalles-pelota-deporte_23-2151869781.jpg?semt=ais_hybrid&w=740&q=80') no-repeat center center;
+            background-size: cover;
+            height: 60vh;
+        }
+        .player-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .player-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 
+                        0 10px 25px -5px rgba(220, 38, 38, 0.1),
+                        0 0 0 1px rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .trophy:hover {
+            transform: scale(1.1);
+        }
+        /* Estilos para el menú móvil */
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        /* Animación del botón hamburguesa */
+        .hamburger-line {
+            transition: all 0.3s ease;
+        }
+        .hamburger.active .hamburger-line:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger.active .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active .hamburger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+        /* Overlay para cerrar el menú */
+        .menu-overlay {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .player-number {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(45deg, #dc2626, #991b1b);
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 16px;
+            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4);
+            z-index: 10;
+        }
+        /* Estilos para la página de detalles del jugador */
+        .player-detail-section {
+            min-height: 80vh;
+        }
+        .stat-card {
+            transition: all 0.3s ease;
+        }
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        .match-performance-card {
+            transition: all 0.3s ease;
+        }
+        .match-performance-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        .match-score {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .match-score span {
+            position: absolute;
+            top: 20%; /* Ajusta este valor según sea necesario para centrar verticalmente */
+            font-size: 2rem; /* Asegúrate de que el tamaño de fuente sea adecuado */
+            top: 20%; 
+            font-size: 2rem;
+        }
+        /* Estilos para la sección de partidos */
+        #partidos {
+            background-color: #f9f9f9; /* Color de fondo suave */
+            background-color: #f9f9f9;
+            padding: 40px 0; /* Espaciado superior e inferior */
+        }
+        /* Estilos para las tarjetas de partidos */
+        .match-card {
+            background-color: #ffffff; /* Fondo blanco */
+            background-color: #ffffff; 
+            border-radius: 10px; /* Bordes redondeados */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
+            transition: transform 0.3s, box-shadow 0.3s; /* Transición suave */
+        }
+        .match-card:hover {
+            transform: translateY(-5px); /* Efecto de elevación al pasar el mouse */
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Sombra más intensa al pasar el mouse */
+        }
+        /* Estilos para los botones */
+        button {
+            transition: background-color 0.3s, transform 0.3s; /* Transición suave */
+        }
+        button:hover {
+            transform: scale(1.05); /* Aumentar ligeramente el tamaño al pasar el mouse */
+        }
+        /* Estilos para la sección de rivales (sin cambios principales, solo agregar estos para jugadores) */
+        #rivales {
+            background-color: #f9f9f9;
+            padding: 40px 0;
+        }
+        .rival-card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            padding: 1.5rem;
+        }
+        .rival-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        }
+        .rival-name {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #dc2626;
+            margin-bottom: 0.5rem;
+        }
+        .rival-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        .rival-stat {
+            text-align: center;
+            padding: 0.5rem;
+            background: #f3f4f6;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+        }
+        .rival-stat strong {
+            display: block;
+            font-size: 1.25rem;
+            color: #dc2626;
+        }
+        .rival-detail-container {
+            display: none;
+            animation: fadeIn 0.3s ease-in;
+        }
+        .rival-detail-container.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .rival-match-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-left: 4px solid #dc2626;
+            margin-bottom: 1rem;
+        }
+        .rival-match-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        .rival-match-result {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+            margin: 0.5rem 0;
+            flex: 1;
+        }
+        .victoria { color: #10b981; }
+        .empate { color: #f59e0b; }
+        .derrota { color: #ef4444; }
+        .rival-players-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 0.75rem;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e5e7eb;
+        }
+        .rival-player-card {
+            background: #f9fafb;
+            border-radius: 8px;
+            padding: 0.75rem;
+            text-align: center;
+            border: 1px solid #d1d5db;
+            font-size: 0.875rem;
+        }
+        .rival-player-name {
+            font-weight: bold;
+            color: #374151;
+            margin-bottom: 0.25rem;
+        }
+        .rival-player-goles {
+            color: #059669;
+            font-weight: bold;
+        }
+        .rival-player-asist {
+            color: #3b82f6;
+            font-weight: bold;
+        }
+        /* Modo oscuro para rivales y jugadores */
+        .dark .rival-card {
+            background-color: #2d3748;
+            color: #e2e8f0;
+        }
+        .dark .rival-stat {
+            background: #4a5568;
+        }
+        .dark .rival-match-card {
+            background: #2d3748;
+            border-left-color: #fc8181;  /* Por defecto rojo, pero lo cambiaremos por resultado */
+            border-left-color: #fc8181;  
+        }
+        .dark .rival-player-card {
+            background: #4a5568;
+            border-color: #718096;
+            color: #e2e8f0;
+        }
+        .dark .rival-player-name {
+            color: #e2e8f0;
+        }
+        .dark #rivales .rival-name {
+            color: #fc8181 !important; 
+        }
+        .dark #rivales .rival-stat strong {
+            color: #fc8181 !important; 
+        }
+        .dark #rivales .rival-match-result {
+            /* Color definido por clase .victoria / .empate / .derrota */
+        }
+        /* Colores específicos por resultado en modo oscuro */
+        .dark #rivales .victoria {
+            color: #68d391 !important;  /* Verde claro para victoria */
+        }
+        .dark #rivales .empate {
+            color: #f6e05e !important;  /* Amarillo claro para empate */
+        }
+        .dark #rivales .derrota {
+            color: #fc8181 !important;  /* Rojo claro para derrota */
+        }
+        /* Opcional: Cambiar borde izquierdo de la tarjeta según resultado en modo oscuro */
+        .dark #rivales .rival-match-card.victoria {
+            border-left-color: #68d391 !important;
+        }
+        .dark #rivales .rival-match-card.empate {
+            border-left-color: #f6e05e !important;
+        }
+        .dark #rivales .rival-match-card.derrota {
+            border-left-color: #fc8181 !important;
+        }
+        .player-card img {
+            object-fit: cover; /* Asegura que la imagen cubra el área sin distorsiones */
+            object-position: center; /* Centra la imagen */
+            object-position: center; 
+        }
+        /* Estilos para submenús desplegables */
+        .submenu {
+            display: none; /* Oculto por defecto */
+            list-style-type: none; /* Sin viñetas */
+            margin: 0;
+            padding: 0;
+        }
+        .relative:hover .submenu {
+            display: block; /* Muestra al pasar el cursor sobre el padre */
+        }
+        .submenu a {
+            text-decoration: none;
+            color: inherit;
+        }

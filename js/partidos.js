@@ -45,7 +45,7 @@ function renderMatches(filter = 'todos') {
                 </div>
                 <div class="flex items-center justify-between my-4">
                     <div class="text-center">
-                        <img src="https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/Tomates_FC__13_-removebg-preview%20(1).png" alt="Escudo Tomates FC" class="mx-auto h-16 w-16 object-contain">
+                    <img src="images/logo_tomates.png" alt="Escudo Tomates FC" class="mx-auto h-16 w-16 object-contain">
                         <p class="font-bold mt-2">Tomates FC</p>
                         <span class="text-4xl font-bold text-gray-800">${golesLocal}</span>
                     </div>
@@ -130,7 +130,7 @@ window.showMatchDetails = function(partidoId) {
         document.getElementById('match-header').innerHTML = `
             <div class="flex items-center justify-center space-x-8 mb-8">
                 <div class="text-center">
-                    <img src="https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/Tomates_FC__13_-removebg-preview%20(1).png" alt="Escudo Tomates FC" class="h-20 w-20 mx-auto mb-2">
+                    <img src="images/logo_tomates.png" alt="Escudo Tomates FC" class="h-20 w-20 mx-auto mb-2">
                     <p class="font-bold text-lg">Tomates FC</p>
                     <span class="text-4xl font-bold text-red-800">${golesLocal}</span>
                 </div>

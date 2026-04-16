@@ -424,7 +424,7 @@ const jugadoresData = {
         numero: 5,
         posicion: 'Defensa',
         frase: 'La defensa es el pilar de todo gran equipo',
-        imagenCamiseta: 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/preview-2025-11-05T15_01_08.804Z.png',
+        imagenCamiseta: 'images/dorsal_zavala5.png',
         partidos: [
             { id: 1, rival: 'Vaqueros', fecha: 'Lunes 20 Enero', goles: 0, asistencias: 1 },
             { id: 2, rival: 'Vaqueros', fecha: 'Lunes 3 Marzo', goles: 1, asistencias: 0 },
@@ -446,7 +446,7 @@ const jugadoresData = {
         numero: 6,
         posicion: 'Defensa',
         frase: 'La última línea de defensa, siempre alerta',
-        imagenCamiseta: 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/preview-2025-11-05T15_00_52.091Z.png',
+        imagenCamiseta: 'images/dorsal_lizama6.png',
         partidos: [
             { id: 4, rival: 'Vaqueros', fecha: 'Jueves 1 Mayo', goles: 1, asistencias: 0 },
             { id: 5, rival: 'Real Justicia', fecha: 'Viernes 9 Mayo', goles: 0, asistencias: 0 },
@@ -469,7 +469,7 @@ const jugadoresData = {
         numero: 7,
         posicion: 'Delantero',
         frase: 'Cada gol cuenta, y yo estoy aquí para marcar la diferencia',
-        imagenCamiseta: 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/preview-2025-11-05T15_00_39.306Z.png',
+        imagenCamiseta: 'images/dorsal_garces7.png',
         partidos: [
             { id: 1, rival: 'Vaqueros', fecha: 'Lunes 20 Enero', goles: 12, asistencias: 4 },
             { id: 2, rival: 'Vaqueros', fecha: 'Lunes 3 Marzo', goles: 7, asistencias: 1 },
@@ -505,7 +505,7 @@ const jugadoresData = {
         numero: 8,
         posicion: 'Delantero',
         frase: 'Anticipar el juego es lo que me define como delantero',
-        imagenCamiseta: 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/preview-2025-11-05T15_00_20.611Z.png',
+        imagenCamiseta: 'images/dorsal_kryzpo8.png',
         partidos: [
             { id: 2, rival: 'Vaqueros', fecha: 'Lunes 3 Marzo', goles: 7, asistencias: 1 },
             { id: 3, rival: 'Manchester ICI', fecha: 'Viernes 28 Marzo', goles: 0, asistencias: 0 },
@@ -530,7 +530,7 @@ const jugadoresData = {
         numero: 9,
         posicion: 'Delantero',
         frase: 'Cada gol es un paso más hacia la victoria',
-        imagenCamiseta: 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/preview-2025-11-05T15_00_04.125Z.png',
+        imagenCamiseta: 'images/dorsal_paredes9.png',
         partidos: [
             { id: 6, rival: 'Microdosis', fecha: 'Sábado 24 Mayo', goles: 0, asistencias: 1 },
             { id: 9, rival: 'Vaqueros', fecha: 'Lunes 14 Julio', goles: 5, asistencias: 1 },
@@ -548,7 +548,7 @@ const jugadoresData = {
         numero: 10,
         posicion: 'Mediocampista',
         frase: 'Crear oportunidades es mi pasión en el campo',
-        imagenCamiseta: 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/preview-2025-11-05T14_59_46.976Z.png',
+        imagenCamiseta: 'images/dorsal_diego10.png',
         partidos: [
             { id: 1, rival: 'Vaqueros', fecha: 'Lunes 20 Enero', goles: 7, asistencias: 8 },
             { id: 2, rival: 'Vaqueros', fecha: 'Lunes 3 Marzo', goles: 3, asistencias: 5 },
@@ -584,7 +584,7 @@ const jugadoresData = {
         numero: 11,
         posicion: 'Mediocampista',
         frase: 'Siempre listo para recuperar el balón y apoyar al equipo',
-        imagenCamiseta: 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/preview-2025-11-05T14_59_22.181Z.png',
+        imagenCamiseta: 'images/dorsal_saso11.png',
         partidos: [
             { id: 1, rival: 'Vaqueros', fecha: 'Lunes 20 Enero', goles: 1, asistencias: 1 },
             { id: 2, rival: 'Vaqueros', fecha: 'Lunes 3 Marzo', goles: 1, asistencias: 7 },
@@ -620,7 +620,7 @@ const jugadoresData = {
         numero: 14,
         posicion: 'Mediocampista',
         frase: 'No hay balón perdido si yo estoy cerca, de un área a la otra',
-        imagenCamiseta: 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/preview-2025-11-05T14_58_51.101Z.png',
+        imagenCamiseta: 'images/dorsal_bustamante14.png',
         partidos: [
             { id: 9, rival: 'Vaqueros', fecha: 'Lunes 14 Julio', goles: 1, asistencias: 1 },
             { id: 12, rival: 'Equipo Pablismo', fecha: 'Sábado 23 Agosto', goles: 0, asistencias: 1 },

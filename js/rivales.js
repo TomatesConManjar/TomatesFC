@@ -5,12 +5,12 @@
 // Retorna la URL del escudo según el nombre del rival
 function getEscudoRival(rival) {
     const escudos = {
-        'Vaqueros':       'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__4_-removebg-preview.png',
-        'Real Justicia':  'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__3___1_-removebg-preview.png',
-        'Equipo Maradona':'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__4_-removebg-preview.png',
-        'Manchester ICI': 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__2_-removebg-preview.png',
-        'Resistencia IC': 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__1_-removebg-preview%20(1).png',
-        'default':        'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/500x500__4_-removebg-preview.png'
+        'Vaqueros':       'images/escudo_default.png',
+        'Real Justicia':  'images/escudo_real_justicia.png',
+        'Equipo Maradona':'images/escudo_default.png',
+        'Manchester ICI': 'images/escudo_manchester_ici.png',
+        'Resistencia IC': 'images/escudo_resistencia.png',
+        'default':        'images/escudo_default.png'
     };
     return escudos[rival] || escudos['default'];
 }
@@ -85,7 +85,7 @@ window.showRivalDetails = function(rivalName) {
     document.getElementById('rival-header').innerHTML = `
         <div class="flex items-center justify-between mb-6">
             <div class="text-center">
-                <img src="https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/Tomates_FC__13_-removebg-preview%20(1).png" alt="Tomates FC" class="h-16 w-16 mx-auto mb-2">
+                <img src="images/logo_tomates.png" alt="Tomates FC" class="h-16 w-16 mx-auto mb-2">
                 <p class="font-bold">Tomates FC</p>
             </div>
             <div class="text-center">

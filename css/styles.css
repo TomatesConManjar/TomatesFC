@@ -407,8 +407,7 @@
             color: #fc8181 !important; 
         }
         .dark #rivales .rival-match-result {
-            /* Removido el color fijo para que use los específicos por clase */
-        .dark #rivales .rival-match-result {    /* Removido el color fijo para que use los específicos por clase */
+            /* Color definido por clase .victoria / .empate / .derrota */
         }
         /* Colores específicos por resultado en modo oscuro */
         .dark #rivales .victoria {
@@ -446,7 +445,6 @@
             display: block; /* Muestra al pasar el cursor sobre el padre */
         }
         .submenu a {
-            text-decoration: none; /* Sin subrayado */
-            color: inherit; /* Hereda color del padre */
+            text-decoration: none;
+            color: inherit;
         }
-    }

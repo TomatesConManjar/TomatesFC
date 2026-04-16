@@ -819,11 +819,11 @@
                 }
                 console.log(`Mostrando partido ${id} (resultado: ${resultado})`);
                 // Obtener escudo rival
-                let escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/500x500__4_-removebg-preview.png';
+                let escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/escudo_default.png';
                 switch(partido.rival) {
-                    case 'Vaqueros': escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__4_-removebg-preview.png'; break;
-                    case 'Manchester ICI': escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__2_-removebg-preview.png'; break;
-                    case 'Real Justicia': escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__3___1_-removebg-preview.png'; break;
+                    case 'Vaqueros': escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/escudo_default.png'; break;
+                    case 'Manchester ICI': escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/escudo_manchester_ici.png'; break;
+                    case 'Real Justicia': escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/escudo_real_justicia.png'; break;
                     case 'Resistencia IC': escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__1_-removebg-preview%20(1).png'; break;
                     // Otros casos si tienes
                 }
@@ -927,43 +927,43 @@
                     return;
                 }
                 // Obtener escudo del rival según el nombre
-                let escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/500x500__4_-removebg-preview.png'; // Default
+                let escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/escudo_default.png'; // Default
                 switch(partido.rival) {
                     case 'Vaqueros':
-                        escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__4_-removebg-preview.png';
+                        escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/escudo_default.png';
                         break;
                     case 'Manchester ICI':
-                        escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__2_-removebg-preview.png';
+                        escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/escudo_manchester_ici.png';
                         break;
                     case 'Real Justicia':
-                        escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__3___1_-removebg-preview.png';
+                        escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/escudo_real_justicia.png';
                         break;
                     case 'Resistencia IC':
                         escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__1_-removebg-preview%20(1).png';
                         break;
                     case 'Microdosis':
-                        escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__4_-removebg-preview.png';
+                        escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/escudo_default.png';
                         break;
                     case 'Equipo Pablismo':
-                        escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__4_-removebg-preview.png';
+                        escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/escudo_default.png';
                         break;
                     case 'Equipo Maradona':
-                        escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__4_-removebg-preview.png';
+                        escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/escudo_default.png';
                         break;
                     case 'Equipo David':
-                        escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__4_-removebg-preview.png';
+                        escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/escudo_default.png';
                         break;
                     case 'Hipogolemicos':
-                        escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__4_-removebg-preview.png';
+                        escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/escudo_default.png';
                         break;
                     case 'Pirula':
-                        escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__4_-removebg-preview.png';
+                        escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/escudo_default.png';
                         break;
                     case 'Conoco Grande':
-                        escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__4_-removebg-preview.png';
+                        escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/escudo_default.png';
                         break;
                     case 'Equipo Giovanni':
-                        escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__4_-removebg-preview.png';
+                        escudoRival = 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/escudo_default.png';
                         break;
                 }    
                 // Crear HTML con escudos y resultado
@@ -1055,7 +1055,7 @@
                 numero: 5,
                 posicion: 'Defensa',
                 frase: 'La defensa es el pilar de todo gran equipo',
-                imagenCamiseta: 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/preview-2025-11-05T15_01_08.804Z.png',
+                imagenCamiseta: 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/dorsal_zavala5.png',
                 partidos: [
                     { id: 1, rival: 'Vaqueros', fecha: 'Lunes 20 Enero', goles: 0, asistencias: 1 },
                     { id: 2, rival: 'Vaqueros', fecha: 'Lunes 3 Marzo', goles: 1, asistencias: 0 },
@@ -1077,7 +1077,7 @@
                 numero: 6,
                 posicion: 'Defensa',
                 frase: 'La última línea de defensa, siempre alerta',
-                imagenCamiseta: 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/preview-2025-11-05T15_00_52.091Z.png',
+                imagenCamiseta: 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/dorsal_lizama6.png',
                 partidos: [
                     { id: 4, rival: 'Vaqueros', fecha: 'Jueves 1 Mayo', goles: 1, asistencias: 0 },
                     { id: 5, rival: 'Real Justicia', fecha: 'Viernes 9 Mayo', goles: 0, asistencias: 0 },
@@ -1100,7 +1100,7 @@
                 numero: 7,
                 posicion: 'Delantero',
                 frase: 'Cada gol cuenta, y yo estoy aquí para marcar la diferencia',
-                imagenCamiseta: 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/preview-2025-11-05T15_00_39.306Z.png',
+                imagenCamiseta: 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/dorsal_garces7.png',
                 partidos: [
                     { id: 1, rival: 'Vaqueros', fecha: 'Lunes 20 Enero', goles: 12, asistencias: 4 },
                     { id: 2, rival: 'Vaqueros', fecha: 'Lunes 3 Marzo', goles: 7, asistencias: 1 },
@@ -1136,7 +1136,7 @@
                 numero: 8,
                 posicion: 'Delantero',
                 frase: 'Anticipar el juego es lo que me define como delantero',
-                imagenCamiseta: 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/preview-2025-11-05T15_00_20.611Z.png',
+                imagenCamiseta: 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/dorsal_kryzpo8.png',
                 partidos: [
                     { id: 2, rival: 'Vaqueros', fecha: 'Lunes 3 Marzo', goles: 7, asistencias: 1 },
                     { id: 3, rival: 'Manchester ICI', fecha: 'Viernes 28 Marzo', goles: 0, asistencias: 0 },
@@ -1161,7 +1161,7 @@
                 numero: 9,
                 posicion: 'Delantero',
                 frase: 'Cada gol es un paso más hacia la victoria',
-                imagenCamiseta: 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/preview-2025-11-05T15_00_04.125Z.png',
+                imagenCamiseta: 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/dorsal_paredes9.png',
                 partidos: [
                     { id: 6, rival: 'Microdosis', fecha: 'Sábado 24 Mayo', goles: 0, asistencias: 1 },
                     { id: 9, rival: 'Vaqueros', fecha: 'Lunes 14 Julio', goles: 5, asistencias: 1 },
@@ -1179,7 +1179,7 @@
                 numero: 10,
                 posicion: 'Mediocampista',
                 frase: 'Crear oportunidades es mi pasión en el campo',
-                imagenCamiseta: 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/preview-2025-11-05T14_59_46.976Z.png',
+                imagenCamiseta: 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/dorsal_diego10.png',
                 partidos: [
                     { id: 1, rival: 'Vaqueros', fecha: 'Lunes 20 Enero', goles: 7, asistencias: 8 },
                     { id: 2, rival: 'Vaqueros', fecha: 'Lunes 3 Marzo', goles: 3, asistencias: 5 },
@@ -1215,7 +1215,7 @@
                 numero: 11,
                 posicion: 'Mediocampista',
                 frase: 'Siempre listo para recuperar el balón y apoyar al equipo',
-                imagenCamiseta: 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/preview-2025-11-05T14_59_22.181Z.png',
+                imagenCamiseta: 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/dorsal_saso11.png',
                 partidos: [
                     { id: 1, rival: 'Vaqueros', fecha: 'Lunes 20 Enero', goles: 1, asistencias: 1 },
                     { id: 2, rival: 'Vaqueros', fecha: 'Lunes 3 Marzo', goles: 1, asistencias: 7 },
@@ -1251,7 +1251,7 @@
                 numero: 14,
                 posicion: 'Mediocampista',
                 frase: 'No hay balón perdido si yo estoy cerca, de un área a la otra',
-                imagenCamiseta: 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/preview-2025-11-05T14_58_51.101Z.png',
+                imagenCamiseta: 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/dorsal_bustamante14.png',
                 partidos: [
                     { id: 9, rival: 'Vaqueros', fecha: 'Lunes 14 Julio', goles: 1, asistencias: 1 },
                     { id: 12, rival: 'Equipo Pablismo', fecha: 'Sábado 23 Agosto', goles: 0, asistencias: 1 },
@@ -1646,12 +1646,12 @@
         // NUEVO: Función helper para escudo (reusa o agrega si no la tienes)
         function getEscudoRival(rival) {
             const escudos = {
-                'Vaqueros': 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__4_-removebg-preview.png',
-                'Real Justicia': 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__3___1_-removebg-preview.png',
-                'Equipo Maradona': 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__4_-removebg-preview.png',
-                'Manchester ICI': 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__2_-removebg-preview.png',
+                'Vaqueros': 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/escudo_default.png',
+                'Real Justicia': 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/escudo_real_justicia.png',
+                'Equipo Maradona': 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/escudo_default.png',
+                'Manchester ICI': 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/escudo_manchester_ici.png',
                 'Resistencia IC': 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/main/500x500__1_-removebg-preview%20(1).png',
-                'default': 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/500x500__4_-removebg-preview.png'
+                'default': 'https://raw.githubusercontent.com/TomatesConManjar/TomatesFC/refs/heads/main/escudo_default.png'
             };
             return escudos[rival] || escudos['default'];
         }

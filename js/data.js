@@ -423,7 +423,7 @@ const jugadoresData = {
         nombre: 'Agustin Vilhelm',
         numero: 1,
         posicion: 'Arquero',
-        frase: 'La porteria es mi territorio',
+        frase: 'Si la pelota me llega a las manos, el partido es nuestro',
         imagenCamiseta: 'images/dorsal_vilhelm1.png',
         partidos: [
         ]

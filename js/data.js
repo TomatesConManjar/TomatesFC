@@ -419,6 +419,15 @@ const partidosData = {
 
 // Datos de los 8 jugadores con estadísticas individuales por partido
 const jugadoresData = {
+    'agustin-vilhelm': {
+        nombre: 'Agustin Vilhelm',
+        numero: 1,
+        posicion: 'Arquero',
+        frase: 'La porteria es mi territorio',
+        imagenCamiseta: 'images/dorsal_vilhelm1.png',
+        partidos: [
+        ]
+    },
     'leandro-zavala': {
         nombre: 'Leandro Zavala',
         numero: 5,

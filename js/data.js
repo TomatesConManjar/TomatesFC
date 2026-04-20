@@ -548,7 +548,7 @@ const jugadoresData = {
         numero: 10,
         posicion: 'Mediocampista',
         frase: 'Crear oportunidades es mi pasión en el campo',
-        imagenCamiseta: 'images/dorsal_diego10.png',
+        imagenCamiseta: 'images/dorsal_manque10.png',
         partidos: [
             { id: 1, rival: 'Vaqueros', fecha: 'Lunes 20 Enero', goles: 7, asistencias: 8 },
             { id: 2, rival: 'Vaqueros', fecha: 'Lunes 3 Marzo', goles: 3, asistencias: 5 },

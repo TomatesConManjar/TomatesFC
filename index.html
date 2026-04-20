@@ -38,6 +38,7 @@
                     <div class="relative">
                         <a href="#equipo" class="hover:text-yellow-400 transition duration-300">Equipo</a>
                         <ul class="submenu absolute left-0 top-full bg-red-900 text-white shadow-lg rounded-b-lg py-2 min-w-max z-10">
+                            <li><a href="javascript:void(0);" onclick="showPlayerDetails('agustin-vilhelm')" class="block px-4 py-2 hover:bg-red-700">Agustin Vilhelm</a></li>
                             <li><a href="javascript:void(0);" onclick="showPlayerDetails('leandro-zavala')" class="block px-4 py-2 hover:bg-red-700">Leandro Zavala</a></li>
                             <li><a href="javascript:void(0);" onclick="showPlayerDetails('francisco-lizama')" class="block px-4 py-2 hover:bg-red-700">Francisco Lizama</a></li>
                             <li><a href="javascript:void(0);" onclick="showPlayerDetails('benjamin-garces')" class="block px-4 py-2 hover:bg-red-700">Benjamín Garcés</a></li>
@@ -183,8 +184,8 @@
                     </div>
                     <div class="bg-gray-50 p-6 rounded-lg text-center border-2 border-green-100">
                         <div class="text-blue-900 text-4xl mb-4">👥</div>
-                        <h3 class="text-xl font-semibold mb-2">8 Jugadores</h3>
-                        <p class="text-gray-600">Contamos con un plantel de 8 jugadores talentosos y comprometidos con el equipo.</p>
+                        <h3 class="text-xl font-semibold mb-2">9 Jugadores</h3>
+                        <p class="text-gray-600">Contamos con un plantel de 9 jugadores talentosos y comprometidos con el equipo.</p>
                     </div>
                     <div class="bg-gray-50 p-6 rounded-lg text-center border-2 border-green-100">
                         <div class="text-blue-900 text-4xl mb-4">⚽</div>
@@ -208,6 +209,18 @@
             <!-- Vista responsive para móvil/tablet: Grid original con todos los jugadores -->
             <div id="mobile-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 lg:hidden">
                 <!-- Jugador 1 -->
+                <div class="player-card rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer" onclick="showPlayerDetails('agustin-vilhelm')">
+                    <div class="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-t-lg relative">
+                        <img src="images/foto_zavala.png" alt="Foto de Agustin Vilhelm" class="w-full h-full object-cover rounded-t-lg">
+                    </div>
+                    <div class="p-6 relative">
+                        <div class="player-number">1</div>
+                        <h3 class="font-bold text-xl mb-2 text-red-800">Agustin Vilhelm</h3>
+                        <p class="text-gray-600 mb-2">Arquero</p>
+                        <p class="text-gray-700">"La porteria es mi territorio"</p>
+                    </div>
+                </div>   
+                <!-- Jugador 2 -->
                 <div class="player-card rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer" onclick="showPlayerDetails('leandro-zavala')">
                     <div class="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-t-lg relative">
                         <img src="images/foto_zavala.png" alt="Foto de Leandro Zavala" class="w-full h-full object-cover rounded-t-lg">
@@ -219,7 +232,7 @@
                         <p class="text-gray-700">"La defensa es el pilar de todo gran equipo"</p>
                     </div>
                 </div>   
-                <!-- Jugador 2 -->
+                <!-- Jugador 3 -->
                 <div class="player-card rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer" onclick="showPlayerDetails('francisco-lizama')">
                     <div class="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-t-lg relative">
                         <img src="images/foto_lizama.png" alt="Foto de Francisco Lizama" class="w-full h-full object-cover rounded-t-lg">
@@ -231,7 +244,7 @@
                         <p class="text-gray-700">"La última línea de defensa, siempre alerta"</p>
                     </div>
                 </div>
-                <!-- Jugador 3 -->
+                <!-- Jugador 4 -->
                 <div class="player-card rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer" onclick="showPlayerDetails('benjamin-garces')">
                     <div class="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-t-lg relative">
                         <img src="images/foto_benja1.jpg" alt="Foto de Benjamín Garcés" class="w-full h-full object-cover rounded-t-lg">
@@ -243,7 +256,7 @@
                         <p class="text-gray-700">"Cada gol cuenta, y yo estoy aquí para marcar la diferencia"</p>
                     </div>
                 </div>
-                <!-- Jugador 4 -->
+                <!-- Jugador 5 -->
                 <div class="player-card rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer" onclick="showPlayerDetails('cristobal-santibanez')">
                     <div class="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-t-lg relative">
                         <img src="images/foto_kryz.png" alt="Foto de Cristóbal Santibáñez" class="w-full h-full object-cover rounded-t-lg">
@@ -255,7 +268,7 @@
                         <p class="text-gray-700">"Anticipar el juego es lo que me define como delantero"</p>
                     </div>
                 </div>
-                <!-- Jugador 5 -->
+                <!-- Jugador 6 -->
                 <div class="player-card rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer" onclick="showPlayerDetails('matias-paredes')">
                     <div class="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-t-lg relative">
                          <img src="images/foto_paredes.png" alt="Foto de Matías Paredes" class="w-full h-full object-cover rounded-t-lg">
@@ -267,7 +280,7 @@
                         <p class="text-gray-700">"Cada gol es un paso más hacia la victoria"</p>
                     </div>
                 </div>
-                <!-- Jugador 6 -->
+                <!-- Jugador 7 -->
                 <div class="player-card rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer" onclick="showPlayerDetails('diego-manque')">
                     <div class="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-t-lg relative">
                         <img src="images/foto_diego.png" alt="Foto de Diego Manque" class="w-full h-full object-cover rounded-t-lg">
@@ -279,7 +292,7 @@
                         <p class="text-gray-700">"Crear oportunidades es mi pasión en el campo"</p>
                     </div>
                 </div>
-                <!-- Jugador 7 -->
+                <!-- Jugador 8 -->
                 <div class="player-card rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer" onclick="showPlayerDetails('sebastian-sandoval')">
                     <div class="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-t-lg relative">
                         <img src="images/foto_sandoval.png" alt="Foto de Sebastián Sandoval" class="w-full h-full object-cover rounded-t-lg">
@@ -291,7 +304,7 @@
                         <p class="text-gray-700">"Siempre listo para recuperar el balón y apoyar al equipo"</p>
                     </div>
                 </div>
-                <!-- Jugador 8 -->
+                <!-- Jugador 9 -->
                 <div class="player-card rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer" onclick="showPlayerDetails('matias-bustamante')">
                     <div class="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-t-lg relative">
                         <img src="images/foto_matib.png" alt="Foto de Matías Bustamante" class="w-full h-full object-cover rounded-t-lg">
@@ -309,6 +322,18 @@
                 <div id="players-carousel" class="flex gap-8 transition-transform duration-500 ease-in-out w-[100%] transform translate-x-0">
                     <!-- Los mismos 8 jugadores, pero con clases para carrusel: flex-none w-1/4 -->
                     <!-- Jugador 1 -->
+                    <div class="player-card rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer flex-none w-1/4" onclick="showPlayerDetails('agustin-vilhelm')">
+                        <div class="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-t-lg relative">
+                            <img src="images/foto_zavala.png" alt="Foto de Agustin Vilhelm" class="w-full h-full object-cover rounded-t-lg">
+                        </div>
+                        <div class="p-6 relative">
+                            <div class="player-number">1</div>
+                            <h3 class="font-bold text-xl mb-2 text-red-800">Agustin Vilhelm</h3>
+                            <p class="text-gray-600 mb-2">Arquero</p>
+                            <p class="text-gray-700">"La porteria es mi territorio"</p>
+                        </div>
+                    </div>
+                    <!-- Jugador 2 -->
                     <div class="player-card rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer flex-none w-1/4" onclick="showPlayerDetails('leandro-zavala')">
                         <div class="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-t-lg relative">
                             <img src="images/foto_zavala.png" alt="Foto de Leandro Zavala" class="w-full h-full object-cover rounded-t-lg">
@@ -320,7 +345,7 @@
                             <p class="text-gray-700">"La defensa es el pilar de todo gran equipo"</p>
                         </div>
                     </div>
-                    <!-- Jugador 2 -->
+                    <!-- Jugador 3 -->
                     <div class="player-card rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer flex-none w-1/4" onclick="showPlayerDetails('francisco-lizama')">
                         <div class="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-t-lg relative">
                             <img src="images/foto_lizama.png" alt="Foto de Francisco Lizama" class="w-full h-full object-cover rounded-t-lg">
@@ -332,7 +357,7 @@
                             <p class="text-gray-700">"La última línea de defensa, siempre alerta"</p>
                         </div>
                     </div>
-                    <!-- Jugador 3 -->
+                    <!-- Jugador 4 -->
                     <div class="player-card rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer flex-none w-1/4" onclick="showPlayerDetails('benjamin-garces')">
                         <div class="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-t-lg relative">
                             <img src="images/foto_benja1.jpg" alt="Foto de Benjamín Garcés" class="w-full h-full object-cover rounded-t-lg">
@@ -344,7 +369,7 @@
                             <p class="text-gray-700">"Cada gol cuenta, y yo estoy aquí para marcar la diferencia"</p>
                         </div>
                     </div>
-                    <!-- Jugador 4 -->
+                    <!-- Jugador 5 -->
                     <div class="player-card rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer flex-none w-1/4" onclick="showPlayerDetails('cristobal-santibanez')">
                         <div class="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-t-lg relative">
                             <img src="images/foto_kryz.png" alt="Foto de Cristóbal Santibáñez" class="w-full h-full object-cover rounded-t-lg">
@@ -356,7 +381,7 @@
                             <p class="text-gray-700">"Anticipar el juego es lo que me define como delantero"</p>
                         </div>
                     </div>
-                    <!-- Jugador 5 -->
+                    <!-- Jugador 6 -->
                     <div class="player-card rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer flex-none w-1/4" onclick="showPlayerDetails('matias-paredes')">
                         <div class="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-t-lg relative">
                             <img src="images/foto_paredes.png" alt="Foto de Matías Paredes" class="w-full h-full object-cover rounded-t-lg">
@@ -368,7 +393,7 @@
                             <p class="text-gray-700">"Cada gol es un paso más hacia la victoria"</p>
                         </div>
                     </div>
-                    <!-- Jugador 6 -->
+                    <!-- Jugador 7 -->
                     <div class="player-card rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer flex-none w-1/4" onclick="showPlayerDetails('diego-manque')">
                         <div class="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-t-lg relative">
                             <img src="images/foto_diego.png" alt="Foto de Diego Manque" class="w-full h-full object-cover rounded-t-lg">
@@ -380,7 +405,7 @@
                             <p class="text-gray-700">"Crear oportunidades es mi pasión en el campo"</p>
                         </div>
                     </div>
-                    <!-- Jugador 7 -->
+                    <!-- Jugador 8 -->
                     <div class="player-card rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer flex-none w-1/4" onclick="showPlayerDetails('sebastian-sandoval')">
                         <div class="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-t-lg relative">
                             <img src="images/foto_sandoval.png" alt="Foto de Sebastián Sandoval" class="w-full h-full object-cover rounded-t-lg">
@@ -392,7 +417,7 @@
                             <p class="text-gray-700">"Siempre listo para recuperar el balón y apoyar al equipo"</p>
                         </div>
                     </div>
-                    <!-- Jugador 8 -->
+                    <!-- Jugador 9 -->
                     <div class="player-card rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer flex-none w-1/4" onclick="showPlayerDetails('matias-bustamante')">
                         <div class="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-t-lg relative">
                             <img src="images/foto_matib.png" alt="Foto de Matías Bustamante" class="w-full h-full object-cover rounded-t-lg">

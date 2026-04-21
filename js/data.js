@@ -424,7 +424,7 @@ const jugadoresData = {
         numero: 1,
         posicion: 'Arquero',
         frase: 'Si la pelota me llega a las manos, el partido es nuestro',
-        imagenCamiseta: 'images/dorsal_vilhelm1.png',
+        imagenCamiseta: 'images/dorsal_vilhelm1.jpg',
         partidos: [
         ]
     },
@@ -433,7 +433,7 @@ const jugadoresData = {
         numero: 5,
         posicion: 'Defensa',
         frase: 'La defensa es el pilar de todo gran equipo',
-        imagenCamiseta: 'images/dorsal_zavala5.png',
+        imagenCamiseta: 'images/dorsal_zavala5.jpg',
         partidos: [
             { id: 1, rival: 'Vaqueros', fecha: 'Lunes 20 Enero', goles: 0, asistencias: 1 },
             { id: 2, rival: 'Vaqueros', fecha: 'Lunes 3 Marzo', goles: 1, asistencias: 0 },
@@ -455,7 +455,7 @@ const jugadoresData = {
         numero: 6,
         posicion: 'Defensa',
         frase: 'La última línea de defensa, siempre alerta',
-        imagenCamiseta: 'images/dorsal_lizama6.png',
+        imagenCamiseta: 'images/dorsal_lizama6.jpg',
         partidos: [
             { id: 4, rival: 'Vaqueros', fecha: 'Jueves 1 Mayo', goles: 1, asistencias: 0 },
             { id: 5, rival: 'Real Justicia', fecha: 'Viernes 9 Mayo', goles: 0, asistencias: 0 },
@@ -478,7 +478,7 @@ const jugadoresData = {
         numero: 7,
         posicion: 'Delantero',
         frase: 'Cada gol cuenta, y yo estoy aquí para marcar la diferencia',
-        imagenCamiseta: 'images/dorsal_garces7.png',
+        imagenCamiseta: 'images/dorsal_garces7.jpg',
         partidos: [
             { id: 1, rival: 'Vaqueros', fecha: 'Lunes 20 Enero', goles: 12, asistencias: 4 },
             { id: 2, rival: 'Vaqueros', fecha: 'Lunes 3 Marzo', goles: 7, asistencias: 1 },
@@ -514,7 +514,7 @@ const jugadoresData = {
         numero: 8,
         posicion: 'Delantero',
         frase: 'Anticipar el juego es lo que me define como delantero',
-        imagenCamiseta: 'images/dorsal_kryzpo8.png',
+        imagenCamiseta: 'images/dorsal_kryzpo8.jpg',
         partidos: [
             { id: 2, rival: 'Vaqueros', fecha: 'Lunes 3 Marzo', goles: 7, asistencias: 1 },
             { id: 3, rival: 'Manchester ICI', fecha: 'Viernes 28 Marzo', goles: 0, asistencias: 0 },
@@ -539,7 +539,7 @@ const jugadoresData = {
         numero: 9,
         posicion: 'Delantero',
         frase: 'Cada gol es un paso más hacia la victoria',
-        imagenCamiseta: 'images/dorsal_paredes9.png',
+        imagenCamiseta: 'images/dorsal_paredes9.jpg',
         partidos: [
             { id: 6, rival: 'Microdosis', fecha: 'Sábado 24 Mayo', goles: 0, asistencias: 1 },
             { id: 9, rival: 'Vaqueros', fecha: 'Lunes 14 Julio', goles: 5, asistencias: 1 },
@@ -557,7 +557,7 @@ const jugadoresData = {
         numero: 10,
         posicion: 'Mediocampista',
         frase: 'Crear oportunidades es mi pasión en el campo',
-        imagenCamiseta: 'images/dorsal_manque10.png',
+        imagenCamiseta: 'images/dorsal_manque10.jpg',
         partidos: [
             { id: 1, rival: 'Vaqueros', fecha: 'Lunes 20 Enero', goles: 7, asistencias: 8 },
             { id: 2, rival: 'Vaqueros', fecha: 'Lunes 3 Marzo', goles: 3, asistencias: 5 },
@@ -593,7 +593,7 @@ const jugadoresData = {
         numero: 11,
         posicion: 'Mediocampista',
         frase: 'Siempre listo para recuperar el balón y apoyar al equipo',
-        imagenCamiseta: 'images/dorsal_saso11.png',
+        imagenCamiseta: 'images/dorsal_saso11.jpg',
         partidos: [
             { id: 1, rival: 'Vaqueros', fecha: 'Lunes 20 Enero', goles: 1, asistencias: 1 },
             { id: 2, rival: 'Vaqueros', fecha: 'Lunes 3 Marzo', goles: 1, asistencias: 7 },
@@ -629,7 +629,7 @@ const jugadoresData = {
         numero: 14,
         posicion: 'Mediocampista',
         frase: 'No hay balón perdido si yo estoy cerca, de un área a la otra',
-        imagenCamiseta: 'images/dorsal_bustamante14.png',
+        imagenCamiseta: 'images/dorsal_bustamante14.jpg',
         partidos: [
             { id: 9, rival: 'Vaqueros', fecha: 'Lunes 14 Julio', goles: 1, asistencias: 1 },
             { id: 12, rival: 'Equipo Pablismo', fecha: 'Sábado 23 Agosto', goles: 0, asistencias: 1 },

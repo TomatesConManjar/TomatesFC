@@ -87,9 +87,15 @@ function updateTeamStats() {
     });
     const promedio = (golesAnotados / totalPartidos).toFixed(2);
 
-    const historiaEl = document.querySelector('#historia .grid.md\\:grid-cols-3 > div:nth-child(3) p.text-gray-600');
-    if (historiaEl) {
-        historiaEl.textContent = `Tenemos la gran cantidad de ${golesAnotados} goles como equipo y con un promedio de ${promedio} goles por partido.`;
+    const set = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
+    const totalJugadores = Object.keys(jugadoresData).length;
+
+    set('stat-partidos-titulo', `${totalPartidos} partidos`);
+    set('stat-partidos-desc', `Hemos disputado ${totalPartidos} partidos con un porcentaje de victoria del ${Math.round((victorias/totalPartidos)*100)}%.`);
+    set('stat-jugadores-titulo', `${totalJugadores} Jugadores`);
+    set('stat-jugadores-desc', `Contamos con un plantel de ${totalJugadores} jugadores talentosos y comprometidos con el equipo.`);
+    set('stat-goles-titulo', `${golesAnotados} Goles`);
+    set('stat-goles-desc', `Tenemos la gran cantidad de ${golesAnotados} goles como equipo y con un promedio de ${promedio} goles por partido.`);
     }
 
     const footerEl = document.querySelector('footer ul.space-y-2.text-gray-300');

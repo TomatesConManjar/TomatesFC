@@ -67,7 +67,7 @@ function renderMatches(filter = 'todos') {
     });
 
     // Actualizar contadores en botones de filtro
-    const btnMap = { 'todos': total, 'victorias': victorias, 'empates': empates, 'derrotas': derrotas };
+    const btnMap = { 'todos': total, 'victoria': victorias, 'empate': empates, 'derrota': derrotas };
     Object.entries(btnMap).forEach(([key, count]) => {
         const btn = document.querySelector(`button[data-filter="${key}"]`);
         if (btn) btn.textContent = `${key.charAt(0).toUpperCase() + key.slice(1)} (${count})`;

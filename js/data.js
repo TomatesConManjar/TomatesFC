@@ -334,7 +334,7 @@ const partidosData = {
         temporada: 2025,
         fecha: "Jueves 30 Octubre",
         rival: "Pirula",
-        resultado: "5-4",
+        resultado: "5-5",
         lugar: "Canchas Sport One",
         tipo: "Amistoso",
         hora: "17:00 hrs",

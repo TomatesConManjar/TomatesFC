@@ -54,7 +54,7 @@ function initCarousel() {
     nextBtn.parentNode.replaceChild(newNext, nextBtn);
 
     let currentSlide = 0;
-    const totalSlides = 6;
+    const totalSlides = 7;
 
     function updateCarousel() {
         carousel.style.transform = `translateX(${-(currentSlide * 25)}%)`;

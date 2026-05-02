@@ -138,9 +138,9 @@ window.showPlayerDetails = function(playerId) {
 
         <div class="flex gap-3 mt-4">
             <button onclick="cambiarTemporadaJugador('${playerId}', 2025)" id="btn-jugador-2025"
-                class="px-4 py-1 rounded-full font-bold bg-red-800 text-white">2025</button>
+                class="px-4 py-1 rounded-full font-bold ${temporadaJugador === 2025 ? 'bg-red-800 text-white' : 'bg-gray-200 text-gray-700'}">2025</button>
             <button onclick="cambiarTemporadaJugador('${playerId}', 2026)" id="btn-jugador-2026"
-                class="px-4 py-1 rounded-full font-bold bg-gray-200 text-gray-700">2026</button>
+                class="px-4 py-1 rounded-full font-bold ${temporadaJugador === 2026 ? 'bg-red-800 text-white' : 'bg-gray-200 text-gray-700'}">2026</button>
         </div>
     `;
 

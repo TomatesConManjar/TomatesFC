@@ -103,9 +103,9 @@ window.goBack = function() {
     window.scrollTo({ top: equipoSection.getBoundingClientRect().top + window.scrollY - offset, behavior: 'smooth' });
 };
 
+let temporadaJugador = 2025;
 // Muestra el perfil detallado de un jugador
 window.showPlayerDetails = function(playerId) {
-    let temporadaJugador = 2025;
     const jugador = jugadoresData[playerId];
     if (!jugador) { console.error('Jugador no encontrado:', playerId); return; }
 

@@ -146,7 +146,7 @@ window.showPlayerDetails = function(playerId) {
 
     // Stats generales
     const partidosFiltrados = jugador.partidos.filter(p => {
-        const pd = partidosData[p.id];
+        const pd = partidosData[p.id] || partidosData[String(p.id)];
         return pd && pd.temporada === temporadaJugador;
     });
     const totalGoles = partidosFiltrados.reduce((sum, p) => sum + p.goles, 0);

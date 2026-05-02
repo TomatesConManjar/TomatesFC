@@ -179,7 +179,7 @@ window.showPlayerDetails = function(playerId) {
 
     // Rendimiento por partido
     let matchPerformancesHTML = '';
-    jugador.partidos.forEach(partido => {
+    partidosFiltrados.forEach(partido => {
         const partidoData = partidosData[partido.id];
         const resultado = partidoData ? partidoData.resultado : null;
         let esVictoria = false, esEmpate = false;

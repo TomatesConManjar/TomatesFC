@@ -96,7 +96,6 @@ function updateTeamStats() {
     set('stat-jugadores-desc', `Contamos con un plantel de ${totalJugadores} jugadores talentosos y comprometidos con el equipo.`);
     set('stat-goles-titulo', `${golesAnotados} Goles`);
     set('stat-goles-desc', `Tenemos la gran cantidad de ${golesAnotados} goles como equipo y con un promedio de ${promedio} goles por partido.`);
-    }
 
     const footerEl = document.querySelector('footer ul.space-y-2.text-gray-300');
     if (footerEl) {

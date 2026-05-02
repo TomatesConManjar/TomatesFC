@@ -241,11 +241,11 @@ window.backToTeam = function() {
 
 window.cambiarTemporadaJugador = function(playerId, temporada) {
     temporadaJugador = temporada;
+    showPlayerDetails(playerId);
     document.getElementById('btn-jugador-2025').className = temporada === 2025
         ? 'px-4 py-1 rounded-full font-bold bg-red-800 text-white'
         : 'px-4 py-1 rounded-full font-bold bg-gray-200 text-gray-700';
     document.getElementById('btn-jugador-2026').className = temporada === 2026
         ? 'px-4 py-1 rounded-full font-bold bg-red-800 text-white'
         : 'px-4 py-1 rounded-full font-bold bg-gray-200 text-gray-700';
-    showPlayerDetails(playerId);
 };

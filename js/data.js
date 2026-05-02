@@ -581,7 +581,7 @@ const partidosData = {
         temporada: 2026,
         fecha: "Viernes 24 Abril",
         rival: "Hipogolemicos",
-        resultado: "14-05",
+        resultado: "14-5",
         lugar: "Canchas UFRO",
         tipo: "Amistoso",
         hora: "18:00 hrs",

@@ -1,7 +1,7 @@
 // ============================================================
 // PARTIDOS - Renderizado, filtros y detalles de partidos
 // ============================================================
-
+let temporadaActual = 2025;
 // Filtra partidos por resultado y actualiza estilos de botones
 window.filterMatches = function(filter) {
     renderMatches(filter);
@@ -16,6 +16,17 @@ window.filterMatches = function(filter) {
     });
 };
 
+window.cambiarTemporada = function(temporada) {
+    temporadaActual = temporada;
+    document.getElementById('btn-temp-2025').className = temporada === 2025 
+        ? 'px-4 py-1 rounded-full font-bold bg-red-800 text-white'
+        : 'px-4 py-1 rounded-full font-bold bg-gray-200 text-gray-700';
+    document.getElementById('btn-temp-2026').className = temporada === 2026 
+        ? 'px-4 py-1 rounded-full font-bold bg-red-800 text-white'
+        : 'px-4 py-1 rounded-full font-bold bg-gray-200 text-gray-700';
+    renderMatches('todos');
+};
+
 // Renderiza las tarjetas de partidos según el filtro aplicado
 function renderMatches(filter = 'todos') {
     const container = document.getElementById('matches-container');
@@ -26,6 +37,7 @@ function renderMatches(filter = 'todos') {
 
     Object.entries(partidosData).forEach(([id, partido]) => {
         total++;
+        if (partido.temporada !== temporadaActual) return;
         const [golesLocal, golesVisitante] = partido.resultado.split('-').map(Number);
         let resultado = golesLocal > golesVisitante ? 'victoria' :
                         golesLocal === golesVisitante ? 'empate' : 'derrota';

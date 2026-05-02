@@ -36,8 +36,8 @@ function renderMatches(filter = 'todos') {
     let total = 0, victorias = 0, empates = 0, derrotas = 0;
 
     Object.entries(partidosData).forEach(([id, partido]) => {
-        total++;
         if (partido.temporada !== temporadaActual) return;
+        total++;
         const [golesLocal, golesVisitante] = partido.resultado.split('-').map(Number);
         let resultado = golesLocal > golesVisitante ? 'victoria' :
                         golesLocal === golesVisitante ? 'empate' : 'derrota';

@@ -156,7 +156,7 @@ window.showPlayerDetails = function(playerId) {
         <div class="stat-card bg-white rounded-lg p-6 shadow-lg text-center">
             <div class="text-3xl font-bold text-purple-600 mb-2">${partidosJugados}</div>
             <div class="text-sm text-gray-600">Partidos Jugados</div>
-            <div class="text-xs text-gray-500 mt-1">de 27 totales</div>
+            <div class="text-xs text-gray-500 mt-1">de ${Object.keys(partidosData).length} totales</div>
         </div>
         <div class="stat-card bg-white rounded-lg p-6 shadow-lg text-center">
             <div class="text-3xl font-bold text-orange-600 mb-2">${totalContribuciones}</div>

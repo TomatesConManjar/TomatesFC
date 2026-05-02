@@ -105,6 +105,7 @@ window.goBack = function() {
 
 // Muestra el perfil detallado de un jugador
 window.showPlayerDetails = function(playerId) {
+    let temporadaJugador = 2025;
     const jugador = jugadoresData[playerId];
     if (!jugador) { console.error('Jugador no encontrado:', playerId); return; }
 
@@ -134,12 +135,23 @@ window.showPlayerDetails = function(playerId) {
                 <p class="text-lg text-gray-700 italic mb-6">"${jugador.frase}"</p>
             </div>
         </div>
+
+        <div class="flex gap-3 mt-4">
+            <button onclick="cambiarTemporadaJugador('${playerId}', 2025)" id="btn-jugador-2025"
+                class="px-4 py-1 rounded-full font-bold bg-red-800 text-white">2025</button>
+            <button onclick="cambiarTemporadaJugador('${playerId}', 2026)" id="btn-jugador-2026"
+                class="px-4 py-1 rounded-full font-bold bg-gray-200 text-gray-700">2026</button>
+        </div>
     `;
 
     // Stats generales
-    const totalGoles = jugador.partidos.reduce((sum, p) => sum + p.goles, 0);
-    const totalAsistencias = jugador.partidos.reduce((sum, p) => sum + p.asistencias, 0);
-    const partidosJugados = jugador.partidos.length;
+    const partidosFiltrados = jugador.partidos.filter(p => {
+        const pd = partidosData[p.id];
+        return pd && pd.temporada === temporadaJugador;
+    });
+    const totalGoles = partidosFiltrados.reduce((sum, p) => sum + p.goles, 0);
+    const totalAsistencias = partidosFiltrados.reduce((sum, p) => sum + p.asistencias, 0);
+    const partidosJugados = partidosFiltrados.length;
     const totalContribuciones = totalGoles + totalAsistencias;
 
     document.getElementById('general-stats').innerHTML = `
@@ -156,7 +168,7 @@ window.showPlayerDetails = function(playerId) {
         <div class="stat-card bg-white rounded-lg p-6 shadow-lg text-center">
             <div class="text-3xl font-bold text-purple-600 mb-2">${partidosJugados}</div>
             <div class="text-sm text-gray-600">Partidos Jugados</div>
-            <div class="text-xs text-gray-500 mt-1">de ${Object.keys(partidosData).length} totales</div>
+            <div class="text-xs text-gray-500 mt-1">de ${Object.values(partidosData).filter(p => p.temporada === temporadaJugador).length} totales</div>
         </div>
         <div class="stat-card bg-white rounded-lg p-6 shadow-lg text-center">
             <div class="text-3xl font-bold text-orange-600 mb-2">${totalContribuciones}</div>

@@ -159,3 +159,5 @@ window.addEventListener('popstate', function(event) {
         });
     }
 });
+
+document.getElementById('footer-year').textContent = new Date().getFullYear();

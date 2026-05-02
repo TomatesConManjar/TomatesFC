@@ -50,7 +50,7 @@ function renderMatches(filter = 'todos') {
 
         const escudoRival = getEscudoRival(partido.rival);
         container.innerHTML += `
-            <div class="match-card p-6 hover:shadow-lg transition border-l-4 ${resultado === 'victoria' ? 'border-green-500' : resultado === 'empate' ? 'border-yellow-400' : 'border-red-500'}" data-result="${resultado}">
+            <div class="match-card p-6 hover:shadow-lg transition" data-result="${resultado}">
                 <div class="flex justify-between items-center mb-4">
                     <span class="bg-green-600 text-white px-3 py-1 rounded-full text-sm">${partido.tipo}</span>
                     <p class="text-gray-600">${partido.fecha}</p>

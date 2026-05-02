@@ -5,6 +5,7 @@
 // Datos de los 27 partidos con resultados y rendimiento de jugadores
 const partidosData = {
     1: {
+        temporada: 2025,
         fecha: "Lunes 20 Enero",
         rival: "Vaqueros",
         resultado: "22-10",
@@ -19,6 +20,7 @@ const partidosData = {
         ]
     },
     2: {
+        temporada: 2025,
         fecha: "Lunes 3 Marzo",
         rival: "Vaqueros",
         resultado: "19-15",
@@ -34,6 +36,7 @@ const partidosData = {
         ]
     },
     3: {
+        temporada: 2025,
         fecha: "Viernes 28 Marzo",
         rival: "Manchester ICI",
         resultado: "4-15",
@@ -49,6 +52,7 @@ const partidosData = {
         ]
     },
     4: {
+        temporada: 2025,
         fecha: "Jueves 1 Mayo",
         rival: "Vaqueros",
         resultado: "5-15",
@@ -65,6 +69,7 @@ const partidosData = {
         ]
     },
     5: {
+        temporada: 2025,
         fecha: "Viernes 9 Mayo",
         rival: "Real Justicia",
         resultado: "10-8",
@@ -80,6 +85,7 @@ const partidosData = {
         ]
     },
     6: {
+        temporada: 2025,
         fecha: "Sabado 24 Mayo",
         rival: "Microdosis",
         resultado: "2-15",
@@ -96,6 +102,7 @@ const partidosData = {
         ]
     },
     7: {
+        temporada: 2025,
         fecha: "Viernes 30 Mayo",
         rival: "Real Justicia",
         resultado: "10-7",
@@ -111,6 +118,7 @@ const partidosData = {
         ]
     },
     8: {
+        temporada: 2025,
         fecha: "Viernes 27 Junio",
         rival: "Resistencia IC",
         resultado: "5-5",
@@ -125,6 +133,7 @@ const partidosData = {
         ]
     },
     9: {
+        temporada: 2025,
         fecha: "Lunes 14 Julio",
         rival: "Vaqueros",
         resultado: "13-14",
@@ -141,6 +150,7 @@ const partidosData = {
         ]
     },
     10: {
+        temporada: 2025,
         fecha: "Viernes 18 Julio",
         rival: "Real Justicia",
         resultado: "6-7",
@@ -155,6 +165,7 @@ const partidosData = {
         ]
     },
     11: {
+        temporada: 2025,
         fecha: "Jueves 31 Julio",
         rival: "Vaqueros",
         resultado: "10-14",
@@ -170,6 +181,7 @@ const partidosData = {
         ]
     },
     12: {
+        temporada: 2025,
         fecha: "Sabado 23 Agosto",
         rival: "Equipo Pablismo",
         resultado: "5-5",
@@ -185,6 +197,7 @@ const partidosData = {
         ]
     },
     13: {
+        temporada: 2025,
         fecha: "Jueves 04 Septiembre",
         rival: "Equipo Maradona",
         resultado: "13-5",
@@ -200,6 +213,7 @@ const partidosData = {
         ]
     },
     14: {
+        temporada: 2025,
         fecha: "Jueves 11 Septiembre",
         rival: "Equipo David",
         resultado: "5-8",
@@ -215,6 +229,7 @@ const partidosData = {
         ]
     },
     15: {
+        temporada: 2025,
         fecha: "Miercoles 17 Septiembre",
         rival: "Hipogolemicos",
         resultado: "9-5",
@@ -230,6 +245,7 @@ const partidosData = {
         ]
     },
     16: {
+        temporada: 2025,
         fecha: "Viernes 26 Septiembre",
         rival: "Pirula",
         resultado: "12-4",
@@ -246,6 +262,7 @@ const partidosData = {
         ]
     },
     17: {
+        temporada: 2025,
         fecha: "Viernes 10 Octubre",
         rival: "Equipo Maradona",
         resultado: "7-11",
@@ -263,6 +280,7 @@ const partidosData = {
         ]
     },
     18: {
+        temporada: 2025,
         fecha: "Martes 14 Octubre",
         rival: "Hipogolemicos",
         resultado: "11-5",
@@ -279,6 +297,7 @@ const partidosData = {
         ]
     },
     19: {
+        temporada: 2025,
         fecha: "Jueves 16 Octubre",
         rival: "Conoco Grande",
         resultado: "20-22",
@@ -294,6 +313,7 @@ const partidosData = {
         ]
     },
     20: {
+        temporada: 2025,
         fecha: "Viernes 24 Octubre",
         rival: "Equipo Maradona",
         resultado: "11-13",
@@ -311,6 +331,7 @@ const partidosData = {
         ]
     },
     21: {
+        temporada: 2025,
         fecha: "Jueves 30 Octubre",
         rival: "Pirula",
         resultado: "5-4",
@@ -326,6 +347,7 @@ const partidosData = {
         ]
     },
     22: {
+        temporada: 2025,
         fecha: "Martes 04 Noviembre",
         rival: "Equipo Giovanni",
         resultado: "5-13",
@@ -342,6 +364,7 @@ const partidosData = {
         ]
     },
     23: {
+        temporada: 2025,
         fecha: "Miercoles 05 Noviembre",
         rival: "Pirula",
         resultado: "6-10",
@@ -356,6 +379,7 @@ const partidosData = {
         ]
     },
     24: {
+        temporada: 2025,
         fecha: "Jueves 13 Noviembre",
         rival: "Pirula",
         resultado: "15-12",
@@ -370,6 +394,7 @@ const partidosData = {
         ]
     },
     25: {
+        temporada: 2025,
         fecha: "Viernes 14 Noviembre",
         rival: "Real Justicia",
         resultado: "7-12",
@@ -385,6 +410,7 @@ const partidosData = {
         ]
     },
     26: {
+        temporada: 2025,
         fecha: "Sábado 29 Noviembre",
         rival: "Pirula",
         resultado: "11-10",
@@ -400,6 +426,7 @@ const partidosData = {
         ]
     },
     27: {
+        temporada: 2025,
         fecha: "Domingo 14 Diciembre",
         rival: "Equipo Pablismo",
         resultado: "5-18",
@@ -412,7 +439,159 @@ const partidosData = {
             { nombre: "Cristóbal Santibáñez", goles: 1, asistencias: 0 },
             { nombre: "Diego Manque", goles: 1, asistencias: 2 },
             { nombre: "Sebastián Sandoval", goles: 0, asistencias: 0 },
-            { nombre: "Matías Bustamante", goles: 0, asistencias: 1 }
+            { nombre: "Matías Bustamante", goles: 0, asistencias: 1 },
+        ]
+    },
+    28: {
+        temporada: 2026,
+        fecha: "Jueves 05 Febrero",
+        rival: "Vaqueros",
+        resultado: "8-11",
+        lugar: "Canchas M11",
+        tipo: "Amistoso",
+        hora: "19:00 hrs",
+        jugadores: [
+            { nombre: "Agustín Vilhelm", goles: 0, asistencias: 0 },
+            { nombre: "Francisco Lizama", goles: 0, asistencias: 0 },
+            { nombre: "Benjamín Garcés", goles: 4, asistencias: 2 },
+            { nombre: "Matías Paredes", goles: 2, asistencias: 1 },
+            { nombre: "Diego Manque", goles: 0, asistencias: 2 },
+            { nombre: "Sebastián Sandoval", goles: 1, asistencias: 2 },
+        ]
+    },
+    29: {
+        temporada: 2026,
+        fecha: "Viernes 27 Febrero",
+        rival: "Hipogolemicos",
+        resultado: "3-7",
+        lugar: "Canchas Santa Laura",
+        tipo: "Amistoso",
+        hora: "12:00 hrs",
+        jugadores: [
+            { nombre: "Matías Paredes", goles: 1, asistencias: 0 },
+            { nombre: "Diego Manque", goles: 1, asistencias: 2 },
+            { nombre: "Sebastián Sandoval", goles: 0, asistencias: 0 },
+            { nombre: "Matías Bustamante", goles: 0, asistencias: 0 },
+        ]
+    },
+    30: {
+        temporada: 2026,
+        fecha: "Domingo 15 Marzo",
+        rival: "Equipo Pablismo",
+        resultado: "7-7",
+        lugar: "Canchas Santa Laura",
+        tipo: "Amistoso",
+        hora: "17:00 hrs",
+        jugadores: [
+            { nombre: "Agustín Vilhelm", goles: 0, asistencias: 0 },
+            { nombre: "Benjamín Garcés", goles: 0, asistencias: 0 },
+            { nombre: "Cristóbal Santibáñez", goles: 2, asistencias: 2 },
+            { nombre: "Matías Bustamante", goles: 0, asistencias: 1 },
+            { nombre: "Diego Manque", goles: 0, asistencias: 0 },
+            { nombre: "Sebastián Sandoval", goles: 4, asistencias: 1 },
+            { nombre: "Matías Bustamante", goles: 1, asistencias: 2 },
+        ]
+    },
+    31: {
+        temporada: 2026,
+        fecha: "Viernes 20 Marzo",
+        rival: "Pirula",
+        resultado: "10-9",
+        lugar: "Canchas Holandesa",
+        tipo: "Amistoso",
+        hora: "17:00 hrs",
+        jugadores: [
+            { nombre: "Francisco Lizama", goles: 0, asistencias: 0 },
+            { nombre: "Benjamín Garcés", goles: 1, asistencias: 1 },
+            { nombre: "Cristóbal Santibáñez", goles: 3, asistencias: 2 },
+            { nombre: "Matías Paredes", goles: 3, asistencias: 1 },
+            { nombre: "Diego Manque", goles: 1, asistencias: 2 },
+            { nombre: "Sebastián Sandoval", goles: 2, asistencias: 1 },
+        ]
+    },
+    32: {
+        temporada: 2026,
+        fecha: "Jueves 26 Marzo",
+        rival: "Hipogolemicos",
+        resultado: "6-8",
+        lugar: "Canchas Holandesa",
+        tipo: "Amistoso",
+        hora: "17:00 hrs",
+        jugadores: [
+            { nombre: "Leandro Zavala", goles: 1, asistencias: 0 },
+            { nombre: "Benjamín Garcés", goles: 1, asistencias: 0 },
+            { nombre: "Diego Manque", goles: 0, asistencias: 0 },
+            { nombre: "Sebastián Sandoval", goles: 0, asistencias: 1 },
+        ]
+    },
+    33: {
+        temporada: 2026,
+        fecha: "Viernes 27 Marzo",
+        rival: "Pirula",
+        resultado: "4-10",
+        lugar: "Canchas UFRO",
+        tipo: "Amistoso",
+        hora: "18:00 hrs",
+        jugadores: [
+            { nombre: "Leandro Zavala", goles: 0, asistencias: 2 },
+            { nombre: "Benjamín Garcés", goles: 1, asistencias: 0 },
+            { nombre: "Cristóbal Santibáñez", goles: 2, asistencias: 0 },
+            { nombre: "Matías Paredes", goles: 1, asistencias: 0 },
+            { nombre: "Diego Manque", goles: 0, asistencias: 0 },
+            { nombre: "Sebastián Sandoval", goles: 0, asistencias: 1 },
+        ]
+    },
+    34: {
+        temporada: 2026,
+        fecha: "Viernes 10 Abril",
+        rival: "Pirula",
+        resultado: "6-6",
+        lugar: "Canchas UFRO",
+        tipo: "Amistoso",
+        hora: "18:00 hrs",
+        jugadores: [
+            { nombre: "Agustín Vilhelm", goles: 0, asistencias: 0 },
+            { nombre: "Leandro Zavala", goles: 0, asistencias: 0 },
+            { nombre: "Benjamín Garcés", goles: 0, asistencias: 0 },
+            { nombre: "Cristóbal Santibáñez", goles: 2, asistencias: 0 },
+            { nombre: "Matías Paredes", goles: 2, asistencias: 0 },
+            { nombre: "Diego Manque", goles: 2, asistencias: 0 },
+            { nombre: "Sebastián Sandoval", goles: 0, asistencias: 1 },
+        ]
+    },
+    35: {
+        temporada: 2026,
+        fecha: "Viernes 17 Abril",
+        rival: "Pirula",
+        resultado: "12-11",
+        lugar: "Canchas UFRO",
+        tipo: "Amistoso",
+        hora: "17:00 hrs",
+        jugadores: [
+            { nombre: "Agustín Vilhelm", goles: 0, asistencias: 0 },
+            { nombre: "Leandro Zavala", goles: 1, asistencias: 1 },
+            { nombre: "Benjamín Garcés", goles: 0, asistencias: 1 },
+            { nombre: "Cristóbal Santibáñez", goles: 1, asistencias: 3 },
+            { nombre: "Matías Paredes", goles: 9, asistencias: 1 },
+            { nombre: "Diego Manque", goles: 0, asistencias: 1 },
+            { nombre: "Sebastián Sandoval", goles: 1, asistencias: 2 },
+        ]
+    },
+    36: {
+        temporada: 2026,
+        fecha: "Viernes 24 Abril",
+        rival: "Hipogolemicos",
+        resultado: "14-05",
+        lugar: "Canchas UFRO",
+        tipo: "Amistoso",
+        hora: "18:00 hrs",
+        jugadores: [
+            { nombre: "Agustín Vilhelm", goles: 0, asistencias: 0 },
+            { nombre: "Francisco Lizama", goles: 0, asistencias: 0 },
+            { nombre: "Benjamín Garcés", goles: 0, asistencias: 1 },
+            { nombre: "Matías Paredes", goles: 9, asistencias: 2 },
+            { nombre: "Diego Manque", goles: 3, asistencias: 2 },
+            { nombre: "Sebastián Sandoval", goles: 0, asistencias: 3 }
         ]
     }
 };
@@ -420,12 +599,17 @@ const partidosData = {
 // Datos de los 8 jugadores con estadísticas individuales por partido
 const jugadoresData = {
     'agustin-vilhelm': {
-        nombre: 'Agustin Vilhelm',
+        nombre: 'Agustín Vilhelm',
         numero: 1,
         posicion: 'Arquero',
         frase: 'Si la pelota me llega a las manos, el partido es nuestro',
         imagenCamiseta: 'images/dorsal_vilhelm1.jpg',
         partidos: [
+            { id: 28, rival: 'Vaqueros', fecha: 'Jueves 05 Febrero', goles: 0, asistencias: 0 },
+            { id: 30, rival: 'Equipo Pablismo', fecha: 'Domingo 15 Marzo', goles: 0, asistencias: 0 },
+            { id: 34, rival: 'Pirula', fecha: 'Viernes 10 Abril', goles: 0, asistencias: 0 },
+            { id: 35, rival: 'Pirula', fecha: 'Viernes 17 Abril', goles: 0, asistencias: 0 },
+            { id: 36, rival: 'Hipogolemicos', fecha: 'Viernes 24 Abril', goles: 0, asistencias: 0 }
         ]
     },
     'leandro-zavala': {
@@ -447,7 +631,11 @@ const jugadoresData = {
             { id: 15, rival: 'Hipogolemicos', fecha: 'Miércoles 17 Septiembre', goles: 1, asistencias: 3 },
             { id: 16, rival: 'Pirula', fecha: 'Viernes 26 Septiembre', goles: 0, asistencias: 0 },
             { id: 18, rival: 'Hipogolemicos', fecha: 'Martes 14 Octubre', goles: 0, asistencias: 0 },
-            { id: 19, rival: 'Conoco Grande', fecha: 'Jueves 16 Octubre', goles: 1, asistencias: 4 }
+            { id: 19, rival: 'Conoco Grande', fecha: 'Jueves 16 Octubre', goles: 1, asistencias: 4 },
+            { id: 32, rival: 'Hipogolemicos', fecha: 'Jueves 26 Marzo', goles: 1, asistencias: 0 },
+            { id: 33, rival: 'Pirula', fecha: 'Viernes 27 Marzo', goles: 0, asistencias: 2 },
+            { id: 34, rival: 'Pirula', fecha: 'Viernes 10 Abril', goles: 0, asistencias: 0 },
+            { id: 35, rival: 'Pirula', fecha: 'Viernes 17 Abril', goles: 1, asistencias: 1 }        
         ]
     },
     'francisco-lizama': {
@@ -470,7 +658,10 @@ const jugadoresData = {
             { id: 22, rival: 'Equipo Giovanni', fecha: 'Martes 04 Noviembre', goles: 0, asistencias: 0 },
             { id: 23, rival: 'Pirula', fecha: 'Miercoles 05 Noviembre', goles: 0, asistencias: 1 },
             { id: 26, rival: 'Pirula', fecha: 'Sábado 29 Noviembre', goles: 0, asistencias: 1 },
-            { id: 27, rival: 'Equipo Pablismo', fecha: 'Domingo 14 Diciembre', goles: 0, asistencias: 0 }
+            { id: 27, rival: 'Equipo Pablismo', fecha: 'Domingo 14 Diciembre', goles: 0, asistencias: 0 },
+            { id: 28, rival: 'Vaqueros', fecha: 'Jueves 05 Febrero', goles: 0, asistencias: 0 },
+            { id: 31, rival: 'Pirula', fecha: 'Viernes 20 Marzo', goles: 0, asistencias: 0 },
+            { id: 36, rival: 'Hipogolemicos', fecha: 'Viernes 24 Abril', goles: 0, asistencias: 0 }
         ]
     },
     'benjamin-garces': {
@@ -506,7 +697,15 @@ const jugadoresData = {
             { id: 24, rival: 'Pirula', fecha: 'Jueves 13 Noviembre', goles: 0, asistencias: 2 },
             { id: 25, rival: 'Real Justicia', fecha: 'Viernes 14 Noviembre', goles: 1, asistencias: 1 },
             { id: 26, rival: 'Pirula', fecha: 'Sábado 29 Noviembre', goles: 3, asistencias: 2 },
-            { id: 27, rival: 'Equipo Pablismo', fecha: 'Domingo 14 Diciembre', goles: 2, asistencias: 0 }
+            { id: 27, rival: 'Equipo Pablismo', fecha: 'Domingo 14 Diciembre', goles: 2, asistencias: 0 },
+            { id: 28, rival: 'Vaqueros', fecha: 'Jueves 05 Febrero', goles: 4, asistencias: 2 },
+            { id: 30, rival: 'Equipo Pablismo', fecha: 'Domingo 15 Marzo', goles: 0, asistencias: 0 },
+            { id: 31, rival: 'Pirula', fecha: 'Viernes 20 Marzo', goles: 1, asistencias: 1 },
+            { id: 32, rival: 'Hipogolemicos', fecha: 'Jueves 26 Marzo', goles: 1, asistencias: 0 },
+            { id: 33, rival: 'Pirula', fecha: 'Viernes 27 Marzo', goles: 1, asistencias: 0 },
+            { id: 34, rival: 'Pirula', fecha: 'Viernes 10 Abril', goles: 0, asistencias: 0 },
+            { id: 35, rival: 'Pirula', fecha: 'Viernes 17 Abril', goles: 0, asistencias: 1 },
+            { id: 36, rival: 'Hipogolemicos', fecha: 'Viernes 24 Abril', goles: 0, asistencias: 1 }
         ]
     },
     'cristobal-santibanez': {
@@ -531,7 +730,12 @@ const jugadoresData = {
             { id: 21, rival: 'Pirula', fecha: 'Jueves 30 Octubre', goles: 1, asistencias: 0 },
             { id: 22, rival: 'Equipo Giovanni', fecha: 'Martes 04 Noviembre', goles: 1, asistencias: 1 },
             { id: 25, rival: 'Real Justicia', fecha: 'Viernes 14 Noviembre', goles: 2, asistencias: 1 },
-            { id: 27, rival: 'Equipo Pablismo', fecha: 'Domingo 14 Diciembre', goles: 1, asistencias: 0 }
+            { id: 27, rival: 'Equipo Pablismo', fecha: 'Domingo 14 Diciembre', goles: 1, asistencias: 0 },
+            { id: 30, rival: 'Equipo Pablismo', fecha: 'Domingo 15 Marzo', goles: 2, asistencias: 2 },
+            { id: 31, rival: 'Pirula', fecha: 'Viernes 20 Marzo', goles: 3, asistencias: 2 },
+            { id: 33, rival: 'Pirula', fecha: 'Viernes 27 Marzo', goles: 2, asistencias: 0 },
+            { id: 34, rival: 'Pirula', fecha: 'Viernes 10 Abril', goles: 2, asistencias: 0 },
+            { id: 35, rival: 'Pirula', fecha: 'Viernes 17 Abril', goles: 1, asistencias: 3 }            
         ]
     },
     'matias-paredes': {
@@ -549,7 +753,14 @@ const jugadoresData = {
             { id: 20, rival: 'Equipo Maradona', fecha: 'Viernes 24 Octubre', goles: 5, asistencias: 1 },
             { id: 21, rival: 'Pirula', fecha: 'Jueves 30 Octubre', goles: 3, asistencias: 2 },
             { id: 22, rival: 'Equipo Giovanni', fecha: 'Martes 04 Noviembre', goles: 4, asistencias: 0 },
-            { id: 24, rival: 'Pirula', fecha: 'Jueves 13 Noviembre', goles: 6, asistencias: 2 }
+            { id: 24, rival: 'Pirula', fecha: 'Jueves 13 Noviembre', goles: 6, asistencias: 2 },
+            { id: 28, rival: 'Vaqueros', fecha: 'Jueves 05 Febrero', goles: 2, asistencias: 1 },
+            { id: 29, rival: 'Hipogolemicos', fecha: 'Viernes 27 Febrero', goles: 1, asistencias: 0 },
+            { id: 31, rival: 'Pirula', fecha: 'Viernes 20 Marzo', goles: 3, asistencias: 1 },
+            { id: 33, rival: 'Pirula', fecha: 'Viernes 27 Marzo', goles: 1, asistencias: 0 },
+            { id: 34, rival: 'Pirula', fecha: 'Viernes 10 Abril', goles: 2, asistencias: 0 },
+            { id: 35, rival: 'Pirula', fecha: 'Viernes 17 Abril', goles: 9, asistencias: 1 },
+            { id: 36, rival: 'Hipogolemicos', fecha: 'Viernes 24 Abril', goles: 9, asistencias: 2 }
         ]
     },
     'diego-manque': {
@@ -585,7 +796,16 @@ const jugadoresData = {
             { id: 24, rival: 'Pirula', fecha: 'Jueves 13 Noviembre', goles: 2, asistencias: 2 },
             { id: 25, rival: 'Real Justicia', fecha: 'Viernes 14 Noviembre', goles: 1, asistencias: 2 },
             { id: 26, rival: 'Pirula', fecha: 'Sábado 29 Noviembre', goles: 1, asistencias: 3 },
-            { id: 27, rival: 'Equipo Pablismo', fecha: 'Domingo 14 Diciembre', goles: 2, asistencias: 1 }
+            { id: 27, rival: 'Equipo Pablismo', fecha: 'Domingo 14 Diciembre', goles: 2, asistencias: 1 },
+            { id: 28, rival: 'Vaqueros', fecha: 'Jueves 05 Febrero', goles: 0, asistencias: 2 },
+            { id: 29, rival: 'Hipogolemicos', fecha: 'Viernes 27 Febrero', goles: 1, asistencias: 2 },
+            { id: 30, rival: 'Equipo Pablismo', fecha: 'Domingo 15 Marzo', goles: 0, asistencias: 0 },
+            { id: 31, rival: 'Pirula', fecha: 'Viernes 20 Marzo', goles: 1, asistencias: 2 },
+            { id: 32, rival: 'Hipogolemicos', fecha: 'Jueves 26 Marzo', goles: 0, asistencias: 0 },
+            { id: 33, rival: 'Pirula', fecha: 'Viernes 27 Marzo', goles: 0, asistencias: 0 },
+            { id: 34, rival: 'Pirula', fecha: 'Viernes 10 Abril', goles: 2, asistencias: 0 },
+            { id: 35, rival: 'Pirula', fecha: 'Viernes 17 Abril', goles: 0, asistencias: 1 },
+            { id: 36, rival: 'Hipogolemicos', fecha: 'Viernes 24 Abril', goles: 3, asistencias: 2 }
         ]
     },
     'sebastian-sandoval': {
@@ -621,7 +841,16 @@ const jugadoresData = {
             { id: 24, rival: 'Pirula', fecha: 'Jueves 13 Noviembre', goles: 4, asistencias: 0 },
             { id: 25, rival: 'Real Justicia', fecha: 'Viernes 14 Noviembre', goles: 3, asistencias: 1 },
             { id: 26, rival: 'Pirula', fecha: 'Sábado 29 Noviembre', goles: 1, asistencias: 1 },
-            { id: 27, rival: 'Equipo Pablismo', fecha: 'Domingo 14 Diciembre', goles: 0, asistencias: 0 }
+            { id: 27, rival: 'Equipo Pablismo', fecha: 'Domingo 14 Diciembre', goles: 0, asistencias: 0 },
+            { id: 28, rival: 'Vaqueros', fecha: 'Jueves 05 Febrero', goles: 1, asistencias: 2 },
+            { id: 29, rival: 'Hipogolemicos', fecha: 'Viernes 27 Febrero', goles: 0, asistencias: 0 },
+            { id: 30, rival: 'Equipo Pablismo', fecha: 'Domingo 15 Marzo', goles: 4, asistencias: 1 },
+            { id: 31, rival: 'Pirula', fecha: 'Viernes 20 Marzo', goles: 2, asistencias: 1 },
+            { id: 32, rival: 'Hipogolemicos', fecha: 'Jueves 26 Marzo', goles: 0, asistencias: 1 },
+            { id: 33, rival: 'Pirula', fecha: 'Viernes 27 Marzo', goles: 0, asistencias: 1 },
+            { id: 34, rival: 'Pirula', fecha: 'Viernes 10 Abril', goles: 0, asistencias: 1 },
+            { id: 35, rival: 'Pirula', fecha: 'Viernes 17 Abril', goles: 1, asistencias: 2 },
+            { id: 36, rival: 'Hipogolemicos', fecha: 'Viernes 24 Abril', goles: 0, asistencias: 3 }
         ]
     },
     'matias-bustamante': {
@@ -638,7 +867,9 @@ const jugadoresData = {
             { id: 20, rival: 'Equipo Maradona', fecha: 'Viernes 24 Octubre', goles: 1, asistencias: 1 },
             { id: 25, rival: 'Real Justicia', fecha: 'Viernes 14 Noviembre', goles: 0, asistencias: 1 },
             { id: 26, rival: 'Pirula', fecha: 'Sábado 29 Noviembre', goles: 0, asistencias: 3 },
-            { id: 27, rival: 'Equipo Pablismo', fecha: 'Domingo 14 Diciembre', goles: 0, asistencias: 1 }
+            { id: 27, rival: 'Equipo Pablismo', fecha: 'Domingo 14 Diciembre', goles: 0, asistencias: 1 },
+            { id: 29, rival: 'Hipogolemicos', fecha: 'Viernes 27 Febrero', goles: 0, asistencias: 0 },
+            { id: 30, rival: 'Equipo Pablismo', fecha: 'Domingo 15 Marzo', goles: 1, asistencias: 2 }
         ]
     }
 };

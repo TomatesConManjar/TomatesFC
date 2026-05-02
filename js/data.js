@@ -349,7 +349,7 @@ const partidosData = {
     22: {
         temporada: 2025,
         fecha: "Martes 04 Noviembre",
-        rival: "Equipo Giovanni",
+        rival: "Equipo Geobani",
         resultado: "5-13",
         lugar: "Canchas Santa Laura",
         tipo: "Amistoso",

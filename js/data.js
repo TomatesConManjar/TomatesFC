@@ -591,7 +591,39 @@ const partidosData = {
             { nombre: "Benjamín Garcés", goles: 0, asistencias: 1 },
             { nombre: "Matías Paredes", goles: 9, asistencias: 2 },
             { nombre: "Diego Manque", goles: 3, asistencias: 2 },
-            { nombre: "Sebastián Sandoval", goles: 0, asistencias: 3 }
+            { nombre: "Sebastián Sandoval", goles: 0, asistencias: 3 },
+        ]
+    },
+    37: {
+        temporada: 2026,
+        fecha: "Jueves 14 Mayo",
+        rival: "Equipo Galleta",
+        resultado: "10-10",
+        lugar: "Canchas Holandesa",
+        tipo: "Amistoso",
+        hora: "14:00 hrs",
+        jugadores: [
+            { nombre: "Agustín Vilhelm", goles: 0, asistencias: 0 },
+            { nombre: "Leandro Zavala", goles: 2, asistencias: 2 },
+            { nombre: "Francisco Lizama", goles: 0, asistencias: 1 },
+            { nombre: "Diego Manque", goles: 3, asistencias: 2 },
+            { nombre: "Sebastián Sandoval", goles: 4, asistencias: 2 },
+        ]
+    },
+    38: {
+        temporada: 2026,
+        fecha: "Viernes 15 Mayo",
+        rival: "Interdiktos",
+        resultado: "2-10",
+        lugar: "Canchas UFRO",
+        tipo: "Amistoso",
+        hora: "18:00 hrs",
+        jugadores: [
+            { nombre: "Leandro Zavala", goles: 0, asistencias: 1 },
+            { nombre: "Cristóbal Santibáñez", goles: 1, asistencias: 0 },
+            { nombre: "Diego Manque", goles: 0, asistencias: 0 },
+            { nombre: "Sebastián Sandoval", goles: 1, asistencias: 0 },
+            { nombre: "Matías Bustamante", goles: 0, asistencias: 0 }
         ]
     }
 };
@@ -609,7 +641,8 @@ const jugadoresData = {
             { id: 30, rival: 'Equipo Pablismo', fecha: 'Domingo 15 Marzo', goles: 0, asistencias: 0 },
             { id: 34, rival: 'Pirula', fecha: 'Viernes 10 Abril', goles: 0, asistencias: 0 },
             { id: 35, rival: 'Pirula', fecha: 'Viernes 17 Abril', goles: 0, asistencias: 0 },
-            { id: 36, rival: 'Hipogolemicos', fecha: 'Viernes 24 Abril', goles: 0, asistencias: 0 }
+            { id: 36, rival: 'Hipogolemicos', fecha: 'Viernes 24 Abril', goles: 0, asistencias: 0 },
+            { id: 37, rival: 'Equipo Galleta', fecha: 'Jueves 14 Mayo', goles: 0, asistencias: 0 }
         ]
     },
     'leandro-zavala': {
@@ -635,7 +668,9 @@ const jugadoresData = {
             { id: 32, rival: 'Hipogolemicos', fecha: 'Jueves 26 Marzo', goles: 1, asistencias: 0 },
             { id: 33, rival: 'Pirula', fecha: 'Viernes 27 Marzo', goles: 0, asistencias: 2 },
             { id: 34, rival: 'Pirula', fecha: 'Viernes 10 Abril', goles: 0, asistencias: 0 },
-            { id: 35, rival: 'Pirula', fecha: 'Viernes 17 Abril', goles: 1, asistencias: 1 }        
+            { id: 35, rival: 'Pirula', fecha: 'Viernes 17 Abril', goles: 1, asistencias: 1 },
+            { id: 37, rival: 'Equipo Galleta', fecha: 'Jueves 14 Mayo', goles: 2, asistencias: 2 },
+            { id: 38, rival: 'Interdiktos', fecha: 'Viernes 15 Mayo', goles: 0, asistencias: 1 }
         ]
     },
     'francisco-lizama': {
@@ -661,7 +696,8 @@ const jugadoresData = {
             { id: 27, rival: 'Equipo Pablismo', fecha: 'Domingo 14 Diciembre', goles: 0, asistencias: 0 },
             { id: 28, rival: 'Vaqueros', fecha: 'Jueves 05 Febrero', goles: 0, asistencias: 0 },
             { id: 31, rival: 'Pirula', fecha: 'Viernes 20 Marzo', goles: 0, asistencias: 0 },
-            { id: 36, rival: 'Hipogolemicos', fecha: 'Viernes 24 Abril', goles: 0, asistencias: 0 }
+            { id: 36, rival: 'Hipogolemicos', fecha: 'Viernes 24 Abril', goles: 0, asistencias: 0 },
+            { id: 37, rival: 'Equipo Galleta', fecha: 'Jueves 14 Mayo', goles: 0, asistencias: 1 }
         ]
     },
     'benjamin-garces': {
@@ -735,7 +771,8 @@ const jugadoresData = {
             { id: 31, rival: 'Pirula', fecha: 'Viernes 20 Marzo', goles: 3, asistencias: 2 },
             { id: 33, rival: 'Pirula', fecha: 'Viernes 27 Marzo', goles: 2, asistencias: 0 },
             { id: 34, rival: 'Pirula', fecha: 'Viernes 10 Abril', goles: 2, asistencias: 0 },
-            { id: 35, rival: 'Pirula', fecha: 'Viernes 17 Abril', goles: 1, asistencias: 3 }            
+            { id: 35, rival: 'Pirula', fecha: 'Viernes 17 Abril', goles: 1, asistencias: 3 },
+            { id: 38, rival: 'Interdiktos', fecha: 'Viernes 15 Mayo', goles: 1, asistencias: 0 }
         ]
     },
     'matias-paredes': {
@@ -805,7 +842,9 @@ const jugadoresData = {
             { id: 33, rival: 'Pirula', fecha: 'Viernes 27 Marzo', goles: 0, asistencias: 0 },
             { id: 34, rival: 'Pirula', fecha: 'Viernes 10 Abril', goles: 2, asistencias: 0 },
             { id: 35, rival: 'Pirula', fecha: 'Viernes 17 Abril', goles: 0, asistencias: 1 },
-            { id: 36, rival: 'Hipogolemicos', fecha: 'Viernes 24 Abril', goles: 3, asistencias: 2 }
+            { id: 36, rival: 'Hipogolemicos', fecha: 'Viernes 24 Abril', goles: 3, asistencias: 2 },
+            { id: 37, rival: 'Equipo Galleta', fecha: 'Jueves 14 Mayo', goles: 3, asistencias: 2 },
+            { id: 38, rival: 'Interdiktos', fecha: 'Viernes 15 Mayo', goles: 0, asistencias: 0 }
         ]
     },
     'sebastian-sandoval': {
@@ -850,7 +889,9 @@ const jugadoresData = {
             { id: 33, rival: 'Pirula', fecha: 'Viernes 27 Marzo', goles: 0, asistencias: 1 },
             { id: 34, rival: 'Pirula', fecha: 'Viernes 10 Abril', goles: 0, asistencias: 1 },
             { id: 35, rival: 'Pirula', fecha: 'Viernes 17 Abril', goles: 1, asistencias: 2 },
-            { id: 36, rival: 'Hipogolemicos', fecha: 'Viernes 24 Abril', goles: 0, asistencias: 3 }
+            { id: 36, rival: 'Hipogolemicos', fecha: 'Viernes 24 Abril', goles: 0, asistencias: 3 },
+            { id: 37, rival: 'Equipo Galleta', fecha: 'Jueves 14 Mayo', goles: 4, asistencias: 2 },
+            { id: 38, rival: 'Interdiktos', fecha: 'Viernes 15 Mayo', goles: 1, asistencias: 0 }
         ]
     },
     'matias-bustamante': {
@@ -869,7 +910,8 @@ const jugadoresData = {
             { id: 26, rival: 'Pirula', fecha: 'Sábado 29 Noviembre', goles: 0, asistencias: 3 },
             { id: 27, rival: 'Equipo Pablismo', fecha: 'Domingo 14 Diciembre', goles: 0, asistencias: 1 },
             { id: 29, rival: 'Hipogolemicos', fecha: 'Viernes 27 Febrero', goles: 0, asistencias: 0 },
-            { id: 30, rival: 'Equipo Pablismo', fecha: 'Domingo 15 Marzo', goles: 1, asistencias: 2 }
+            { id: 30, rival: 'Equipo Pablismo', fecha: 'Domingo 15 Marzo', goles: 1, asistencias: 2 },
+            { id: 38, rival: 'Interdiktos', fecha: 'Viernes 15 Mayo', goles: 0, asistencias: 0 }
         ]
     }
 };

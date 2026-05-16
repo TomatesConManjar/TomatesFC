@@ -10,6 +10,7 @@ function getEscudoRival(rival) {
         'Equipo Maradona':'images/escudo_default.png',
         'Manchester ICI': 'images/escudo_manchester_ici.png',
         'Resistencia IC': 'images/escudo_resistencia.png',
+        'Interdiktos': 'images/escudo_interdiktos.png',
         'default':        'images/escudo_default.png'
     };
     return escudos[rival] || escudos['default'];

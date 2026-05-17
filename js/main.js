@@ -70,6 +70,14 @@ function initCarousel() {
     newPrev.addEventListener('click', function() {
         if (currentSlide > 0) { currentSlide--; updateCarousel(); }
     });
-
+    let touchStartX = 0;
+    carousel.addEventListener('touchstart', e => {
+        touchStartX = e.touches[0].clientX;
+    });
+    carousel.addEventListener('touchend', e => {
+        const diff = touchStartX - e.changedTouches[0].clientX;
+        if (diff > 50 && currentSlide < totalSlides - 1) { currentSlide++; updateCarousel(); }
+        if (diff < -50 && currentSlide > 0) { currentSlide--; updateCarousel(); }
+    });
     updateCarousel();
 }

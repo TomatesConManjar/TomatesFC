@@ -54,7 +54,7 @@ function initCarousel() {
     nextBtn.parentNode.replaceChild(newNext, nextBtn);
 
     let currentSlide = 0;
-    const totalSlides = 7;
+    const totalSlides = 8;
 
     function updateCarousel() {
         const porcentaje = window.innerWidth < 640 ? 100 : window.innerWidth < 1024 ? 50 : 25;

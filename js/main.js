@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Carrusel de jugadores (solo en desktop lg+)
-    if (window.innerWidth >= 1024) initCarousel();
+    initCarousel();
     window.addEventListener('resize', function() {
         if (window.innerWidth >= 1024) initCarousel();
     });

@@ -1,7 +1,34 @@
 // ============================================================
 // MAIN - Inicialización: render inicial, búsquedas y carrusel
 // ============================================================
+function initMobileCarousel() {
+    const carousel = document.getElementById('mobile-carousel');
+    const prevBtn = document.getElementById('mobile-prev');
+    const nextBtn = document.getElementById('mobile-next');
+    if (!carousel || !prevBtn || !nextBtn) return;
 
+    let current = 0;
+    const total = 9;
+
+    function update() {
+        carousel.style.transform = `translateX(${-(current * 100)}%)`;
+        prevBtn.disabled = current === 0;
+        nextBtn.disabled = current === total - 1;
+    }
+
+    nextBtn.addEventListener('click', () => { if (current < total - 1) { current++; update(); } });
+    prevBtn.addEventListener('click', () => { if (current > 0) { current--; update(); } });
+
+    let touchStartX = 0;
+    carousel.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; });
+    carousel.addEventListener('touchend', e => {
+        const diff = touchStartX - e.changedTouches[0].clientX;
+        if (diff > 50 && current < total - 1) { current++; update(); }
+        if (diff < -50 && current > 0) { current--; update(); }
+    });
+
+    update();
+}
 document.addEventListener('DOMContentLoaded', function() {
 
     // Render inicial
@@ -68,16 +95,6 @@ function initCarousel() {
     });
     newPrev.addEventListener('click', function() {
         if (currentSlide > 0) { currentSlide--; updateCarousel(); }
-    });
-    // Swipe táctil
-    let touchStartX = 0;
-    carousel.addEventListener('touchstart', e => {
-        touchStartX = e.touches[0].clientX;
-    });
-    carousel.addEventListener('touchend', e => {
-        const diff = touchStartX - e.changedTouches[0].clientX;
-        if (diff > 50 && currentSlide < totalSlides - 1) { currentSlide++; updateCarousel(); }
-        if (diff < -50 && currentSlide > 0) { currentSlide--; updateCarousel(); }
     });
     updateCarousel();
 }

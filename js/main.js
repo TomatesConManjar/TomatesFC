@@ -57,6 +57,7 @@ function initCarousel() {
     const totalSlides = 7;
 
     function updateCarousel() {
+        const porcentaje = window.innerWidth < 640 ? 100 : window.innerWidth < 1024 ? 50 : 25;
         carousel.style.transform = `translateX(${-(currentSlide * 25)}%)`;
         carousel.style.overflowX = 'visible';
         newPrev.disabled = currentSlide === 0;

@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Carrusel de jugadores (solo en desktop lg+)
-    if (window.innerWidth >= 1024) initCarousel();
+    initCarousel();
     window.addEventListener('resize', function() {
         if (window.innerWidth >= 1024) initCarousel();
     });
@@ -69,6 +69,15 @@ function initCarousel() {
     newPrev.addEventListener('click', function() {
         if (currentSlide > 0) { currentSlide--; updateCarousel(); }
     });
-
+    // Swipe táctil
+    let touchStartX = 0;
+    carousel.addEventListener('touchstart', e => {
+        touchStartX = e.touches[0].clientX;
+    });
+    carousel.addEventListener('touchend', e => {
+        const diff = touchStartX - e.changedTouches[0].clientX;
+        if (diff > 50 && currentSlide < totalSlides - 1) { currentSlide++; updateCarousel(); }
+        if (diff < -50 && currentSlide > 0) { currentSlide--; updateCarousel(); }
+    });
     updateCarousel();
 }

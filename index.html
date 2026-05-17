@@ -209,7 +209,7 @@
                 </div>
             </div>
             <!-- Vista responsive para móvil/tablet: Grid original con todos los jugadores -->
-            <div id="mobile-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 lg:hidden">
+            <div id="mobile-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 hidden">
                 <!-- Jugador 1 -->
                 <div class="player-card rounded-lg overflow-hidden shadow-lg transition duration-300 cursor-pointer" onclick="showPlayerDetails('agustin-vilhelm')">
                     <div class="w-full h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-t-lg relative">
@@ -320,7 +320,7 @@
                 </div>
             </div>
             <!-- Carrusel para desktop (lg+): Muestra 4 jugadores por slide en fila horizontal -->
-            <div id="desktop-carousel" class="hidden lg:block relative overflow-hidden">
+            <div id="desktop-carousel" class="block relative overflow-hidden">
                 <div id="players-carousel" class="flex gap-8 transition-transform duration-500 ease-in-out w-[100%] transform translate-x-0">
                     <!-- Los mismos 8 jugadores, pero con clases para carrusel: flex-none w-1/4 -->
                     <!-- Jugador 1 -->

@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Carrusel de jugadores (solo en desktop lg+)
-    initCarousel();
+    if (window.innerWidth >= 1024) initCarousel();
     window.addEventListener('resize', function() {
         if (window.innerWidth >= 1024) initCarousel();
     });
@@ -54,10 +54,9 @@ function initCarousel() {
     nextBtn.parentNode.replaceChild(newNext, nextBtn);
 
     let currentSlide = 0;
-    const totalSlides = 8;
+    const totalSlides = 7;
 
     function updateCarousel() {
-        const porcentaje = window.innerWidth < 640 ? 100 : window.innerWidth < 1024 ? 50 : 25;
         carousel.style.transform = `translateX(${-(currentSlide * 25)}%)`;
         carousel.style.overflowX = 'visible';
         newPrev.disabled = currentSlide === 0;
@@ -70,14 +69,6 @@ function initCarousel() {
     newPrev.addEventListener('click', function() {
         if (currentSlide > 0) { currentSlide--; updateCarousel(); }
     });
-    let touchStartX = 0;
-    carousel.addEventListener('touchstart', e => {
-        touchStartX = e.touches[0].clientX;
-    });
-    carousel.addEventListener('touchend', e => {
-        const diff = touchStartX - e.changedTouches[0].clientX;
-        if (diff > 50 && currentSlide < totalSlides - 1) { currentSlide++; updateCarousel(); }
-        if (diff < -50 && currentSlide > 0) { currentSlide--; updateCarousel(); }
-    });
+
     updateCarousel();
 }

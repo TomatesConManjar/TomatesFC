@@ -623,7 +623,23 @@ const partidosData = {
             { nombre: "Cristóbal Santibáñez", goles: 1, asistencias: 0 },
             { nombre: "Diego Manque", goles: 0, asistencias: 0 },
             { nombre: "Sebastián Sandoval", goles: 1, asistencias: 0 },
-            { nombre: "Matías Bustamante", goles: 0, asistencias: 0 }
+            { nombre: "Matías Bustamante", goles: 0, asistencias: 0 },
+        ]
+    },
+        39: {
+        temporada: 2026,
+        fecha: "Miercoles 20 Mayo",
+        rival: "Hipogolemicos",
+        resultado: "4-6",
+        lugar: "Canchas Santa Laura",
+        tipo: "Amistoso",
+        hora: "11:00 hrs",
+        jugadores: [
+            { nombre: "Agustín Vilhelm", goles: 0, asistencias: 0 },
+            { nombre: "Leandro Zavala", goles: 1, asistencias: 2 },
+            { nombre: "Benjamín Garcés", goles: 0, asistencias: 0 },
+            { nombre: "Diego Manque", goles: 1, asistencias: 1 },
+            { nombre: "Sebastián Sandoval", goles: 2, asistencias: 0 }
         ]
     }
 };
@@ -642,7 +658,8 @@ const jugadoresData = {
             { id: 34, rival: 'Pirula', fecha: 'Viernes 10 Abril', goles: 0, asistencias: 0 },
             { id: 35, rival: 'Pirula', fecha: 'Viernes 17 Abril', goles: 0, asistencias: 0 },
             { id: 36, rival: 'Hipogolemicos', fecha: 'Viernes 24 Abril', goles: 0, asistencias: 0 },
-            { id: 37, rival: 'Equipo Galleta', fecha: 'Jueves 14 Mayo', goles: 0, asistencias: 0 }
+            { id: 37, rival: 'Equipo Galleta', fecha: 'Jueves 14 Mayo', goles: 0, asistencias: 0 },
+            { id: 39, rival: 'Hipogolemicos', fecha: 'Miercoles 20 Mayo', goles: 0, asistencias: 0 }
         ]
     },
     'leandro-zavala': {
@@ -670,7 +687,8 @@ const jugadoresData = {
             { id: 34, rival: 'Pirula', fecha: 'Viernes 10 Abril', goles: 0, asistencias: 0 },
             { id: 35, rival: 'Pirula', fecha: 'Viernes 17 Abril', goles: 1, asistencias: 1 },
             { id: 37, rival: 'Equipo Galleta', fecha: 'Jueves 14 Mayo', goles: 2, asistencias: 2 },
-            { id: 38, rival: 'Interdiktos', fecha: 'Viernes 15 Mayo', goles: 0, asistencias: 1 }
+            { id: 38, rival: 'Interdiktos', fecha: 'Viernes 15 Mayo', goles: 0, asistencias: 1 },
+            { id: 39, rival: 'Hipogolemicos', fecha: 'Miercoles 20 Mayo', goles: 1, asistencias: 2 }
         ]
     },
     'francisco-lizama': {
@@ -741,7 +759,8 @@ const jugadoresData = {
             { id: 33, rival: 'Pirula', fecha: 'Viernes 27 Marzo', goles: 1, asistencias: 0 },
             { id: 34, rival: 'Pirula', fecha: 'Viernes 10 Abril', goles: 0, asistencias: 0 },
             { id: 35, rival: 'Pirula', fecha: 'Viernes 17 Abril', goles: 0, asistencias: 1 },
-            { id: 36, rival: 'Hipogolemicos', fecha: 'Viernes 24 Abril', goles: 0, asistencias: 1 }
+            { id: 36, rival: 'Hipogolemicos', fecha: 'Viernes 24 Abril', goles: 0, asistencias: 1 },
+            { id: 39, rival: 'Hipogolemicos', fecha: 'Miercoles 20 Mayo', goles: 0, asistencias: 0 }
         ]
     },
     'cristobal-santibanez': {
@@ -844,7 +863,8 @@ const jugadoresData = {
             { id: 35, rival: 'Pirula', fecha: 'Viernes 17 Abril', goles: 0, asistencias: 1 },
             { id: 36, rival: 'Hipogolemicos', fecha: 'Viernes 24 Abril', goles: 3, asistencias: 2 },
             { id: 37, rival: 'Equipo Galleta', fecha: 'Jueves 14 Mayo', goles: 3, asistencias: 2 },
-            { id: 38, rival: 'Interdiktos', fecha: 'Viernes 15 Mayo', goles: 0, asistencias: 0 }
+            { id: 38, rival: 'Interdiktos', fecha: 'Viernes 15 Mayo', goles: 0, asistencias: 0 },
+            { id: 39, rival: 'Hipogolemicos', fecha: 'Miercoles 20 Mayo', goles: 1, asistencias: 1 }
         ]
     },
     'sebastian-sandoval': {
@@ -891,7 +911,8 @@ const jugadoresData = {
             { id: 35, rival: 'Pirula', fecha: 'Viernes 17 Abril', goles: 1, asistencias: 2 },
             { id: 36, rival: 'Hipogolemicos', fecha: 'Viernes 24 Abril', goles: 0, asistencias: 3 },
             { id: 37, rival: 'Equipo Galleta', fecha: 'Jueves 14 Mayo', goles: 4, asistencias: 2 },
-            { id: 38, rival: 'Interdiktos', fecha: 'Viernes 15 Mayo', goles: 1, asistencias: 0 }
+            { id: 38, rival: 'Interdiktos', fecha: 'Viernes 15 Mayo', goles: 1, asistencias: 0 },
+            { id: 39, rival: 'Hipogolemicos', fecha: 'Miercoles 20 Mayo', goles: 2, asistencias: 0 }
         ]
     },
     'matias-bustamante': {

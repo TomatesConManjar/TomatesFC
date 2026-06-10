@@ -675,7 +675,7 @@ const jugadoresData = {
             { id: 36, rival: 'Hipogolemicos', fecha: 'Viernes 24 Abril', goles: 0, asistencias: 0 },
             { id: 37, rival: 'Equipo Galleta', fecha: 'Jueves 14 Mayo', goles: 0, asistencias: 0 },
             { id: 39, rival: 'Hipogolemicos', fecha: 'Miercoles 20 Mayo', goles: 0, asistencias: 0 },
-            { id: 40, rival: 'Interdiktos', fecha: 'Viernes 29 Mayo', goles: 2, asistencias: 0 }
+            { id: 40, rival: 'Interdiktos', fecha: 'Viernes 29 Mayo', goles: 0, asistencias: 0 }
         ]
     },
     'leandro-zavala': {

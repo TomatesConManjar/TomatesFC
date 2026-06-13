@@ -11,6 +11,7 @@ function getEscudoRival(rival) {
         'Manchester ICI': 'images/escudo_manchester_ici.png',
         'Resistencia IC': 'images/escudo_resistencia.png',
         'Interdiktos': 'images/escudo_interdiktos.png',
+        'Real Madrici': 'images/escudo_real_madrici.png',
         'default':        'images/escudo_default.png'
     };
     return escudos[rival] || escudos['default'];

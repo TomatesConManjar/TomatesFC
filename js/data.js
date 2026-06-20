@@ -710,7 +710,8 @@ const jugadoresData = {
             { id: 37, rival: 'Equipo Galleta', fecha: 'Jueves 14 Mayo 2026', goles: 0, asistencias: 0 },
             { id: 39, rival: 'Hipogolemicos', fecha: 'Miercoles 20 Mayo 2026', goles: 0, asistencias: 0 },
             { id: 40, rival: 'Interdiktos', fecha: 'Viernes 29 Mayo 2026', goles: 0, asistencias: 0 },
-            { id: 41, rival: 'Real Madrici', fecha: 'Viernes 12 Junio 2026', goles: 0, asistencias: 0 }
+            { id: 41, rival: 'Real Madrici', fecha: 'Viernes 12 Junio 2026', goles: 0, asistencias: 0 },
+            { id: 42, rival: 'Rupu FC', fecha: 'Viernes 19 Junio 2026', goles: 0, asistencias: 0 }
         ]
     },
     'leandro-zavala': {
@@ -741,7 +742,8 @@ const jugadoresData = {
             { id: 38, rival: 'Interdiktos', fecha: 'Viernes 15 Mayo 2026', goles: 0, asistencias: 1 },
             { id: 39, rival: 'Hipogolemicos', fecha: 'Miercoles 20 Mayo 2026', goles: 1, asistencias: 2 },
             { id: 40, rival: 'Interdiktos', fecha: 'Viernes 29 Mayo 2026', goles: 2, asistencias: 0 },
-            { id: 41, rival: 'Real Madrici', fecha: 'Viernes 12 Junio 2026', goles: 0, asistencias: 1 }
+            { id: 41, rival: 'Real Madrici', fecha: 'Viernes 12 Junio 2026', goles: 0, asistencias: 1 },
+            { id: 42, rival: 'Rupu FC', fecha: 'Viernes 19 Junio 2026', goles: 0, asistencias: 2 }
         ]
     },
     'francisco-lizama': {
@@ -768,7 +770,8 @@ const jugadoresData = {
             { id: 28, rival: 'Vaqueros', fecha: 'Jueves 05 Febrero 2026', goles: 0, asistencias: 0 },
             { id: 31, rival: 'Pirula', fecha: 'Viernes 20 Marzo 2026', goles: 0, asistencias: 0 },
             { id: 36, rival: 'Hipogolemicos', fecha: 'Viernes 24 Abril 2026', goles: 0, asistencias: 0 },
-            { id: 37, rival: 'Equipo Galleta', fecha: 'Jueves 14 Mayo 2026', goles: 0, asistencias: 1 }
+            { id: 37, rival: 'Equipo Galleta', fecha: 'Jueves 14 Mayo 2026', goles: 0, asistencias: 1 },
+            { id: 42, rival: 'Rupu FC', fecha: 'Viernes 19 Junio 2026', goles: 0, asistencias: 0 }
         ]
     },
     'benjamin-garces': {
@@ -847,7 +850,8 @@ const jugadoresData = {
             { id: 34, rival: 'Pirula', fecha: 'Viernes 10 Abril 2026', goles: 2, asistencias: 0 },
             { id: 35, rival: 'Pirula', fecha: 'Viernes 17 Abril 2026', goles: 1, asistencias: 3 },
             { id: 38, rival: 'Interdiktos', fecha: 'Viernes 15 Mayo 2026', goles: 1, asistencias: 0 },
-            { id: 41, rival: 'Real Madrici', fecha: 'Viernes 12 Junio 2026', goles: 1, asistencias: 1 }
+            { id: 41, rival: 'Real Madrici', fecha: 'Viernes 12 Junio 2026', goles: 1, asistencias: 1 },
+            { id: 42, rival: 'Rupu FC', fecha: 'Viernes 19 Junio 2026', goles: 0, asistencias: 2 }
         ]
     },
     'matias-paredes': {
@@ -922,7 +926,8 @@ const jugadoresData = {
             { id: 38, rival: 'Interdiktos', fecha: 'Viernes 15 Mayo 2026', goles: 0, asistencias: 0 },
             { id: 39, rival: 'Hipogolemicos', fecha: 'Miercoles 20 Mayo 2026', goles: 1, asistencias: 1 },
             { id: 40, rival: 'Interdiktos', fecha: 'Viernes 29 Mayo 2026', goles: 0, asistencias: 1 },
-            { id: 41, rival: 'Real Madrici', fecha: 'Viernes 12 Junio 2026', goles: 1, asistencias: 0 }
+            { id: 41, rival: 'Real Madrici', fecha: 'Viernes 12 Junio 2026', goles: 1, asistencias: 0 },
+            { id: 42, rival: 'Rupu FC', fecha: 'Viernes 19 Junio 2026', goles: 3, asistencias: 1 }
         ]
     },
     'sebastian-sandoval': {
@@ -973,6 +978,7 @@ const jugadoresData = {
             { id: 39, rival: 'Hipogolemicos', fecha: 'Miercoles 20 Mayo 2026', goles: 2, asistencias: 0 },
             { id: 40, rival: 'Interdiktos', fecha: 'Viernes 29 Mayo 2026', goles: 0, asistencias: 1 },
             { id: 41, rival: 'Real Madrici', fecha: 'Viernes 12 Junio 2026', goles: 0, asistencias: 2 },
+            { id: 42, rival: 'Rupu FC', fecha: 'Viernes 19 Junio 2026', goles: 1, asistencias: 2 }
         ]
     },
     'matias-bustamante': {
@@ -982,17 +988,17 @@ const jugadoresData = {
         frase: 'No hay balón perdido si yo estoy cerca, de un área a la otra',
         imagenCamiseta: 'images/dorsal_bustamante14.jpg',
         partidos: [
-            { id: 9, rival: 'Vaqueros', fecha: 'Lunes 14 Julio', goles: 1, asistencias: 1 },
-            { id: 12, rival: 'Equipo Pablismo', fecha: 'Sábado 23 Agosto', goles: 0, asistencias: 1 },
-            { id: 16, rival: 'Pirula', fecha: 'Viernes 26 Septiembre', goles: 0, asistencias: 1 },
-            { id: 17, rival: 'Equipo Maradona', fecha: 'Viernes 10 Octubre', goles: 0, asistencias: 0 },
-            { id: 20, rival: 'Equipo Maradona', fecha: 'Viernes 24 Octubre', goles: 1, asistencias: 1 },
-            { id: 25, rival: 'Real Justicia', fecha: 'Viernes 14 Noviembre', goles: 0, asistencias: 1 },
-            { id: 26, rival: 'Pirula', fecha: 'Sábado 29 Noviembre', goles: 0, asistencias: 3 },
-            { id: 27, rival: 'Equipo Pablismo', fecha: 'Domingo 14 Diciembre', goles: 0, asistencias: 1 },
-            { id: 29, rival: 'Hipogolemicos', fecha: 'Viernes 27 Febrero', goles: 0, asistencias: 0 },
-            { id: 30, rival: 'Equipo Pablismo', fecha: 'Domingo 15 Marzo', goles: 1, asistencias: 2 },
-            { id: 38, rival: 'Interdiktos', fecha: 'Viernes 15 Mayo', goles: 0, asistencias: 0 }
+            { id: 9, rival: 'Vaqueros', fecha: 'Lunes 14 Julio 2025', goles: 1, asistencias: 1 },
+            { id: 12, rival: 'Equipo Pablismo', fecha: 'Sábado 23 Agosto 2025', goles: 0, asistencias: 1 },
+            { id: 16, rival: 'Pirula', fecha: 'Viernes 26 Septiembre 2025', goles: 0, asistencias: 1 },
+            { id: 17, rival: 'Equipo Maradona', fecha: 'Viernes 10 Octubre 2025', goles: 0, asistencias: 0 },
+            { id: 20, rival: 'Equipo Maradona', fecha: 'Viernes 24 Octubre 2025', goles: 1, asistencias: 1 },
+            { id: 25, rival: 'Real Justicia', fecha: 'Viernes 14 Noviembre 2025', goles: 0, asistencias: 1 },
+            { id: 26, rival: 'Pirula', fecha: 'Sábado 29 Noviembre 2025', goles: 0, asistencias: 3 },
+            { id: 27, rival: 'Equipo Pablismo', fecha: 'Domingo 14 Diciembre 2025', goles: 0, asistencias: 1 },
+            { id: 29, rival: 'Hipogolemicos', fecha: 'Viernes 27 Febrero 2026', goles: 0, asistencias: 0 },
+            { id: 30, rival: 'Equipo Pablismo', fecha: 'Domingo 15 Marzo 2026', goles: 1, asistencias: 2 },
+            { id: 38, rival: 'Interdiktos', fecha: 'Viernes 15 Mayo 2026', goles: 0, asistencias: 0 }
         ]
     }
 };

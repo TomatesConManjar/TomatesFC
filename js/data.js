@@ -437,7 +437,7 @@ const partidosData = {
             { nombre: "Francisco Lizama", goles: 0, asistencias: 0 },
             { nombre: "Benjamín Garcés", goles: 2, asistencias: 0 },
             { nombre: "Cristóbal Santibáñez", goles: 1, asistencias: 0 },
-            { nombre: "Diego Manque", goles: 1, asistencias: 2 },
+            { nombre: "Diego Manque", goles: 2, asistencias: 1 },
             { nombre: "Sebastián Sandoval", goles: 0, asistencias: 0 },
             { nombre: "Matías Bustamante", goles: 0, asistencias: 1 },
         ]
@@ -688,7 +688,24 @@ const partidosData = {
             { nombre: "Francisco Lizama", goles: 0, asistencias: 0 },
             { nombre: "Cristóbal Santibáñez", goles: 0, asistencias: 2 },
             { nombre: "Diego Manque", goles: 3, asistencias: 1 },
-            { nombre: "Sebastián Sandoval", goles: 1, asistencias: 2 }
+            { nombre: "Sebastián Sandoval", goles: 1, asistencias: 2 },
+        ]
+    },
+        43: {
+        temporada: 2026,
+        fecha: "Domingo 28 Junio",
+        rival: "Equipo Pablismo",
+        resultado: "12-8",
+        lugar: "Canchas UFRO",
+        tipo: "Amistoso",
+        hora: "17:00 hrs",
+        jugadores: [
+            { nombre: "Agustín Vilhelm", goles: 0, asistencias: 2 },
+            { nombre: "Leandro Zavala", goles: 0, asistencias: 0 },
+            { nombre: "Benjamín Garcés", goles: 5, asistencias: 2 },
+            { nombre: "Cristóbal Santibáñez", goles: 1, asistencias: 1 },
+            { nombre: "Diego Manque", goles: 1, asistencias: 2 },
+            { nombre: "Sebastián Sandoval", goles: 3, asistencias: 3 }
         ]
     }
 };
@@ -709,9 +726,11 @@ const jugadoresData = {
             { id: 36, rival: 'Hipogolemicos', fecha: 'Viernes 24 Abril 2026', goles: 0, asistencias: 0 },
             { id: 37, rival: 'Equipo Galleta', fecha: 'Jueves 14 Mayo 2026', goles: 0, asistencias: 0 },
             { id: 39, rival: 'Hipogolemicos', fecha: 'Miercoles 20 Mayo 2026', goles: 0, asistencias: 0 },
-            { id: 40, rival: 'Interdiktos', fecha: 'Viernes 29 Mayo 2026', goles: 0, asistencias: 0 },
+            { id: 40, rival: 'Interdiktos', fecha: 'Viernes 29 Mayo 2026', goles: 0, asistencias: 1 },
             { id: 41, rival: 'Real Madrici', fecha: 'Viernes 12 Junio 2026', goles: 0, asistencias: 0 },
-            { id: 42, rival: 'Rupu FC', fecha: 'Viernes 19 Junio 2026', goles: 0, asistencias: 0 }
+            { id: 42, rival: 'Rupu FC', fecha: 'Viernes 19 Junio 2026', goles: 0, asistencias: 0 },
+            { id: 43, rival: 'Equipo Pablismo', fecha: 'Domingo 28 Junio 2026', goles: 0, asistencias: 2 }
+            
         ]
     },
     'leandro-zavala': {
@@ -743,7 +762,8 @@ const jugadoresData = {
             { id: 39, rival: 'Hipogolemicos', fecha: 'Miercoles 20 Mayo 2026', goles: 1, asistencias: 2 },
             { id: 40, rival: 'Interdiktos', fecha: 'Viernes 29 Mayo 2026', goles: 2, asistencias: 0 },
             { id: 41, rival: 'Real Madrici', fecha: 'Viernes 12 Junio 2026', goles: 0, asistencias: 1 },
-            { id: 42, rival: 'Rupu FC', fecha: 'Viernes 19 Junio 2026', goles: 0, asistencias: 2 }
+            { id: 42, rival: 'Rupu FC', fecha: 'Viernes 19 Junio 2026', goles: 0, asistencias: 2 },
+            { id: 43, rival: 'Equipo Pablismo', fecha: 'Domingo 28 Junio 2026', goles: 0, asistencias: 0 }
         ]
     },
     'francisco-lizama': {
@@ -818,7 +838,8 @@ const jugadoresData = {
             { id: 36, rival: 'Hipogolemicos', fecha: 'Viernes 24 Abril 2026', goles: 0, asistencias: 1 },
             { id: 39, rival: 'Hipogolemicos', fecha: 'Miercoles 20 Mayo 2026', goles: 0, asistencias: 0 },
             { id: 40, rival: 'Interdiktos', fecha: 'Viernes 29 Mayo 2026', goles: 0, asistencias: 0 },
-            { id: 41, rival: 'Real Madrici', fecha: 'Viernes 12 Junio 2026', goles: 1, asistencias: 0 }
+            { id: 41, rival: 'Real Madrici', fecha: 'Viernes 12 Junio 2026', goles: 1, asistencias: 0 },
+            { id: 43, rival: 'Equipo Pablismo', fecha: 'Domingo 28 Junio 2026', goles: 5, asistencias: 2 }
         ]
     },
     'cristobal-santibanez': {
@@ -851,7 +872,8 @@ const jugadoresData = {
             { id: 35, rival: 'Pirula', fecha: 'Viernes 17 Abril 2026', goles: 1, asistencias: 3 },
             { id: 38, rival: 'Interdiktos', fecha: 'Viernes 15 Mayo 2026', goles: 1, asistencias: 0 },
             { id: 41, rival: 'Real Madrici', fecha: 'Viernes 12 Junio 2026', goles: 1, asistencias: 1 },
-            { id: 42, rival: 'Rupu FC', fecha: 'Viernes 19 Junio 2026', goles: 0, asistencias: 2 }
+            { id: 42, rival: 'Rupu FC', fecha: 'Viernes 19 Junio 2026', goles: 0, asistencias: 2 },
+            { id: 43, rival: 'Equipo Pablismo', fecha: 'Domingo 28 Junio 2026', goles: 1, asistencias: 1 }
         ]
     },
     'matias-paredes': {
@@ -927,7 +949,8 @@ const jugadoresData = {
             { id: 39, rival: 'Hipogolemicos', fecha: 'Miercoles 20 Mayo 2026', goles: 1, asistencias: 1 },
             { id: 40, rival: 'Interdiktos', fecha: 'Viernes 29 Mayo 2026', goles: 0, asistencias: 1 },
             { id: 41, rival: 'Real Madrici', fecha: 'Viernes 12 Junio 2026', goles: 1, asistencias: 0 },
-            { id: 42, rival: 'Rupu FC', fecha: 'Viernes 19 Junio 2026', goles: 3, asistencias: 1 }
+            { id: 42, rival: 'Rupu FC', fecha: 'Viernes 19 Junio 2026', goles: 3, asistencias: 1 },
+            { id: 43, rival: 'Equipo Pablismo', fecha: 'Domingo 28 Junio 2026', goles: 1, asistencias: 2 }
         ]
     },
     'sebastian-sandoval': {
@@ -978,7 +1001,8 @@ const jugadoresData = {
             { id: 39, rival: 'Hipogolemicos', fecha: 'Miercoles 20 Mayo 2026', goles: 2, asistencias: 0 },
             { id: 40, rival: 'Interdiktos', fecha: 'Viernes 29 Mayo 2026', goles: 0, asistencias: 1 },
             { id: 41, rival: 'Real Madrici', fecha: 'Viernes 12 Junio 2026', goles: 0, asistencias: 2 },
-            { id: 42, rival: 'Rupu FC', fecha: 'Viernes 19 Junio 2026', goles: 1, asistencias: 2 }
+            { id: 42, rival: 'Rupu FC', fecha: 'Viernes 19 Junio 2026', goles: 1, asistencias: 2 },
+            { id: 43, rival: 'Equipo Pablismo', fecha: 'Domingo 28 Junio 2026', goles: 3, asistencias: 3 }
         ]
     },
     'matias-bustamante': {

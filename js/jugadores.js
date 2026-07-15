@@ -154,6 +154,17 @@ window.showPlayerDetails = function(playerId) {
     const partidosJugados = partidosFiltrados.length;
     const totalContribuciones = totalGoles + totalAsistencias;
 
+    // Calcular porcentaje de victorias históricas del jugador
+    let victoriasJugador = 0;
+    partidosFiltrados.forEach(p => {
+        const pd = partidosData[p.id] || partidosData[String(p.id)];
+        if (pd && pd.resultado) {
+            const [gf, gc] = pd.resultado.split('-').map(Number);
+            if (gf > gc) victoriasJugador++;
+        }
+    });
+    const porcentajeVictorias = partidosJugados > 0 ? ((victoriasJugador / partidosJugados) * 100).toFixed(1) : 0;
+
     document.getElementById('general-stats').innerHTML = `
         <div class="stat-card bg-white rounded-lg p-6 shadow-lg text-center">
             <div class="text-3xl font-bold text-green-600 mb-2">${totalGoles}</div>
@@ -174,6 +185,11 @@ window.showPlayerDetails = function(playerId) {
             <div class="text-3xl font-bold text-orange-600 mb-2">${totalContribuciones}</div>
             <div class="text-sm text-gray-600">Contribuciones</div>
             <div class="text-xs text-gray-500 mt-1">Goles + Asistencias</div>
+        </div>
+        <div class="stat-card bg-white rounded-lg p-6 shadow-lg text-center">
+            <div class="text-3xl font-bold text-red-700 mb-2">${porcentajeVictorias}%</div>
+            <div class="text-sm text-gray-600">% Victorias</div>
+            <div class="text-xs text-gray-500 mt-1">${victoriasJugador} de ${partidosJugados} partidos</div>
         </div>
     `;
 

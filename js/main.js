@@ -31,6 +31,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Carrusel unificado
     initCarousel();
+
+    // Animaciones al hacer scroll (Intersection Observer)
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.15
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                // Dejamos de observar una vez que ya apareció
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-up').forEach(el => {
+        observer.observe(el);
+    });
 });
 
 // Inicializa el carrusel de jugadores
@@ -87,14 +108,25 @@ function initCarousel() {
         }
     }
 
+    function getScrollAmount() {
+        const card = carousel.querySelector('.player-card:not(.hidden)');
+        if (!card) return carousel.clientWidth * 0.8;
+        
+        // Calcular el ancho de una tarjeta más el gap
+        const gap = parseFloat(getComputedStyle(carousel).columnGap) || 0;
+        const cardWidth = card.clientWidth + gap;
+        
+        // Desplazar la cantidad de cartas que caben enteras (al menos 1)
+        const cardsInView = Math.max(1, Math.floor(carousel.clientWidth / cardWidth));
+        return cardWidth * cardsInView;
+    }
+
     newNext.addEventListener('click', function() {
-        const scrollAmount = carousel.clientWidth * 0.8;
-        carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        carousel.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
     });
     
     newPrev.addEventListener('click', function() {
-        const scrollAmount = carousel.clientWidth * 0.8;
-        carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        carousel.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
     });
 
     carousel.addEventListener('scroll', updateUI);
@@ -102,3 +134,31 @@ function initCarousel() {
     setTimeout(updateUI, 100);
     window.addEventListener('resize', updateUI);
 }
+
+// ============================================================
+// PUNTO 4 - Barra de Progreso de Scroll
+// ============================================================
+(function initScrollProgressBar() {
+    const bar = document.getElementById('scroll-progress-bar');
+    if (!bar) return;
+
+    function updateScrollBar() {
+        const scrollTop    = window.scrollY || document.documentElement.scrollTop;
+        const docHeight    = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+
+        bar.style.width = scrollPercent.toFixed(2) + '%';
+
+        // Mostrar el punto dorado cuando ya hay algo de scroll
+        if (scrollPercent > 1) {
+            bar.classList.add('active');
+        } else {
+            bar.classList.remove('active');
+        }
+    }
+
+    window.addEventListener('scroll', updateScrollBar, { passive: true });
+    // Actualizar al cargar por si ya hay scroll guardado
+    updateScrollBar();
+})();
+

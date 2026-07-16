@@ -17,15 +17,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Buscador en la sección Equipo (aplica a mobile grid Y desktop carousel)
+    // Buscador en la sección Equipo (aplica a carousel unificado)
     const playerSearch = document.getElementById('playerSearch');
     if (playerSearch) {
         playerSearch.addEventListener('input', function(e) {
             const searchTerm = e.target.value.toLowerCase();
-            document.querySelectorAll('#mobile-grid .player-card').forEach(card => {
-                const name = card.querySelector('h3').textContent.toLowerCase();
-                card.classList.toggle('hidden', !name.includes(searchTerm));
-            });
             document.querySelectorAll('#players-carousel .player-card').forEach(card => {
                 const name = card.querySelector('h3').textContent.toLowerCase();
                 card.classList.toggle('hidden', !name.includes(searchTerm));
@@ -33,14 +29,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Carrusel de jugadores (solo en desktop lg+)
-    if (window.innerWidth >= 1024) initCarousel();
-    window.addEventListener('resize', function() {
-        if (window.innerWidth >= 1024) initCarousel();
-    });
+    // Carrusel unificado
+    initCarousel();
 });
 
-// Inicializa (o re-inicializa) el carrusel de jugadores desktop
+// Inicializa el carrusel de jugadores
 function initCarousel() {
     const carousel = document.getElementById('players-carousel');
     let prevBtn = document.getElementById('carousel-prev');
@@ -53,22 +46,24 @@ function initCarousel() {
     prevBtn.parentNode.replaceChild(newPrev, prevBtn);
     nextBtn.parentNode.replaceChild(newNext, nextBtn);
 
-    let currentSlide = 0;
-    const totalSlides = 7;
-
-    function updateCarousel() {
-        carousel.style.transform = `translateX(${-(currentSlide * 25)}%)`;
-        carousel.style.overflowX = 'visible';
-        newPrev.disabled = currentSlide === 0;
-        newNext.disabled = currentSlide === totalSlides - 1;
+    function updateButtons() {
+        if (!carousel) return;
+        const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
+        newPrev.disabled = carousel.scrollLeft <= 5;
+        newNext.disabled = carousel.scrollLeft >= maxScrollLeft - 5;
     }
 
     newNext.addEventListener('click', function() {
-        if (currentSlide < totalSlides - 1) { currentSlide++; updateCarousel(); }
+        const scrollAmount = carousel.clientWidth * 0.8;
+        carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     });
+    
     newPrev.addEventListener('click', function() {
-        if (currentSlide > 0) { currentSlide--; updateCarousel(); }
+        const scrollAmount = carousel.clientWidth * 0.8;
+        carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
     });
 
-    updateCarousel();
+    carousel.addEventListener('scroll', updateButtons);
+    updateButtons();
+    window.addEventListener('resize', updateButtons);
 }

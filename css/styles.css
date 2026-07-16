@@ -98,6 +98,16 @@
         .dark .bg-red-800 {
             background-color: #c53030 !important;
         }
+
+        /* Ocultar barra de desplazamiento del carrusel pero permitir scroll */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
         .dark .bg-gray-900 {
             background-color: #0d1117 !important;
         }

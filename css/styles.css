@@ -125,6 +125,17 @@
             background-color: #c53030;
         }
 
+        /* Animaciones al hacer scroll */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         .dark .bg-gray-900 {
             background-color: #0d1117 !important;
         }

@@ -31,6 +31,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Carrusel unificado
     initCarousel();
+
+    // Animaciones al hacer scroll (Intersection Observer)
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.15
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                // Dejamos de observar una vez que ya apareció
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-up').forEach(el => {
+        observer.observe(el);
+    });
 });
 
 // Inicializa el carrusel de jugadores

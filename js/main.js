@@ -54,28 +54,26 @@ function initCarousel() {
         newPrev.disabled = carousel.scrollLeft <= 5;
         newNext.disabled = carousel.scrollLeft >= maxScrollLeft - 5;
 
-        // Update Indicators (Dashes)
+        // Update Indicators (Dashes) - Una línea por jugador
         const indicatorsContainer = document.getElementById('carousel-indicators');
         if (indicatorsContainer) {
-            const visibleWidth = carousel.clientWidth;
-            const totalWidth = carousel.scrollWidth;
+            const numDots = carousel.querySelectorAll('.player-card:not(.hidden)').length;
             
-            if (totalWidth <= visibleWidth) {
+            if (numDots === 0) {
                 indicatorsContainer.innerHTML = '';
             } else {
-                const numPages = Math.ceil(totalWidth / visibleWidth);
                 let activeIndex = 0;
                 if (maxScrollLeft > 0) {
-                    activeIndex = Math.round((carousel.scrollLeft / maxScrollLeft) * (numPages - 1));
+                    activeIndex = Math.round((carousel.scrollLeft / maxScrollLeft) * (numDots - 1));
                 }
 
-                if (indicatorsContainer.children.length !== numPages) {
+                if (indicatorsContainer.children.length !== numDots) {
                     indicatorsContainer.innerHTML = '';
-                    for (let i = 0; i < numPages; i++) {
+                    for (let i = 0; i < numDots; i++) {
                         const dot = document.createElement('div');
                         dot.className = 'carousel-dot' + (i === activeIndex ? ' active' : '');
                         dot.addEventListener('click', () => {
-                            const scrollTarget = (maxScrollLeft / (numPages - 1)) * i;
+                            const scrollTarget = (maxScrollLeft / (numDots - 1)) * i;
                             carousel.scrollTo({ left: scrollTarget, behavior: 'smooth' });
                         });
                         indicatorsContainer.appendChild(dot);

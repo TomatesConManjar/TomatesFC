@@ -46,11 +46,47 @@ function initCarousel() {
     prevBtn.parentNode.replaceChild(newPrev, prevBtn);
     nextBtn.parentNode.replaceChild(newNext, nextBtn);
 
-    function updateButtons() {
+    function updateUI() {
         if (!carousel) return;
         const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
+        
+        // Update Buttons
         newPrev.disabled = carousel.scrollLeft <= 5;
         newNext.disabled = carousel.scrollLeft >= maxScrollLeft - 5;
+
+        // Update Indicators (Dashes)
+        const indicatorsContainer = document.getElementById('carousel-indicators');
+        if (indicatorsContainer) {
+            const visibleWidth = carousel.clientWidth;
+            const totalWidth = carousel.scrollWidth;
+            
+            if (totalWidth <= visibleWidth) {
+                indicatorsContainer.innerHTML = '';
+            } else {
+                const numPages = Math.ceil(totalWidth / visibleWidth);
+                let activeIndex = 0;
+                if (maxScrollLeft > 0) {
+                    activeIndex = Math.round((carousel.scrollLeft / maxScrollLeft) * (numPages - 1));
+                }
+
+                if (indicatorsContainer.children.length !== numPages) {
+                    indicatorsContainer.innerHTML = '';
+                    for (let i = 0; i < numPages; i++) {
+                        const dot = document.createElement('div');
+                        dot.className = 'carousel-dot' + (i === activeIndex ? ' active' : '');
+                        dot.addEventListener('click', () => {
+                            const scrollTarget = (maxScrollLeft / (numPages - 1)) * i;
+                            carousel.scrollTo({ left: scrollTarget, behavior: 'smooth' });
+                        });
+                        indicatorsContainer.appendChild(dot);
+                    }
+                } else {
+                    Array.from(indicatorsContainer.children).forEach((dot, index) => {
+                        dot.classList.toggle('active', index === activeIndex);
+                    });
+                }
+            }
+        }
     }
 
     newNext.addEventListener('click', function() {
@@ -63,7 +99,8 @@ function initCarousel() {
         carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
     });
 
-    carousel.addEventListener('scroll', updateButtons);
-    updateButtons();
-    window.addEventListener('resize', updateButtons);
+    carousel.addEventListener('scroll', updateUI);
+    // Timeout para asegurar que el DOM y CSS estén listos para medir anchos
+    setTimeout(updateUI, 100);
+    window.addEventListener('resize', updateUI);
 }

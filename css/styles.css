@@ -108,6 +108,23 @@
             scrollbar-width: none;
         }
 
+        /* Indicadores tipo Dash (Líneas) del Carrusel */
+        .carousel-dot {
+            height: 4px;
+            width: 16px;
+            background-color: #cbd5e0;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .dark .carousel-dot {
+            background-color: #4a5568;
+        }
+        .carousel-dot.active {
+            width: 32px;
+            background-color: #c53030;
+        }
+
         .dark .bg-gray-900 {
             background-color: #0d1117 !important;
         }

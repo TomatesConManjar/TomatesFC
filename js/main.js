@@ -87,14 +87,25 @@ function initCarousel() {
         }
     }
 
+    function getScrollAmount() {
+        const card = carousel.querySelector('.player-card:not(.hidden)');
+        if (!card) return carousel.clientWidth * 0.8;
+        
+        // Calcular el ancho de una tarjeta más el gap
+        const gap = parseFloat(getComputedStyle(carousel).columnGap) || 0;
+        const cardWidth = card.clientWidth + gap;
+        
+        // Desplazar la cantidad de cartas que caben enteras (al menos 1)
+        const cardsInView = Math.max(1, Math.floor(carousel.clientWidth / cardWidth));
+        return cardWidth * cardsInView;
+    }
+
     newNext.addEventListener('click', function() {
-        const scrollAmount = carousel.clientWidth * 0.8;
-        carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        carousel.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
     });
     
     newPrev.addEventListener('click', function() {
-        const scrollAmount = carousel.clientWidth * 0.8;
-        carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        carousel.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
     });
 
     carousel.addEventListener('scroll', updateUI);

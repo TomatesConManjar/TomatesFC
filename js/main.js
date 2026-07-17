@@ -134,3 +134,31 @@ function initCarousel() {
     setTimeout(updateUI, 100);
     window.addEventListener('resize', updateUI);
 }
+
+// ============================================================
+// PUNTO 4 - Barra de Progreso de Scroll
+// ============================================================
+(function initScrollProgressBar() {
+    const bar = document.getElementById('scroll-progress-bar');
+    if (!bar) return;
+
+    function updateScrollBar() {
+        const scrollTop    = window.scrollY || document.documentElement.scrollTop;
+        const docHeight    = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+
+        bar.style.width = scrollPercent.toFixed(2) + '%';
+
+        // Mostrar el punto dorado cuando ya hay algo de scroll
+        if (scrollPercent > 1) {
+            bar.classList.add('active');
+        } else {
+            bar.classList.remove('active');
+        }
+    }
+
+    window.addEventListener('scroll', updateScrollBar, { passive: true });
+    // Actualizar al cargar por si ya hay scroll guardado
+    updateScrollBar();
+})();
+

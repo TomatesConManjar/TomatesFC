@@ -70,7 +70,7 @@ function renderTeamStats(searchTerm = '') {
     }
 }
 
-// Muestra la sección de estadísticas del equipo (Dashboard Principal)
+// Muestra la sección de estadísticas del equipo
 window.showStats = function() {
     try {
         ['inicio', 'historia', 'equipo', 'partidos', 'rivales', 'match-details-section', 'player-details-section'].forEach(id => {
@@ -80,7 +80,7 @@ window.showStats = function() {
         const statsSection = document.getElementById('stats-section');
         if (statsSection) {
             statsSection.classList.remove('hidden');
-            window.showStatsDashboardHome();
+            window.showPlayerStatsSubSection();
             const offset = 80;
             window.scrollTo({ top: statsSection.getBoundingClientRect().top + window.scrollY - offset, behavior: 'smooth' });
         }
@@ -89,50 +89,76 @@ window.showStats = function() {
     }
 };
 
-// Muestra la pantalla inicial (Dashboard) de la sección de estadísticas
+// Función legacy (puede ser llamada desde historial de navegación)
 window.showStatsDashboardHome = function() {
-    const home = document.getElementById('stats-dashboard-home');
-    const playersView = document.getElementById('stats-players-view');
-    const comparisonView = document.getElementById('stats-comparison-view');
-    if (home) home.classList.remove('hidden');
-    if (playersView) playersView.classList.add('hidden');
-    if (comparisonView) comparisonView.classList.add('hidden');
+    window.showPlayerStatsSubSection();
 };
 
 // Muestra las estadísticas individuales de los jugadores
 window.showPlayerStatsSubSection = function() {
-    const home = document.getElementById('stats-dashboard-home');
     const playersView = document.getElementById('stats-players-view');
     const comparisonView = document.getElementById('stats-comparison-view');
-    if (home) home.classList.add('hidden');
+    const title = document.getElementById('stats-section-title');
+    const tabStats = document.getElementById('tab-estadisticas');
+    const tabComp = document.getElementById('tab-comparador');
     if (playersView) playersView.classList.remove('hidden');
     if (comparisonView) comparisonView.classList.add('hidden');
+    if (title) title.textContent = 'ESTADÍSTICAS';
+    if (tabStats) { tabStats.className = 'px-6 py-2 rounded-full font-bold bg-red-800 text-white transition'; }
+    if (tabComp)  { tabComp.className  = 'px-6 py-2 rounded-full font-bold bg-gray-200 text-gray-700 transition'; }
     renderTeamStats();
 };
 
 // Muestra el comparador de jugadores H2H
 window.showPlayerComparisonSubSection = function() {
-    const home = document.getElementById('stats-dashboard-home');
     const playersView = document.getElementById('stats-players-view');
     const comparisonView = document.getElementById('stats-comparison-view');
-    if (home) home.classList.add('hidden');
+    const title = document.getElementById('stats-section-title');
+    const tabStats = document.getElementById('tab-estadisticas');
+    const tabComp = document.getElementById('tab-comparador');
     if (playersView) playersView.classList.add('hidden');
     if (comparisonView) comparisonView.classList.remove('hidden');
+    if (title) title.textContent = 'COMPARADOR';
+    if (tabStats) { tabStats.className = 'px-6 py-2 rounded-full font-bold bg-gray-200 text-gray-700 transition'; }
+    if (tabComp)  { tabComp.className  = 'px-6 py-2 rounded-full font-bold bg-red-800 text-white transition'; }
     initPlayerComparison();
 };
+
 
 // Vuelve al listado completo desde la sección de estadísticas
 window.goBack = function() {
     ['inicio', 'historia', 'equipo', 'partidos', 'rivales'].forEach(id => {
-        document.getElementById(id).classList.remove('hidden');
+        const el = document.getElementById(id);
+        if (el) el.classList.remove('hidden');
     });
     ['stats-section', 'player-details-section', 'match-details-section'].forEach(id => {
-        document.getElementById(id).classList.add('hidden');
+        const el = document.getElementById(id);
+        if (el) el.classList.add('hidden');
     });
     window.history.pushState({ section: 'equipo' }, '', '#equipo');
     const equipoSection = document.getElementById('equipo');
     const offset = 80;
     window.scrollTo({ top: equipoSection.getBoundingClientRect().top + window.scrollY - offset, behavior: 'smooth' });
+};
+
+
+// Año activo del comparador (2025, 2026 o 'historico')
+let compareYear = 2025;
+
+// Cambia el año del comparador y actualiza los botones
+window.setCompareYear = function(year) {
+    compareYear = year;
+    const years = [2025, 2026, 'historico'];
+    years.forEach(y => {
+        const btn = document.getElementById(`compare-year-${y}`);
+        if (!btn) return;
+        if (y === year) {
+            btn.className = 'px-5 py-2 rounded-full font-bold bg-red-800 text-white transition';
+        } else {
+            btn.className = 'px-5 py-2 rounded-full font-bold bg-gray-200 text-gray-700 transition';
+        }
+    });
+    comparePlayers();
 };
 
 // Inicializa el comparador de jugadores (carga los dropdowns)
@@ -145,7 +171,7 @@ function initPlayerComparison() {
     select2.innerHTML = '';
 
     const keys = Object.keys(jugadoresData);
-    keys.forEach((key, idx) => {
+    keys.forEach((key) => {
         const pName = jugadoresData[key].nombre;
         select1.innerHTML += `<option value="${key}">${pName}</option>`;
         select2.innerHTML += `<option value="${key}">${pName}</option>`;
@@ -156,9 +182,11 @@ function initPlayerComparison() {
         select1.value = keys[0];
         select2.value = keys[1];
     }
-    
-    comparePlayers();
+
+    // Restaurar estilo del botón activo de año
+    window.setCompareYear(compareYear);
 }
+
 
 // Ejecuta la comparación y dibuja la UI del H2H
 window.comparePlayers = function() {
@@ -173,14 +201,37 @@ window.comparePlayers = function() {
     const p2 = jugadoresData[p2Id];
     if (!p1 || !p2) return;
 
-    // Calcular estadísticas
+    // Filtrar partidos según año seleccionado
+    const filtrarPartidos = (jugador) => {
+        return jugador.partidos.filter(p => {
+            if (compareYear === 'historico') return true;
+            const pd = partidosData[p.id] || partidosData[String(p.id)];
+            return pd && pd.temporada === compareYear;
+        });
+    };
+
+    // Calcular estadísticas con filtro de temporada
     const calcStats = (jugador) => {
-        const goles = jugador.partidos.reduce((sum, p) => sum + p.goles, 0);
-        const asistencias = jugador.partidos.reduce((sum, p) => sum + p.asistencias, 0);
-        const partidos = jugador.partidos.length;
+        const partsFiltrados = filtrarPartidos(jugador);
+        const goles = partsFiltrados.reduce((sum, p) => sum + p.goles, 0);
+        const asistencias = partsFiltrados.reduce((sum, p) => sum + p.asistencias, 0);
+        const partidos = partsFiltrados.length;
         const golesPP = partidos > 0 ? (goles / partidos) : 0;
         const asistPP = partidos > 0 ? (asistencias / partidos) : 0;
-        return { goles, asistencias, partidos, golesPP, asistPP };
+        const gAPP = partidos > 0 ? ((goles + asistencias) / partidos) : 0;
+
+        // Porcentaje de victorias
+        let victorias = 0;
+        partsFiltrados.forEach(p => {
+            const pd = partidosData[p.id] || partidosData[String(p.id)];
+            if (pd && pd.resultado) {
+                const [gf, gc] = pd.resultado.split('-').map(Number);
+                if (gf > gc) victorias++;
+            }
+        });
+        const pctVictorias = partidos > 0 ? (victorias / partidos) * 100 : 0;
+
+        return { goles, asistencias, partidos, golesPP, asistPP, gAPP, victorias, pctVictorias };
     };
 
     const s1 = calcStats(p1);
@@ -205,13 +256,15 @@ window.comparePlayers = function() {
     renderCard('compare-card-1', p1);
     renderCard('compare-card-2', p2);
 
-    // Dibujar estadísticas comparadas
+    // Configuración de métricas a comparar
     const statsConfig = [
-        { key: 'partidos', label: 'Partidos Jugados', isFloat: false },
-        { key: 'goles', label: 'Goles Totales', isFloat: false },
-        { key: 'asistencias', label: 'Asistencias Totales', isFloat: false },
-        { key: 'golesPP', label: 'Promedio Goles', isFloat: true },
-        { key: 'asistPP', label: 'Promedio Asistencias', isFloat: true }
+        { key: 'partidos',     label: 'Partidos Jugados',      isFloat: false, decimals: 0 },
+        { key: 'goles',        label: 'Goles Totales',         isFloat: false, decimals: 0 },
+        { key: 'asistencias',  label: 'Asistencias Totales',   isFloat: false, decimals: 0 },
+        { key: 'golesPP',      label: 'Promedio Goles/Partido', isFloat: true,  decimals: 2 },
+        { key: 'asistPP',      label: 'Promedio Asist/Partido', isFloat: true,  decimals: 2 },
+        { key: 'gAPP',         label: 'Promedio G+A/Partido',  isFloat: true,  decimals: 2 },
+        { key: 'pctVictorias', label: '% Victorias',           isFloat: true,  decimals: 1, suffix: '%' },
     ];
 
     const container = document.getElementById('compare-stats-container');
@@ -222,10 +275,11 @@ window.comparePlayers = function() {
         const val1 = s1[cfg.key];
         const val2 = s2[cfg.key];
 
-        const displayVal1 = cfg.isFloat ? val1.toFixed(2) : val1;
-        const displayVal2 = cfg.isFloat ? val2.toFixed(2) : val2;
+        const suffix = cfg.suffix || '';
+        const displayVal1 = cfg.isFloat ? val1.toFixed(cfg.decimals) + suffix : val1 + suffix;
+        const displayVal2 = cfg.isFloat ? val2.toFixed(cfg.decimals) + suffix : val2 + suffix;
 
-        const maxVal = Math.max(val1, val2, 1);
+        const maxVal = Math.max(val1, val2, 0.01);
         const percent1 = (val1 / maxVal) * 100;
         const percent2 = (val2 / maxVal) * 100;
 
@@ -255,6 +309,7 @@ window.comparePlayers = function() {
         `;
     });
 };
+
 
 
 let temporadaJugador = 2025;

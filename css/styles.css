@@ -138,9 +138,11 @@ html {
                         0 0 0 1px rgba(255, 255, 255, 0.1) !important;
         }
         .dark [data-result] {
-            background-color: #2d3748 !important;
+            background: rgba(31, 41, 55, 0.85) !important;
+            backdrop-filter: blur(var(--glass-blur));
+            -webkit-backdrop-filter: blur(var(--glass-blur));
+            border-color: rgba(255, 255, 255, 0.08) !important;
             color: #e2e8f0 !important;
-            border-color: #fc8181 !important;
         }
         .dark .bg-red-800 {
             background-color: #c53030 !important;
@@ -315,10 +317,15 @@ html {
         /* Estilos para el menú móvil */
         .mobile-menu {
             transform: translateX(-100%);
-            transition: transform 0.3s ease-in-out;
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            background: rgba(127, 29, 29, 0.85); /* Rojo profundo semitransparente */
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
         }
         .mobile-menu.active {
             transform: translateX(0);
+            box-shadow: 10px 0 30px rgba(0, 0, 0, 0.3);
         }
         /* Animación del botón hamburguesa */
         .hamburger-line {
@@ -451,15 +458,36 @@ html {
         }
         /* Estilos para las tarjetas de partidos */
         .match-card {
-            background-color: #ffffff; /* Fondo blanco */
-            background-color: #ffffff; 
+            backdrop-filter: blur(var(--glass-blur));
+            -webkit-backdrop-filter: blur(var(--glass-blur));
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid var(--glass-border);
             border-radius: 10px; /* Bordes redondeados */
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
-            transition: transform 0.3s, box-shadow 0.3s; /* Transición suave */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* Sombra suave */
+            transition: transform var(--transition-bounce), box-shadow var(--transition-base); /* Transición suave */
+            position: relative;
+            overflow: hidden;
+        }
+        .match-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(
+                90deg,
+                transparent 0%,
+                rgba(255, 255, 255, 0.8) 50%,
+                transparent 100%
+            );
+            z-index: 2;
         }
         .match-card:hover {
-            transform: translateY(-5px); /* Efecto de elevación al pasar el mouse */
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Sombra más intensa al pasar el mouse */
+            transform: translateY(-6px) scale(1.015); /* Efecto de elevación al pasar el mouse */
+            box-shadow: 
+                0 20px 40px -10px rgba(0, 0, 0, 0.15),
+                0 8px 20px -4px var(--glass-shadow-red); /* Sombra más intensa al pasar el mouse */
         }
         /* Estilos para los botones */
         button {
@@ -474,17 +502,38 @@ html {
             padding: 40px 0;
         }
         .rival-card {
-            background-color: var(--color-surface);
+            backdrop-filter: blur(var(--glass-blur));
+            -webkit-backdrop-filter: blur(var(--glass-blur));
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid var(--glass-border);
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            transition: transform var(--transition-base), box-shadow var(--transition-base);
+            transition: transform var(--transition-bounce), box-shadow var(--transition-base);
             cursor: pointer;
             padding: 1.5rem;
-            border: 1px solid rgba(185, 28, 28, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+        .rival-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(
+                90deg,
+                transparent 0%,
+                rgba(255, 255, 255, 0.8) 50%,
+                transparent 100%
+            );
+            z-index: 2;
         }
         .rival-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.14), 0 4px 12px var(--glass-shadow-red);
+            transform: translateY(-6px) scale(1.015);
+            box-shadow: 
+                0 20px 40px -10px rgba(0, 0, 0, 0.15), 
+                0 8px 20px -4px var(--glass-shadow-red);
         }
         .rival-name {
             font-size: 1.25rem;
@@ -577,11 +626,14 @@ html {
         }
         /* Modo oscuro para rivales y jugadores */
         .dark .rival-card {
-            background-color: #2d3748;
+            background: rgba(31, 41, 55, 0.85) !important;
+            backdrop-filter: blur(var(--glass-blur));
+            -webkit-backdrop-filter: blur(var(--glass-blur));
+            border-color: rgba(255, 255, 255, 0.08) !important;
             color: #e2e8f0;
         }
         .dark .rival-stat {
-            background: #4a5568;
+            background: #374151;
         }
         .dark .rival-match-card {
             background: #2d3748;

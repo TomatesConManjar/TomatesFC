@@ -134,9 +134,7 @@ window.showRivalDetails = function(rivalName) {
         `;
     });
 
-    const offset = 80;
-    const detailsSection = document.getElementById('rival-details');
-    window.scrollTo({ top: detailsSection.getBoundingClientRect().top + window.scrollY - offset, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'instant' });
     window.history.pushState({ section: 'rival-details', rival: rivalName }, '', `#rivales/${rivalName}`);
 };
 
@@ -153,9 +151,5 @@ window.backToRivales = function() {
     renderRivales();
     renderMatches('todos');
     window.history.pushState({ section: 'rivales' }, '', '#rivales');
-    const tituloRivales = document.querySelector('#rivales h2');
-    if (tituloRivales) {
-        const offset = 80;
-        window.scrollTo({ top: tituloRivales.getBoundingClientRect().top + window.scrollY - offset, behavior: 'smooth' });
-    }
+    window.scrollTo({ top: 0, behavior: 'instant' });
 };

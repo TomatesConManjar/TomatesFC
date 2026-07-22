@@ -181,9 +181,7 @@ window.showMatchDetails = function(partidoId) {
         matchDetailsSection.classList.remove('hidden');
         window.history.pushState({ section: 'match-details', partidoId }, '', `#partido/${partidoId}`);
 
-        const offset = 50;
-        const topPosition = matchDetailsSection.getBoundingClientRect().top + window.scrollY - offset;
-        window.scrollTo({ top: topPosition, behavior: 'smooth' });
+        window.scrollTo({ top: 0, behavior: 'instant' });
 
         const partido = partidosData[partidoId];
         if (!partido) return;
@@ -246,9 +244,5 @@ window.backToMatches = function() {
     });
     window.history.pushState({ section: 'partidos' }, '', '#partidos');
     renderMatches('todos');
-    const title = document.getElementById('partidos-title');
-    if (title) {
-        const offset = 80;
-        window.scrollTo({ top: title.getBoundingClientRect().top + window.scrollY - offset, behavior: 'smooth' });
-    }
+    window.scrollTo({ top: 0, behavior: 'instant' });
 };

@@ -120,11 +120,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
 
-            // Scroll con offset del navbar
-            const el = document.getElementById(seccionId);
-            if (el) {
-                window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
-            }
+            // Scroll instantáneo al top (sin animación de desplazamiento)
+            window.scrollTo({ top: 0, behavior: 'instant' });
             window.history.pushState({ section: seccionId }, '', `#${seccionId}`);
         });
     });
@@ -156,8 +153,7 @@ window.addEventListener('popstate', function(event) {
             });
             document.getElementById('rivales').classList.remove('hidden');
             renderRivales();
-            const el = document.getElementById('rivales');
-            if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
+            window.scrollTo({ top: 0, behavior: 'instant' });
         }
     } else {
         ['inicio', 'historia', 'equipo', 'partidos'].forEach(id => {

@@ -1,6 +1,22 @@
-// ============================================================
-// JUGADORES - Estadísticas y detalles de jugadores
-// ============================================================
+// Año activo del filtro de estadísticas individuales
+let statsYear = 'historico';
+
+// Cambia el año del filtro de estadísticas y actualiza botones
+window.setStatsYear = function(year) {
+    statsYear = year;
+    const years = [2025, 2026, 'historico'];
+    years.forEach(y => {
+        const btn = document.getElementById(`stats-year-${y}`);
+        if (!btn) return;
+        if (y === year) {
+            btn.className = 'px-5 py-2 rounded-full font-bold bg-red-800 text-white transition';
+        } else {
+            btn.className = 'px-5 py-2 rounded-full font-bold bg-gray-200 text-gray-700 transition';
+        }
+    });
+    const searchTerm = document.getElementById('playerSearchStats')?.value || '';
+    renderTeamStats(searchTerm);
+};
 
 // Renderiza tarjetas de estadísticas de jugadores en la sección "Stats"
 function renderTeamStats(searchTerm = '') {
@@ -11,9 +27,17 @@ function renderTeamStats(searchTerm = '') {
     Object.entries(jugadoresData).forEach(([playerId, jugador]) => {
         if (searchTerm && !jugador.nombre.toLowerCase().includes(searchTerm.toLowerCase())) return;
 
-        const totalGoles = jugador.partidos.reduce((sum, p) => sum + p.goles, 0);
-        const totalAsistencias = jugador.partidos.reduce((sum, p) => sum + p.asistencias, 0);
-        const partidosJugados = jugador.partidos.length;
+        // Filtrar partidos según statsYear
+        const partidosFiltrados = statsYear === 'historico'
+            ? jugador.partidos
+            : jugador.partidos.filter(p => {
+                const pd = partidosData[p.id] || partidosData[String(p.id)];
+                return pd && pd.temporada === statsYear;
+            });
+
+        const totalGoles = partidosFiltrados.reduce((sum, p) => sum + p.goles, 0);
+        const totalAsistencias = partidosFiltrados.reduce((sum, p) => sum + p.asistencias, 0);
+        const partidosJugados = partidosFiltrados.length;
         const golesPP = partidosJugados > 0 ? (totalGoles / partidosJugados).toFixed(2) : 0;
         const asistPP = partidosJugados > 0 ? (totalAsistencias / partidosJugados).toFixed(2) : 0;
 
@@ -81,8 +105,7 @@ window.showStats = function() {
         if (statsSection) {
             statsSection.classList.remove('hidden');
             window.showPlayerStatsSubSection();
-            const offset = 80;
-            window.scrollTo({ top: statsSection.getBoundingClientRect().top + window.scrollY - offset, behavior: 'smooth' });
+            window.scrollTo({ top: 0, behavior: 'instant' });
         }
     } catch (error) {
         console.error('Error en showStats:', error);
@@ -107,6 +130,8 @@ window.showPlayerStatsSubSection = function() {
     if (tabStats) { tabStats.className = 'px-6 py-2 rounded-full font-bold bg-red-800 text-white transition'; }
     if (tabComp)  { tabComp.className  = 'px-6 py-2 rounded-full font-bold bg-gray-200 text-gray-700 transition'; }
     renderTeamStats();
+    // Restaurar botón activo del filtro de año
+    setStatsYear(statsYear);
 };
 
 // Muestra el comparador de jugadores H2H
@@ -136,9 +161,7 @@ window.goBack = function() {
         if (el) el.classList.add('hidden');
     });
     window.history.pushState({ section: 'equipo' }, '', '#equipo');
-    const equipoSection = document.getElementById('equipo');
-    const offset = 80;
-    window.scrollTo({ top: equipoSection.getBoundingClientRect().top + window.scrollY - offset, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'instant' });
 };
 
 
@@ -447,9 +470,8 @@ window.showPlayerDetails = function(playerId) {
     });
     document.getElementById('match-performances').innerHTML = matchPerformancesHTML;
 
-    // Scroll
-    const offset = 50;
-    window.scrollTo({ top: detalles.getBoundingClientRect().top + window.scrollY - offset, behavior: 'smooth' });
+    // Scroll instantáneo arriba sin animación
+    window.scrollTo({ top: detalles.getBoundingClientRect().top + window.scrollY - 80, behavior: 'instant' });
 };
 
 // Vuelve al equipo desde el perfil de un jugador
@@ -459,9 +481,7 @@ window.backToTeam = function() {
         document.getElementById(id).classList.remove('hidden');
     });
     window.history.pushState({ section: 'equipo' }, '', '#equipo');
-    const equipoSection = document.getElementById('equipo');
-    const offset = 80;
-    window.scrollTo({ top: equipoSection.getBoundingClientRect().top + window.scrollY - offset, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'instant' });
 };
 
 window.cambiarTemporadaJugador = function(playerId, temporada) {

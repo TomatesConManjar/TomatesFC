@@ -52,8 +52,8 @@
                             <li><a href="javascript:void(0);" onclick="showPlayerDetails('matias-bustamante')" class="block px-4 py-2 hover:bg-red-700">Matías Bustamante</a></li>
                         </ul>
                     </div>
-                    <a href="#partidos" class="hover:text-yellow-400 transition duration-300">Partidos</a>
                     <a href="#stats-section" class="hover:text-yellow-400 transition duration-300">Estadísticas</a>
+                    <a href="#partidos" class="hover:text-yellow-400 transition duration-300">Partidos</a>
                     <div class="relative">
                         <a href="#rivales" class="hover:text-yellow-400 transition duration-300">Rivales</a>
                         <ul class="submenu absolute left-0 top-full bg-red-900 text-white shadow-lg rounded-b-lg py-2 min-w-max z-10">
@@ -115,14 +115,14 @@
                     <a href="#equipo" class="mobile-menu-link block py-3 px-4 text-white hover:bg-red-700 rounded-lg transition duration-300">
                         <i class="fas fa-users mr-3"></i>Equipo
                     </a>
+                    <a href="#stats-section" class="mobile-menu-link block py-3 px-4 text-white hover:bg-red-700 rounded-lg transition duration-300">
+                        <i class="fas fa-chart-bar mr-3"></i>Estadísticas
+                    </a>
                     <a href="#partidos" class="mobile-menu-link block py-3 px-4 text-white hover:bg-red-700 rounded-lg transition duration-300">
                         <i class="fas fa-futbol mr-3"></i>Partidos
                     </a>
-                      <a href="#rivales" class="mobile-menu-link block py-3 px-4 text-white hover:bg-red-700 rounded-lg transition duration-300">
+                    <a href="#rivales" class="mobile-menu-link block py-3 px-4 text-white hover:bg-red-700 rounded-lg transition duration-300">
                         <i class="fas fa-users mr-3"></i>Rivales
-                    </a>
-                    <a href="#stats-section" class="mobile-menu-link block py-3 px-4 text-white hover:bg-red-700 rounded-lg transition duration-300">
-                        <i class="fas fa-chart-bar mr-3"></i>Estadísticas
                     </a>
                     <a href="#galeria" class="mobile-menu-link block py-3 px-4 text-white hover:bg-red-700 rounded-lg transition duration-300">
                         <i class="fas fa-images mr-3"></i>Galería
@@ -344,6 +344,23 @@
                 </button>
             </div>
 
+            <!-- Acceso rápido a Estadísticas del Equipo -->
+            <div class="mt-10 text-center">
+                <h3 class="text-2xl font-bold mb-6 text-red-800">ESTADÍSTICAS DEL EQUIPO</h3>
+                <div class="flex flex-col sm:flex-row justify-center gap-6 max-w-2xl mx-auto">
+                    <div class="flex-1 bg-white rounded-2xl shadow-lg p-6 border-2 border-red-100 hover:border-red-400 hover:shadow-xl transition cursor-pointer" onclick="showStats(); showPlayerStatsSubSection();">
+                        <div class="text-4xl mb-3">📊</div>
+                        <h4 class="text-lg font-bold text-red-800 mb-2">Estadísticas</h4>
+                        <p class="text-gray-500 text-sm">Rendimiento individual de cada jugador</p>
+                    </div>
+                    <div class="flex-1 bg-white rounded-2xl shadow-lg p-6 border-2 border-red-100 hover:border-red-400 hover:shadow-xl transition cursor-pointer" onclick="showStats(); showPlayerComparisonSubSection();">
+                        <div class="text-4xl mb-3">⚖️</div>
+                        <h4 class="text-lg font-bold text-red-800 mb-2">Comparador</h4>
+                        <p class="text-gray-500 text-sm">Compara dos jugadores cara a cara</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
     <!-- Sección de estadísticas -->
@@ -367,7 +384,13 @@
 
             <!-- 1. SUB-SECCIÓN: ESTADÍSTICAS DEL PLANTEL -->
             <div id="stats-players-view">
-                <div class="flex items-center justify-end mb-8 flex-wrap gap-4">
+                <div class="flex flex-col sm:flex-row items-center justify-between mb-8 flex-wrap gap-4">
+                    <!-- Filtro de temporada -->
+                    <div class="flex gap-2">
+                        <button id="stats-year-2025" onclick="setStatsYear(2025)" class="px-5 py-2 rounded-full font-bold bg-red-800 text-white transition">2025</button>
+                        <button id="stats-year-2026" onclick="setStatsYear(2026)" class="px-5 py-2 rounded-full font-bold bg-gray-200 text-gray-700 transition">2026</button>
+                        <button id="stats-year-historico" onclick="setStatsYear('historico')" class="px-5 py-2 rounded-full font-bold bg-gray-200 text-gray-700 transition">Histórico</button>
+                    </div>
                     <div class="w-full sm:w-80">
                         <input type="text" id="playerSearchStats" placeholder="🔍 Buscar jugador..." 
                                class="w-full px-4 py-2 border-2 border-red-200 rounded-full focus:border-red-500 focus:outline-none transition dark:bg-gray-700 dark:text-white">

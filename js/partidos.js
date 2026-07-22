@@ -27,8 +27,55 @@ window.cambiarTemporada = function(temporada) {
     renderMatches('todos');
 };
 
+// Renderiza la racha reciente (Form Guide) de los últimos 5 partidos de la temporada
+function renderFormGuide(temporada) {
+    const rachaContainer = document.getElementById('racha-reciente');
+    if (!rachaContainer) return;
+    rachaContainer.innerHTML = '';
+
+    // Obtener los partidos de la temporada ordenados por ID cronológico
+    const partidosDeTemporada = Object.entries(partidosData)
+        .filter(([id, partido]) => partido.temporada === temporada)
+        .sort((a, b) => Number(a[0]) - Number(b[0]));
+
+    // Tomar los últimos 5 partidos
+    const ultimosPartidos = partidosDeTemporada.slice(-5);
+
+    if (ultimosPartidos.length === 0) {
+        rachaContainer.innerHTML = '<span class="text-gray-500 text-sm">Sin partidos jugados</span>';
+        return;
+    }
+
+    ultimosPartidos.forEach(([id, partido]) => {
+        const [golesLocal, golesVisitante] = partido.resultado.split('-').map(Number);
+        let resultado = golesLocal > golesVisitante ? 'victoria' :
+                        golesLocal === golesVisitante ? 'empate' : 'derrota';
+
+        let letra = resultado === 'victoria' ? 'V' :
+                    resultado === 'empate' ? 'E' : 'D';
+
+        const tooltip = `${partido.rival} (${partido.resultado}) - ${partido.fecha}`;
+        
+        const dot = document.createElement('div');
+        dot.className = `form-dot ${resultado}`;
+        dot.setAttribute('data-tooltip', tooltip);
+        dot.textContent = letra;
+        
+        dot.addEventListener('click', () => {
+            if (typeof showMatchDetails === 'function') {
+                showMatchDetails(id);
+            }
+        });
+
+        rachaContainer.appendChild(dot);
+    });
+}
+
 // Renderiza las tarjetas de partidos según el filtro aplicado
 function renderMatches(filter = 'todos') {
+    // Renderizar la racha reciente
+    renderFormGuide(temporadaActual);
+
     const container = document.getElementById('matches-container');
     if (!container) return;
     container.innerHTML = '';

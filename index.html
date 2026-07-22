@@ -53,6 +53,7 @@
                         </ul>
                     </div>
                     <a href="#partidos" class="hover:text-yellow-400 transition duration-300">Partidos</a>
+                    <a href="#stats-section" class="hover:text-yellow-400 transition duration-300">Estadísticas</a>
                     <div class="relative">
                         <a href="#rivales" class="hover:text-yellow-400 transition duration-300">Rivales</a>
                         <ul class="submenu absolute left-0 top-full bg-red-900 text-white shadow-lg rounded-b-lg py-2 min-w-max z-10">
@@ -119,6 +120,9 @@
                     </a>
                       <a href="#rivales" class="mobile-menu-link block py-3 px-4 text-white hover:bg-red-700 rounded-lg transition duration-300">
                         <i class="fas fa-users mr-3"></i>Rivales
+                    </a>
+                    <a href="#stats-section" class="mobile-menu-link block py-3 px-4 text-white hover:bg-red-700 rounded-lg transition duration-300">
+                        <i class="fas fa-chart-bar mr-3"></i>Estadísticas
                     </a>
                     <a href="#galeria" class="mobile-menu-link block py-3 px-4 text-white hover:bg-red-700 rounded-lg transition duration-300">
                         <i class="fas fa-images mr-3"></i>Galería
@@ -349,21 +353,113 @@
     <!-- Sección de estadísticas -->
     <section id="stats-section" class="hidden py-16 bg-white">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12 text-red-800 fade-up">Estadísticas de Jugadores</h2>
-            <div class="mb-8">
-                <div class="max-w-md mx-auto">
-                    <input type="text" id="playerSearchStats" placeholder="🔍 Buscar jugador..." 
-                           class="w-full px-4 py-3 border-2 border-red-200 rounded-full focus:border-red-500 focus:outline-none transition">
+            <!-- TITULO PRINCIPAL -->
+            <h2 class="text-3xl font-bold text-center mb-12 text-red-800 fade-up">ESTADÍSTICAS Y COMPARADOR</h2>
+
+            <!-- 1. DASHBOARD HOME -->
+            <div id="stats-dashboard-home" class="fade-up">
+                <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+                    Explora el rendimiento de los jugadores de Tomates FC o compara sus estadísticas cara a cara.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12">
+                    <!-- Opción 1: Plantel -->
+                    <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-2xl border-2 border-red-100 hover:border-red-500 shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 text-center cursor-pointer flex flex-col justify-between" onclick="showPlayerStatsSubSection()">
+                        <div>
+                            <div class="w-16 h-16 bg-red-100 dark:bg-red-900 rounded-full flex items-center justify-center mx-auto mb-6 text-red-600 dark:text-red-300">
+                                <i class="fas fa-chart-bar text-3xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-4">Estadísticas del Plantel</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-6">Consulta los goles, asistencias y rendimiento individual detallado de cada uno de los jugadores.</p>
+                        </div>
+                        <button class="bg-red-800 hover:bg-red-900 text-white font-bold py-3 px-6 rounded-full transition w-full">
+                            Entrar
+                        </button>
+                    </div>
+
+                    <!-- Opción 2: Comparador H2H -->
+                    <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-2xl border-2 border-yellow-100 hover:border-yellow-500 shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 text-center cursor-pointer flex flex-col justify-between" onclick="showPlayerComparisonSubSection()">
+                        <div>
+                            <div class="w-16 h-16 bg-yellow-100 dark:bg-yellow-900/40 rounded-full flex items-center justify-center mx-auto mb-6 text-yellow-600 dark:text-yellow-300">
+                                <i class="fas fa-balance-scale text-3xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-4">Comparador H2H</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-6">Compara el desempeño cara a cara de dos jugadores en todas las métricas de la temporada.</p>
+                        </div>
+                        <button class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-6 rounded-full transition w-full">
+                            Comparar
+                        </button>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button onclick="goBack()" class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-3 px-8 rounded-full transition">
+                        ← Volver al Menú Principal
+                    </button>
                 </div>
             </div>
-            <!-- Contenedor dinámico para las tarjetas de stats -->
-            <div id="stats-players-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                <!-- Las tarjetas se generarán aquí dinámicamente con JS -->
+
+            <!-- 2. SUB-SECCIÓN: ESTADÍSTICAS DEL PLANTEL -->
+            <div id="stats-players-view" class="hidden">
+                <div class="flex items-center justify-between mb-8 flex-wrap gap-4">
+                    <button onclick="showStatsDashboardHome()" class="bg-red-800 hover:bg-red-900 text-white font-bold py-2 px-6 rounded-full transition">
+                        ← Panel de Estadísticas
+                    </button>
+                    <div class="w-full sm:w-80">
+                        <input type="text" id="playerSearchStats" placeholder="🔍 Buscar jugador..." 
+                               class="w-full px-4 py-2 border-2 border-red-200 rounded-full focus:border-red-500 focus:outline-none transition dark:bg-gray-700 dark:text-white">
+                    </div>
+                </div>
+                
+                <div id="stats-players-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                    <!-- Las tarjetas se generarán aquí dinámicamente con JS -->
+                </div>
             </div>
-            <div class="text-center mt-12">
-                <button onclick="goBack()" class="bg-red-800 hover:bg-red-900 text-white font-bold py-3 px-8 rounded-full transition">
-                    Volver
-                </button>
+
+            <!-- 3. SUB-SECCIÓN: COMPARADOR H2H -->
+            <div id="stats-comparison-view" class="hidden">
+                <div class="mb-8">
+                    <button onclick="showStatsDashboardHome()" class="bg-red-800 hover:bg-red-900 text-white font-bold py-2 px-6 rounded-full transition">
+                        ← Panel de Estadísticas
+                    </button>
+                </div>
+
+                <div class="bg-gray-50 dark:bg-gray-800 rounded-3xl p-6 md:p-8 shadow-xl border border-gray-100 dark:border-gray-700 max-w-5xl mx-auto">
+                    <!-- Selectores de Jugadores -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-600 dark:text-gray-300 mb-2">Jugador 1</label>
+                            <select id="compare-select-1" onchange="comparePlayers()" class="w-full px-4 py-3 bg-white dark:bg-gray-700 border-2 border-red-200 rounded-xl focus:border-red-500 focus:outline-none transition text-gray-800 dark:text-white font-semibold">
+                                <!-- Poblado con JS -->
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-600 dark:text-gray-300 mb-2">Jugador 2</label>
+                            <select id="compare-select-2" onchange="comparePlayers()" class="w-full px-4 py-3 bg-white dark:bg-gray-700 border-2 border-red-200 rounded-xl focus:border-red-500 focus:outline-none transition text-gray-800 dark:text-white font-semibold">
+                                <!-- Poblado con JS -->
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Fichas de Presentación H2H -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center mb-12">
+                        <!-- Jugador 1 info -->
+                        <div class="text-center" id="compare-card-1">
+                            <!-- JS Genera foto, dorsal, posición -->
+                        </div>
+                        <!-- Versus Badge -->
+                        <div class="text-center py-4">
+                            <span class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-red-800 text-white font-extrabold text-2xl shadow-lg border-4 border-white dark:border-gray-800">VS</span>
+                        </div>
+                        <!-- Jugador 2 info -->
+                        <div class="text-center" id="compare-card-2">
+                            <!-- JS Genera foto, dorsal, posición -->
+                        </div>
+                    </div>
+
+                    <!-- Comparación de Estadísticas -->
+                    <div class="space-y-6 max-w-3xl mx-auto" id="compare-stats-container">
+                        <!-- Se poblará con JS -->
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -408,6 +504,12 @@
                     class="px-4 py-1 rounded-full font-bold bg-gray-200 text-gray-700">
                     2026
                 </button>
+            </div>
+            
+            <!-- Racha reciente (Form Guide) -->
+            <div id="racha-container" class="flex flex-col items-center mb-6 fade-up">
+                <span class="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">Racha reciente (Últimos 5)</span>
+                <div id="racha-reciente" class="flex gap-2 justify-center"></div>
             </div>
             
             <div class="flex flex-wrap gap-4 mb-8 justify-center">

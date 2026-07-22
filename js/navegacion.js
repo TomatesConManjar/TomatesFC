@@ -98,16 +98,25 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
                 renderMatches('todos');
                 renderRivales();
-            } else if (['historia', 'equipo', 'partidos', 'rivales'].includes(seccionId)) {
-                const el = document.getElementById(seccionId);
-                if (el) el.classList.remove('hidden');
-                if (seccionId === 'partidos') renderMatches('todos');
-                if (seccionId === 'rivales') {
-                    renderRivales();
-                    const rd = document.getElementById('rival-details');
-                    if (rd) rd.classList.add('hidden');
-                    const rc = document.getElementById('rivales-container');
-                    if (rc) rc.classList.remove('hidden');
+            } else if (['historia', 'equipo', 'partidos', 'rivales', 'stats-section'].includes(seccionId)) {
+                if (seccionId === 'stats-section') {
+                    if (typeof showStats === 'function') {
+                        showStats();
+                    } else {
+                        const el = document.getElementById('stats-section');
+                        if (el) el.classList.remove('hidden');
+                    }
+                } else {
+                    const el = document.getElementById(seccionId);
+                    if (el) el.classList.remove('hidden');
+                    if (seccionId === 'partidos') renderMatches('todos');
+                    if (seccionId === 'rivales') {
+                        renderRivales();
+                        const rd = document.getElementById('rival-details');
+                        if (rd) rd.classList.add('hidden');
+                        const rc = document.getElementById('rivales-container');
+                        if (rc) rc.classList.remove('hidden');
+                    }
                 }
             }
 
@@ -135,6 +144,8 @@ window.addEventListener('popstate', function(event) {
             backToMatches();
         } else if (s.section === 'rival-details' && s.rival) {
             showRivalDetails(s.rival);
+        } else if (s.section === 'stats-section') {
+            if (typeof showStats === 'function') showStats();
         } else if (s.section === 'rivales') {
             document.getElementById('rival-details').classList.add('hidden');
             document.getElementById('rivales-container').classList.remove('hidden');

@@ -1054,7 +1054,7 @@ const jugadoresData = {
         ]
     },
     'matias-bustamante': {
-        nombre: 'Matias Bustamante',
+        nombre: 'Matías Bustamante',
         numero: 14,
         posicion: 'Mediocampista',
         frase: 'No hay balón perdido si yo estoy cerca, de un área a la otra',

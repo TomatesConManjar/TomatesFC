@@ -520,33 +520,39 @@ const TACTICAL_PLAYERS = [
 const FORMATIONS = {
     '1-3-2-1': [
         { label: 'GK',  x: 50, y: 88 },
-        { label: 'DD',  x: 75, y: 70 }, { label: 'DC', x: 50, y: 72 }, { label: 'DI', x: 25, y: 70 },
+        { label: 'LD',  x: 75, y: 70 }, { label: 'DF', x: 50, y: 72 }, { label: 'LI', x: 25, y: 70 },
         { label: 'MD',  x: 65, y: 50 }, { label: 'MI', x: 35, y: 50 },
-        { label: 'DEL', x: 50, y: 28 },
+        { label: 'DC',  x: 50, y: 28 },
     ],
     '1-2-3-1': [
         { label: 'GK',  x: 50, y: 88 },
-        { label: 'DD',  x: 70, y: 70 }, { label: 'DI', x: 30, y: 70 },
+        { label: 'DFD', x: 70, y: 70 }, { label: 'DFI', x: 30, y: 70 },
         { label: 'MD',  x: 72, y: 50 }, { label: 'MC', x: 50, y: 48 }, { label: 'MI', x: 28, y: 50 },
-        { label: 'DEL', x: 50, y: 28 },
+        { label: 'DC',  x: 50, y: 28 },
     ],
     '1-2-2-2': [
         { label: 'GK',  x: 50, y: 88 },
-        { label: 'DD',  x: 70, y: 70 }, { label: 'DI', x: 30, y: 70 },
+        { label: 'DFD', x: 70, y: 70 }, { label: 'DFI', x: 30, y: 70 },
         { label: 'MD',  x: 65, y: 50 }, { label: 'MI', x: 35, y: 50 },
-        { label: 'DL',  x: 70, y: 28 }, { label: 'DR', x: 30, y: 28 },
+        { label: 'DCD', x: 70, y: 28 }, { label: 'DCI', x: 30, y: 28 },
+    ],
+    '1-3-1-2': [
+        { label: 'GK',  x: 50, y: 88 },
+        { label: 'LD',  x: 75, y: 70 }, { label: 'DF', x: 50, y: 72 }, { label: 'LI', x: 25, y: 70 },
+        { label: 'MC',  x: 50, y: 50 },
+        { label: 'DCD', x: 70, y: 28 }, { label: 'DCI', x: 30, y: 28 },
     ],
     '1-1-4-1': [
         { label: 'GK',  x: 50, y: 88 },
-        { label: 'DC',  x: 50, y: 72 },
+        { label: 'DF',  x: 50, y: 72 },
         { label: 'MDD', x: 78, y: 50 }, { label: 'MDC', x: 58, y: 50 }, { label: 'MIC', x: 42, y: 50 }, { label: 'MDI', x: 22, y: 50 },
-        { label: 'DEL', x: 50, y: 28 },
+        { label: 'DC',  x: 50, y: 28 },
     ],
     '1-4-1-1': [
         { label: 'GK',  x: 50, y: 88 },
-        { label: 'DD',  x: 80, y: 70 }, { label: 'DCd', x: 60, y: 72 }, { label: 'DCi', x: 40, y: 72 }, { label: 'DI', x: 20, y: 70 },
+        { label: 'LD',  x: 80, y: 70 }, { label: 'DFD', x: 60, y: 72 }, { label: 'DFI', x: 40, y: 72 }, { label: 'LI', x: 20, y: 70 },
         { label: 'MC',  x: 50, y: 52 },
-        { label: 'DEL', x: 50, y: 28 },
+        { label: 'DC',  x: 50, y: 28 },
     ],
 };
 
@@ -575,6 +581,11 @@ function renderBench() {
             <span class="bench-name">${p.name}</span>
         </div>
     `).join('');
+
+    // Touch drag support for mobile bench chips
+    bench.querySelectorAll('.bench-player-chip:not(.on-pitch)').forEach(chip => {
+        chip.addEventListener('touchstart', touchDragStart, { passive: true });
+    });
 }
 
 // Renderiza las fichas en la cancha
@@ -596,7 +607,7 @@ function renderPitchTokens() {
         token.setAttribute('data-slot', idx);
         token.setAttribute('title', player ? `${player.name} — ${pos.label}` : `Posición: ${pos.label} (clic para asignar)`);
 
-        // Soporte drag-over
+        // Soporte drag-over (mouse)
         token.addEventListener('dragover', e => { e.preventDefault(); token.classList.add('drag-over'); });
         token.addEventListener('dragleave', () => token.classList.remove('drag-over'));
         token.addEventListener('drop', e => {
@@ -605,6 +616,20 @@ function renderPitchTokens() {
             const draggedId = e.dataTransfer.getData('text/plain');
             if (draggedId) assignPlayerToSlot(idx, draggedId);
         });
+        // Soporte drop via touch (mobile)
+        token.setAttribute('data-slot', idx);
+        token.addEventListener('touchend', e => {
+            if (!window._touchDragPlayerId) return;
+            e.preventDefault();
+            const slotTarget = parseInt(token.getAttribute('data-slot'));
+            assignPlayerToSlot(slotTarget, window._touchDragPlayerId);
+            window._touchDragPlayerId = null;
+            removeTouchGhost();
+            document.querySelectorAll('.pitch-player-token').forEach(t => t.classList.remove('drag-over'));
+        });
+        token.addEventListener('touchmove', e => {
+            token.classList.add('drag-over');
+        }, { passive: true });
         // Clic para abrir selector
         token.addEventListener('click', e => { e.stopPropagation(); openPlayerSelector(idx, token); });
 
@@ -622,6 +647,74 @@ function renderPitchTokens() {
 
 function benchDragStart(event, playerId) {
     event.dataTransfer.setData('text/plain', playerId);
+}
+
+// ---- Touch Drag (Mobile) ----
+let _touchGhost = null;
+
+function removeTouchGhost() {
+    if (_touchGhost) { _touchGhost.remove(); _touchGhost = null; }
+}
+
+function touchDragStart(e) {
+    const chip = e.currentTarget;
+    const playerId = chip.dataset.playerId;
+    window._touchDragPlayerId = playerId;
+
+    // Crear fantasma visual
+    removeTouchGhost();
+    _touchGhost = chip.cloneNode(true);
+    _touchGhost.style.cssText = `
+        position: fixed;
+        pointer-events: none;
+        z-index: 99999;
+        opacity: 0.85;
+        transform: scale(1.15);
+        transition: none;
+    `;
+    document.body.appendChild(_touchGhost);
+
+    const touch = e.touches[0];
+    _touchGhost.style.left = `${touch.clientX - 25}px`;
+    _touchGhost.style.top  = `${touch.clientY - 45}px`;
+
+    chip.addEventListener('touchmove', touchDragMove, { passive: false });
+    chip.addEventListener('touchend', touchDragEnd);
+}
+
+function touchDragMove(e) {
+    e.preventDefault();
+    const touch = e.touches[0];
+    if (_touchGhost) {
+        _touchGhost.style.left = `${touch.clientX - 25}px`;
+        _touchGhost.style.top  = `${touch.clientY - 45}px`;
+    }
+    // Highlight token under finger
+    document.querySelectorAll('.pitch-player-token').forEach(t => t.classList.remove('drag-over'));
+    const el = document.elementFromPoint(touch.clientX, touch.clientY);
+    const token = el ? el.closest('.pitch-player-token') : null;
+    if (token) token.classList.add('drag-over');
+}
+
+function touchDragEnd(e) {
+    const touch = e.changedTouches[0];
+    removeTouchGhost();
+
+    document.querySelectorAll('.pitch-player-token').forEach(t => t.classList.remove('drag-over'));
+
+    if (!window._touchDragPlayerId) return;
+
+    const el = document.elementFromPoint(touch.clientX, touch.clientY);
+    const token = el ? el.closest('.pitch-player-token') : null;
+    if (token) {
+        const slotIdx = parseInt(token.getAttribute('data-slot'));
+        assignPlayerToSlot(slotIdx, window._touchDragPlayerId);
+    }
+    window._touchDragPlayerId = null;
+
+    const chip = e.currentTarget;
+    chip.removeEventListener('touchmove', touchDragMove);
+    chip.removeEventListener('touchend', touchDragEnd);
 }
 
 function assignPlayerToSlot(slotIdx, playerId) {

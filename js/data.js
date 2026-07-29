@@ -741,7 +741,41 @@ const partidosData = {
             { nombre: "Matías Paredes", goles: 2, asistencias: 1 },
             { nombre: "Diego Manque", goles: 0, asistencias: 2 },
             { nombre: "Sebastián Sandoval", goles: 0, asistencias: 0 },
-            { nombre: "Matías Bustamante", goles: 0, asistencias: 0 }
+            { nombre: "Matías Bustamante", goles: 0, asistencias: 0 },
+        ]
+    },
+        46: {
+        temporada: 2026,
+        fecha: "Domingo 26 Julio",
+        rival: "Vaqueros",
+        resultado: "4-11",
+        lugar: "Canchas Holandesa",
+        tipo: "Amistoso",
+        hora: "17:00 hrs",
+        jugadores: [
+            { nombre: "Agustín Vilhelm", goles: 0, asistencias: 0 },
+            { nombre: "Benjamín Garcés", goles: 0, asistencias: 1 },
+            { nombre: "Leandro Zavala", goles: 2, asistencias: 0 },
+            { nombre: "Matías Paredes", goles: 1, asistencias: 1 },
+            { nombre: "Diego Manque", goles: 0, asistencias: 0 },
+            { nombre: "Sebastián Sandoval", goles: 1, asistencias: 0 },
+        ]
+    },
+        47: {
+        temporada: 2026,
+        fecha: "Lunes 27 Julio",
+        rival: "Vaqueros",
+        resultado: "6-10",
+        lugar: "Canchas Santa Laura",
+        tipo: "Amistoso",
+        hora: "12:00 hrs",
+        jugadores: [
+            { nombre: "Agustín Vilhelm", goles: 2, asistencias: 0 },
+            { nombre: "Benjamín Garcés", goles: 2, asistencias: 1 },
+            { nombre: "Leandro Zavala", goles: 1, asistencias: 0 },
+            { nombre: "Matías Paredes", goles: 1, asistencias: 1 },
+            { nombre: "Diego Manque", goles: 0, asistencias: 0 },
+            { nombre: "Sebastián Sandoval", goles: 0, asistencias: 0 },
         ]
     }
 };
@@ -767,8 +801,9 @@ const jugadoresData = {
             { id: 42, rival: 'Rupu FC', fecha: 'Viernes 19 Junio 2026', goles: 0, asistencias: 0 },
             { id: 43, rival: 'Equipo Pablismo', fecha: 'Domingo 28 Junio 2026', goles: 0, asistencias: 2 },
             { id: 44, rival: 'Equipo Pablismo', fecha: 'Domingo 12 Julio 2026', goles: 0, asistencias: 0 },
-            { id: 45, rival: 'Hipogolemicos', fecha: 'Jueves 16 Julio 2026', goles: 0, asistencias: 0 }
-            
+            { id: 45, rival: 'Hipogolemicos', fecha: 'Jueves 16 Julio 2026', goles: 0, asistencias: 0 },
+            { id: 46, rival: 'Vaqueros', fecha: 'Domingo 26 Julio 2026', goles: 0, asistencias: 0 },
+            { id: 47, rival: 'Vaqueros', fecha: 'Lunes 27 Julio 2026', goles: 2, asistencias: 0 }
         ]
     },
     'leandro-zavala': {
@@ -803,7 +838,9 @@ const jugadoresData = {
             { id: 42, rival: 'Rupu FC', fecha: 'Viernes 19 Junio 2026', goles: 0, asistencias: 2 },
             { id: 43, rival: 'Equipo Pablismo', fecha: 'Domingo 28 Junio 2026', goles: 0, asistencias: 0 },
             { id: 44, rival: 'Equipo Pablismo', fecha: 'Domingo 12 Julio 2026', goles: 0, asistencias: 0 },
-            { id: 45, rival: 'Hipogolemicos', fecha: 'Jueves 16 Julio 2026', goles: 0, asistencias: 0 }
+            { id: 45, rival: 'Hipogolemicos', fecha: 'Jueves 16 Julio 2026', goles: 0, asistencias: 0 },
+            { id: 46, rival: 'Vaqueros', fecha: 'Domingo 26 Julio 2026', goles: 2, asistencias: 0 },
+            { id: 47, rival: 'Vaqueros', fecha: 'Lunes 27 Julio 2026', goles: 1, asistencias: 0 }
         ]
     },
     'francisco-lizama': {
@@ -881,7 +918,9 @@ const jugadoresData = {
             { id: 41, rival: 'Real Madrici', fecha: 'Viernes 12 Junio 2026', goles: 1, asistencias: 0 },
             { id: 43, rival: 'Equipo Pablismo', fecha: 'Domingo 28 Junio 2026', goles: 5, asistencias: 2 },
             { id: 44, rival: 'Equipo Pablismo', fecha: 'Domingo 12 Julio 2026', goles: 0, asistencias: 0 },
-            { id: 45, rival: 'Hipogolemicos', fecha: 'Jueves 16 Julio 2026', goles: 2, asistencias: 0 }
+            { id: 45, rival: 'Hipogolemicos', fecha: 'Jueves 16 Julio 2026', goles: 2, asistencias: 0 },
+            { id: 46, rival: 'Vaqueros', fecha: 'Domingo 26 Julio 2026', goles: 0, asistencias: 1 },
+            { id: 47, rival: 'Vaqueros', fecha: 'Lunes 27 Julio 2026', goles: 2, asistencias: 1 }
         ]
     },
     'cristobal-santibanez': {
@@ -943,7 +982,9 @@ const jugadoresData = {
             { id: 35, rival: 'Pirula', fecha: 'Viernes 17 Abril 2026', goles: 9, asistencias: 1 },
             { id: 36, rival: 'Hipogolemicos', fecha: 'Viernes 24 Abril 2026', goles: 9, asistencias: 2 },
             { id: 44, rival: 'Equipo Pablismo', fecha: 'Domingo 12 Julio 2026', goles: 0, asistencias: 0 },
-            { id: 45, rival: 'Hipogolemicos', fecha: 'Jueves 16 Julio 2026', goles: 2, asistencias: 1 }
+            { id: 45, rival: 'Hipogolemicos', fecha: 'Jueves 16 Julio 2026', goles: 2, asistencias: 1 },
+            { id: 46, rival: 'Vaqueros', fecha: 'Domingo 26 Julio 2026', goles: 1, asistencias: 1 },
+            { id: 47, rival: 'Vaqueros', fecha: 'Lunes 27 Julio 2026', goles: 1, asistencias: 1 }
         ]
     },
     'diego-manque': {
@@ -997,7 +1038,9 @@ const jugadoresData = {
             { id: 42, rival: 'Rupu FC', fecha: 'Viernes 19 Junio 2026', goles: 3, asistencias: 1 },
             { id: 43, rival: 'Equipo Pablismo', fecha: 'Domingo 28 Junio 2026', goles: 1, asistencias: 2 },
             { id: 44, rival: 'Equipo Pablismo', fecha: 'Domingo 12 Julio 2026', goles: 1, asistencias: 0 },
-            { id: 45, rival: 'Hipogolemicos', fecha: 'Jueves 16 Julio 2026', goles: 0, asistencias: 2 }
+            { id: 45, rival: 'Hipogolemicos', fecha: 'Jueves 16 Julio 2026', goles: 0, asistencias: 2 },
+            { id: 46, rival: 'Vaqueros', fecha: 'Domingo 26 Julio 2026', goles: 0, asistencias: 0 },
+            { id: 47, rival: 'Vaqueros', fecha: 'Lunes 27 Julio 2026', goles: 0, asistencias: 0 }
         ]
     },
     'sebastian-sandoval': {
@@ -1050,7 +1093,9 @@ const jugadoresData = {
             { id: 41, rival: 'Real Madrici', fecha: 'Viernes 12 Junio 2026', goles: 0, asistencias: 2 },
             { id: 42, rival: 'Rupu FC', fecha: 'Viernes 19 Junio 2026', goles: 1, asistencias: 2 },
             { id: 43, rival: 'Equipo Pablismo', fecha: 'Domingo 28 Junio 2026', goles: 3, asistencias: 3 },
-            { id: 45, rival: 'Hipogolemicos', fecha: 'Jueves 16 Julio 2026', goles: 0, asistencias: 0 }
+            { id: 45, rival: 'Hipogolemicos', fecha: 'Jueves 16 Julio 2026', goles: 0, asistencias: 0 },
+            { id: 46, rival: 'Vaqueros', fecha: 'Domingo 26 Julio 2026', goles: 1, asistencias: 0 },
+            { id: 47, rival: 'Vaqueros', fecha: 'Lunes 27 Julio 2026', goles: 0, asistencias: 0 }
         ]
     },
     'matias-bustamante': {

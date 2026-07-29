@@ -174,18 +174,44 @@
             </div>
             <!-- Aquí pega el código de los uniformes -->
             <div class="text-center">
-                <h3 class="text-3xl font-bold mb-8 text-red-800">Uniformes Oficiales</h3>
-                <div class="flex justify-center gap-12 flex-wrap">
-                    <div class="max-w-xs bg-white rounded-lg shadow-lg p-6 hover:shadow-2xl transition transform hover:-translate-y-2">
-                        <img src="images/camiseta_local.png" class="mx-auto rounded-lg mb-4">
-                        <p class="text-lg font-semibold text-gray-800">Camiseta Local</p>
-                        <p class="text-gray-600 mt-1">Colores llamativos en rojo oscuro y dorado</p>
+                <h3 class="text-3xl font-bold mb-2 text-red-800">Uniformes Oficiales</h3>
+                <p class="text-gray-500 mb-8 text-sm"><i class="fas fa-hand-pointer mr-1"></i> Pasa el cursor o haz clic para girar</p>
+                <div class="flex justify-center gap-12 flex-wrap items-start">
+
+                    <!-- Camiseta Local -->
+                    <div class="flex flex-col items-center">
+                        <div class="jersey-flip-scene" onclick="this.classList.toggle('flipped')" title="Haz clic para ver el dorsal">
+                            <div class="jersey-flip-card">
+                                <div class="jersey-flip-front">
+                                    <img src="images/camiseta_local.png" alt="Camiseta Local de Tomates FC - frente">
+                                    <div class="jersey-flip-label">⚽ CAMISETA LOCAL</div>
+                                </div>
+                                <div class="jersey-flip-back">
+                                    <img src="images/dorsal_manque10.jpg" alt="Dorsal de camiseta local - número 10">
+                                    <div class="jersey-flip-label">🔴 DORSAL #10</div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="jersey-flip-hint mt-2">Colores rojo oscuro y dorado</p>
                     </div>
-                    <div class="max-w-xs bg-white rounded-lg shadow-lg p-6 hover:shadow-2xl transition transform hover:-translate-y-2">
-                        <img src="images/camiseta_antigua.png" class="mx-auto rounded-lg mb-4">
-                        <p class="text-lg font-semibold text-gray-800">Camiseta Visitante</p>
-                        <p class="text-gray-600 mt-1">Diseño alternativo en tonos claros</p>
+
+                    <!-- Camiseta Visitante / Antigua -->
+                    <div class="flex flex-col items-center">
+                        <div class="jersey-flip-scene" onclick="this.classList.toggle('flipped')" title="Haz clic para ver el dorsal">
+                            <div class="jersey-flip-card">
+                                <div class="jersey-flip-front">
+                                    <img src="images/camiseta_antigua.png" alt="Camiseta Visitante de Tomates FC - frente">
+                                    <div class="jersey-flip-label">⚽ CAMISETA VISITANTE</div>
+                                </div>
+                                <div class="jersey-flip-back">
+                                    <img src="images/dorsal_garces7.jpg" alt="Dorsal de camiseta visitante - número 7">
+                                    <div class="jersey-flip-label">🔴 DORSAL #7</div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="jersey-flip-hint mt-2">Diseño alternativo tonos claros</p>
                     </div>
+
                 </div>
             </div>
             <div class="mt-16">
@@ -212,13 +238,26 @@
     <!-- Sección del equipo -->
     <section id="equipo" class="py-16 bg-gray-100">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12 text-red-800 fade-up">PLANTILLA</h2>
-            <div class="mb-8">
-                <div class="max-w-md mx-auto">
-                    <input type="text" id="playerSearch" placeholder="🔍 Buscar jugador..." 
-                           class="w-full px-4 py-3 border-2 border-red-200 rounded-full focus:border-red-500 focus:outline-none transition">
-                </div>
+            <h2 class="text-3xl font-bold text-center mb-6 text-red-800 fade-up">PLANTILLA</h2>
+
+            <!-- Tabs: Plantilla / Pizarra Táctica -->
+            <div class="flex justify-center gap-3 mb-8">
+                <button id="tab-plantilla-btn" class="pitch-tab-btn active" onclick="showTeamTab('plantilla')">
+                    <i class="fas fa-users mr-2"></i>Plantilla
+                </button>
+                <button id="tab-tactica-btn" class="pitch-tab-btn" onclick="showTeamTab('tactica')">
+                    <i class="fas fa-chess-board mr-2"></i>Pizarra Táctica
+                </button>
             </div>
+
+            <!-- Vista: Plantilla (búsqueda + carrusel) -->
+            <div id="plantilla-view">
+                <div class="mb-8">
+                    <div class="max-w-md mx-auto">
+                        <input type="text" id="playerSearch" placeholder="🔍 Buscar jugador..."
+                               class="w-full px-4 py-3 border-2 border-red-200 rounded-full focus:border-red-500 focus:outline-none transition">
+                    </div>
+                </div>
             <!-- Carrusel unificado para móvil y desktop -->
             <div id="desktop-carousel" class="relative overflow-hidden w-full fade-up">
                 <div id="players-carousel" class="flex gap-4 md:gap-6 lg:gap-8 overflow-x-auto snap-x snap-mandatory hide-scrollbar pb-6 w-full scroll-smooth">
@@ -362,6 +401,86 @@
                     </div>
                 </div>
             </div>
+
+            </div><!-- /plantilla-view -->
+
+            <!-- Vista: Pizarra Táctica -->
+            <div id="tactical-pitch-view" class="hidden">
+
+                <!-- Controles superiores -->
+                <div class="flex flex-wrap items-center justify-center gap-4 mb-6">
+                    <div class="flex items-center gap-2">
+                        <label class="font-bold text-red-800 text-sm">Formación:</label>
+                        <select id="formation-select" onchange="applyFormation(this.value)">
+                            <option value="1-3-2-1">1-3-2-1</option>
+                            <option value="1-2-3-1">1-2-3-1</option>
+                            <option value="1-2-2-2">1-2-2-2</option>
+                            <option value="1-1-4-1">1-1-4-1</option>
+                            <option value="1-4-1-1">1-4-1-1</option>
+                        </select>
+                    </div>
+                    <button id="reset-lineup-btn" onclick="resetLineup()">
+                        <i class="fas fa-undo mr-1"></i> Resetear
+                    </button>
+                    <button id="export-lineup-btn" onclick="exportLineup()">
+                        <i class="fas fa-download mr-1"></i> Exportar a Redes
+                    </button>
+                </div>
+
+                <!-- Layout principal: Banco + Cancha -->
+                <div class="flex flex-col lg:flex-row gap-8 items-start justify-center">
+
+                    <!-- Banco de suplentes -->
+                    <div class="w-full lg:w-56">
+                        <h4 class="text-sm font-bold text-red-800 mb-3 text-center uppercase tracking-widest">
+                            <i class="fas fa-chair mr-1"></i> Banco
+                        </h4>
+                        <div id="bench-container">
+                            <!-- Generado por JS -->
+                        </div>
+                        <p class="text-xs text-gray-400 text-center mt-2">Haz clic en una ficha del campo para cambiar el jugador</p>
+                    </div>
+
+                    <!-- Cancha -->
+                    <div id="tactical-pitch">
+                        <!-- Líneas SVG de la cancha -->
+                        <svg id="pitch-lines-svg" viewBox="0 0 100 143" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Borde exterior -->
+                            <rect x="2" y="2" width="96" height="139" rx="2" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="0.8"/>
+                            <!-- Línea del medio -->
+                            <line x1="2" y1="71.5" x2="98" y2="71.5" stroke="rgba(255,255,255,0.5)" stroke-width="0.6"/>
+                            <!-- Círculo central -->
+                            <circle cx="50" cy="71.5" r="12" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="0.6"/>
+                            <circle cx="50" cy="71.5" r="0.8" fill="rgba(255,255,255,0.7)"/>
+                            <!-- Área grande superior -->
+                            <rect x="18" y="2" width="64" height="22" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="0.6"/>
+                            <!-- Área chica superior -->
+                            <rect x="32" y="2" width="36" height="10" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="0.5"/>
+                            <!-- Arco superior -->
+                            <rect x="40" y="1.5" width="20" height="3" rx="1" fill="rgba(255,255,255,0.3)" stroke="rgba(255,255,255,0.6)" stroke-width="0.5"/>
+                            <!-- Área grande inferior -->
+                            <rect x="18" y="119" width="64" height="22" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="0.6"/>
+                            <!-- Área chica inferior -->
+                            <rect x="32" y="131" width="36" height="10" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="0.5"/>
+                            <!-- Arco inferior -->
+                            <rect x="40" y="138.5" width="20" height="3" rx="1" fill="rgba(255,255,255,0.3)" stroke="rgba(255,255,255,0.6)" stroke-width="0.5"/>
+                            <!-- Punto penal superior -->
+                            <circle cx="50" cy="17" r="0.8" fill="rgba(255,255,255,0.7)"/>
+                            <!-- Punto penal inferior -->
+                            <circle cx="50" cy="126" r="0.8" fill="rgba(255,255,255,0.7)"/>
+                        </svg>
+                        <!-- Las fichas de jugadores se insertan por JS -->
+                    </div>
+
+                </div>
+
+                <!-- Popup de selección de jugador -->
+                <div id="player-select-popup">
+                    <p class="text-sm font-bold text-red-800 mb-2">Seleccionar jugador:</p>
+                    <div id="player-select-list"></div>
+                </div>
+
+            </div><!-- /tactical-pitch-view -->
 
         </div>
     </section>

@@ -1,9 +1,13 @@
 // ============================================================
 // PARTIDOS - Renderizado, filtros y detalles de partidos
 // ============================================================
-let temporadaActual = 2025;
+let temporadaActual = 2026;
+let filtroActual = 'todos';
+let ordenCronologico = 'desc';
+
 // Filtra partidos por resultado y actualiza estilos de botones
 window.filterMatches = function(filter) {
+    filtroActual = filter;
     renderMatches(filter);
     document.querySelectorAll('.filter-btn').forEach(btn => {
         if (btn.dataset.filter === filter) {
@@ -18,6 +22,7 @@ window.filterMatches = function(filter) {
 
 window.cambiarTemporada = function(temporada) {
     temporadaActual = temporada;
+    filtroActual = 'todos'; // Reiniciar filtro al cambiar de temporada
     document.getElementById('btn-temp-2025').className = temporada === 2025 
         ? 'px-4 py-1 rounded-full font-bold bg-red-800 text-white'
         : 'px-4 py-1 rounded-full font-bold bg-gray-200 text-gray-700';
@@ -25,6 +30,18 @@ window.cambiarTemporada = function(temporada) {
         ? 'px-4 py-1 rounded-full font-bold bg-red-800 text-white'
         : 'px-4 py-1 rounded-full font-bold bg-gray-200 text-gray-700';
     renderMatches('todos');
+};
+
+// Toggle del botón de orden cronológico
+window.toggleSortMatches = function() {
+    ordenCronologico = ordenCronologico === 'desc' ? 'asc' : 'desc';
+    const btn = document.getElementById('sort-matches-btn');
+    if (btn) {
+        btn.innerHTML = ordenCronologico === 'desc' 
+            ? '<i class="fas fa-sort"></i> Mostrar: Recientes Primero' 
+            : '<i class="fas fa-sort"></i> Mostrar: Antiguos Primero';
+    }
+    renderMatches(filtroActual);
 };
 
 // Renderiza la racha reciente (Form Guide) de los últimos 5 partidos de la temporada
@@ -82,9 +99,9 @@ function renderMatches(filter = 'todos') {
 
     let total = 0, victorias = 0, empates = 0, derrotas = 0;
 
+    // Calcular totales primero para los contadores
     Object.entries(partidosData).forEach(([id, partido]) => {
         if (partido.temporada !== temporadaActual) return;
-        total++;
         const [golesLocal, golesVisitante] = partido.resultado.split('-').map(Number);
         let resultado = golesLocal > golesVisitante ? 'victoria' :
                         golesLocal === golesVisitante ? 'empate' : 'derrota';
@@ -92,6 +109,23 @@ function renderMatches(filter = 'todos') {
         if (resultado === 'victoria') victorias++;
         else if (resultado === 'empate') empates++;
         else derrotas++;
+        total++;
+    });
+
+    // Obtener y ordenar partidos de la temporada activa
+    const partidosFiltrados = Object.entries(partidosData)
+        .filter(([id, partido]) => partido.temporada === temporadaActual);
+
+    if (ordenCronologico === 'desc') {
+        partidosFiltrados.sort((a, b) => Number(b[0]) - Number(a[0]));
+    } else {
+        partidosFiltrados.sort((a, b) => Number(a[0]) - Number(b[0]));
+    }
+
+    partidosFiltrados.forEach(([id, partido]) => {
+        const [golesLocal, golesVisitante] = partido.resultado.split('-').map(Number);
+        let resultado = golesLocal > golesVisitante ? 'victoria' :
+                        golesLocal === golesVisitante ? 'empate' : 'derrota';
 
         if (filter !== 'todos' && filter !== resultado) return;
 
@@ -171,6 +205,9 @@ function updateTeamStats() {
 // Muestra el detalle completo de un partido específico
 window.showMatchDetails = function(partidoId) {
     try {
+        // Guardar la posición de scroll
+        window.savedScrollPosition = window.scrollY;
+
         ['inicio', 'historia', 'equipo', 'partidos', 'rivales', 'stats-section', 'player-details-section'].forEach(id => {
             const el = document.getElementById(id);
             if (el) el.classList.add('hidden');
@@ -243,6 +280,8 @@ window.backToMatches = function() {
         document.getElementById(id).classList.remove('hidden');
     });
     window.history.pushState({ section: 'partidos' }, '', '#partidos');
-    renderMatches('todos');
-    window.scrollTo({ top: 0, behavior: 'instant' });
+    renderMatches(filtroActual);
+    
+    // Restaurar la posición de scroll guardada
+    window.scrollTo({ top: window.savedScrollPosition || 0, behavior: 'instant' });
 };

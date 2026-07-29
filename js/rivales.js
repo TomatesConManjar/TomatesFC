@@ -76,6 +76,8 @@ window.showRivalDetails = function(rivalName) {
     const rivalData = getRivalesStats().find(r => r.rival === rivalName);
     if (!rivalData) return;
 
+    window.savedScrollPosition = window.scrollY;
+
     ['inicio', 'historia', 'equipo', 'partidos', 'stats-section', 'player-details-section', 'match-details-section'].forEach(id => {
         const el = document.getElementById(id);
         if (el) el.classList.add('hidden');
@@ -151,5 +153,5 @@ window.backToRivales = function() {
     renderRivales();
     renderMatches('todos');
     window.history.pushState({ section: 'rivales' }, '', '#rivales');
-    window.scrollTo({ top: 0, behavior: 'instant' });
+    window.scrollTo({ top: window.savedScrollPosition || 0, behavior: 'instant' });
 };

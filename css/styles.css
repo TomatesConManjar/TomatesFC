@@ -1,7 +1,7 @@
 /* ============================================================
    Fuentes - Google Fonts (deben ir PRIMERO en el CSS)
    ============================================================ */
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Bebas+Neue&family=Quicksand:wght@400;600;700&display=swap');
 
 /* ============================================================
    PUNTO 5 - Paleta de Colores Profesional con Variables CSS
@@ -230,9 +230,13 @@ html {
             color: #e2e8f0 !important;
         }
         body {
-            font-family: 'Quicksand', sans-serif;
+            font-family: 'Outfit', 'Quicksand', sans-serif;
             background-color: var(--color-bg-soft);
             color: var(--color-text-base);
+        }
+        h1, h2, h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 0.05em;
         }
         .hero {
             background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://img.freepik.com/foto-gratis/detalles-pelota-deporte_23-2151869781.jpg?semt=ais_hybrid&w=740&q=80') no-repeat center center;

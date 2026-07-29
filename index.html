@@ -487,11 +487,11 @@
             <!-- AQUÍ van los botones de temporada -->
             <div class="flex gap-3 justify-center mb-4">
                 <button onclick="cambiarTemporada(2025)" id="btn-temp-2025" 
-                    class="px-4 py-1 rounded-full font-bold bg-red-800 text-white">
+                    class="px-4 py-1 rounded-full font-bold bg-gray-200 text-gray-700">
                     2025
                 </button>
                 <button onclick="cambiarTemporada(2026)" id="btn-temp-2026" 
-                    class="px-4 py-1 rounded-full font-bold bg-gray-200 text-gray-700">
+                    class="px-4 py-1 rounded-full font-bold bg-red-800 text-white">
                     2026
                 </button>
             </div>
@@ -502,7 +502,7 @@
                 <div id="racha-reciente" class="flex gap-2 justify-center"></div>
             </div>
             
-            <div class="flex flex-wrap gap-4 mb-8 justify-center">
+            <div class="flex flex-wrap gap-4 mb-8 justify-center items-center">
                 <button class="filter-btn bg-red-800 text-white px-6 py-2 rounded-full font-bold transition hover:bg-red-900" 
                         data-filter="todos" onclick="filterMatches('todos')">Todos</button>
                 <button class="filter-btn bg-gray-200 text-gray-700 px-6 py-2 rounded-full font-bold transition hover:bg-green-200" 
@@ -511,6 +511,12 @@
                         data-filter="empate" onclick="filterMatches('empate')">Empates</button>
                 <button class="filter-btn bg-gray-200 text-gray-700 px-6 py-2 rounded-full font-bold transition hover:bg-red-200" 
                         data-filter="derrota" onclick="filterMatches('derrota')">Derrotas</button>
+                
+                <!-- Botón de Ordenamiento -->
+                <button id="sort-matches-btn" onclick="toggleSortMatches()" 
+                        class="bg-gray-800 hover:bg-gray-900 text-white px-6 py-2 rounded-full font-bold transition shadow-md flex items-center gap-2">
+                    <i class="fas fa-sort"></i> Mostrar: Recientes Primero
+                </button>
             </div>
             <div id="matches-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
         </div>

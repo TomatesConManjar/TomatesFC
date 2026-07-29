@@ -497,3 +497,264 @@ window.cambiarTemporadaJugador = function(playerId, temporada) {
         ? 'px-4 py-1 rounded-full font-bold bg-red-800 text-white'
         : 'px-4 py-1 rounded-full font-bold bg-gray-200 text-gray-700';
 };
+
+// ============================================================
+// PIZARRA TÁCTICA - Generador de Alineaciones
+// ============================================================
+
+// Datos de jugadores para la pizarra
+const TACTICAL_PLAYERS = [
+    { id: 'agustin-vilhelm',      name: 'A. Vilhelm',   num: 1,  img: 'images/foto_agustin.jpg',  pos: 'GK' },
+    { id: 'leandro-zavala',       name: 'L. Zavala',    num: 5,  img: 'images/foto_zavala.png',   pos: 'DEF' },
+    { id: 'francisco-lizama',     name: 'F. Lizama',    num: 6,  img: 'images/foto_lizama.png',   pos: 'DEF' },
+    { id: 'benjamin-garces',      name: 'B. Garcés',    num: 7,  img: 'images/foto_garces.jpg',   pos: 'DEL' },
+    { id: 'cristobal-santibanez', name: 'C. Santibáñez',num: 8,  img: 'images/foto_kryz.png',    pos: 'DEL' },
+    { id: 'matias-paredes',       name: 'M. Paredes',   num: 9,  img: 'images/foto_paredes.png',  pos: 'DEL' },
+    { id: 'diego-manque',         name: 'D. Manque',    num: 10, img: 'images/foto_diego.png',    pos: 'MED' },
+    { id: 'sebastian-sandoval',   name: 'S. Sandoval',  num: 11, img: 'images/foto_saso.jpg',     pos: 'MED' },
+    { id: 'matias-bustamante',    name: 'M. Bustamante',num: 14, img: 'images/foto_matib.png',   pos: 'MED' },
+];
+
+// Coordenadas de posición para cada formación (% x, % y — referenciados al campo)
+// Fútbol 7: 1 arquero + 6 de campo
+const FORMATIONS = {
+    '1-3-2-1': [
+        { label: 'GK',  x: 50, y: 88 },
+        { label: 'DD',  x: 75, y: 70 }, { label: 'DC', x: 50, y: 72 }, { label: 'DI', x: 25, y: 70 },
+        { label: 'MD',  x: 65, y: 50 }, { label: 'MI', x: 35, y: 50 },
+        { label: 'DEL', x: 50, y: 28 },
+    ],
+    '1-2-3-1': [
+        { label: 'GK',  x: 50, y: 88 },
+        { label: 'DD',  x: 70, y: 70 }, { label: 'DI', x: 30, y: 70 },
+        { label: 'MD',  x: 72, y: 50 }, { label: 'MC', x: 50, y: 48 }, { label: 'MI', x: 28, y: 50 },
+        { label: 'DEL', x: 50, y: 28 },
+    ],
+    '1-2-2-2': [
+        { label: 'GK',  x: 50, y: 88 },
+        { label: 'DD',  x: 70, y: 70 }, { label: 'DI', x: 30, y: 70 },
+        { label: 'MD',  x: 65, y: 50 }, { label: 'MI', x: 35, y: 50 },
+        { label: 'DL',  x: 70, y: 28 }, { label: 'DR', x: 30, y: 28 },
+    ],
+    '1-1-4-1': [
+        { label: 'GK',  x: 50, y: 88 },
+        { label: 'DC',  x: 50, y: 72 },
+        { label: 'MDD', x: 78, y: 50 }, { label: 'MDC', x: 58, y: 50 }, { label: 'MIC', x: 42, y: 50 }, { label: 'MDI', x: 22, y: 50 },
+        { label: 'DEL', x: 50, y: 28 },
+    ],
+    '1-4-1-1': [
+        { label: 'GK',  x: 50, y: 88 },
+        { label: 'DD',  x: 80, y: 70 }, { label: 'DCd', x: 60, y: 72 }, { label: 'DCi', x: 40, y: 72 }, { label: 'DI', x: 20, y: 70 },
+        { label: 'MC',  x: 50, y: 52 },
+        { label: 'DEL', x: 50, y: 28 },
+    ],
+};
+
+let currentFormation = '1-3-2-1';
+// Mapeo posición índice → jugador asignado (id)
+let lineupAssignments = {}; // { 0: 'agustin-vilhelm', 1: 'leandro-zavala', ... }
+let currentEditingSlot = null;
+
+function getTacticalPlayerById(id) {
+    return TACTICAL_PLAYERS.find(p => p.id === id);
+}
+
+// Renderiza el banco de jugadores
+function renderBench() {
+    const bench = document.getElementById('bench-container');
+    if (!bench) return;
+    const assignedIds = Object.values(lineupAssignments);
+    bench.innerHTML = TACTICAL_PLAYERS.map(p => `
+        <div class="bench-player-chip ${assignedIds.includes(p.id) ? 'on-pitch' : ''}"
+             title="${p.name} #${p.num}"
+             draggable="true"
+             data-player-id="${p.id}"
+             ondragstart="benchDragStart(event, '${p.id}')">
+            <img class="bench-avatar" src="${p.img}" alt="${p.name}"
+                 onerror="this.src='images/logo_tomates.png'">
+            <span class="bench-name">${p.name}</span>
+        </div>
+    `).join('');
+}
+
+// Renderiza las fichas en la cancha
+function renderPitchTokens() {
+    const pitch = document.getElementById('tactical-pitch');
+    if (!pitch) return;
+    // Eliminar tokens anteriores (preservar el SVG)
+    pitch.querySelectorAll('.pitch-player-token').forEach(el => el.remove());
+
+    const positions = FORMATIONS[currentFormation];
+    positions.forEach((pos, idx) => {
+        const assignedId = lineupAssignments[idx];
+        const player = assignedId ? getTacticalPlayerById(assignedId) : null;
+
+        const token = document.createElement('div');
+        token.className = 'pitch-player-token';
+        token.style.left = `${pos.x}%`;
+        token.style.top = `${pos.y}%`;
+        token.setAttribute('data-slot', idx);
+        token.setAttribute('title', player ? `${player.name} — ${pos.label}` : `Posición: ${pos.label} (clic para asignar)`);
+
+        // Soporte drag-over
+        token.addEventListener('dragover', e => { e.preventDefault(); token.classList.add('drag-over'); });
+        token.addEventListener('dragleave', () => token.classList.remove('drag-over'));
+        token.addEventListener('drop', e => {
+            e.preventDefault();
+            token.classList.remove('drag-over');
+            const draggedId = e.dataTransfer.getData('text/plain');
+            if (draggedId) assignPlayerToSlot(idx, draggedId);
+        });
+        // Clic para abrir selector
+        token.addEventListener('click', e => { e.stopPropagation(); openPlayerSelector(idx, token); });
+
+        token.innerHTML = `
+            <img class="pitch-token-avatar"
+                 src="${player ? player.img : 'images/logo_tomates.png'}"
+                 alt="${player ? player.name : pos.label}"
+                 onerror="this.src='images/logo_tomates.png'">
+            <span class="pitch-token-name">${player ? player.name : pos.label}</span>
+        `;
+
+        pitch.appendChild(token);
+    });
+}
+
+function benchDragStart(event, playerId) {
+    event.dataTransfer.setData('text/plain', playerId);
+}
+
+function assignPlayerToSlot(slotIdx, playerId) {
+    // Si el jugador ya estaba en otro slot, lo removemos
+    Object.keys(lineupAssignments).forEach(k => {
+        if (lineupAssignments[k] === playerId) delete lineupAssignments[k];
+    });
+    lineupAssignments[slotIdx] = playerId;
+    renderPitchTokens();
+    renderBench();
+    closePlayerSelector();
+}
+
+function openPlayerSelector(slotIdx, tokenEl) {
+    currentEditingSlot = slotIdx;
+    const popup = document.getElementById('player-select-popup');
+    const list = document.getElementById('player-select-list');
+    if (!popup || !list) return;
+
+    const assignedIds = Object.values(lineupAssignments);
+    list.innerHTML = TACTICAL_PLAYERS.map(p => `
+        <div class="player-select-option" onclick="assignPlayerToSlot(${slotIdx}, '${p.id}')">
+            <img src="${p.img}" alt="${p.name}" onerror="this.src='images/logo_tomates.png'">
+            <div>
+                <div style="font-weight:700;font-size:0.82rem;color:${assignedIds.includes(p.id) ? '#9ca3af' : '#111'}">${p.name}</div>
+                <div style="font-size:0.7rem;color:#6b7280">#${p.num} · ${p.pos}</div>
+            </div>
+        </div>
+    `).join('');
+
+    // Posicionar el popup cerca del token
+    const rect = tokenEl.getBoundingClientRect();
+    popup.style.display = 'block';
+    popup.style.top = `${rect.bottom + window.scrollY + 6}px`;
+    popup.style.left = `${Math.min(rect.left + window.scrollX, window.innerWidth - 240)}px`;
+}
+
+function closePlayerSelector() {
+    const popup = document.getElementById('player-select-popup');
+    if (popup) popup.style.display = 'none';
+    currentEditingSlot = null;
+}
+
+// Cerrar popup al hacer clic fuera
+document.addEventListener('click', e => {
+    const popup = document.getElementById('player-select-popup');
+    if (popup && popup.style.display === 'block' && !popup.contains(e.target)) {
+        closePlayerSelector();
+    }
+});
+
+window.applyFormation = function(formation) {
+    currentFormation = formation;
+    // Reset assignments que excedan las nuevas posiciones
+    const total = FORMATIONS[formation].length;
+    Object.keys(lineupAssignments).forEach(k => {
+        if (parseInt(k) >= total) delete lineupAssignments[k];
+    });
+    renderPitchTokens();
+    renderBench();
+};
+
+window.resetLineup = function() {
+    lineupAssignments = {};
+    renderPitchTokens();
+    renderBench();
+};
+
+window.exportLineup = async function() {
+    const pitch = document.getElementById('tactical-pitch');
+    if (!pitch) return;
+    const btn = document.getElementById('export-lineup-btn');
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-1"></i> Generando...';
+    btn.disabled = true;
+
+    try {
+        const canvas = await html2canvas(pitch, {
+            backgroundColor: null,
+            scale: 2,
+            useCORS: true,
+            allowTaint: true,
+        });
+        // Añadir marco con nombre del equipo
+        const finalCanvas = document.createElement('canvas');
+        const padding = 40;
+        finalCanvas.width = canvas.width + padding * 2;
+        finalCanvas.height = canvas.height + padding * 2 + 60;
+        const ctx = finalCanvas.getContext('2d');
+        // Fondo rojo oscuro
+        ctx.fillStyle = '#7f1d1d';
+        ctx.fillRect(0, 0, finalCanvas.width, finalCanvas.height);
+        // Cancha
+        ctx.drawImage(canvas, padding, padding);
+        // Texto header
+        ctx.fillStyle = '#fbbf24';
+        ctx.font = `bold ${padding}px "Bebas Neue", sans-serif`;
+        ctx.textAlign = 'center';
+        ctx.fillText('TOMATES FC — ALINEACIÓN', finalCanvas.width / 2, finalCanvas.height - 18);
+
+        const link = document.createElement('a');
+        link.download = 'formacion-tomatesfc.png';
+        link.href = finalCanvas.toDataURL('image/png');
+        link.click();
+    } catch (err) {
+        console.error('Error exportando alineación:', err);
+        alert('No se pudo exportar la imagen. Intenta de nuevo.');
+    }
+    btn.innerHTML = '<i class="fas fa-download mr-1"></i> Exportar a Redes';
+    btn.disabled = false;
+};
+
+// Función para cambiar entre Plantilla y Pizarra Táctica
+window.showTeamTab = function(tab) {
+    const plantillaView = document.getElementById('plantilla-view');
+    const tacticaView = document.getElementById('tactical-pitch-view');
+    const tabPlantilla = document.getElementById('tab-plantilla-btn');
+    const tabTactica = document.getElementById('tab-tactica-btn');
+
+    if (tab === 'plantilla') {
+        plantillaView.classList.remove('hidden');
+        tacticaView.classList.add('hidden');
+        tabPlantilla.classList.add('active');
+        tabTactica.classList.remove('active');
+    } else {
+        plantillaView.classList.add('hidden');
+        tacticaView.classList.remove('hidden');
+        tabPlantilla.classList.remove('active');
+        tabTactica.classList.add('active');
+        // Inicializar pizarra si es la primera vez
+        renderPitchTokens();
+        renderBench();
+    }
+};
+
+// Hacer las funciones del popup accesibles globalmente
+window.assignPlayerToSlot = assignPlayerToSlot;

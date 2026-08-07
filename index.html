@@ -388,12 +388,12 @@
                     <div class="flex items-center gap-2">
                         <label class="font-bold text-red-800 text-sm">Formación:</label>
                         <select id="formation-select" onchange="applyFormation(this.value)">
-                            <optgroup label="Fútbol 5 (1+4)">
+                            <optgroup label="Fútbol 5">
                                 <option value="1-2-1">1-2-1</option>
                                 <option value="1-1-2">1-1-2</option>
                                 <option value="2-1-1">2-1-1</option>
                             </optgroup>
-                            <optgroup label="Fútbol 6 (1+5)">
+                            <optgroup label="Fútbol 6">
                                 <option value="1-1-3">1-1-3</option>
                                 <option value="1-2-2">1-2-2</option>
                                 <option value="1-3-1">1-3-1</option>
@@ -401,7 +401,7 @@
                                 <option value="2-2-1">2-2-1</option>
                                 <option value="3-1-1">3-1-1</option>
                             </optgroup>
-                            <optgroup label="Fútbol 7 (1+6)">
+                            <optgroup label="Fútbol 7">
                                 <option value="3-2-1" selected>3-2-1</option>
                                 <option value="2-3-1">2-3-1</option>
                                 <option value="2-2-2">2-2-2</option>
@@ -655,7 +655,7 @@
     <!-- Sección de Rivales -->
     <section id="rivales" class="py-16 bg-gray-100"> <!-- bg-gray-100 para alternar con #partidos -->
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12 text-red-800 fade-up">RENDIMIENTO CONTRA RIVALES</h2>
+            <h2 class="text-3xl font-bold text-center mb-12 text-red-800 fade-up">HISTORIAL CONTRA RIVALES</h2>
             <!-- Contenedor para tarjetas de rivales -->
             <div id="rivales-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
             <!-- Contenedor para detalles de un rival específico (se muestra al hacer clic) -->

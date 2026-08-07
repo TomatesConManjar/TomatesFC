@@ -10,6 +10,7 @@ function getEscudoRival(rival) {
         'Equipo Maradona':'images/escudo_default.png',
         'Manchester ICI': 'images/escudo_manchester_ici.png',
         'Resistencia IC': 'images/escudo_resistencia.png',
+        'Medicina FC': 'images/escudo_Medicina_FC.png',
         'Interdiktos': 'images/escudo_interdiktos.png',
         'Real Madrici': 'images/escudo_real_madrici.png',
         'Rupu FC': 'images/escudo_Rupu_FC.png',

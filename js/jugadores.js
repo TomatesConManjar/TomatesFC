@@ -516,8 +516,66 @@ const TACTICAL_PLAYERS = [
 ];
 
 // Coordenadas de posición para cada formación (% x, % y — referenciados al campo)
-// Fútbol 7: 1 arquero + 6 de campo
 const FORMATIONS = {
+    // --- FÚTBOL 5 (1 Arquero + 4 Jugadores de Campo) ---
+    '1-2-1': [
+        { label: 'GK',  x: 50, y: 88 },
+        { label: 'DF',  x: 50, y: 72 },
+        { label: 'MD',  x: 70, y: 50 }, { label: 'MI', x: 30, y: 50 },
+        { label: 'DC',  x: 50, y: 28 },
+    ],
+    '1-1-2': [
+        { label: 'GK',  x: 50, y: 88 },
+        { label: 'DF',  x: 50, y: 72 },
+        { label: 'MC',  x: 50, y: 50 },
+        { label: 'DCD', x: 68, y: 28 }, { label: 'DCI', x: 32, y: 28 },
+    ],
+    '2-1-1': [
+        { label: 'GK',  x: 50, y: 88 },
+        { label: 'DFD', x: 68, y: 70 }, { label: 'DFI', x: 32, y: 70 },
+        { label: 'MC',  x: 50, y: 50 },
+        { label: 'DC',  x: 50, y: 28 },
+    ],
+
+    // --- FÚTBOL 6 (1 Arquero + 5 Jugadores de Campo) ---
+    '1-1-3': [
+        { label: 'GK',  x: 50, y: 88 },
+        { label: 'DF',  x: 50, y: 72 },
+        { label: 'MC',  x: 50, y: 50 },
+        { label: 'ED',  x: 80, y: 28 }, { label: 'DC', x: 50, y: 28 }, { label: 'EI', x: 20, y: 28 },
+    ],
+    '1-2-2': [
+        { label: 'GK',  x: 50, y: 88 },
+        { label: 'DF',  x: 50, y: 72 },
+        { label: 'MD',  x: 68, y: 50 }, { label: 'MI', x: 32, y: 50 },
+        { label: 'DCD', x: 68, y: 28 }, { label: 'DCI', x: 32, y: 28 },
+    ],
+    '1-3-1': [
+        { label: 'GK',  x: 50, y: 88 },
+        { label: 'DF',  x: 50, y: 72 },
+        { label: 'MD',  x: 76, y: 50 }, { label: 'MC', x: 50, y: 50 }, { label: 'MI', x: 24, y: 50 },
+        { label: 'DC',  x: 50, y: 28 },
+    ],
+    '2-1-2': [
+        { label: 'GK',  x: 50, y: 88 },
+        { label: 'DFD', x: 68, y: 70 }, { label: 'DFI', x: 32, y: 70 },
+        { label: 'MC',  x: 50, y: 50 },
+        { label: 'DCD', x: 68, y: 28 }, { label: 'DCI', x: 32, y: 28 },
+    ],
+    '2-2-1': [
+        { label: 'GK',  x: 50, y: 88 },
+        { label: 'DFD', x: 68, y: 70 }, { label: 'DFI', x: 32, y: 70 },
+        { label: 'MD',  x: 68, y: 50 }, { label: 'MI', x: 32, y: 50 },
+        { label: 'DC',  x: 50, y: 28 },
+    ],
+    '3-1-1': [
+        { label: 'GK',  x: 50, y: 88 },
+        { label: 'LD',  x: 76, y: 70 }, { label: 'DF', x: 50, y: 72 }, { label: 'LI', x: 24, y: 70 },
+        { label: 'MC',  x: 50, y: 50 },
+        { label: 'DC',  x: 50, y: 28 },
+    ],
+
+    // --- FÚTBOL 7 (1 Arquero + 6 Jugadores de Campo) ---
     '3-2-1': [
         { label: 'GK',  x: 50, y: 88 },
         { label: 'LD',  x: 75, y: 70 }, { label: 'DF', x: 50, y: 72 }, { label: 'LI', x: 25, y: 70 },
@@ -556,82 +614,113 @@ const FORMATIONS = {
     ],
 };
 
-let currentFormation = '1-3-2-1';
+let currentFormation = '3-2-1';
 // Mapeo posición índice → jugador asignado (id)
 let lineupAssignments = {}; // { 0: 'agustin-vilhelm', 1: 'leandro-zavala', ... }
-let currentEditingSlot = null;
+
+// Estado de selección para interacción por Clic / Tap
+// null | { type: 'bench', playerId: string } | { type: 'pitch', slotIdx: number, playerId: string }
+let activeSelection = null;
 
 function getTacticalPlayerById(id) {
     return TACTICAL_PLAYERS.find(p => p.id === id);
 }
 
-// Renderiza el banco de jugadores
+// Renderiza el banco de suplentes
 function renderBench() {
     const bench = document.getElementById('bench-container');
     if (!bench) return;
     const assignedIds = Object.values(lineupAssignments);
-    bench.innerHTML = TACTICAL_PLAYERS.map(p => `
-        <div class="bench-player-chip ${assignedIds.includes(p.id) ? 'on-pitch' : ''}"
-             title="${p.name} #${p.num}"
-             draggable="true"
-             data-player-id="${p.id}"
-             ondragstart="benchDragStart(event, '${p.id}')">
-            <img class="bench-avatar" src="${p.img}" alt="${p.name}"
-                 onerror="this.src='images/logo_tomates.png'">
-            <span class="bench-name">${p.name}</span>
-        </div>
-    `).join('');
 
-    // Touch drag support for mobile bench chips
-    bench.querySelectorAll('.bench-player-chip:not(.on-pitch)').forEach(chip => {
-        chip.addEventListener('touchstart', touchDragStart, { passive: true });
+    bench.innerHTML = TACTICAL_PLAYERS.map(p => {
+        const isSelected = activeSelection && activeSelection.type === 'bench' && activeSelection.playerId === p.id;
+        const isOnPitch = assignedIds.includes(p.id);
+
+        return `
+            <div class="bench-player-chip ${isOnPitch ? 'on-pitch' : ''} ${isSelected ? 'selected-chip' : ''}"
+                 title="${p.name} #${p.num}"
+                 draggable="true"
+                 data-player-id="${p.id}">
+                <img class="bench-avatar" src="${p.img}" alt="${p.name}"
+                     onerror="this.src='images/logo_tomates.png'">
+                <span class="bench-name">${p.name}</span>
+            </div>
+        `;
+    }).join('');
+
+    // Event listeners para los chips del banco (Click, Drag, Touch)
+    bench.querySelectorAll('.bench-player-chip').forEach(chip => {
+        const pId = chip.dataset.playerId;
+
+        // Clic / Tap
+        chip.addEventListener('click', e => {
+            e.stopPropagation();
+            handleSelectBench(pId);
+        });
+
+        // HTML5 Drag
+        chip.addEventListener('dragstart', e => {
+            e.dataTransfer.setData('application/json', JSON.stringify({ type: 'bench', playerId: pId }));
+            e.dataTransfer.setData('text/plain', pId);
+        });
+
+        // Touch Drag (Mobile)
+        chip.addEventListener('touchstart', e => {
+            touchDragStart(e, { type: 'bench', playerId: pId });
+        }, { passive: true });
     });
+
+    // Dropzone sobre el contenedor del banco
+    bench.addEventListener('dragover', e => {
+        e.preventDefault();
+        bench.classList.add('drag-over');
+    });
+    bench.addEventListener('dragleave', () => bench.classList.remove('drag-over'));
+    bench.addEventListener('drop', e => {
+        e.preventDefault();
+        bench.classList.remove('drag-over');
+        try {
+            const raw = e.dataTransfer.getData('application/json');
+            const data = raw ? JSON.parse(raw) : null;
+            if (data && data.type === 'pitch') {
+                delete lineupAssignments[data.slotIdx];
+                activeSelection = null;
+                renderPitchTokens();
+                renderBench();
+            }
+        } catch (err) {}
+    });
+
+    // Clic en fondo del banco (para enviar titular al banco)
+    bench.onclick = (e) => {
+        if (e.target === bench && activeSelection && activeSelection.type === 'pitch') {
+            delete lineupAssignments[activeSelection.slotIdx];
+            activeSelection = null;
+            renderPitchTokens();
+            renderBench();
+        }
+    };
 }
 
 // Renderiza las fichas en la cancha
 function renderPitchTokens() {
     const pitch = document.getElementById('tactical-pitch');
     if (!pitch) return;
-    // Eliminar tokens anteriores (preservar el SVG)
     pitch.querySelectorAll('.pitch-player-token').forEach(el => el.remove());
 
-    const positions = FORMATIONS[currentFormation];
+    const positions = FORMATIONS[currentFormation] || FORMATIONS['3-2-1'];
     positions.forEach((pos, idx) => {
         const assignedId = lineupAssignments[idx];
         const player = assignedId ? getTacticalPlayerById(assignedId) : null;
+        const isSelected = activeSelection && activeSelection.type === 'pitch' && activeSelection.slotIdx === idx;
 
         const token = document.createElement('div');
-        token.className = 'pitch-player-token';
+        token.className = `pitch-player-token ${isSelected ? 'selected-token' : ''}`;
         token.style.left = `${pos.x}%`;
         token.style.top = `${pos.y}%`;
         token.setAttribute('data-slot', idx);
-        token.setAttribute('title', player ? `${player.name} — ${pos.label}` : `Posición: ${pos.label} (clic para asignar)`);
-
-        // Soporte drag-over (mouse)
-        token.addEventListener('dragover', e => { e.preventDefault(); token.classList.add('drag-over'); });
-        token.addEventListener('dragleave', () => token.classList.remove('drag-over'));
-        token.addEventListener('drop', e => {
-            e.preventDefault();
-            token.classList.remove('drag-over');
-            const draggedId = e.dataTransfer.getData('text/plain');
-            if (draggedId) assignPlayerToSlot(idx, draggedId);
-        });
-        // Soporte drop via touch (mobile)
-        token.setAttribute('data-slot', idx);
-        token.addEventListener('touchend', e => {
-            if (!window._touchDragPlayerId) return;
-            e.preventDefault();
-            const slotTarget = parseInt(token.getAttribute('data-slot'));
-            assignPlayerToSlot(slotTarget, window._touchDragPlayerId);
-            window._touchDragPlayerId = null;
-            removeTouchGhost();
-            document.querySelectorAll('.pitch-player-token').forEach(t => t.classList.remove('drag-over'));
-        });
-        token.addEventListener('touchmove', e => {
-            token.classList.add('drag-over');
-        }, { passive: true });
-        // Clic para abrir selector
-        token.addEventListener('click', e => { e.stopPropagation(); openPlayerSelector(idx, token); });
+        token.setAttribute('draggable', 'true');
+        token.setAttribute('title', player ? `${player.name} — ${pos.label}` : `Posición: ${pos.label}`);
 
         token.innerHTML = `
             <img class="pitch-token-avatar"
@@ -641,35 +730,158 @@ function renderPitchTokens() {
             <span class="pitch-token-name">${player ? player.name : pos.label}</span>
         `;
 
+        // 1. Clic / Tap
+        token.addEventListener('click', e => {
+            e.stopPropagation();
+            handleSelectPitch(idx);
+        });
+
+        // 2. HTML5 Drag Start
+        token.addEventListener('dragstart', e => {
+            e.dataTransfer.setData('application/json', JSON.stringify({ type: 'pitch', slotIdx: idx, playerId: assignedId }));
+            e.dataTransfer.setData('text/plain', assignedId || '');
+        });
+
+        // 3. HTML5 Drag Over & Drop
+        token.addEventListener('dragover', e => {
+            e.preventDefault();
+            token.classList.add('drag-over');
+        });
+        token.addEventListener('dragleave', () => token.classList.remove('drag-over'));
+        token.addEventListener('drop', e => {
+            e.preventDefault();
+            token.classList.remove('drag-over');
+            try {
+                const raw = e.dataTransfer.getData('application/json');
+                const data = raw ? JSON.parse(raw) : null;
+                if (data) {
+                    executeDropAction(data, idx);
+                }
+            } catch (err) {}
+        });
+
+        // 4. Touch Drag Start (Mobile)
+        token.addEventListener('touchstart', e => {
+            touchDragStart(e, { type: 'pitch', slotIdx: idx, playerId: assignedId });
+        }, { passive: true });
+
         pitch.appendChild(token);
     });
 }
 
-function benchDragStart(event, playerId) {
-    event.dataTransfer.setData('text/plain', playerId);
+// Lógica de Selección por Clic/Tap en puesto de la cancha
+function handleSelectPitch(slotIdx) {
+    if (!activeSelection) {
+        // Si no hay nada seleccionado, seleccionamos este puesto (si está ocupado)
+        if (lineupAssignments[slotIdx]) {
+            activeSelection = { type: 'pitch', slotIdx, playerId: lineupAssignments[slotIdx] };
+        }
+    } else if (activeSelection.type === 'bench') {
+        // Teníamos seleccionado un jugador del banco -> lo colocamos aquí
+        const benchPlayerId = activeSelection.playerId;
+        // Si el jugador del banco ya estaba en otra posición del campo, liberar esa posición
+        Object.keys(lineupAssignments).forEach(k => {
+            if (lineupAssignments[k] === benchPlayerId) delete lineupAssignments[k];
+        });
+        lineupAssignments[slotIdx] = benchPlayerId;
+        activeSelection = null;
+    } else if (activeSelection.type === 'pitch') {
+        if (activeSelection.slotIdx === slotIdx) {
+            // Clic en la misma ficha -> Deseleccionar
+            activeSelection = null;
+        } else {
+            // Clic en otra ficha de la cancha -> Intercambiar posiciones!
+            const fromSlot = activeSelection.slotIdx;
+            const fromId = lineupAssignments[fromSlot];
+            const toId = lineupAssignments[slotIdx];
+
+            if (toId) lineupAssignments[fromSlot] = toId; else delete lineupAssignments[fromSlot];
+            if (fromId) lineupAssignments[slotIdx] = fromId; else delete lineupAssignments[fromSlot];
+
+            activeSelection = null;
+        }
+    }
+    renderPitchTokens();
+    renderBench();
+}
+
+// Lógica de Selección por Clic/Tap en chip del banco
+function handleSelectBench(playerId) {
+    const assignedSlot = Object.keys(lineupAssignments).find(k => lineupAssignments[k] === playerId);
+
+    if (!activeSelection) {
+        // Seleccionar jugador del banco
+        if (assignedSlot !== undefined) {
+            activeSelection = { type: 'pitch', slotIdx: parseInt(assignedSlot), playerId };
+        } else {
+            activeSelection = { type: 'bench', playerId };
+        }
+    } else if (activeSelection.type === 'pitch') {
+        const fromSlot = activeSelection.slotIdx;
+        const fromPlayerId = lineupAssignments[fromSlot];
+
+        if (assignedSlot !== undefined) {
+            // Intercambiar dos jugadores titulares en el campo
+            const toSlot = parseInt(assignedSlot);
+            if (fromSlot !== toSlot) {
+                lineupAssignments[fromSlot] = playerId;
+                lineupAssignments[toSlot] = fromPlayerId;
+            }
+        } else {
+            // Intercambiar titular con jugador suplente del banco
+            lineupAssignments[fromSlot] = playerId;
+        }
+        activeSelection = null;
+    } else if (activeSelection.type === 'bench') {
+        if (activeSelection.playerId === playerId) {
+            activeSelection = null;
+        } else {
+            activeSelection = { type: 'bench', playerId };
+        }
+    }
+    renderPitchTokens();
+    renderBench();
+}
+
+// Ejecuta la acción cuando se suelta un arrastre (Drop) en una ficha de la cancha
+function executeDropAction(dragData, targetSlotIdx) {
+    if (dragData.type === 'bench') {
+        assignPlayerToSlot(targetSlotIdx, dragData.playerId);
+    } else if (dragData.type === 'pitch') {
+        const fromSlot = dragData.slotIdx;
+        if (fromSlot !== targetSlotIdx) {
+            const fromId = lineupAssignments[fromSlot];
+            const toId = lineupAssignments[targetSlotIdx];
+
+            if (toId) lineupAssignments[fromSlot] = toId; else delete lineupAssignments[fromSlot];
+            if (fromId) lineupAssignments[targetSlotIdx] = fromId; else delete lineupAssignments[targetSlotIdx];
+        }
+    }
+    activeSelection = null;
+    renderPitchTokens();
+    renderBench();
 }
 
 // ---- Touch Drag (Mobile) ----
 let _touchGhost = null;
+let _touchDragData = null;
 
 function removeTouchGhost() {
     if (_touchGhost) { _touchGhost.remove(); _touchGhost = null; }
 }
 
-function touchDragStart(e) {
-    const chip = e.currentTarget;
-    const playerId = chip.dataset.playerId;
-    window._touchDragPlayerId = playerId;
+function touchDragStart(e, dragData) {
+    const targetEl = e.currentTarget;
+    _touchDragData = dragData;
 
-    // Crear fantasma visual
     removeTouchGhost();
-    _touchGhost = chip.cloneNode(true);
+    _touchGhost = targetEl.cloneNode(true);
     _touchGhost.style.cssText = `
         position: fixed;
         pointer-events: none;
         z-index: 99999;
         opacity: 0.85;
-        transform: scale(1.15);
+        transform: scale(1.2);
         transition: none;
     `;
     document.body.appendChild(_touchGhost);
@@ -678,8 +890,8 @@ function touchDragStart(e) {
     _touchGhost.style.left = `${touch.clientX - 25}px`;
     _touchGhost.style.top  = `${touch.clientY - 45}px`;
 
-    chip.addEventListener('touchmove', touchDragMove, { passive: false });
-    chip.addEventListener('touchend', touchDragEnd);
+    targetEl.addEventListener('touchmove', touchDragMove, { passive: false });
+    targetEl.addEventListener('touchend', touchDragEnd);
 }
 
 function touchDragMove(e) {
@@ -689,96 +901,72 @@ function touchDragMove(e) {
         _touchGhost.style.left = `${touch.clientX - 25}px`;
         _touchGhost.style.top  = `${touch.clientY - 45}px`;
     }
-    // Highlight token under finger
-    document.querySelectorAll('.pitch-player-token').forEach(t => t.classList.remove('drag-over'));
+    document.querySelectorAll('.pitch-player-token, #bench-container').forEach(t => t.classList.remove('drag-over'));
     const el = document.elementFromPoint(touch.clientX, touch.clientY);
-    const token = el ? el.closest('.pitch-player-token') : null;
-    if (token) token.classList.add('drag-over');
+    const dropTarget = el ? (el.closest('.pitch-player-token') || el.closest('#bench-container')) : null;
+    if (dropTarget) dropTarget.classList.add('drag-over');
 }
 
 function touchDragEnd(e) {
     const touch = e.changedTouches[0];
     removeTouchGhost();
+    document.querySelectorAll('.pitch-player-token, #bench-container').forEach(t => t.classList.remove('drag-over'));
 
-    document.querySelectorAll('.pitch-player-token').forEach(t => t.classList.remove('drag-over'));
-
-    if (!window._touchDragPlayerId) return;
+    if (!_touchDragData) return;
 
     const el = document.elementFromPoint(touch.clientX, touch.clientY);
     const token = el ? el.closest('.pitch-player-token') : null;
+    const bench = el ? el.closest('#bench-container') : null;
+
     if (token) {
         const slotIdx = parseInt(token.getAttribute('data-slot'));
-        assignPlayerToSlot(slotIdx, window._touchDragPlayerId);
+        executeDropAction(_touchDragData, slotIdx);
+    } else if (bench && _touchDragData.type === 'pitch') {
+        delete lineupAssignments[_touchDragData.slotIdx];
+        activeSelection = null;
+        renderPitchTokens();
+        renderBench();
     }
-    window._touchDragPlayerId = null;
 
-    const chip = e.currentTarget;
-    chip.removeEventListener('touchmove', touchDragMove);
-    chip.removeEventListener('touchend', touchDragEnd);
+    _touchDragData = null;
+    const targetEl = e.currentTarget;
+    targetEl.removeEventListener('touchmove', touchDragMove);
+    targetEl.removeEventListener('touchend', touchDragEnd);
 }
 
 function assignPlayerToSlot(slotIdx, playerId) {
-    // Si el jugador ya estaba en otro slot, lo removemos
     Object.keys(lineupAssignments).forEach(k => {
         if (lineupAssignments[k] === playerId) delete lineupAssignments[k];
     });
     lineupAssignments[slotIdx] = playerId;
     renderPitchTokens();
     renderBench();
-    closePlayerSelector();
 }
 
-function openPlayerSelector(slotIdx, tokenEl) {
-    currentEditingSlot = slotIdx;
-    const popup = document.getElementById('player-select-popup');
-    const list = document.getElementById('player-select-list');
-    if (!popup || !list) return;
-
-    const assignedIds = Object.values(lineupAssignments);
-    list.innerHTML = TACTICAL_PLAYERS.map(p => `
-        <div class="player-select-option" onclick="assignPlayerToSlot(${slotIdx}, '${p.id}')">
-            <img src="${p.img}" alt="${p.name}" onerror="this.src='images/logo_tomates.png'">
-            <div>
-                <div style="font-weight:700;font-size:0.82rem;color:${assignedIds.includes(p.id) ? '#9ca3af' : '#111'}">${p.name}</div>
-                <div style="font-size:0.7rem;color:#6b7280">#${p.num} · ${p.pos}</div>
-            </div>
-        </div>
-    `).join('');
-
-    // Posicionar el popup cerca del token
-    const rect = tokenEl.getBoundingClientRect();
-    popup.style.display = 'block';
-    popup.style.top = `${rect.bottom + window.scrollY + 6}px`;
-    popup.style.left = `${Math.min(rect.left + window.scrollX, window.innerWidth - 240)}px`;
-}
-
-function closePlayerSelector() {
-    const popup = document.getElementById('player-select-popup');
-    if (popup) popup.style.display = 'none';
-    currentEditingSlot = null;
-}
-
-// Cerrar popup al hacer clic fuera
+// Deseleccionar al hacer clic fuera de la pizarra
 document.addEventListener('click', e => {
-    const popup = document.getElementById('player-select-popup');
-    if (popup && popup.style.display === 'block' && !popup.contains(e.target)) {
-        closePlayerSelector();
+    const tacticaView = document.getElementById('tactical-pitch-view');
+    if (tacticaView && !tacticaView.contains(e.target) && activeSelection) {
+        activeSelection = null;
+        renderPitchTokens();
+        renderBench();
     }
 });
 
 window.applyFormation = function(formation) {
     currentFormation = formation;
-    // Reset assignments que excedan las nuevas posiciones
-    const total = FORMATIONS[formation].length;
+    const total = FORMATIONS[formation] ? FORMATIONS[formation].length : 7;
     Object.keys(lineupAssignments).forEach(k => {
         if (parseInt(k) >= total) delete lineupAssignments[k];
     });
+    activeSelection = null;
     renderPitchTokens();
     renderBench();
 };
 
 window.resetLineup = function() {
     lineupAssignments = {};
+    activeSelection = null;
     renderPitchTokens();
     renderBench();
 };

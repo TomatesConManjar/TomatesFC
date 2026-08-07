@@ -173,34 +173,24 @@
                     </div>
                 </div>
             </div>
-            <!-- Aquí pega el código de los uniformes -->
             <div class="text-center">
-                <h3 class="text-3xl font-bold mb-2 text-red-800">Uniformes Oficiales</h3>
-                <p class="text-gray-500 mb-8 text-sm"><i class="fas fa-hand-pointer mr-1"></i> Pasa el cursor o haz clic para girar</p>
+                <h3 class="text-3xl font-bold mb-8 text-red-800">Uniformes Oficiales</h3>
                 <div class="flex justify-center gap-12 flex-wrap items-start">
 
                     <!-- Camiseta Local -->
                     <div class="flex flex-col items-center">
-                        <div class="jersey-flip-scene" onclick="this.classList.toggle('flipped')" title="Haz clic para ver el dorsal">
-                            <div class="jersey-flip-card">
-                                <div class="jersey-flip-front">
-                                    <img src="images/camiseta_local.png" alt="Camiseta Local de Tomates FC - frente">
-                                    <div class="jersey-flip-label">⚽ CAMISETA LOCAL</div>
-                                </div>
-                            </div>
+                        <div class="jersey-card-static">
+                            <img src="images/camiseta_local.png" alt="Camiseta Local de Tomates FC">
+                            <div class="jersey-static-label">⚽ CAMISETA LOCAL</div>
                         </div>
                         <p class="jersey-flip-hint mt-2">Colores rojo oscuro y dorado</p>
                     </div>
 
-                    <!-- Camiseta Visitante / Antigua -->
+                    <!-- Camiseta Visitante -->
                     <div class="flex flex-col items-center">
-                        <div class="jersey-flip-scene" onclick="this.classList.toggle('flipped')" title="Haz clic para ver el dorsal">
-                            <div class="jersey-flip-card">
-                                <div class="jersey-flip-front">
-                                    <img src="images/camiseta_antigua.png" alt="Camiseta Visitante de Tomates FC - frente">
-                                    <div class="jersey-flip-label">⚽ CAMISETA VISITANTE</div>
-                                </div>
-                            </div>
+                        <div class="jersey-card-static">
+                            <img src="images/camiseta_antigua.png" alt="Camiseta Visitante de Tomates FC">
+                            <div class="jersey-static-label">⚽ CAMISETA VISITANTE</div>
                         </div>
                         <p class="jersey-flip-hint mt-2">Diseño alternativo tonos claros</p>
                     </div>
@@ -405,12 +395,27 @@
                     <div class="flex items-center gap-2">
                         <label class="font-bold text-red-800 text-sm">Formación:</label>
                         <select id="formation-select" onchange="applyFormation(this.value)">
-                            <option value="3-2-1">3-2-1</option>
-                            <option value="2-3-1">2-3-1</option>
-                            <option value="2-2-2">2-2-2</option>
-                            <option value="3-1-2">3-1-2</option>
-                            <option value="1-4-1">1-4-1</option>
-                            <option value="4-1-1">4-1-1</option>
+                            <optgroup label="Fútbol 5 (1+4)">
+                                <option value="1-2-1">1-2-1</option>
+                                <option value="1-1-2">1-1-2</option>
+                                <option value="2-1-1">2-1-1</option>
+                            </optgroup>
+                            <optgroup label="Fútbol 6 (1+5)">
+                                <option value="1-1-3">1-1-3</option>
+                                <option value="1-2-2">1-2-2</option>
+                                <option value="1-3-1">1-3-1</option>
+                                <option value="2-1-2">2-1-2</option>
+                                <option value="2-2-1">2-2-1</option>
+                                <option value="3-1-1">3-1-1</option>
+                            </optgroup>
+                            <optgroup label="Fútbol 7 (1+6)">
+                                <option value="3-2-1" selected>3-2-1</option>
+                                <option value="2-3-1">2-3-1</option>
+                                <option value="2-2-2">2-2-2</option>
+                                <option value="3-1-2">3-1-2</option>
+                                <option value="1-4-1">1-4-1</option>
+                                <option value="4-1-1">4-1-1</option>
+                            </optgroup>
                         </select>
                     </div>
                     <button id="reset-lineup-btn" onclick="resetLineup()">
@@ -432,7 +437,7 @@
                         <div id="bench-container">
                             <!-- Generado por JS -->
                         </div>
-                        <p class="text-xs text-gray-400 text-center mt-2">Haz clic en una ficha del campo para cambiar el jugador</p>
+                        <p class="text-xs text-gray-400 text-center mt-2">Arrastra o toca un jugador para moverlo o intercambiarlo</p>
                     </div>
 
                     <!-- Cancha -->

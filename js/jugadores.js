@@ -576,16 +576,10 @@ const FORMATIONS = {
     ],
 
     // --- FÚTBOL 7 (1 Arquero + 6 Jugadores de Campo) ---
-    '3-2-1': [
+    '1-4-1': [
         { label: 'GK',  x: 50, y: 88 },
-        { label: 'LD',  x: 75, y: 70 }, { label: 'DF', x: 50, y: 72 }, { label: 'LI', x: 25, y: 70 },
-        { label: 'MD',  x: 65, y: 50 }, { label: 'MI', x: 35, y: 50 },
-        { label: 'DC',  x: 50, y: 28 },
-    ],
-    '2-3-1': [
-        { label: 'GK',  x: 50, y: 88 },
-        { label: 'DFD', x: 70, y: 70 }, { label: 'DFI', x: 30, y: 70 },
-        { label: 'MD',  x: 72, y: 50 }, { label: 'MC', x: 50, y: 48 }, { label: 'MI', x: 28, y: 50 },
+        { label: 'DF',  x: 50, y: 72 },
+        { label: 'MDD', x: 78, y: 50 }, { label: 'MDC', x: 58, y: 50 }, { label: 'MIC', x: 42, y: 50 }, { label: 'MDI', x: 22, y: 50 },
         { label: 'DC',  x: 50, y: 28 },
     ],
     '2-2-2': [
@@ -594,16 +588,22 @@ const FORMATIONS = {
         { label: 'MD',  x: 65, y: 50 }, { label: 'MI', x: 35, y: 50 },
         { label: 'DCD', x: 70, y: 28 }, { label: 'DCI', x: 30, y: 28 },
     ],
+    '2-3-1': [
+        { label: 'GK',  x: 50, y: 88 },
+        { label: 'DFD', x: 70, y: 70 }, { label: 'DFI', x: 30, y: 70 },
+        { label: 'MD',  x: 72, y: 50 }, { label: 'MC', x: 50, y: 48 }, { label: 'MI', x: 28, y: 50 },
+        { label: 'DC',  x: 50, y: 28 },
+    ],
     '3-1-2': [
         { label: 'GK',  x: 50, y: 88 },
         { label: 'LD',  x: 75, y: 70 }, { label: 'DF', x: 50, y: 72 }, { label: 'LI', x: 25, y: 70 },
         { label: 'MC',  x: 50, y: 50 },
         { label: 'DCD', x: 70, y: 28 }, { label: 'DCI', x: 30, y: 28 },
     ],
-    '1-4-1': [
+    '3-2-1': [
         { label: 'GK',  x: 50, y: 88 },
-        { label: 'DF',  x: 50, y: 72 },
-        { label: 'MDD', x: 78, y: 50 }, { label: 'MDC', x: 58, y: 50 }, { label: 'MIC', x: 42, y: 50 }, { label: 'MDI', x: 22, y: 50 },
+        { label: 'LD',  x: 75, y: 70 }, { label: 'DF', x: 50, y: 72 }, { label: 'LI', x: 25, y: 70 },
+        { label: 'MD',  x: 65, y: 50 }, { label: 'MI', x: 35, y: 50 },
         { label: 'DC',  x: 50, y: 28 },
     ],
     '4-1-1': [

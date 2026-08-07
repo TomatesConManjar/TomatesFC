@@ -67,7 +67,7 @@
                             <li><a href="javascript:void(0);" onclick="showRivalDetails('Equipo Pablismo')" class="block px-4 py-2 hover:bg-red-700">Equipo Pablismo</a></li>
                             <li><a href="javascript:void(0);" onclick="showRivalDetails('Equipo Maradona')" class="block px-4 py-2 hover:bg-red-700">Equipo Maradona</a></li>
                             <li><a href="javascript:void(0);" onclick="showRivalDetails('Equipo David')" class="block px-4 py-2 hover:bg-red-700">Equipo David</a></li>
-                            <li><a href="javascript:void(0);" onclick="showRivalDetails('Equipo Maxius')" class="block px-4 py-2 hover:bg-red-700">Hipogolemicos</a></li>
+                            <li><a href="javascript:void(0);" onclick="showRivalDetails('Medicina FC')" class="block px-4 py-2 hover:bg-red-700">Medicina FC</a></li>
                             <li><a href="javascript:void(0);" onclick="showRivalDetails('Pirula')" class="block px-4 py-2 hover:bg-red-700">Pirula</a></li>
                             <li><a href="javascript:void(0);" onclick="showRivalDetails('Conoco Grande')" class="block px-4 py-2 hover:bg-red-700">Conoco Grande</a></li>
                             <li><a href="javascript:void(0);" onclick="showRivalDetails('Equipo Geobani')" class="block px-4 py-2 hover:bg-red-700">Equipo Geobani</a></li>
@@ -75,6 +75,7 @@
                             <li><a href="javascript:void(0);" onclick="showRivalDetails('Interdiktos')" class="block px-4 py-2 hover:bg-red-700">Interdiktos</a></li>
                             <li><a href="javascript:void(0);" onclick="showRivalDetails('Real Madrici')" class="block px-4 py-2 hover:bg-red-700">Real Madrici</a></li>
                             <li><a href="javascript:void(0);" onclick="showRivalDetails('Rupu FC')" class="block px-4 py-2 hover:bg-red-700">Rupu FC</a></li>
+                            <li><a href="javascript:void(0);" onclick="showRivalDetails('Real Nutrid')" class="block px-4 py-2 hover:bg-red-700">Real Nutrid</a></li>
                         </ul>
                     </div>
                     <a href="#galeria" class="hover:text-yellow-400 transition duration-300">Galería</a>
@@ -186,10 +187,6 @@
                                     <img src="images/camiseta_local.png" alt="Camiseta Local de Tomates FC - frente">
                                     <div class="jersey-flip-label">⚽ CAMISETA LOCAL</div>
                                 </div>
-                                <div class="jersey-flip-back">
-                                    <img src="images/dorsal_manque10.jpg" alt="Dorsal de camiseta local - número 10">
-                                    <div class="jersey-flip-label">🔴 DORSAL #10</div>
-                                </div>
                             </div>
                         </div>
                         <p class="jersey-flip-hint mt-2">Colores rojo oscuro y dorado</p>
@@ -202,10 +199,6 @@
                                 <div class="jersey-flip-front">
                                     <img src="images/camiseta_antigua.png" alt="Camiseta Visitante de Tomates FC - frente">
                                     <div class="jersey-flip-label">⚽ CAMISETA VISITANTE</div>
-                                </div>
-                                <div class="jersey-flip-back">
-                                    <img src="images/dorsal_garces7.jpg" alt="Dorsal de camiseta visitante - número 7">
-                                    <div class="jersey-flip-label">🔴 DORSAL #7</div>
                                 </div>
                             </div>
                         </div>
@@ -412,12 +405,12 @@
                     <div class="flex items-center gap-2">
                         <label class="font-bold text-red-800 text-sm">Formación:</label>
                         <select id="formation-select" onchange="applyFormation(this.value)">
-                            <option value="1-3-2-1">1-3-2-1</option>
-                            <option value="1-2-3-1">1-2-3-1</option>
-                            <option value="1-2-2-2">1-2-2-2</option>
-                            <option value="1-3-1-2">1-3-1-2</option>
-                            <option value="1-1-4-1">1-1-4-1</option>
-                            <option value="1-4-1-1">1-4-1-1</option>
+                            <option value="3-2-1">3-2-1</option>
+                            <option value="2-3-1">2-3-1</option>
+                            <option value="2-2-2">2-2-2</option>
+                            <option value="3-1-2">3-1-2</option>
+                            <option value="1-4-1">1-4-1</option>
+                            <option value="4-1-1">4-1-1</option>
                         </select>
                     </div>
                     <button id="reset-lineup-btn" onclick="resetLineup()">

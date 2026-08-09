@@ -29,6 +29,49 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Buscadores rápidos en el Navbar (Punto 1)
+    const equipoNavSearch = document.getElementById('equipo-nav-search');
+    if (equipoNavSearch) {
+        equipoNavSearch.addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            // Filtrar todos los <li> hermanos excepto el buscador
+            const items = this.closest('ul').querySelectorAll('li:not(:first-child)');
+            items.forEach(li => {
+                const text = li.textContent.toLowerCase();
+                li.style.display = text.includes(searchTerm) ? '' : 'none';
+            });
+        });
+        // Prevenir que el clic en el buscador cierre el menú
+        equipoNavSearch.addEventListener('click', e => e.stopPropagation());
+    }
+
+    const rivalesNavSearch = document.getElementById('rivales-nav-search');
+    if (rivalesNavSearch) {
+        rivalesNavSearch.addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const items = this.closest('ul').querySelectorAll('li:not(:first-child)');
+            items.forEach(li => {
+                const text = li.textContent.toLowerCase();
+                li.style.display = text.includes(searchTerm) ? '' : 'none';
+            });
+        });
+        rivalesNavSearch.addEventListener('click', e => e.stopPropagation());
+    }
+
+    // Buscador Rápido de Rivales (Punto 3F)
+    const rivalSearchInput = document.getElementById('rivalSearchInput');
+    if (rivalSearchInput) {
+        rivalSearchInput.addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            document.querySelectorAll('#rivales-container > div').forEach(card => {
+                // Buscamos el nombre del rival, usualmente en un h3 o p con clase bold
+                const rivalName = card.querySelector('h3')?.textContent.toLowerCase() || '';
+                card.classList.toggle('hidden', !rivalName.includes(searchTerm));
+            });
+        });
+    }
+
+
     // Carrusel unificado
     initCarousel();
 

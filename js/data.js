@@ -792,7 +792,24 @@ const partidosData = {
             { nombre: "Leandro Zavala", goles: 0, asistencias: 1 },
             { nombre: "Matías Paredes", goles: 1, asistencias: 2 },
             { nombre: "Diego Manque", goles: 3, asistencias: 3 },
-            { nombre: "Sebastián Sandoval", goles: 1, asistencias: 0 }
+            { nombre: "Sebastián Sandoval", goles: 1, asistencias: 0 },
+        ]
+    },
+    49: {
+        temporada: 2026,
+        fecha: "Martes 11 Agosto",
+        rival: "Real Nutrid",
+        resultado: "7-8",
+        lugar: "Canchas Santa Laura",
+        tipo: "Amistoso",
+        hora: "16:00 hrs",
+        jugadores: [
+            { nombre: "Agustín Vilhelm", goles: 0, asistencias: 0 },
+            { nombre: "Benjamín Garcés", goles: 0, asistencias: 1 },
+            { nombre: "Matías Paredes", goles: 2, asistencias: 1 },
+            { nombre: "Diego Manque", goles: 3, asistencias: 1 },
+            { nombre: "Sebastián Sandoval", goles: 1, asistencias: 2 },
+            { nombre: "Matías Bustamante", goles: 1, asistencias: 0 }
         ]
     }
 };
@@ -821,7 +838,8 @@ const jugadoresData = {
             { id: 45, rival: 'Medicina FC', fecha: 'Jueves 16 Julio 2026', goles: 0, asistencias: 0 },
             { id: 46, rival: 'Vaqueros', fecha: 'Domingo 26 Julio 2026', goles: 0, asistencias: 0 },
             { id: 47, rival: 'Vaqueros', fecha: 'Lunes 27 Julio 2026', goles: 2, asistencias: 0 },
-            { id: 48, rival: 'Real Nutrid', fecha: 'Jueves 06 Agosto 2026', goles: 0, asistencias: 1 }
+            { id: 48, rival: 'Real Nutrid', fecha: 'Jueves 06 Agosto 2026', goles: 0, asistencias: 1 },
+            { id: 49, rival: 'Real Nutrid', fecha: 'Martes 11 Agosto 2026', goles: 0, asistencias: 0 }
         ]
     },
     'leandro-zavala': {
@@ -940,7 +958,8 @@ const jugadoresData = {
             { id: 45, rival: 'Medicina FC', fecha: 'Jueves 16 Julio 2026', goles: 2, asistencias: 0 },
             { id: 46, rival: 'Vaqueros', fecha: 'Domingo 26 Julio 2026', goles: 0, asistencias: 1 },
             { id: 47, rival: 'Vaqueros', fecha: 'Lunes 27 Julio 2026', goles: 2, asistencias: 1 },
-            { id: 48, rival: 'Real Nutrid', fecha: 'Jueves 06 Agosto 2026', goles: 3, asistencias: 0 }
+            { id: 48, rival: 'Real Nutrid', fecha: 'Jueves 06 Agosto 2026', goles: 3, asistencias: 0 },
+            { id: 49, rival: 'Real Nutrid', fecha: 'Martes 11 Agosto 2026', goles: 0, asistencias: 1 }
         ]
     },
     'cristobal-santibanez': {
@@ -1005,7 +1024,8 @@ const jugadoresData = {
             { id: 45, rival: 'Medicina FC', fecha: 'Jueves 16 Julio 2026', goles: 2, asistencias: 1 },
             { id: 46, rival: 'Vaqueros', fecha: 'Domingo 26 Julio 2026', goles: 1, asistencias: 1 },
             { id: 47, rival: 'Vaqueros', fecha: 'Lunes 27 Julio 2026', goles: 1, asistencias: 1 },
-            { id: 48, rival: 'Real Nutrid', fecha: 'Jueves 06 Agosto 2026', goles: 1, asistencias: 2 }
+            { id: 48, rival: 'Real Nutrid', fecha: 'Jueves 06 Agosto 2026', goles: 1, asistencias: 2 },
+            { id: 49, rival: 'Real Nutrid', fecha: 'Martes 11 Agosto 2026', goles: 2, asistencias: 1 }
         ]
     },
     'diego-manque': {
@@ -1062,7 +1082,8 @@ const jugadoresData = {
             { id: 45, rival: 'Medicina FC', fecha: 'Jueves 16 Julio 2026', goles: 0, asistencias: 2 },
             { id: 46, rival: 'Vaqueros', fecha: 'Domingo 26 Julio 2026', goles: 0, asistencias: 0 },
             { id: 47, rival: 'Vaqueros', fecha: 'Lunes 27 Julio 2026', goles: 0, asistencias: 0 },
-            { id: 48, rival: 'Real Nutrid', fecha: 'Jueves 06 Agosto 2026', goles: 3, asistencias: 3 }
+            { id: 48, rival: 'Real Nutrid', fecha: 'Jueves 06 Agosto 2026', goles: 3, asistencias: 3 },
+            { id: 49, rival: 'Real Nutrid', fecha: 'Martes 11 Agosto 2026', goles: 3, asistencias: 1 }
         ]
     },
     'sebastian-sandoval': {
@@ -1118,7 +1139,8 @@ const jugadoresData = {
             { id: 45, rival: 'Medicina FC', fecha: 'Jueves 16 Julio 2026', goles: 0, asistencias: 0 },
             { id: 46, rival: 'Vaqueros', fecha: 'Domingo 26 Julio 2026', goles: 1, asistencias: 0 },
             { id: 47, rival: 'Vaqueros', fecha: 'Lunes 27 Julio 2026', goles: 0, asistencias: 0 },
-            { id: 48, rival: 'Real Nutrid', fecha: 'Jueves 06 Agosto 2026', goles: 1, asistencias: 0 }
+            { id: 48, rival: 'Real Nutrid', fecha: 'Jueves 06 Agosto 2026', goles: 1, asistencias: 0 },
+            { id: 49, rival: 'Real Nutrid', fecha: 'Martes 11 Agosto 2026', goles: 1, asistencias: 2 }
         ]
     },
     'matias-bustamante': {
@@ -1140,7 +1162,8 @@ const jugadoresData = {
             { id: 30, rival: 'Equipo Pablismo', fecha: 'Domingo 15 Marzo 2026', goles: 1, asistencias: 2 },
             { id: 38, rival: 'Interdiktos', fecha: 'Viernes 15 Mayo 2026', goles: 0, asistencias: 0 },
             { id: 44, rival: 'Equipo Pablismo', fecha: 'Domingo 12 Julio 2026', goles: 1, asistencias: 1 },
-            { id: 45, rival: 'Medicina FC', fecha: 'Jueves 16 Julio 2026', goles: 0, asistencias: 0 }
+            { id: 45, rival: 'Medicina FC', fecha: 'Jueves 16 Julio 2026', goles: 0, asistencias: 0 },
+            { id: 49, rival: 'Real Nutrid', fecha: 'Martes 11 Agosto 2026', goles: 1, asistencias: 0 }
         ]
     }
 };

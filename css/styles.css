@@ -214,7 +214,7 @@ html {
         .dark .bg-gray-900 {
             background-color: #0d1117 !important;
         }
-        .dark nav {
+        .dark nav.sticky {
             background-color: #c53030 !important;
         }
         .dark .hero {

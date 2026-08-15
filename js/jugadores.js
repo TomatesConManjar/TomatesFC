@@ -945,7 +945,7 @@ function touchDragEnd(e) {
     if (token) {
         const slotIdx = parseInt(token.getAttribute('data-slot'));
         if (_touchDragData.type === 'pitch' && slotIdx === _touchDragData.slotIdx) {
-            handlePlayerSelection(_touchDragData.playerId, 'pitch', slotIdx);
+            handleSelectToken(slotIdx, _touchDragData.playerId);
         } else {
             executeDropAction(_touchDragData, slotIdx);
             activeSelection = null;
@@ -956,12 +956,12 @@ function touchDragEnd(e) {
         renderPitchTokens();
         renderBench();
     } else if (bench && _touchDragData.type === 'bench') {
-        handlePlayerSelection(_touchDragData.playerId, 'bench', null);
+        handleSelectBench(_touchDragData.playerId);
     } else {
         if (_touchDragData.type === 'bench') {
-            handlePlayerSelection(_touchDragData.playerId, 'bench', null);
+            handleSelectBench(_touchDragData.playerId);
         } else if (_touchDragData.type === 'pitch') {
-            handlePlayerSelection(_touchDragData.playerId, 'pitch', _touchDragData.slotIdx);
+            handleSelectToken(_touchDragData.slotIdx, _touchDragData.playerId);
         }
     }
 

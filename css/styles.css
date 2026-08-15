@@ -338,6 +338,7 @@ html {
         }
 
         /* Borde rojo sutil al fondo de la tarjeta al hover */
+}
         .player-card:hover .player-card-body {
             border-top: 2px solid var(--color-primary);
         }
@@ -348,10 +349,14 @@ html {
         .mobile-menu {
             transform: translateX(-100%);
             transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            background: rgba(127, 29, 29, 0.85); /* Rojo profundo semitransparente */
+            background-color: #991b1b !important;
             border-right: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .dark .mobile-menu {
+            background-color: #c53030 !important;
+        }
+        .dark .submenu, .dark .submenu li {
+            background-color: #c53030 !important;
         }
         .mobile-menu.active {
             transform: translateX(0);

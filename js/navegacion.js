@@ -2,6 +2,14 @@
 // NAVEGACION - Menú móvil, navbar, dark mode, historial
 // ============================================================
 
+// Sincroniza el color de fondo del menú móvil según el modo actual
+function syncMobileMenuColor() {
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (!mobileMenu) return;
+    const isDark = document.documentElement.classList.contains('dark');
+    mobileMenu.style.backgroundColor = isDark ? '#c53030' : '#991b1b';
+}
+
 // Toggle dark mode (llamado desde el botón en el navbar)
 window.toggleDarkMode = function() {
     const html = document.documentElement;
@@ -15,6 +23,7 @@ window.toggleDarkMode = function() {
         if (icon) icon.className = 'fas fa-moon';
         localStorage.setItem('darkMode', 'disabled');
     }
+    syncMobileMenuColor();
 };
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -30,6 +39,8 @@ document.addEventListener('DOMContentLoaded', function() {
         html.classList.remove('dark');
         if (icon) icon.className = 'fas fa-moon';
     }
+    // Aplicar color correcto al menú móvil desde el inicio
+    syncMobileMenuColor();
 
     // --- Menú móvil ---
     const mobileMenuButton = document.getElementById('mobile-menu-button');

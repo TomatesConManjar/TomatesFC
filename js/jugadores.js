@@ -576,6 +576,30 @@ const FORMATIONS = {
     ],
 
     // --- FÚTBOL 7 (1 Arquero + 6 Jugadores de Campo) ---
+    '1-1-4': [
+        { label: 'GK',  x: 50, y: 88 },
+        { label: 'DF',  x: 50, y: 72 },
+        { label: 'MC',  x: 50, y: 50 },
+        { label: 'DD',  x: 80, y: 28 }, { label: 'DCD', x: 60, y: 28 }, { label: 'DCI', x: 40, y: 28 }, { label: 'DI',  x: 20, y: 28 },
+    ],
+    '1-2-3': [
+        { label: 'GK',  x: 50, y: 88 },
+        { label: 'DF',  x: 50, y: 72 },
+        { label: 'MD',  x: 68, y: 50 }, { label: 'MI', x: 32, y: 50 },
+        { label: 'DD',  x: 75, y: 28 }, { label: 'DC', x: 50, y: 28 }, { label: 'DI', x: 25, y: 28 },
+    ],
+    '1-3-2': [
+        { label: 'GK',  x: 50, y: 88 },
+        { label: 'DF',  x: 50, y: 72 },
+        { label: 'MD',  x: 75, y: 50 }, { label: 'MC', x: 50, y: 50 }, { label: 'MI', x: 25, y: 50 },
+        { label: 'DCD', x: 68, y: 28 }, { label: 'DCI', x: 32, y: 28 },
+    ],
+    '2-1-3': [
+        { label: 'GK',  x: 50, y: 88 },
+        { label: 'DFD', x: 68, y: 72 }, { label: 'DFI', x: 32, y: 72 },
+        { label: 'MC',  x: 50, y: 50 },
+        { label: 'DD',  x: 75, y: 28 }, { label: 'DC', x: 50, y: 28 }, { label: 'DI', x: 25, y: 28 },
+    ],
     '1-4-1': [
         { label: 'GK',  x: 50, y: 88 },
         { label: 'DF',  x: 50, y: 72 },
@@ -920,12 +944,25 @@ function touchDragEnd(e) {
 
     if (token) {
         const slotIdx = parseInt(token.getAttribute('data-slot'));
-        executeDropAction(_touchDragData, slotIdx);
+        if (_touchDragData.type === 'pitch' && slotIdx === _touchDragData.slotIdx) {
+            handlePlayerSelection(_touchDragData.playerId, 'pitch', slotIdx);
+        } else {
+            executeDropAction(_touchDragData, slotIdx);
+            activeSelection = null;
+        }
     } else if (bench && _touchDragData.type === 'pitch') {
         delete lineupAssignments[_touchDragData.slotIdx];
         activeSelection = null;
         renderPitchTokens();
         renderBench();
+    } else if (bench && _touchDragData.type === 'bench') {
+        handlePlayerSelection(_touchDragData.playerId, 'bench', null);
+    } else {
+        if (_touchDragData.type === 'bench') {
+            handlePlayerSelection(_touchDragData.playerId, 'bench', null);
+        } else if (_touchDragData.type === 'pitch') {
+            handlePlayerSelection(_touchDragData.playerId, 'pitch', _touchDragData.slotIdx);
+        }
     }
 
     _touchDragData = null;

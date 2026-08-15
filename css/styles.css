@@ -218,7 +218,7 @@ html {
             background-color: #c53030 !important;
         }
         .dark .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://img.freepik.com/foto-gratis/detalles-pelota-deporte_23-2151869781.jpg?semt=ais_hybrid&w=740&q=80') no-repeat center center !important;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://img.freepik.com/foto-gratis/detalles-pelota-deporte_23-2151869781.jpg?semt=ais_hybrid&w=740&q=80') !important;
             background-size: cover !important;
         }
         /* Botones de filtros en modo oscuro */
@@ -360,6 +360,12 @@ html {
         /* Animación del botón hamburguesa */
         .hamburger-line {
             transition: all 0.3s ease;
+        }
+        .dark .hamburger-line {
+            background-color: #ffffff !important;
+        }
+        .bench-player-chip, .pitch-player-token {
+            touch-action: none;
         }
         .hamburger.active .hamburger-line:nth-child(1) {
             transform: rotate(45deg) translate(5px, 5px);

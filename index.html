@@ -42,8 +42,10 @@
             <div class="flex justify-between items-center">
                 <!-- Logo y nombre -->
                 <div class="flex items-center">
-                    <img src="images/logo_tomates.png" alt="Logo Tomates FC - Escudo circular con diseño moderno en rojo y blanco" class="h-12 mr-3">
-                    <span class="font-bold text-xl">Tomates FC</span>
+                    <a href="#inicio" class="flex items-center hover:text-yellow-400 transition duration-300">
+                        <img src="images/logo_tomates.png" alt="Logo Tomates FC - Escudo circular con diseño moderno en rojo y blanco" class="h-12 mr-3">
+                        <span class="font-bold text-xl">Tomates FC</span>
+                    </a>
                 </div>
                 <!-- Menú desktop -->
                 <div class="hidden md:flex space-x-8">
@@ -51,8 +53,8 @@
                     <a href="#historia" class="hover:text-yellow-400 transition duration-300">Historia</a>
                     <div class="relative">
                         <a href="#equipo" class="hover:text-yellow-400 transition duration-300">Equipo</a>
-                        <ul id="equipo-submenu" class="submenu absolute left-0 top-full bg-red-900/95 backdrop-blur-md text-white shadow-lg rounded-b-lg py-2 min-w-max max-h-64 overflow-y-auto z-10">
-                            <li class="px-3 py-2 sticky top-0 bg-red-900/95 z-20 border-b border-red-700">
+                        <ul id="equipo-submenu" class="submenu absolute left-0 top-full bg-red-800 backdrop-blur-md text-white shadow-lg rounded-b-lg py-2 min-w-max max-h-64 overflow-y-auto z-10">
+                            <li class="px-3 py-2 sticky top-0 bg-red-800 z-20 border-b border-red-700">
                                 <input type="text" id="equipo-nav-search" placeholder="Buscar jugador..." class="w-full px-2 py-1 bg-red-800 text-white rounded focus:outline-none focus:ring-2 focus:ring-yellow-400 text-sm">
                             </li>
                             <li><a href="javascript:void(0);" onclick="showPlayerDetails('agustin-vilhelm')" class="block px-4 py-2 hover:bg-red-700">Agustín Vilhelm</a></li>
@@ -70,8 +72,8 @@
                     <a href="#partidos" class="hover:text-yellow-400 transition duration-300">Partidos</a>
                     <div class="relative">
                         <a href="#rivales" class="hover:text-yellow-400 transition duration-300">Rivales</a>
-                        <ul id="rivales-submenu" class="submenu absolute left-0 top-full bg-red-900/95 backdrop-blur-md text-white shadow-lg rounded-b-lg py-2 min-w-max max-h-64 overflow-y-auto z-10">
-                            <li class="px-3 py-2 sticky top-0 bg-red-900/95 z-20 border-b border-red-700">
+                        <ul id="rivales-submenu" class="submenu absolute left-0 top-full bg-red-800 backdrop-blur-md text-white shadow-lg rounded-b-lg py-2 min-w-max max-h-64 overflow-y-auto z-10">
+                            <li class="px-3 py-2 sticky top-0 bg-red-800 z-20 border-b border-red-700">
                                 <input type="text" id="rivales-nav-search" placeholder="Buscar rival..." class="w-full px-2 py-1 bg-red-800 text-white rounded focus:outline-none focus:ring-2 focus:ring-yellow-400 text-sm">
                             </li>
                             <li><a href="javascript:void(0);" onclick="showRivalDetails('Vaqueros')" class="block px-4 py-2 hover:bg-red-700">Vaqueros</a></li>
@@ -115,7 +117,7 @@
             </div>
         </div>
         <!-- Menú móvil -->
-        <div id="mobile-menu" class="mobile-menu md:hidden fixed inset-y-0 left-0 w-64 bg-red-900 shadow-lg z-50">
+        <div id="mobile-menu" class="mobile-menu md:hidden fixed inset-y-0 left-0 w-64 bg-red-800 shadow-lg z-50">
             <div class="p-6">
                 <!-- Logo en el menú móvil -->
                 <div class="flex items-center mb-8">
@@ -417,7 +419,11 @@
                                 <option value="3-1-1">3-1-1</option>
                             </optgroup>
                             <optgroup label="Fútbol 7">
+                                <option value="1-1-4">1-1-4</option>
+                                <option value="1-2-3">1-2-3</option>
+                                <option value="1-3-2">1-3-2</option>
                                 <option value="1-4-1" selected>1-4-1</option>
+                                <option value="2-1-3">2-1-3</option>
                                 <option value="2-2-2">2-2-2</option>
                                 <option value="2-3-1">2-3-1</option>
                                 <option value="3-1-2">3-1-2</option>

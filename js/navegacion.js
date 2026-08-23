@@ -7,8 +7,9 @@ function syncMobileMenuColor() {
     const mobileMenu = document.getElementById('mobile-menu');
     if (!mobileMenu) return;
     const isDark = document.documentElement.classList.contains('dark');
-    mobileMenu.style.backgroundColor = isDark ? '#7f1d1d' : '#991b1b';
-    mobileMenu.style.background      = isDark ? '#7f1d1d' : '#991b1b';
+    mobileMenu.style.background = isDark 
+        ? 'linear-gradient(180deg, #1e1b4b 0%, #0f172a 100%)' 
+        : 'linear-gradient(180deg, #991b1b 0%, #7f1d1d 100%)';
 }
 
 // Toggle dark mode (llamado desde el botón en el navbar)
@@ -45,55 +46,53 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // --- Menú móvil ---
     const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenuCloseBtn = document.getElementById('mobile-menu-close-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     const menuOverlay = document.getElementById('menu-overlay');
-    const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
 
-    function toggleMenu() {
-        mobileMenuButton.classList.toggle('active');
-        mobileMenu.classList.toggle('active');
-        menuOverlay.classList.toggle('active');
-        document.body.classList.toggle('overflow-hidden');
-        if (mobileMenu.classList.contains('active')) {
-            mobileMenu.classList.remove('hidden');
-            menuOverlay.classList.remove('hidden');
-        } else {
-            setTimeout(() => {
-                if (!mobileMenu.classList.contains('active')) {
-                    mobileMenu.classList.add('hidden');
-                    menuOverlay.classList.add('hidden');
-                }
-            }, 300);
-        }
+    function openMenu() {
+        if (!mobileMenu || !mobileMenuButton || !menuOverlay) return;
+        mobileMenuButton.classList.add('active');
+        mobileMenu.classList.add('active');
+        menuOverlay.classList.add('active');
+        document.body.classList.add('overflow-hidden');
     }
 
     function closeMenu() {
+        if (!mobileMenu || !mobileMenuButton || !menuOverlay) return;
         mobileMenuButton.classList.remove('active');
         mobileMenu.classList.remove('active');
         menuOverlay.classList.remove('active');
         document.body.classList.remove('overflow-hidden');
-        setTimeout(() => {
-            if (!mobileMenu.classList.contains('active')) {
-                mobileMenu.classList.add('hidden');
-                menuOverlay.classList.add('hidden');
-            }
-        }, 300);
+    }
+
+    function toggleMenu() {
+        if (mobileMenu && mobileMenu.classList.contains('active')) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
     }
 
     if (mobileMenuButton) mobileMenuButton.addEventListener('click', toggleMenu);
+    if (mobileMenuCloseBtn) mobileMenuCloseBtn.addEventListener('click', closeMenu);
     if (menuOverlay) menuOverlay.addEventListener('click', closeMenu);
-    mobileMenuLinks.forEach(link => link.addEventListener('click', closeMenu));
 
     // Cerrar menú con tecla ESC
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') closeMenu();
     });
 
-    // --- Clicks en los enlaces del navbar ---
-    document.querySelectorAll('nav a[href^="#"]').forEach(enlace => {
+    // --- Clicks en los enlaces de navegación (Navbar, Menú móvil, Footer) ---
+    document.querySelectorAll('nav a[href^="#"], #mobile-menu a[href^="#"], footer a[href^="#"]').forEach(enlace => {
         enlace.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (!href || !href.startsWith('#')) return;
             e.preventDefault();
-            const seccionId = this.getAttribute('href').split('#')[1];
+            const seccionId = href.split('#')[1];
+
+            // Cerrar menú móvil si está abierto
+            closeMenu();
 
             // Ocultar todas las secciones
             ['inicio', 'historia', 'equipo', 'partidos', 'rivales',
@@ -132,7 +131,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
 
-            // Scroll instantáneo al top (sin animación de desplazamiento)
+            // Scroll suave al top
             window.scrollTo({ top: 0, behavior: 'instant' });
             window.history.pushState({ section: seccionId }, '', `#${seccionId}`);
         });

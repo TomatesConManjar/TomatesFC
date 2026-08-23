@@ -104,7 +104,7 @@
                     </a>
 
                     <!-- Botón hamburguesa -->
-                    <button id="mobile-menu-button" class="md:hidden focus:outline-none hamburger">
+                    <button id="mobile-menu-button" class="md:hidden focus:outline-none hamburger" aria-label="Abrir menú">
                         <div class="w-6 h-6 flex flex-col justify-center items-center">
                             <span class="hamburger-line w-6 h-0.5 bg-white block mb-1"></span>
                             <span class="hamburger-line w-6 h-0.5 bg-white block mb-1"></span>
@@ -114,65 +114,75 @@
                 </div>
             </div>
         </div>
-        <!-- Menú móvil -->
-        <div id="mobile-menu" class="mobile-menu md:hidden fixed inset-y-0 left-0 w-64 shadow-lg z-[9999]" style="background-color: #991b1b !important; background: #991b1b !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; opacity: 1 !important; will-change: transform;">
+    </nav>
 
-            <div class="p-6 h-full flex flex-col justify-between overflow-y-auto">
-                <div>
-                    <!-- Logo en el menú móvil -->
-                    <div class="flex items-center mb-8">
-                        <img src="images/logo_tomates.png" alt="Logo Tomates FC" class="h-10 mr-3">
-                        <span class="font-bold text-lg text-white">Tomates FC</span>
-                    </div>
-                    <!-- Enlaces del menú móvil -->
-                    <nav class="space-y-4">
-                        <a href="#inicio" class="mobile-menu-link block py-3 px-4 text-white hover:bg-red-700 rounded-lg transition duration-300">
-                            <i class="fas fa-home mr-3"></i>Inicio
-                        </a>
-                        <a href="#historia" class="mobile-menu-link block py-3 px-4 text-white hover:bg-red-700 rounded-lg transition duration-300">
-                            <i class="fas fa-book mr-3"></i>Historia
-                        </a>
-                        <a href="#equipo" class="mobile-menu-link block py-3 px-4 text-white hover:bg-red-700 rounded-lg transition duration-300">
-                            <i class="fas fa-users mr-3"></i>Equipo
-                        </a>
-                        <a href="#stats-section" class="mobile-menu-link block py-3 px-4 text-white hover:bg-red-700 rounded-lg transition duration-300">
-                            <i class="fas fa-chart-bar mr-3"></i>Estadísticas
-                        </a>
-                        <a href="#partidos" class="mobile-menu-link block py-3 px-4 text-white hover:bg-red-700 rounded-lg transition duration-300">
-                            <i class="fas fa-futbol mr-3"></i>Partidos
-                        </a>
-                        <a href="#rivales" class="mobile-menu-link block py-3 px-4 text-white hover:bg-red-700 rounded-lg transition duration-300">
-                            <i class="fas fa-users mr-3"></i>Rivales
-                        </a>
-                    
-                    </nav>
+    <!-- Menú móvil (Ubicado fuera de nav para evitar problemas de contexto de apilamiento / backdrop-blur) -->
+    <div id="mobile-menu" class="mobile-menu md:hidden fixed inset-y-0 left-0 w-72 max-w-[85vw] shadow-2xl z-[100] flex flex-col justify-between overflow-y-auto">
+        <div class="p-6">
+            <!-- Header Menú móvil con logo y botón cerrar -->
+            <div class="flex items-center justify-between mb-8 pb-4 border-b border-red-700/60">
+                <div class="flex items-center">
+                    <img src="images/logo_tomates.png" alt="Logo Tomates FC" class="h-10 w-10 mr-3 object-contain">
+                    <span class="font-bold text-xl text-white tracking-wide">Tomates FC</span>
                 </div>
-                <!-- Redes sociales en menú móvil -->
-                <div class="mt-8 pt-6 border-t border-red-700">
-                    <p class="text-gray-300 text-sm mb-4">Síguenos:</p>
-                    <a href="https://www.instagram.com/tomates._fc._?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="inline-flex items-center text-white hover:text-yellow-400 transition duration-300">
-                        <i class="fab fa-instagram text-xl mr-2"></i>
-                        @tomates._fc._
-                    </a>
-                </div>
+                <button id="mobile-menu-close-btn" class="text-white/80 hover:text-yellow-400 p-2 focus:outline-none" aria-label="Cerrar menú">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
             </div>
+            <!-- Enlaces del menú móvil -->
+            <nav class="space-y-2">
+                <a href="#inicio" class="mobile-menu-link flex items-center py-3 px-4 text-white font-medium hover:bg-red-700/80 rounded-xl transition duration-200">
+                    <i class="fas fa-home w-7 text-yellow-400 text-lg"></i>
+                    <span>Inicio</span>
+                </a>
+                <a href="#historia" class="mobile-menu-link flex items-center py-3 px-4 text-white font-medium hover:bg-red-700/80 rounded-xl transition duration-200">
+                    <i class="fas fa-book-open w-7 text-yellow-400 text-lg"></i>
+                    <span>Historia</span>
+                </a>
+                <a href="#equipo" class="mobile-menu-link flex items-center py-3 px-4 text-white font-medium hover:bg-red-700/80 rounded-xl transition duration-200">
+                    <i class="fas fa-users w-7 text-yellow-400 text-lg"></i>
+                    <span>Equipo</span>
+                </a>
+                <a href="#stats-section" class="mobile-menu-link flex items-center py-3 px-4 text-white font-medium hover:bg-red-700/80 rounded-xl transition duration-200">
+                    <i class="fas fa-chart-bar w-7 text-yellow-400 text-lg"></i>
+                    <span>Estadísticas</span>
+                </a>
+                <a href="#partidos" class="mobile-menu-link flex items-center py-3 px-4 text-white font-medium hover:bg-red-700/80 rounded-xl transition duration-200">
+                    <i class="fas fa-futbol w-7 text-yellow-400 text-lg"></i>
+                    <span>Partidos</span>
+                </a>
+                <a href="#rivales" class="mobile-menu-link flex items-center py-3 px-4 text-white font-medium hover:bg-red-700/80 rounded-xl transition duration-200">
+                    <i class="fas fa-shield-alt w-7 text-yellow-400 text-lg"></i>
+                    <span>Rivales</span>
+                </a>
+            </nav>
         </div>
-        <!-- Overlay para cerrar el menú -->
-        <div id="menu-overlay" class="menu-overlay md:hidden fixed inset-0 bg-black bg-opacity-50 z-40"></div>
-    </nav> 
+
+        <!-- Redes sociales en menú móvil -->
+        <div class="p-6 pt-4 border-t border-red-700/60 bg-red-950/30">
+            <p class="text-gray-300 text-xs font-semibold uppercase tracking-wider mb-3">Síguenos en redes</p>
+            <a href="https://www.instagram.com/tomates._fc._?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="inline-flex items-center text-white hover:text-yellow-400 transition duration-200">
+                <i class="fab fa-instagram text-2xl mr-3 text-pink-400"></i>
+                <span class="font-medium text-sm">@tomates._fc._</span>
+            </a>
+        </div>
+    </div>
+    <!-- Overlay para cerrar el menú -->
+    <div id="menu-overlay" class="menu-overlay fixed inset-0 bg-black/60 z-[90] backdrop-blur-sm"></div>
+
     <!-- Hero section -->
-    <section id="inicio" class="hero hero-dynamic-bg">
+    <section id="inicio" class="hero hero-dynamic-bg relative">
+        <!-- Logo de fondo grande con glow dorado y transparencia detrás de todo el texto -->
+        <div class="hero-bg-watermark">
+            <img src="images/logo_tomates.png" alt="Escudo Tomates FC Glow">
+        </div>
+
         <!-- Contenido principal -->
         <div class="hero-content">
             <!-- Badge oficial -->
             <div class="hero-badge">
                 <span class="hero-badge-dot"></span>
                 Temuco, Chile &bull; Desde 2017
-            </div>
-
-            <!-- Logo del equipo -->
-            <div style="margin-bottom:1rem; animation: titleReveal 0.8s 0.05s ease-out both;">
-                <img src="images/logo_tomates.png" alt="Escudo Tomates FC" style="height:100px; width:100px; object-fit:contain; filter: drop-shadow(0 0 24px rgba(251,191,36,0.4)) drop-shadow(0 4px 12px rgba(0,0,0,0.6));">
             </div>
 
             <!-- Título principal -->
@@ -204,7 +214,7 @@
             <div class="hero-scroll-mouse"></div>
         </div>
 
-        <!-- Banda de estadísticas inferior -->
+        <!-- Banda de estadísticas inferior (Responsiva para PC y Móviles) -->
         <div class="hero-stats-band" id="hero-stats-band">
             <div class="hero-stat-item">
                 <span class="hero-stat-number" id="hero-stat-pj">—</span>
@@ -790,7 +800,9 @@
                     <h4 class="text-lg font-semibold mb-4 text-red-400">Enlaces Rápidos</h4>
                     <ul class="space-y-2">
                         <li><a href="#inicio" class="text-gray-300 hover:text-yellow-400 transition">Inicio</a></li>
+                        <li><a href="#historia" class="text-gray-300 hover:text-yellow-400 transition">Historia</a></li>
                         <li><a href="#equipo" class="text-gray-300 hover:text-yellow-400 transition">Nuestro Equipo</a></li>
+                        <li><a href="#stats-section" class="text-gray-300 hover:text-yellow-400 transition">Estadísticas</a></li>
                         <li><a href="#partidos" class="text-gray-300 hover:text-yellow-400 transition">Partidos</a></li>
                         <li><a href="#rivales" class="text-gray-300 hover:text-yellow-400 transition">Rivales</a></li>
                     </ul>

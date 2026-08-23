@@ -9,6 +9,29 @@ document.addEventListener('DOMContentLoaded', function() {
     updateTeamStats();
     renderRivales();
 
+    // Poblar Banda de Stats del Hero con datos reales
+    (function populateHeroStats() {
+        try {
+            let pj = 0, victorias = 0, empates = 0, goles = 0;
+            Object.values(partidosData).forEach(p => {
+                const [gf, gc] = p.resultado.split('-').map(Number);
+                pj++;
+                goles += gf;
+                if (gf > gc) victorias++;
+                else if (gf === gc) empates++;
+            });
+            const setPJ  = document.getElementById('hero-stat-pj');
+            const setV   = document.getElementById('hero-stat-v');
+            const setE   = document.getElementById('hero-stat-e');
+            const setGF  = document.getElementById('hero-stat-gf');
+            if (setPJ)  setPJ.textContent  = pj;
+            if (setV)   setV.textContent   = victorias;
+            if (setE)   setE.textContent   = empates;
+            if (setGF)  setGF.textContent  = goles;
+        } catch(e) { console.warn('Hero stats:', e); }
+    })();
+
+
     // Buscador en la sección de Estadísticas del equipo
     const playerSearchStats = document.getElementById('playerSearchStats');
     if (playerSearchStats) {

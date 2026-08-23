@@ -7,7 +7,8 @@ function syncMobileMenuColor() {
     const mobileMenu = document.getElementById('mobile-menu');
     if (!mobileMenu) return;
     const isDark = document.documentElement.classList.contains('dark');
-    mobileMenu.style.backgroundColor = isDark ? '#c53030' : '#991b1b';
+    mobileMenu.style.backgroundColor = isDark ? '#7f1d1d' : '#991b1b';
+    mobileMenu.style.background      = isDark ? '#7f1d1d' : '#991b1b';
 }
 
 // Toggle dark mode (llamado desde el botón en el navbar)

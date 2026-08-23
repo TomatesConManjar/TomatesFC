@@ -79,24 +79,27 @@ html {
 }
         /* Modo oscuro */
         .dark {
-            background-color: #1a1a1a !important;
-            color: #f0f0f0 !important;
+            background-color: #0f172a !important;
+            color: #f1f5f9 !important;
         }
         .dark .bg-white {
-            background-color: #2d2d2d !important;
-            color: #f0f0f0 !important;
+            background: rgba(15, 23, 42, 0.95) !important;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(239, 68, 68, 0.12) !important;
+            color: #f1f5f9 !important;
         }
         .dark .bg-gray-100 {
-            background-color: #1f1f1f !important;
+            background-color: #0f172a !important;
         }
         .dark .bg-gray-50 {
-        background-color: #2d3748 !important;
+            background-color: #1e293b !important;
         }
         .dark .text-gray-600 {
-            color: #a0aec0 !important;
+            color: #94a3b8 !important;
         }
         .dark .text-gray-700 {
-            color: #cbd5e0 !important;
+            color: #cbd5e1 !important;
         }
         /* Estilos para detalles del jugador en modo oscuro */
         .dark .stat-card {
@@ -218,9 +221,28 @@ html {
             background-color: #c53030 !important;
         }
         .dark .hero {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://img.freepik.com/foto-gratis/detalles-pelota-deporte_23-2151869781.jpg?semt=ais_hybrid&w=740&q=80') !important;
-            background-size: cover !important;
+            background: linear-gradient(135deg, #0f172a 0%, #180b0b 50%, #0f172a 100%) !important;
         }
+        /* Dark mode glass cards - Glassmorphism refinado */
+        .dark .player-card {
+            background: rgba(15, 23, 42, 0.85) !important;
+            border: 1px solid rgba(239, 68, 68, 0.18) !important;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.4), inset 0 1px 0 rgba(239,68,68,0.08) !important;
+        }
+        .dark .player-card:hover {
+            border-color: rgba(239, 68, 68, 0.4) !important;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6), 0 0 30px rgba(239,68,68,0.12), inset 0 1px 0 rgba(255,255,255,0.08) !important;
+        }
+        .dark .match-card, .dark .rival-card {
+            background: rgba(15, 23, 42, 0.85) !important;
+            border: 1px solid rgba(239, 68, 68, 0.15) !important;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.35) !important;
+        }
+        .dark .match-card:hover, .dark .rival-card:hover {
+            border-color: rgba(239, 68, 68, 0.38) !important;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.5), 0 0 20px rgba(239,68,68,0.10) !important;
+        }
+
         /* Botones de filtros en modo oscuro */
         .dark .filter-btn {
             background-color: #4a5568 !important;
@@ -265,9 +287,278 @@ html {
             letter-spacing: 0.05em;
         }
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://img.freepik.com/foto-gratis/detalles-pelota-deporte_23-2151869781.jpg?semt=ais_hybrid&w=740&q=80') no-repeat center center;
-            background-size: cover;
-            height: 60vh;
+            height: 100vh;
+            min-height: 600px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Hero Estilo Club Europeo */
+        .hero-dynamic-bg {
+            background: linear-gradient(-45deg, #7f1d1d, #450a0a, #991b1b, #1e0505, #7f1d1d) !important;
+            background-size: 400% 400% !important;
+            animation: gradientBg 12s ease infinite !important;
+        }
+
+        /* Pattern hexagonal sobre el hero */
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                radial-gradient(circle at 20% 20%, rgba(255,255,255,0.04) 1px, transparent 1px),
+                radial-gradient(circle at 80% 80%, rgba(255,255,255,0.04) 1px, transparent 1px),
+                linear-gradient(60deg, rgba(255,255,255,0.02) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.02) 75%),
+                linear-gradient(-60deg, rgba(255,255,255,0.02) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.02) 75%);
+            background-size: 40px 40px, 40px 40px, 60px 104px, 60px 104px;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Brillo lateral del hero */
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(220, 38, 38, 0.18) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 0 1.5rem;
+        }
+
+        /* Badge oficial en el hero */
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 6px 18px;
+            border-radius: 50px;
+            color: rgba(255,255,255,0.9);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            animation: badgePulse 3s ease-in-out infinite;
+        }
+
+        @keyframes badgePulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(220,38,38,0.0); }
+            50%       { box-shadow: 0 0 0 8px rgba(220,38,38,0.0), 0 0 20px rgba(220,38,38,0.25); }
+        }
+
+        .hero-badge-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #fbbf24;
+            box-shadow: 0 0 8px #fbbf24;
+            animation: dotBlink 2s ease-in-out infinite;
+        }
+
+        @keyframes dotBlink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        /* Título hero con gradiente metálico */
+        .hero-title {
+            font-family: 'Bebas Neue', cursive;
+            font-size: clamp(4rem, 12vw, 9rem);
+            line-height: 0.9;
+            letter-spacing: 0.04em;
+            background: linear-gradient(180deg, #ffffff 0%, #fde68a 50%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: none;
+            filter: drop-shadow(0 4px 24px rgba(251, 191, 36, 0.35));
+            animation: titleReveal 1s ease-out both;
+        }
+
+        @keyframes titleReveal {
+            from { opacity: 0; transform: translateY(30px) scale(0.95); }
+            to   { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .hero-subtitle {
+            font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+            color: rgba(255,255,255,0.72);
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            margin-top: 0.5rem;
+            animation: titleReveal 1s 0.2s ease-out both;
+        }
+
+        /* Línea decorativa con dot central */
+        .hero-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin: 1.5rem 0;
+            animation: titleReveal 1s 0.35s ease-out both;
+        }
+        .hero-divider::before, .hero-divider::after {
+            content: '';
+            width: 80px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(251,191,36,0.6));
+        }
+        .hero-divider::after {
+            background: linear-gradient(-90deg, transparent, rgba(251,191,36,0.6));
+        }
+        .hero-divider-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #fbbf24;
+        }
+
+        /* Botón hero glassmorphism */
+        .hero-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: #1a0a00;
+            font-weight: 800;
+            font-size: 0.9rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 14px 36px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 32px rgba(245, 158, 11, 0.35), 0 0 0 0 rgba(245,158,11,0);
+            animation: titleReveal 1s 0.5s ease-out both;
+            text-decoration: none;
+        }
+        .hero-btn:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 16px 48px rgba(245, 158, 11, 0.5), 0 0 0 4px rgba(245,158,11,0.2);
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            color: #1a0a00;
+        }
+
+        .hero-btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.25);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            color: white;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            padding: 14px 28px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: titleReveal 1s 0.6s ease-out both;
+            text-decoration: none;
+        }
+        .hero-btn-secondary:hover {
+            background: rgba(255,255,255,0.16);
+            border-color: rgba(255,255,255,0.45);
+            transform: translateY(-3px);
+            color: white;
+        }
+
+        /* Banda inferior de stats en hero */
+        .hero-stats-band {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.35);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: center;
+            gap: clamp(1.5rem, 5vw, 4rem);
+            z-index: 2;
+            animation: titleReveal 1s 0.8s ease-out both;
+        }
+        .hero-stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+        }
+        .hero-stat-number {
+            font-family: 'Bebas Neue', cursive;
+            font-size: clamp(1.5rem, 4vw, 2.4rem);
+            color: #fbbf24;
+            line-height: 1;
+        }
+        .hero-stat-label {
+            font-size: clamp(0.6rem, 1.5vw, 0.72rem);
+            color: rgba(255,255,255,0.55);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+        .hero-stat-divider {
+            width: 1px;
+            height: 40px;
+            background: rgba(255,255,255,0.12);
+            align-self: center;
+        }
+
+        /* Scroll indicator animado */
+        .hero-scroll-indicator {
+            position: absolute;
+            bottom: 90px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            animation: titleReveal 1s 1s ease-out both;
+        }
+        .hero-scroll-mouse {
+            width: 22px;
+            height: 36px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 11px;
+            position: relative;
+        }
+        .hero-scroll-mouse::before {
+            content: '';
+            position: absolute;
+            top: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 8px;
+            background: rgba(255,255,255,0.6);
+            border-radius: 2px;
+            animation: scrollBounce 2s ease-in-out infinite;
+        }
+        @keyframes scrollBounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); opacity: 1; }
+            50% { transform: translateX(-50%) translateY(8px); opacity: 0.4; }
         }
 
         /* ============================================================
@@ -350,11 +641,18 @@ html {
             transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
             background-color: #991b1b !important;
             background: #991b1b !important;
-            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            border-right: 2px solid rgba(255, 255, 255, 0.15);
+            isolation: isolate;
+            opacity: 1 !important;
+        }
+        .mobile-menu * {
+            opacity: 1 !important;
         }
         .dark .mobile-menu {
-            background-color: #c53030 !important;
-            background: #c53030 !important;
+            background-color: #7f1d1d !important;
+            background: #7f1d1d !important;
         }
         .dark .submenu, .dark .submenu li {
             background-color: #c53030 !important;
@@ -362,8 +660,24 @@ html {
         }
         .mobile-menu.active {
             transform: translateX(0);
-            box-shadow: 10px 0 30px rgba(0, 0, 0, 0.3);
+            box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5);
         }
+        /* Asegura que el nav no transfiera el backdrop-filter al menú móvil */
+        nav {
+            isolation: isolate;
+        }
+        /* Texto blanco explícito en menú móvil */
+        .mobile-menu a,
+        .mobile-menu span,
+        .mobile-menu p,
+        .mobile-menu i {
+            color: #ffffff !important;
+            opacity: 1 !important;
+        }
+        .mobile-menu a:hover {
+            color: #fde68a !important;
+        }
+
         /* Animación del botón hamburguesa */
         .hamburger-line {
             transition: all 0.3s ease;

@@ -746,11 +746,16 @@ function renderPitchTokens() {
         token.setAttribute('draggable', 'true');
         token.setAttribute('title', player ? `${player.name} — ${pos.label}` : `Posición: ${pos.label}`);
 
+        const avatarSrc = player ? player.img : 'images/logo_tomates.png';
+        const numBadge = player ? `<span class="pitch-token-number">${player.num}</span>` : '';
         token.innerHTML = `
-            <img class="pitch-token-avatar"
-                 src="${player ? player.img : 'images/logo_tomates.png'}"
-                 alt="${player ? player.name : pos.label}"
-                 onerror="this.src='images/logo_tomates.png'">
+            <div class="pitch-token-avatar-container">
+                <img class="pitch-token-avatar"
+                     src="${avatarSrc}"
+                     alt="${player ? player.name : pos.label}"
+                     onerror="this.src='images/logo_tomates.png'">
+                ${numBadge}
+            </div>
             <span class="pitch-token-name">${player ? player.name : pos.label}</span>
         `;
 
@@ -1012,42 +1017,166 @@ window.exportLineup = async function() {
     const pitch = document.getElementById('tactical-pitch');
     if (!pitch) return;
     const btn = document.getElementById('export-lineup-btn');
+    const originalText = btn.innerHTML;
     btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-1"></i> Generando...';
     btn.disabled = true;
 
     try {
-        const canvas = await html2canvas(pitch, {
+        const totalPlayers = FORMATIONS[currentFormation] ? FORMATIONS[currentFormation].length : 7;
+        const modeLabel = `FÚTBOL ${totalPlayers}`;
+        const formattedFormation = currentFormation.split('-').join(' - ');
+
+        // Crear contenedor para la tarjeta de exportación
+        const exportCard = document.createElement('div');
+        exportCard.id = 'export-card-temp';
+        exportCard.style.position = 'fixed';
+        exportCard.style.left = '-9999px';
+        exportCard.style.top = '-9999px';
+        exportCard.style.width = '640px';
+        exportCard.style.padding = '28px';
+        exportCard.style.background = 'linear-gradient(135deg, #2d060e 0%, #120005 50%, #400311 100%)';
+        exportCard.style.border = '5px solid #fbbf24';
+        exportCard.style.borderRadius = '24px';
+        exportCard.style.fontFamily = "'Outfit', sans-serif";
+        exportCard.style.color = '#ffffff';
+        exportCard.style.display = 'flex';
+        exportCard.style.flexDirection = 'column';
+        exportCard.style.gap = '24px';
+        exportCard.style.boxShadow = '0 25px 60px rgba(0,0,0,0.8)';
+        exportCard.style.boxSizing = 'border-box';
+
+        // 1. Header HTML
+        const headerDiv = document.createElement('div');
+        headerDiv.style.display = 'flex';
+        headerDiv.style.alignItems = 'center';
+        headerDiv.style.justifyContent = 'space-between';
+        headerDiv.style.borderBottom = '2px solid rgba(251, 191, 36, 0.25)';
+        headerDiv.style.paddingBottom = '16px';
+        headerDiv.innerHTML = `
+            <div style="display: flex; align-items: center; gap: 18px;">
+                <img src="images/logo_tomates.png" style="width: 75px; height: 75px; object-fit: contain; filter: drop-shadow(0 0 10px rgba(251,191,36,0.5));">
+                <div>
+                    <div style="font-family: 'Bebas Neue', sans-serif; font-size: 46px; line-height: 1; letter-spacing: 2px; font-style: italic; font-weight: 900; background: linear-gradient(180deg, #ffffff 0%, #fde68a 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">TOMATES FC</div>
+                    <div style="font-size: 13px; color: #fbbf24; letter-spacing: 3px; font-weight: 800; margin-top: 4px;">ALINEACIÓN TITULAR</div>
+                </div>
+            </div>
+            <div style="background: rgba(0,0,0,0.45); border: 2px solid #fbbf24; border-radius: 12px; padding: 6px 16px; text-align: center; min-width: 100px;">
+                <div style="font-size: 9px; color: #fbbf24; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;">FORMACIÓN</div>
+                <div style="font-family: 'Bebas Neue', sans-serif; font-size: 24px; color: white; letter-spacing: 2px; margin-top: 2px; font-weight: bold;">${formattedFormation}</div>
+            </div>
+        `;
+        exportCard.appendChild(headerDiv);
+
+        // 2. Cancha Clonada y redimensionada
+        const pitchClone = pitch.cloneNode(true);
+        pitchClone.style.width = '580px';
+        pitchClone.style.maxWidth = 'none';
+        pitchClone.style.height = '828px'; // Mantiene proporción 7:10
+        pitchClone.style.border = '4px solid rgba(255,255,255,0.3)';
+        pitchClone.style.borderRadius = '16px';
+        pitchClone.style.boxShadow = '0 12px 30px rgba(0,0,0,0.5)';
+        pitchClone.style.margin = '0 auto';
+        pitchClone.style.position = 'relative';
+
+        // Redimensionar las fichas en el clon
+        pitchClone.querySelectorAll('.pitch-player-token').forEach(token => {
+            token.style.transform = 'translate(-50%, -50%)'; // Evita desalineación
+            
+            // Contenedor Avatar
+            const container = token.querySelector('.pitch-token-avatar-container');
+            if (container) {
+                container.style.width = '70px';
+                container.style.height = '70px';
+            }
+            
+            // Imagen Avatar
+            const avatar = token.querySelector('.pitch-token-avatar');
+            if (avatar) {
+                avatar.style.width = '100%';
+                avatar.style.height = '100%';
+                avatar.style.borderWidth = '3.5px';
+            }
+            
+            // Número de camiseta
+            const numBadge = token.querySelector('.pitch-token-number');
+            if (numBadge) {
+                numBadge.style.width = '24px';
+                numBadge.style.height = '24px';
+                numBadge.style.fontSize = '12px';
+                numBadge.style.bottom = '-6px';
+                numBadge.style.borderWidth = '2px';
+            }
+            
+            // Nombre del jugador
+            const nameLabel = token.querySelector('.pitch-token-name');
+            if (nameLabel) {
+                nameLabel.style.marginTop = '10px';
+                nameLabel.style.fontSize = '12px';
+                nameLabel.style.padding = '3px 12px';
+                nameLabel.style.borderRadius = '8px';
+                nameLabel.style.borderWidth = '1.5px';
+                nameLabel.style.maxWidth = '110px';
+            }
+        });
+        exportCard.appendChild(pitchClone);
+
+        // 3. Footer HTML
+        const footerDiv = document.createElement('div');
+        footerDiv.style.display = 'flex';
+        footerDiv.style.alignItems = 'center';
+        footerDiv.style.justifyContent = 'space-between';
+        footerDiv.style.paddingTop = '16px';
+        footerDiv.style.borderTop = '2px solid rgba(251, 191, 36, 0.25)';
+        footerDiv.style.fontSize = '14px';
+        footerDiv.style.fontWeight = '800';
+        footerDiv.style.color = 'rgba(255,255,255,0.85)';
+        footerDiv.style.letterSpacing = '1px';
+        footerDiv.innerHTML = `
+            <div style="display: flex; align-items: center; gap: 8px;">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#fbbf24" stroke-width="2.5" style="display:inline-block; vertical-align:middle;">
+                    <rect x="2" y="2" width="20" height="20" rx="3"/>
+                    <line x1="2" y1="12" x2="22" y2="12"/>
+                    <circle cx="12" cy="12" r="4"/>
+                </svg>
+                <span style="text-transform: uppercase;">${modeLabel}</span>
+            </div>
+            <div>
+                <img src="images/logo_tomates.png" style="width: 28px; height: 28px; object-fit: contain;">
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="#fbbf24" style="display:inline-block; vertical-align:middle;">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+                <span style="margin-left: 2.2px; font-family: 'Outfit', sans-serif;">tomates._fc._</span>
+            </div>
+        `;
+        exportCard.appendChild(footerDiv);
+
+        // Añadir temporalmente al DOM para que html2canvas lo dibuje
+        document.body.appendChild(exportCard);
+
+        const canvas = await html2canvas(exportCard, {
             backgroundColor: null,
             scale: 2,
             useCORS: true,
             allowTaint: true,
         });
-        // Añadir marco con nombre del equipo
-        const finalCanvas = document.createElement('canvas');
-        const padding = 40;
-        finalCanvas.width = canvas.width + padding * 2;
-        finalCanvas.height = canvas.height + padding * 2 + 60;
-        const ctx = finalCanvas.getContext('2d');
-        // Fondo rojo oscuro
-        ctx.fillStyle = '#7f1d1d';
-        ctx.fillRect(0, 0, finalCanvas.width, finalCanvas.height);
-        // Cancha
-        ctx.drawImage(canvas, padding, padding);
-        // Texto header
-        ctx.fillStyle = '#fbbf24';
-        ctx.font = `bold ${padding}px "Bebas Neue", sans-serif`;
-        ctx.textAlign = 'center';
-        ctx.fillText('TOMATES FC — ALINEACIÓN', finalCanvas.width / 2, finalCanvas.height - 18);
+
+        // Remover temporal del DOM
+        document.body.removeChild(exportCard);
 
         const link = document.createElement('a');
-        link.download = 'formacion-tomatesfc.png';
-        link.href = finalCanvas.toDataURL('image/png');
+        link.download = `alineacion-tomatesfc-${currentFormation}.png`;
+        link.href = canvas.toDataURL('image/png');
         link.click();
     } catch (err) {
         console.error('Error exportando alineación:', err);
         alert('No se pudo exportar la imagen. Intenta de nuevo.');
+        // Intentar limpiar por si acaso
+        const temp = document.getElementById('export-card-temp');
+        if (temp) temp.remove();
     }
-    btn.innerHTML = '<i class="fas fa-download mr-1"></i> Exportar a Redes';
+    btn.innerHTML = originalText;
     btn.disabled = false;
 };
 

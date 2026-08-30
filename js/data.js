@@ -847,7 +847,7 @@ const partidosData = {
     }
 };
 
-// Datos de los 8 jugadores con estadísticas individuales por partido
+// Datos base de los jugadores (las estadísticas y partidos se calculan automáticamente desde partidosData)
 const jugadoresData = {
     'agustin-vilhelm': {
         nombre: 'Agustín Vilhelm',
@@ -855,26 +855,7 @@ const jugadoresData = {
         posicion: 'Arquero',
         frase: 'Si la pelota me llega a las manos, el partido es nuestro',
         imagenCamiseta: 'images/dorsal_vilhelm1.jpg',
-        partidos: [
-            { id: 28, rival: 'Vaqueros', fecha: 'Jueves 05 Febrero 2026', goles: 0, asistencias: 0 },
-            { id: 30, rival: 'Equipo Pablismo', fecha: 'Domingo 15 Marzo 2026', goles: 0, asistencias: 0 },
-            { id: 34, rival: 'Pirula', fecha: 'Viernes 10 Abril 2026', goles: 0, asistencias: 0 },
-            { id: 35, rival: 'Pirula', fecha: 'Viernes 17 Abril 2026', goles: 0, asistencias: 0 },
-            { id: 36, rival: 'Medicina FC', fecha: 'Viernes 24 Abril 2026', goles: 0, asistencias: 0 },
-            { id: 37, rival: 'Equipo Galleta', fecha: 'Jueves 14 Mayo 2026', goles: 0, asistencias: 0 },
-            { id: 39, rival: 'Medicina FC', fecha: 'Miercoles 20 Mayo 2026', goles: 0, asistencias: 0 },
-            { id: 40, rival: 'Interdiktos', fecha: 'Viernes 29 Mayo 2026', goles: 0, asistencias: 1 },
-            { id: 41, rival: 'Real Madrici', fecha: 'Viernes 12 Junio 2026', goles: 0, asistencias: 0 },
-            { id: 42, rival: 'Rupu FC', fecha: 'Viernes 19 Junio 2026', goles: 0, asistencias: 0 },
-            { id: 43, rival: 'Equipo Pablismo', fecha: 'Domingo 28 Junio 2026', goles: 0, asistencias: 2 },
-            { id: 44, rival: 'Equipo Pablismo', fecha: 'Domingo 12 Julio 2026', goles: 0, asistencias: 0 },
-            { id: 45, rival: 'Medicina FC', fecha: 'Jueves 16 Julio 2026', goles: 0, asistencias: 0 },
-            { id: 46, rival: 'Vaqueros', fecha: 'Domingo 26 Julio 2026', goles: 0, asistencias: 0 },
-            { id: 47, rival: 'Vaqueros', fecha: 'Lunes 27 Julio 2026', goles: 2, asistencias: 0 },
-            { id: 48, rival: 'Real Nutrid', fecha: 'Jueves 06 Agosto 2026', goles: 0, asistencias: 1 },
-            { id: 49, rival: 'Real Nutrid', fecha: 'Martes 11 Agosto 2026', goles: 0, asistencias: 0 },
-            { id: 50, rival: 'Pirula', fecha: 'Jueves 27 Agosto 2026', goles: 0, asistencias: 0 }
-        ]
+        partidos: []
     },
     'leandro-zavala': {
         nombre: 'Leandro Zavala',
@@ -882,39 +863,7 @@ const jugadoresData = {
         posicion: 'Defensa',
         frase: 'La defensa es el pilar de todo gran equipo',
         imagenCamiseta: 'images/dorsal_zavala5.jpg',
-        partidos: [
-            { id: 1, rival: 'Vaqueros', fecha: 'Lunes 20 Enero 2025', goles: 0, asistencias: 1 },
-            { id: 2, rival: 'Vaqueros', fecha: 'Lunes 3 Marzo 2025', goles: 1, asistencias: 0 },
-            { id: 3, rival: 'Manchester ICI', fecha: 'Viernes 28 Marzo 2025', goles: 1, asistencias: 0 },
-            { id: 4, rival: 'Vaqueros', fecha: 'Jueves 1 Mayo 2025', goles: 1, asistencias: 1 },
-            { id: 5, rival: 'Real Justicia', fecha: 'Viernes 9 Mayo 2025', goles: 5, asistencias: 4 },
-            { id: 6, rival: 'Microdosis', fecha: 'Sábado 24 Mayo 2025', goles: 0, asistencias: 0 },
-            { id: 7, rival: 'Real Justicia', fecha: 'Viernes 30 Mayo 2025', goles: 4, asistencias: 0 },
-            { id: 13, rival: 'Equipo Maradona', fecha: 'Jueves 04 Septiembre 2025', goles: 0, asistencias: 1 },
-            { id: 14, rival: 'Equipo David', fecha: 'Jueves 11 Septiembre 2025', goles: 1, asistencias: 0 },
-            { id: 15, rival: 'Medicina FC', fecha: 'Miércoles 17 Septiembre 2025', goles: 1, asistencias: 3 },
-            { id: 16, rival: 'Pirula', fecha: 'Viernes 26 Septiembre 2025', goles: 0, asistencias: 0 },
-            { id: 18, rival: 'Medicina FC', fecha: 'Martes 14 Octubre 2025', goles: 0, asistencias: 0 },
-            { id: 19, rival: 'Conoco Grande', fecha: 'Jueves 16 Octubre 2025', goles: 1, asistencias: 4 },
-            { id: 32, rival: 'Medicina FC', fecha: 'Jueves 26 Marzo 2026', goles: 1, asistencias: 0 },
-            { id: 33, rival: 'Pirula', fecha: 'Viernes 27 Marzo 2026', goles: 0, asistencias: 2 },
-            { id: 34, rival: 'Pirula', fecha: 'Viernes 10 Abril 2026', goles: 0, asistencias: 0 },
-            { id: 35, rival: 'Pirula', fecha: 'Viernes 17 Abril 2026', goles: 1, asistencias: 1 },
-            { id: 37, rival: 'Equipo Galleta', fecha: 'Jueves 14 Mayo 2026', goles: 2, asistencias: 2 },
-            { id: 38, rival: 'Interdiktos', fecha: 'Viernes 15 Mayo 2026', goles: 0, asistencias: 1 },
-            { id: 39, rival: 'Medicina FC', fecha: 'Miercoles 20 Mayo 2026', goles: 1, asistencias: 2 },
-            { id: 40, rival: 'Interdiktos', fecha: 'Viernes 29 Mayo 2026', goles: 2, asistencias: 0 },
-            { id: 41, rival: 'Real Madrici', fecha: 'Viernes 12 Junio 2026', goles: 0, asistencias: 1 },
-            { id: 42, rival: 'Rupu FC', fecha: 'Viernes 19 Junio 2026', goles: 0, asistencias: 2 },
-            { id: 43, rival: 'Equipo Pablismo', fecha: 'Domingo 28 Junio 2026', goles: 0, asistencias: 0 },
-            { id: 44, rival: 'Equipo Pablismo', fecha: 'Domingo 12 Julio 2026', goles: 0, asistencias: 0 },
-            { id: 45, rival: 'Medicina FC', fecha: 'Jueves 16 Julio 2026', goles: 0, asistencias: 0 },
-            { id: 46, rival: 'Vaqueros', fecha: 'Domingo 26 Julio 2026', goles: 2, asistencias: 0 },
-            { id: 47, rival: 'Vaqueros', fecha: 'Lunes 27 Julio 2026', goles: 1, asistencias: 0 },
-            { id: 48, rival: 'Real Nutrid', fecha: 'Jueves 06 Agosto 2026', goles: 0, asistencias: 1 },
-            { id: 50, rival: 'Pirula', fecha: 'Jueves 27 Agosto 2026', goles: 1, asistencias: 2 },
-            { id: 51, rival: 'Equipo Maradona', fecha: 'Viernes 28 Agosto 2026', goles: 0, asistencias: 0 }
-        ]
+        partidos: []
     },
     'francisco-lizama': {
         nombre: 'Francisco Lizama',
@@ -922,27 +871,7 @@ const jugadoresData = {
         posicion: 'Defensa',
         frase: 'La última línea de defensa, siempre alerta',
         imagenCamiseta: 'images/dorsal_lizama6.jpg',
-        partidos: [
-            { id: 4, rival: 'Vaqueros', fecha: 'Jueves 1 Mayo 2025', goles: 1, asistencias: 0 },
-            { id: 5, rival: 'Real Justicia', fecha: 'Viernes 9 Mayo 2025', goles: 0, asistencias: 0 },
-            { id: 6, rival: 'Microdosis', fecha: 'Sábado 24 Mayo 2025', goles: 0, asistencias: 0 },
-            { id: 7, rival: 'Real Justicia', fecha: 'Viernes 30 Mayo 2025', goles: 0, asistencias: 0 },
-            { id: 8, rival: 'Resistencia IC', fecha: 'Viernes 27 Junio 2025', goles: 0, asistencias: 0 },
-            { id: 15, rival: 'Medicina FC', fecha: 'Miércoles 17 Septiembre 2025', goles: 0, asistencias: 0 },
-            { id: 17, rival: 'Equipo Maradona', fecha: 'Viernes 10 Octubre 2025', goles: 0, asistencias: 0 },
-            { id: 18, rival: 'Medicina FC', fecha: 'Martes 14 Octubre 2025', goles: 0, asistencias: 0 },
-            { id: 19, rival: 'Conoco Grande', fecha: 'Jueves 16 Octubre 2025', goles: 0, asistencias: 0 },
-            { id: 20, rival: 'Equipo Maradona', fecha: 'Viernes 24 Octubre 2025', goles: 0, asistencias: 0 },
-            { id: 22, rival: 'Equipo Geobani', fecha: 'Martes 04 Noviembre 2025', goles: 0, asistencias: 0 },
-            { id: 23, rival: 'Pirula', fecha: 'Miercoles 05 Noviembre 2025', goles: 0, asistencias: 1 },
-            { id: 26, rival: 'Pirula', fecha: 'Sábado 29 Noviembre 2025', goles: 0, asistencias: 1 },
-            { id: 27, rival: 'Equipo Pablismo', fecha: 'Domingo 14 Diciembre 2025', goles: 0, asistencias: 0 },
-            { id: 28, rival: 'Vaqueros', fecha: 'Jueves 05 Febrero 2026', goles: 0, asistencias: 0 },
-            { id: 31, rival: 'Pirula', fecha: 'Viernes 20 Marzo 2026', goles: 0, asistencias: 0 },
-            { id: 36, rival: 'Medicina FC', fecha: 'Viernes 24 Abril 2026', goles: 0, asistencias: 0 },
-            { id: 37, rival: 'Equipo Galleta', fecha: 'Jueves 14 Mayo 2026', goles: 0, asistencias: 1 },
-            { id: 42, rival: 'Rupu FC', fecha: 'Viernes 19 Junio 2026', goles: 0, asistencias: 0 }
-        ]
+        partidos: []
     },
     'benjamin-garces': {
         nombre: 'Benjamín Garcés',
@@ -950,55 +879,7 @@ const jugadoresData = {
         posicion: 'Delantero',
         frase: 'Cada gol cuenta, y yo estoy aquí para marcar la diferencia',
         imagenCamiseta: 'images/dorsal_garces7.jpg',
-        partidos: [
-            { id: 1, rival: 'Vaqueros', fecha: 'Lunes 20 Enero 2025', goles: 12, asistencias: 4 },
-            { id: 2, rival: 'Vaqueros', fecha: 'Lunes 3 Marzo 2025', goles: 7, asistencias: 1 },
-            { id: 3, rival: 'Manchester ICI', fecha: 'Viernes 28 Marzo 2025', goles: 0, asistencias: 0 },
-            { id: 4, rival: 'Vaqueros', fecha: 'Jueves 1 Mayo 2025', goles: 1, asistencias: 0 },
-            { id: 5, rival: 'Real Justicia', fecha: 'Viernes 9 Mayo 2025', goles: 1, asistencias: 2 },
-            { id: 6, rival: 'Microdosis', fecha: 'Sábado 24 Mayo 2025', goles: 1, asistencias: 0 },
-            { id: 7, rival: 'Real Justicia', fecha: 'Viernes 30 Mayo 2025', goles: 1, asistencias: 3 },
-            { id: 8, rival: 'Resistencia IC', fecha: 'Viernes 27 Junio 2025', goles: 1, asistencias: 1 },
-            { id: 9, rival: 'Vaqueros', fecha: 'Lunes 14 Julio 2025', goles: 2, asistencias: 2 },
-            { id: 10, rival: 'Real Justicia', fecha: 'Viernes 18 Julio 2025', goles: 2, asistencias: 1 },
-            { id: 11, rival: 'Vaqueros', fecha: 'Jueves 31 Julio 2025', goles: 2, asistencias: 1 },
-            { id: 12, rival: 'Equipo Pablismo', fecha: 'Sábado 23 Agosto 2025', goles: 0, asistencias: 1 },
-            { id: 13, rival: 'Equipo Maradona', fecha: 'Jueves 04 Septiembre 2025', goles: 1, asistencias: 3 },
-            { id: 14, rival: 'Equipo David', fecha: 'Jueves 11 Septiembre 2025', goles: 0, asistencias: 2 },
-            { id: 15, rival: 'Medicina FC', fecha: 'Miércoles 17 Septiembre 2025', goles: 1, asistencias: 2 },
-            { id: 16, rival: 'Pirula', fecha: 'Viernes 26 Septiembre 2025', goles: 3, asistencias: 3 },
-            { id: 17, rival: 'Equipo Maradona', fecha: 'Viernes 10 Octubre 2025', goles: 1, asistencias: 1 },
-            { id: 18, rival: 'Medicina FC', fecha: 'Martes 14 Octubre 2025', goles: 3, asistencias: 2 },
-            { id: 19, rival: 'Conoco Grande', fecha: 'Jueves 16 Octubre 2025', goles: 6, asistencias: 2 },
-            { id: 20, rival: 'Equipo Maradona', fecha: 'Viernes 24 Octubre 2025', goles: 0, asistencias: 1 },
-            { id: 21, rival: 'Pirula', fecha: 'Jueves 30 Octubre 2025', goles: 1, asistencias: 1 },
-            { id: 22, rival: 'Equipo Geobani', fecha: 'Martes 04 Noviembre 2025', goles: 0, asistencias: 0 },
-            { id: 23, rival: 'Pirula', fecha: 'Miercoles 05 Noviembre 2025', goles: 4, asistencias: 0 },
-            { id: 24, rival: 'Pirula', fecha: 'Jueves 13 Noviembre 2025', goles: 0, asistencias: 2 },
-            { id: 25, rival: 'Real Justicia', fecha: 'Viernes 14 Noviembre 2025', goles: 1, asistencias: 1 },
-            { id: 26, rival: 'Pirula', fecha: 'Sábado 29 Noviembre 2025', goles: 3, asistencias: 2 },
-            { id: 27, rival: 'Equipo Pablismo', fecha: 'Domingo 14 Diciembre 2025', goles: 2, asistencias: 0 },
-            { id: 28, rival: 'Vaqueros', fecha: 'Jueves 05 Febrero 2025', goles: 4, asistencias: 2 },
-            { id: 30, rival: 'Equipo Pablismo', fecha: 'Domingo 15 Marzo 2026', goles: 0, asistencias: 0 },
-            { id: 31, rival: 'Pirula', fecha: 'Viernes 20 Marzo 2026', goles: 1, asistencias: 1 },
-            { id: 32, rival: 'Medicina FC', fecha: 'Jueves 26 Marzo 2026', goles: 1, asistencias: 0 },
-            { id: 33, rival: 'Pirula', fecha: 'Viernes 27 Marzo 2026', goles: 1, asistencias: 0 },
-            { id: 34, rival: 'Pirula', fecha: 'Viernes 10 Abril 2026', goles: 0, asistencias: 0 },
-            { id: 35, rival: 'Pirula', fecha: 'Viernes 17 Abril 2026', goles: 0, asistencias: 1 },
-            { id: 36, rival: 'Medicina FC', fecha: 'Viernes 24 Abril 2026', goles: 0, asistencias: 1 },
-            { id: 39, rival: 'Medicina FC', fecha: 'Miercoles 20 Mayo 2026', goles: 0, asistencias: 0 },
-            { id: 40, rival: 'Interdiktos', fecha: 'Viernes 29 Mayo 2026', goles: 0, asistencias: 0 },
-            { id: 41, rival: 'Real Madrici', fecha: 'Viernes 12 Junio 2026', goles: 1, asistencias: 0 },
-            { id: 43, rival: 'Equipo Pablismo', fecha: 'Domingo 28 Junio 2026', goles: 5, asistencias: 2 },
-            { id: 44, rival: 'Equipo Pablismo', fecha: 'Domingo 12 Julio 2026', goles: 0, asistencias: 0 },
-            { id: 45, rival: 'Medicina FC', fecha: 'Jueves 16 Julio 2026', goles: 2, asistencias: 0 },
-            { id: 46, rival: 'Vaqueros', fecha: 'Domingo 26 Julio 2026', goles: 0, asistencias: 1 },
-            { id: 47, rival: 'Vaqueros', fecha: 'Lunes 27 Julio 2026', goles: 2, asistencias: 1 },
-            { id: 48, rival: 'Real Nutrid', fecha: 'Jueves 06 Agosto 2026', goles: 3, asistencias: 0 },
-            { id: 49, rival: 'Real Nutrid', fecha: 'Martes 11 Agosto 2026', goles: 0, asistencias: 1 },
-            { id: 50, rival: 'Pirula', fecha: 'Jueves 27 Agosto 2026', goles: 2, asistencias: 3 },
-            { id: 51, rival: 'Equipo Maradona', fecha: 'Viernes 28 Agosto 2026', goles: 0, asistencias: 3 }
-        ]
+        partidos: []
     },
     'cristobal-santibanez': {
         nombre: 'Cristóbal Santibáñez',
@@ -1006,35 +887,7 @@ const jugadoresData = {
         posicion: 'Delantero',
         frase: 'Anticipar el juego es lo que me define como delantero',
         imagenCamiseta: 'images/dorsal_kryzpo8.jpg',
-        partidos: [
-            { id: 2, rival: 'Vaqueros', fecha: 'Lunes 3 Marzo 2025', goles: 7, asistencias: 1 },
-            { id: 3, rival: 'Manchester ICI', fecha: 'Viernes 28 Marzo 2025', goles: 0, asistencias: 0 },
-            { id: 4, rival: 'Vaqueros', fecha: 'Jueves 1 Mayo 2025', goles: 1, asistencias: 0 },
-            { id: 9, rival: 'Vaqueros', fecha: 'Lunes 14 Julio 2025', goles: 2, asistencias: 2 },
-            { id: 11, rival: 'Vaqueros', fecha: 'Jueves 31 Julio 2025', goles: 3, asistencias: 0 },
-            { id: 12, rival: 'Equipo Pablismo', fecha: 'Sábado 23 Agosto 2025', goles: 2, asistencias: 0 },
-            { id: 13, rival: 'Equipo Maradona', fecha: 'Jueves 04 Septiembre 2025', goles: 3, asistencias: 0 },
-            { id: 14, rival: 'Equipo David', fecha: 'Jueves 11 Septiembre 2025', goles: 3, asistencias: 0 },
-            { id: 16, rival: 'Pirula', fecha: 'Viernes 26 Septiembre 2025', goles: 1, asistencias: 1 },
-            { id: 17, rival: 'Equipo Maradona', fecha: 'Viernes 10 Octubre 2025', goles: 1, asistencias: 0 },
-            { id: 18, rival: 'Medicina FC', fecha: 'Martes 14 Octubre 2025', goles: 2, asistencias: 0 },
-            { id: 20, rival: 'Equipo Maradona', fecha: 'Viernes 24 Octubre 2025', goles: 1, asistencias: 0 },
-            { id: 21, rival: 'Pirula', fecha: 'Jueves 30 Octubre 2025', goles: 1, asistencias: 0 },
-            { id: 22, rival: 'Equipo Geobani', fecha: 'Martes 04 Noviembre 2025', goles: 1, asistencias: 1 },
-            { id: 25, rival: 'Real Justicia', fecha: 'Viernes 14 Noviembre 2025', goles: 2, asistencias: 1 },
-            { id: 27, rival: 'Equipo Pablismo', fecha: 'Domingo 14 Diciembre 2025', goles: 1, asistencias: 0 },
-            { id: 30, rival: 'Equipo Pablismo', fecha: 'Domingo 15 Marzo 2026', goles: 2, asistencias: 2 },
-            { id: 31, rival: 'Pirula', fecha: 'Viernes 20 Marzo 2026', goles: 3, asistencias: 2 },
-            { id: 33, rival: 'Pirula', fecha: 'Viernes 27 Marzo 2026', goles: 2, asistencias: 0 },
-            { id: 34, rival: 'Pirula', fecha: 'Viernes 10 Abril 2026', goles: 2, asistencias: 0 },
-            { id: 35, rival: 'Pirula', fecha: 'Viernes 17 Abril 2026', goles: 1, asistencias: 3 },
-            { id: 38, rival: 'Interdiktos', fecha: 'Viernes 15 Mayo 2026', goles: 1, asistencias: 0 },
-            { id: 41, rival: 'Real Madrici', fecha: 'Viernes 12 Junio 2026', goles: 1, asistencias: 1 },
-            { id: 42, rival: 'Rupu FC', fecha: 'Viernes 19 Junio 2026', goles: 0, asistencias: 2 },
-            { id: 43, rival: 'Equipo Pablismo', fecha: 'Domingo 28 Junio 2026', goles: 1, asistencias: 1 },
-            { id: 44, rival: 'Equipo Pablismo', fecha: 'Domingo 12 Julio 2026', goles: 0, asistencias: 0 },
-            { id: 50, rival: 'Pirula', fecha: 'Jueves 27 Agosto 2026', goles: 2, asistencias: 3 }
-        ]
+        partidos: []
     },
     'matias-paredes': {
         nombre: 'Matías Paredes',
@@ -1042,30 +895,7 @@ const jugadoresData = {
         posicion: 'Delantero',
         frase: 'Cada gol es un paso más hacia la victoria',
         imagenCamiseta: 'images/dorsal_paredes9.jpg',
-        partidos: [
-            { id: 6, rival: 'Microdosis', fecha: 'Sábado 24 Mayo 2025', goles: 0, asistencias: 1 },
-            { id: 9, rival: 'Vaqueros', fecha: 'Lunes 14 Julio 2025', goles: 5, asistencias: 1 },
-            { id: 10, rival: 'Real Justicia', fecha: 'Viernes 18 Julio 2025', goles: 1, asistencias: 0 },
-            { id: 11, rival: 'Vaqueros', fecha: 'Jueves 31 Julio 2025', goles: 2, asistencias: 0 },
-            { id: 17, rival: 'Equipo Maradona', fecha: 'Viernes 10 Octubre 2025', goles: 3, asistencias: 1 },
-            { id: 20, rival: 'Equipo Maradona', fecha: 'Viernes 24 Octubre 2025', goles: 5, asistencias: 1 },
-            { id: 21, rival: 'Pirula', fecha: 'Jueves 30 Octubre 2025', goles: 3, asistencias: 2 },
-            { id: 22, rival: 'Equipo Geobani', fecha: 'Martes 04 Noviembre 2025', goles: 4, asistencias: 0 },
-            { id: 24, rival: 'Pirula', fecha: 'Jueves 13 Noviembre 2025', goles: 6, asistencias: 2 },
-            { id: 28, rival: 'Vaqueros', fecha: 'Jueves 05 Febrero 2026', goles: 2, asistencias: 1 },
-            { id: 29, rival: 'Medicina FC', fecha: 'Viernes 27 Febrero 2026', goles: 1, asistencias: 0 },
-            { id: 31, rival: 'Pirula', fecha: 'Viernes 20 Marzo 2026', goles: 3, asistencias: 1 },
-            { id: 33, rival: 'Pirula', fecha: 'Viernes 27 Marzo 2026', goles: 1, asistencias: 0 },
-            { id: 34, rival: 'Pirula', fecha: 'Viernes 10 Abril 2026', goles: 2, asistencias: 0 },
-            { id: 35, rival: 'Pirula', fecha: 'Viernes 17 Abril 2026', goles: 9, asistencias: 1 },
-            { id: 36, rival: 'Medicina FC', fecha: 'Viernes 24 Abril 2026', goles: 9, asistencias: 2 },
-            { id: 44, rival: 'Equipo Pablismo', fecha: 'Domingo 12 Julio 2026', goles: 0, asistencias: 0 },
-            { id: 45, rival: 'Medicina FC', fecha: 'Jueves 16 Julio 2026', goles: 2, asistencias: 1 },
-            { id: 46, rival: 'Vaqueros', fecha: 'Domingo 26 Julio 2026', goles: 1, asistencias: 1 },
-            { id: 47, rival: 'Vaqueros', fecha: 'Lunes 27 Julio 2026', goles: 1, asistencias: 1 },
-            { id: 48, rival: 'Real Nutrid', fecha: 'Jueves 06 Agosto 2026', goles: 1, asistencias: 2 },
-            { id: 49, rival: 'Real Nutrid', fecha: 'Martes 11 Agosto 2026', goles: 2, asistencias: 1 }
-        ]
+        partidos: []
     },
     'diego-manque': {
         nombre: 'Diego Manque',
@@ -1073,59 +903,7 @@ const jugadoresData = {
         posicion: 'Mediocampista',
         frase: 'Crear oportunidades es mi pasión en el campo',
         imagenCamiseta: 'images/dorsal_manque10.jpg',
-        partidos: [
-            { id: 1, rival: 'Vaqueros', fecha: 'Lunes 20 Enero 2025', goles: 7, asistencias: 8 },
-            { id: 2, rival: 'Vaqueros', fecha: 'Lunes 3 Marzo 2025', goles: 3, asistencias: 5 },
-            { id: 3, rival: 'Manchester ICI', fecha: 'Viernes 28 Marzo 2025', goles: 1, asistencias: 0 },
-            { id: 4, rival: 'Vaqueros', fecha: 'Jueves 1 Mayo 2025', goles: 0, asistencias: 1 },
-            { id: 5, rival: 'Real Justicia', fecha: 'Viernes 9 Mayo 2025', goles: 1, asistencias: 3 },
-            { id: 6, rival: 'Microdosis', fecha: 'Sábado 24 Mayo 2025', goles: 0, asistencias: 0 },
-            { id: 7, rival: 'Real Justicia', fecha: 'Viernes 30 Mayo 2025', goles: 2, asistencias: 2 },
-            { id: 8, rival: 'Resistencia IC', fecha: 'Viernes 27 Junio 2025', goles: 0, asistencias: 2 },
-            { id: 9, rival: 'Vaqueros', fecha: 'Lunes 14 Julio 2025', goles: 1, asistencias: 4 },
-            { id: 10, rival: 'Real Justicia', fecha: 'Viernes 18 Julio 2025', goles: 1, asistencias: 3 },
-            { id: 11, rival: 'Vaqueros', fecha: 'Jueves 31 Julio 2025', goles: 0, asistencias: 1 },
-            { id: 12, rival: 'Equipo Pablismo', fecha: 'Sábado 23 Agosto 2025', goles: 2, asistencias: 0 },
-            { id: 13, rival: 'Equipo Maradona', fecha: 'Jueves 04 Septiembre 2025', goles: 2, asistencias: 0 },
-            { id: 14, rival: 'Equipo David', fecha: 'Jueves 11 Septiembre 2025', goles: 1, asistencias: 1 },
-            { id: 15, rival: 'Medicina FC', fecha: 'Miércoles 17 Septiembre 2025', goles: 2, asistencias: 1 },
-            { id: 16, rival: 'Pirula', fecha: 'Viernes 26 Septiembre 2025', goles: 1, asistencias: 6 },
-            { id: 17, rival: 'Equipo Maradona', fecha: 'Viernes 10 Octubre 2025', goles: 1, asistencias: 2 },
-            { id: 18, rival: 'Medicina FC', fecha: 'Martes 14 Octubre 2025', goles: 1, asistencias: 1 },
-            { id: 19, rival: 'Conoco Grande', fecha: 'Jueves 16 Octubre 2025', goles: 6, asistencias: 4 },
-            { id: 20, rival: 'Equipo Maradona', fecha: 'Viernes 24 Octubre 2025', goles: 1, asistencias: 0 },
-            { id: 21, rival: 'Pirula', fecha: 'Jueves 30 Octubre 2025', goles: 0, asistencias: 0 },
-            { id: 22, rival: 'Equipo Geobani', fecha: 'Martes 04 Noviembre 2025', goles: 0, asistencias: 1 },
-            { id: 23, rival: 'Pirula', fecha: 'Miercoles 05 Noviembre 2025', goles: 1, asistencias: 2 },
-            { id: 24, rival: 'Pirula', fecha: 'Jueves 13 Noviembre 2025', goles: 2, asistencias: 2 },
-            { id: 25, rival: 'Real Justicia', fecha: 'Viernes 14 Noviembre 2025', goles: 1, asistencias: 2 },
-            { id: 26, rival: 'Pirula', fecha: 'Sábado 29 Noviembre 2025', goles: 1, asistencias: 3 },
-            { id: 27, rival: 'Equipo Pablismo', fecha: 'Domingo 14 Diciembre 2025', goles: 2, asistencias: 1 },
-            { id: 28, rival: 'Vaqueros', fecha: 'Jueves 05 Febrero 2026', goles: 0, asistencias: 2 },
-            { id: 29, rival: 'Medicina FC', fecha: 'Viernes 27 Febrero 2026', goles: 1, asistencias: 2 },
-            { id: 30, rival: 'Equipo Pablismo', fecha: 'Domingo 15 Marzo 2026', goles: 0, asistencias: 0 },
-            { id: 31, rival: 'Pirula', fecha: 'Viernes 20 Marzo 2026', goles: 1, asistencias: 2 },
-            { id: 32, rival: 'Medicina FC', fecha: 'Jueves 26 Marzo 2026', goles: 0, asistencias: 0 },
-            { id: 33, rival: 'Pirula', fecha: 'Viernes 27 Marzo 2026', goles: 0, asistencias: 0 },
-            { id: 34, rival: 'Pirula', fecha: 'Viernes 10 Abril 2026', goles: 2, asistencias: 0 },
-            { id: 35, rival: 'Pirula', fecha: 'Viernes 17 Abril 2026', goles: 0, asistencias: 1 },
-            { id: 36, rival: 'Medicina FC', fecha: 'Viernes 24 Abril 2026', goles: 3, asistencias: 2 },
-            { id: 37, rival: 'Equipo Galleta', fecha: 'Jueves 14 Mayo 2026', goles: 3, asistencias: 2 },
-            { id: 38, rival: 'Interdiktos', fecha: 'Viernes 15 Mayo 2026', goles: 0, asistencias: 0 },
-            { id: 39, rival: 'Medicina FC', fecha: 'Miercoles 20 Mayo 2026', goles: 1, asistencias: 1 },
-            { id: 40, rival: 'Interdiktos', fecha: 'Viernes 29 Mayo 2026', goles: 0, asistencias: 1 },
-            { id: 41, rival: 'Real Madrici', fecha: 'Viernes 12 Junio 2026', goles: 1, asistencias: 0 },
-            { id: 42, rival: 'Rupu FC', fecha: 'Viernes 19 Junio 2026', goles: 3, asistencias: 1 },
-            { id: 43, rival: 'Equipo Pablismo', fecha: 'Domingo 28 Junio 2026', goles: 1, asistencias: 2 },
-            { id: 44, rival: 'Equipo Pablismo', fecha: 'Domingo 12 Julio 2026', goles: 1, asistencias: 0 },
-            { id: 45, rival: 'Medicina FC', fecha: 'Jueves 16 Julio 2026', goles: 0, asistencias: 2 },
-            { id: 46, rival: 'Vaqueros', fecha: 'Domingo 26 Julio 2026', goles: 0, asistencias: 0 },
-            { id: 47, rival: 'Vaqueros', fecha: 'Lunes 27 Julio 2026', goles: 0, asistencias: 0 },
-            { id: 48, rival: 'Real Nutrid', fecha: 'Jueves 06 Agosto 2026', goles: 3, asistencias: 3 },
-            { id: 49, rival: 'Real Nutrid', fecha: 'Martes 11 Agosto 2026', goles: 3, asistencias: 1 },
-            { id: 50, rival: 'Pirula', fecha: 'Jueves 27 Agosto 2026', goles: 7, asistencias: 2 },
-            { id: 51, rival: 'Equipo Maradona', fecha: 'Viernes 28 Agosto 2026', goles: 3, asistencias: 0 }
-        ]
+        partidos: []
     },
     'sebastian-sandoval': {
         nombre: 'Sebastián Sandoval',
@@ -1133,58 +911,7 @@ const jugadoresData = {
         posicion: 'Mediocampista',
         frase: 'Siempre listo para recuperar el balón y apoyar al equipo',
         imagenCamiseta: 'images/dorsal_saso11.jpg',
-        partidos: [
-            { id: 1, rival: 'Vaqueros', fecha: 'Lunes 20 Enero 2025', goles: 1, asistencias: 1 },
-            { id: 2, rival: 'Vaqueros', fecha: 'Lunes 3 Marzo 2025', goles: 1, asistencias: 7 },
-            { id: 3, rival: 'Manchester ICI', fecha: 'Viernes 28 Marzo 2025', goles: 1, asistencias: 1 },
-            { id: 4, rival: 'Vaqueros', fecha: 'Jueves 1 Mayo 2025', goles: 1, asistencias: 1 },
-            { id: 5, rival: 'Real Justicia', fecha: 'Viernes 9 Mayo 2025', goles: 2, asistencias: 2 },
-            { id: 6, rival: 'Microdosis', fecha: 'Sábado 24 Mayo 2025', goles: 1, asistencias: 0 },
-            { id: 7, rival: 'Real Justicia', fecha: 'Viernes 30 Mayo 2025', goles: 2, asistencias: 0 },
-            { id: 8, rival: 'Resistencia IC', fecha: 'Viernes 27 Junio 2025', goles: 0, asistencias: 0 },
-            { id: 9, rival: 'Vaqueros', fecha: 'Lunes 14 Julio 2025', goles: 2, asistencias: 1 },
-            { id: 10, rival: 'Real Justicia', fecha: 'Viernes 18 Julio 2025', goles: 0, asistencias: 0 },
-            { id: 11, rival: 'Vaqueros', fecha: 'Jueves 31 Julio 2025', goles: 2, asistencias: 3 },
-            { id: 12, rival: 'Equipo Pablismo', fecha: 'Sábado 23 Agosto 2025', goles: 1, asistencias: 1 },
-            { id: 13, rival: 'Equipo Maradona', fecha: 'Jueves 04 Septiembre 2025', goles: 1, asistencias: 2 },
-            { id: 14, rival: 'Equipo David', fecha: 'Jueves 11 Septiembre 2025', goles: 0, asistencias: 1 },
-            { id: 15, rival: 'Medicina FC', fecha: 'Miércoles 17 Septiembre 2025', goles: 2, asistencias: 2 },
-            { id: 16, rival: 'Pirula', fecha: 'Viernes 26 Septiembre 2025', goles: 7, asistencias: 0 },
-            { id: 17, rival: 'Equipo Maradona', fecha: 'Viernes 10 Octubre 2025', goles: 1, asistencias: 0 },
-            { id: 18, rival: 'Medicina FC', fecha: 'Martes 14 Octubre 2025', goles: 2, asistencias: 1 },
-            { id: 19, rival: 'Conoco Grande', fecha: 'Jueves 16 Octubre 2025', goles: 7, asistencias: 3 },
-            { id: 20, rival: 'Equipo Maradona', fecha: 'Viernes 24 Octubre 2025', goles: 2, asistencias: 1 },
-            { id: 21, rival: 'Pirula', fecha: 'Jueves 30 Octubre 2025', goles: 0, asistencias: 1 },
-            { id: 22, rival: 'Equipo Geobani', fecha: 'Martes 04 Noviembre 2025', goles: 0, asistencias: 1 },
-            { id: 23, rival: 'Pirula', fecha: 'Miercoles 05 Noviembre 2025', goles: 0, asistencias: 1 },
-            { id: 24, rival: 'Pirula', fecha: 'Jueves 13 Noviembre 2025', goles: 4, asistencias: 0 },
-            { id: 25, rival: 'Real Justicia', fecha: 'Viernes 14 Noviembre 2025', goles: 3, asistencias: 1 },
-            { id: 26, rival: 'Pirula', fecha: 'Sábado 29 Noviembre 2025', goles: 1, asistencias: 1 },
-            { id: 27, rival: 'Equipo Pablismo', fecha: 'Domingo 14 Diciembre 2025', goles: 0, asistencias: 0 },
-            { id: 28, rival: 'Vaqueros', fecha: 'Jueves 05 Febrero 2025', goles: 1, asistencias: 2 },
-            { id: 29, rival: 'Medicina FC', fecha: 'Viernes 27 Febrero 2026', goles: 0, asistencias: 0 },
-            { id: 30, rival: 'Equipo Pablismo', fecha: 'Domingo 15 Marzo 2026', goles: 4, asistencias: 1 },
-            { id: 31, rival: 'Pirula', fecha: 'Viernes 20 Marzo 2026', goles: 2, asistencias: 1 },
-            { id: 32, rival: 'Medicina FC', fecha: 'Jueves 26 Marzo 2025', goles: 0, asistencias: 1 },
-            { id: 33, rival: 'Pirula', fecha: 'Viernes 27 Marzo 2026', goles: 0, asistencias: 1 },
-            { id: 34, rival: 'Pirula', fecha: 'Viernes 10 Abril 2026', goles: 0, asistencias: 1 },
-            { id: 35, rival: 'Pirula', fecha: 'Viernes 17 Abril 2026', goles: 1, asistencias: 2 },
-            { id: 36, rival: 'Medicina FC', fecha: 'Viernes 24 Abril 2026', goles: 0, asistencias: 3 },
-            { id: 37, rival: 'Equipo Galleta', fecha: 'Jueves 14 Mayo 2026', goles: 4, asistencias: 2 },
-            { id: 38, rival: 'Interdiktos', fecha: 'Viernes 15 Mayo 2026', goles: 1, asistencias: 0 },
-            { id: 39, rival: 'Medicina FC', fecha: 'Miercoles 20 Mayo 2026', goles: 2, asistencias: 0 },
-            { id: 40, rival: 'Interdiktos', fecha: 'Viernes 29 Mayo 2026', goles: 0, asistencias: 1 },
-            { id: 41, rival: 'Real Madrici', fecha: 'Viernes 12 Junio 2026', goles: 0, asistencias: 2 },
-            { id: 42, rival: 'Rupu FC', fecha: 'Viernes 19 Junio 2026', goles: 1, asistencias: 2 },
-            { id: 43, rival: 'Equipo Pablismo', fecha: 'Domingo 28 Junio 2026', goles: 3, asistencias: 3 },
-            { id: 45, rival: 'Medicina FC', fecha: 'Jueves 16 Julio 2026', goles: 0, asistencias: 0 },
-            { id: 46, rival: 'Vaqueros', fecha: 'Domingo 26 Julio 2026', goles: 1, asistencias: 0 },
-            { id: 47, rival: 'Vaqueros', fecha: 'Lunes 27 Julio 2026', goles: 0, asistencias: 0 },
-            { id: 48, rival: 'Real Nutrid', fecha: 'Jueves 06 Agosto 2026', goles: 1, asistencias: 0 },
-            { id: 49, rival: 'Real Nutrid', fecha: 'Martes 11 Agosto 2026', goles: 1, asistencias: 2 },
-            { id: 50, rival: 'Pirula', fecha: 'Jueves 27 Agosto 2026', goles: 2, asistencias: 1 },
-            { id: 51, rival: 'Equipo Maradona', fecha: 'Viernes 28 Agosto 2026', goles: 0, asistencias: 1 }
-        ]
+        partidos: []
     },
     'matias-bustamante': {
         nombre: 'Matías Bustamante',
@@ -1192,22 +919,46 @@ const jugadoresData = {
         posicion: 'Mediocampista',
         frase: 'No hay balón perdido si yo estoy cerca, de un área a la otra',
         imagenCamiseta: 'images/dorsal_bustamante14.jpg',
-        partidos: [
-            { id: 9, rival: 'Vaqueros', fecha: 'Lunes 14 Julio 2025', goles: 1, asistencias: 1 },
-            { id: 12, rival: 'Equipo Pablismo', fecha: 'Sábado 23 Agosto 2025', goles: 0, asistencias: 1 },
-            { id: 16, rival: 'Pirula', fecha: 'Viernes 26 Septiembre 2025', goles: 0, asistencias: 1 },
-            { id: 17, rival: 'Equipo Maradona', fecha: 'Viernes 10 Octubre 2025', goles: 0, asistencias: 0 },
-            { id: 20, rival: 'Equipo Maradona', fecha: 'Viernes 24 Octubre 2025', goles: 1, asistencias: 1 },
-            { id: 25, rival: 'Real Justicia', fecha: 'Viernes 14 Noviembre 2025', goles: 0, asistencias: 1 },
-            { id: 26, rival: 'Pirula', fecha: 'Sábado 29 Noviembre 2025', goles: 0, asistencias: 3 },
-            { id: 27, rival: 'Equipo Pablismo', fecha: 'Domingo 14 Diciembre 2025', goles: 0, asistencias: 1 },
-            { id: 29, rival: 'Medicina FC', fecha: 'Viernes 27 Febrero 2026', goles: 0, asistencias: 0 },
-            { id: 30, rival: 'Equipo Pablismo', fecha: 'Domingo 15 Marzo 2026', goles: 1, asistencias: 2 },
-            { id: 38, rival: 'Interdiktos', fecha: 'Viernes 15 Mayo 2026', goles: 0, asistencias: 0 },
-            { id: 44, rival: 'Equipo Pablismo', fecha: 'Domingo 12 Julio 2026', goles: 1, asistencias: 1 },
-            { id: 45, rival: 'Medicina FC', fecha: 'Jueves 16 Julio 2026', goles: 0, asistencias: 0 },
-            { id: 49, rival: 'Real Nutrid', fecha: 'Martes 11 Agosto 2026', goles: 1, asistencias: 0 },
-            { id: 51, rival: 'Equipo Maradona', fecha: 'Viernes 28 Agosto 2026', goles: 1, asistencias: 1 }
-        ]
+        partidos: []
     }
 };
+
+// ============================================================
+// GENERACIÓN AUTOMÁTICA DE ESTADÍSTICAS POR JUGADOR
+// ============================================================
+// Esta función lee partidosData y asigna automáticamente los partidos
+// y goles/asistencias a cada jugador en jugadoresData.
+// ¡Ahora solo necesitas agregar el partido en partidosData!
+function poblarPartidosJugadores() {
+    const normalizar = str => str ? str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim().toLowerCase() : "";
+
+    // Reinicializar arreglos de partidos
+    Object.values(jugadoresData).forEach(jugador => {
+        jugador.partidos = [];
+    });
+
+    // Recorrer todos los partidos y poblar los datos de cada jugador
+    Object.entries(partidosData).forEach(([partidoId, partido]) => {
+        if (!partido.jugadores || !Array.isArray(partido.jugadores)) return;
+
+        partido.jugadores.forEach(j => {
+            const nombreNormalizado = normalizar(j.nombre);
+            const jugadorObj = Object.values(jugadoresData).find(
+                p => normalizar(p.nombre) === nombreNormalizado
+            );
+
+            if (jugadorObj) {
+                jugadorObj.partidos.push({
+                    id: Number(partidoId),
+                    rival: partido.rival,
+                    fecha: `${partido.fecha} ${partido.temporada}`,
+                    goles: Number(j.goles) || 0,
+                    asistencias: Number(j.asistencias) || 0
+                });
+            }
+        });
+    });
+}
+
+// Ejecución inicial automática
+poblarPartidosJugadores();

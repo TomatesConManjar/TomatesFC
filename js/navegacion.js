@@ -12,6 +12,32 @@ function syncMobileMenuColor() {
         : 'linear-gradient(180deg, #991b1b 0%, #7f1d1d 100%)';
 }
 
+// Función global para restaurar la posición de scroll guardada o volver a una sección específica
+window.restoreScrollOrSection = function(fallbackSectionId) {
+    const savedPos = window.savedScrollPosition;
+    window.savedScrollPosition = null;
+
+    // Doble requestAnimationFrame para asegurar que el navegador haya finalizado el reflow y layout
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            if (typeof savedPos === 'number' && savedPos > 50) {
+                window.scrollTo({ top: savedPos, behavior: 'instant' });
+            } else if (fallbackSectionId) {
+                const target = document.getElementById(fallbackSectionId);
+                if (target) {
+                    const navHeight = document.querySelector('nav')?.offsetHeight || 70;
+                    const top = target.getBoundingClientRect().top + window.scrollY - navHeight;
+                    window.scrollTo({ top: Math.max(0, top), behavior: 'instant' });
+                } else {
+                    window.scrollTo({ top: 0, behavior: 'instant' });
+                }
+            } else {
+                window.scrollTo({ top: 0, behavior: 'instant' });
+            }
+        });
+    });
+};
+
 // Toggle dark mode (llamado desde el botón en el navbar)
 window.toggleDarkMode = function() {
     const html = document.documentElement;
@@ -83,8 +109,8 @@ document.addEventListener('DOMContentLoaded', function() {
         if (e.key === 'Escape') closeMenu();
     });
 
-    // --- Clicks en los enlaces de navegación (Navbar, Menú móvil, Footer) ---
-    document.querySelectorAll('nav a[href^="#"], #mobile-menu a[href^="#"], footer a[href^="#"]').forEach(enlace => {
+    // --- Clicks en los enlaces de navegación (Navbar, Menú móvil, Footer, Hero) ---
+    document.querySelectorAll('nav a[href^="#"], #mobile-menu a[href^="#"], footer a[href^="#"], a.hero-btn, a.hero-btn-secondary').forEach(enlace => {
         enlace.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
             if (!href || !href.startsWith('#')) return;
@@ -94,45 +120,47 @@ document.addEventListener('DOMContentLoaded', function() {
             // Cerrar menú móvil si está abierto
             closeMenu();
 
-            // Ocultar todas las secciones
-            ['inicio', 'historia', 'equipo', 'partidos', 'rivales',
-             'stats-section', 'player-details-section', 'match-details-section'].forEach(id => {
+            if (seccionId === 'stats-section') {
+                if (typeof showStats === 'function') {
+                    showStats();
+                } else {
+                    const el = document.getElementById('stats-section');
+                    if (el) el.classList.remove('hidden');
+                }
+                return;
+            }
+
+            // Para secciones principales: asegurarse de que estén visibles
+            ['inicio', 'historia', 'equipo', 'partidos', 'rivales'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.classList.remove('hidden');
+            });
+
+            // Ocultar vistas de detalles y sub-secciones
+            ['stats-section', 'player-details-section', 'match-details-section'].forEach(id => {
                 const el = document.getElementById(id);
                 if (el) el.classList.add('hidden');
             });
+            const rd = document.getElementById('rival-details');
+            if (rd) rd.classList.add('hidden');
+            const rc = document.getElementById('rivales-container');
+            if (rc) rc.classList.remove('hidden');
 
-            // Mostrar según sección seleccionada
+            if (seccionId === 'partidos' && typeof renderMatches === 'function') renderMatches('todos');
+            if (seccionId === 'rivales' && typeof renderRivales === 'function') renderRivales();
+
+            // Scroll a la sección correspondiente
             if (seccionId === 'inicio') {
-                ['inicio', 'historia', 'equipo', 'partidos', 'rivales'].forEach(id => {
-                    const el = document.getElementById(id);
-                    if (el) el.classList.remove('hidden');
-                });
-                renderMatches('todos');
-                renderRivales();
-            } else if (['historia', 'equipo', 'partidos', 'rivales', 'stats-section'].includes(seccionId)) {
-                if (seccionId === 'stats-section') {
-                    if (typeof showStats === 'function') {
-                        showStats();
-                    } else {
-                        const el = document.getElementById('stats-section');
-                        if (el) el.classList.remove('hidden');
-                    }
-                } else {
-                    const el = document.getElementById(seccionId);
-                    if (el) el.classList.remove('hidden');
-                    if (seccionId === 'partidos') renderMatches('todos');
-                    if (seccionId === 'rivales') {
-                        renderRivales();
-                        const rd = document.getElementById('rival-details');
-                        if (rd) rd.classList.add('hidden');
-                        const rc = document.getElementById('rivales-container');
-                        if (rc) rc.classList.remove('hidden');
-                    }
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                const target = document.getElementById(seccionId);
+                if (target) {
+                    const navHeight = document.querySelector('nav')?.offsetHeight || 70;
+                    const top = target.getBoundingClientRect().top + window.scrollY - navHeight;
+                    window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
                 }
             }
 
-            // Scroll suave al top
-            window.scrollTo({ top: 0, behavior: 'instant' });
             window.history.pushState({ section: seccionId }, '', `#${seccionId}`);
         });
     });
@@ -155,19 +183,34 @@ window.addEventListener('popstate', function(event) {
         } else if (s.section === 'stats-section') {
             if (typeof showStats === 'function') showStats();
         } else if (s.section === 'rivales') {
-            document.getElementById('rival-details').classList.add('hidden');
-            document.getElementById('rivales-container').classList.remove('hidden');
-            ['inicio', 'historia', 'equipo', 'partidos', 'stats-section',
-             'player-details-section', 'match-details-section'].forEach(id => {
+            backToRivales();
+        } else if (['inicio', 'historia'].includes(s.section)) {
+            ['inicio', 'historia', 'equipo', 'partidos', 'rivales'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.classList.remove('hidden');
+            });
+            ['stats-section', 'player-details-section', 'match-details-section'].forEach(id => {
                 const el = document.getElementById(id);
                 if (el) el.classList.add('hidden');
             });
-            document.getElementById('rivales').classList.remove('hidden');
-            renderRivales();
-            window.scrollTo({ top: 0, behavior: 'instant' });
+            const rd = document.getElementById('rival-details');
+            if (rd) rd.classList.add('hidden');
+            const rc = document.getElementById('rivales-container');
+            if (rc) rc.classList.remove('hidden');
+
+            if (s.section === 'inicio') {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                const target = document.getElementById(s.section);
+                if (target) {
+                    const navHeight = document.querySelector('nav')?.offsetHeight || 70;
+                    const top = target.getBoundingClientRect().top + window.scrollY - navHeight;
+                    window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+                }
+            }
         }
     } else {
-        ['inicio', 'historia', 'equipo', 'partidos'].forEach(id => {
+        ['inicio', 'historia', 'equipo', 'partidos', 'rivales'].forEach(id => {
             const el = document.getElementById(id);
             if (el) el.classList.remove('hidden');
         });
@@ -175,6 +218,10 @@ window.addEventListener('popstate', function(event) {
             const el = document.getElementById(id);
             if (el) el.classList.add('hidden');
         });
+        const rd = document.getElementById('rival-details');
+        if (rd) rd.classList.add('hidden');
+        const rc = document.getElementById('rivales-container');
+        if (rc) rc.classList.remove('hidden');
     }
 });
 

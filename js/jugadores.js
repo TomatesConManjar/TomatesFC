@@ -97,14 +97,18 @@ function renderTeamStats(searchTerm = '') {
 // Muestra la sección de estadísticas del equipo
 window.showStats = function() {
     try {
-        window.savedScrollPosition = window.scrollY;
+        const statsSection = document.getElementById('stats-section');
+        if (statsSection && statsSection.classList.contains('hidden')) {
+            window.savedScrollPosition = window.scrollY;
+        }
+
         ['inicio', 'historia', 'equipo', 'partidos', 'rivales', 'match-details-section', 'player-details-section'].forEach(id => {
             const el = document.getElementById(id);
             if (el) el.classList.add('hidden');
         });
-        const statsSection = document.getElementById('stats-section');
         if (statsSection) {
             statsSection.classList.remove('hidden');
+            window.history.pushState({ section: 'stats-section' }, '', '#stats-section');
             window.showPlayerStatsSubSection();
             window.scrollTo({ top: 0, behavior: 'instant' });
         }
@@ -162,7 +166,11 @@ window.goBack = function() {
         if (el) el.classList.add('hidden');
     });
     window.history.pushState({ section: 'equipo' }, '', '#equipo');
-    window.scrollTo({ top: window.savedScrollPosition || 0, behavior: 'instant' });
+    if (typeof window.restoreScrollOrSection === 'function') {
+        window.restoreScrollOrSection('equipo');
+    } else {
+        window.scrollTo({ top: window.savedScrollPosition || 0, behavior: 'instant' });
+    }
 };
 
 
@@ -342,16 +350,19 @@ window.showPlayerDetails = function(playerId) {
     const jugador = jugadoresData[playerId];
     if (!jugador) { console.error('Jugador no encontrado:', playerId); return; }
 
-    window.savedScrollPosition = window.scrollY;
+    const detalles = document.getElementById('player-details-section');
+    if (detalles && detalles.classList.contains('hidden')) {
+        window.savedScrollPosition = window.scrollY;
+    }
 
     ['inicio', 'historia', 'equipo', 'partidos', 'rivales', 'stats-section', 'match-details-section'].forEach(id => {
         const el = document.getElementById(id);
         if (el) el.classList.add('hidden');
     });
 
-    const detalles = document.getElementById('player-details-section');
     if (!detalles) return;
     detalles.classList.remove('hidden');
+    window.history.pushState({ section: 'player-details', playerId }, '', `#jugador/${playerId}`);
 
     // Header
     document.getElementById('player-header').innerHTML = `
@@ -481,10 +492,15 @@ window.showPlayerDetails = function(playerId) {
 window.backToTeam = function() {
     document.getElementById('player-details-section').classList.add('hidden');
     ['inicio', 'historia', 'equipo', 'partidos', 'rivales'].forEach(id => {
-        document.getElementById(id).classList.remove('hidden');
+        const el = document.getElementById(id);
+        if (el) el.classList.remove('hidden');
     });
     window.history.pushState({ section: 'equipo' }, '', '#equipo');
-    window.scrollTo({ top: window.savedScrollPosition || 0, behavior: 'instant' });
+    if (typeof window.restoreScrollOrSection === 'function') {
+        window.restoreScrollOrSection('equipo');
+    } else {
+        window.scrollTo({ top: window.savedScrollPosition || 0, behavior: 'instant' });
+    }
 };
 
 window.cambiarTemporadaJugador = function(playerId, temporada) {

@@ -78,7 +78,10 @@ window.showRivalDetails = function(rivalName) {
     const rivalData = getRivalesStats().find(r => r.rival === rivalName);
     if (!rivalData) return;
 
-    window.savedScrollPosition = window.scrollY;
+    const rivalDetails = document.getElementById('rival-details');
+    if (rivalDetails && rivalDetails.classList.contains('hidden')) {
+        window.savedScrollPosition = window.scrollY;
+    }
 
     ['inicio', 'historia', 'equipo', 'partidos', 'stats-section', 'player-details-section', 'match-details-section'].forEach(id => {
         const el = document.getElementById(id);
@@ -86,7 +89,7 @@ window.showRivalDetails = function(rivalName) {
     });
     document.getElementById('rivales').classList.remove('hidden');
     document.getElementById('rivales-container').classList.add('hidden');
-    document.getElementById('rival-details').classList.remove('hidden');
+    if (rivalDetails) rivalDetails.classList.remove('hidden');
 
     const escudoRival = getEscudoRival(rivalName);
     document.getElementById('rival-header').innerHTML = `
@@ -144,16 +147,25 @@ window.showRivalDetails = function(rivalName) {
 
 // Vuelve a la lista de tarjetas de rivales
 window.backToRivales = function() {
-    document.getElementById('rival-details').classList.add('hidden');
+    const rivalDetails = document.getElementById('rival-details');
+    if (rivalDetails) rivalDetails.classList.add('hidden');
     ['stats-section', 'player-details-section', 'match-details-section'].forEach(id => {
-        document.getElementById(id).classList.add('hidden');
+        const el = document.getElementById(id);
+        if (el) el.classList.add('hidden');
     });
     ['inicio', 'historia', 'equipo', 'partidos', 'rivales'].forEach(id => {
-        document.getElementById(id).classList.remove('hidden');
+        const el = document.getElementById(id);
+        if (el) el.classList.remove('hidden');
     });
-    document.getElementById('rivales-container').classList.remove('hidden');
+    const rivalesContainer = document.getElementById('rivales-container');
+    if (rivalesContainer) rivalesContainer.classList.remove('hidden');
     renderRivales();
     renderMatches('todos');
     window.history.pushState({ section: 'rivales' }, '', '#rivales');
-    window.scrollTo({ top: window.savedScrollPosition || 0, behavior: 'instant' });
+    
+    if (typeof window.restoreScrollOrSection === 'function') {
+        window.restoreScrollOrSection('rivales');
+    } else {
+        window.scrollTo({ top: window.savedScrollPosition || 0, behavior: 'instant' });
+    }
 };

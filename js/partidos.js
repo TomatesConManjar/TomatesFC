@@ -205,15 +205,16 @@ function updateTeamStats() {
 // Muestra el detalle completo de un partido específico
 window.showMatchDetails = function(partidoId) {
     try {
-        // Guardar la posición de scroll
-        window.savedScrollPosition = window.scrollY;
+        const matchDetailsSection = document.getElementById('match-details-section');
+        if (matchDetailsSection && matchDetailsSection.classList.contains('hidden')) {
+            window.savedScrollPosition = window.scrollY;
+        }
 
         ['inicio', 'historia', 'equipo', 'partidos', 'rivales', 'stats-section', 'player-details-section'].forEach(id => {
             const el = document.getElementById(id);
             if (el) el.classList.add('hidden');
         });
 
-        const matchDetailsSection = document.getElementById('match-details-section');
         if (!matchDetailsSection) return;
         matchDetailsSection.classList.remove('hidden');
         window.history.pushState({ section: 'match-details', partidoId }, '', `#partido/${partidoId}`);
@@ -277,11 +278,15 @@ window.backToMatches = function() {
     document.getElementById('stats-section').classList.add('hidden');
     document.getElementById('player-details-section').classList.add('hidden');
     ['inicio', 'historia', 'equipo', 'partidos', 'rivales'].forEach(id => {
-        document.getElementById(id).classList.remove('hidden');
+        const el = document.getElementById(id);
+        if (el) el.classList.remove('hidden');
     });
     window.history.pushState({ section: 'partidos' }, '', '#partidos');
     renderMatches(filtroActual);
     
-    // Restaurar la posición de scroll guardada
-    window.scrollTo({ top: window.savedScrollPosition || 0, behavior: 'instant' });
+    if (typeof window.restoreScrollOrSection === 'function') {
+        window.restoreScrollOrSection('partidos');
+    } else {
+        window.scrollTo({ top: window.savedScrollPosition || 0, behavior: 'instant' });
+    }
 };

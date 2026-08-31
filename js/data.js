@@ -842,7 +842,24 @@ const partidosData = {
             { nombre: "Benjamín Garcés", goles: 0, asistencias: 3 },
             { nombre: "Diego Manque", goles: 3, asistencias: 0 },
             { nombre: "Sebastián Sandoval", goles: 0, asistencias: 1 },
-            { nombre: "Matías Bustamante", goles: 1, asistencias: 1 }
+            { nombre: "Matías Bustamante", goles: 1, asistencias: 1 },
+        ]
+    },
+    52: {
+        temporada: 2026,
+        fecha: "Domingo 30 Agosto",
+        rival: "Equipo Pablismo",
+        resultado: "2-7",
+        lugar: "Canchas Santa Laura",
+        tipo: "Amistoso",
+        hora: "19:00 hrs",
+        jugadores: [
+            { nombre: "Agustín Vilhelm", goles: 0, asistencias: 0 },
+            { nombre: "Leandro Zavala", goles: 0, asistencias: 0 },
+            { nombre: "Benjamín Garcés", goles: 1, asistencias: 0 },
+            { nombre: "Cristóbal Santibáñez", goles: 1, asistencias: 0 },
+            { nombre: "Diego Manque", goles: 0, asistencias: 0 },
+            { nombre: "Sebastián Sandoval", goles: 0, asistencias: 2 }
         ]
     }
 };

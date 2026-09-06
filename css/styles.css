@@ -1286,15 +1286,15 @@ html {
             background: #ffffff;
             border-radius: 14px;
             padding: 1.25rem 1.5rem;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(226, 232, 240, 0.9);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+            border: 1px solid rgba(203, 213, 225, 0.9);
             border-left-width: 5px;
             margin-bottom: 1rem;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
         .rival-match-card:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
         }
         .result-border-victoria { border-left-color: #10b981 !important; }
         .result-border-empate   { border-left-color: #f59e0b !important; }
@@ -1316,8 +1316,8 @@ html {
             font-family: 'Bebas Neue', sans-serif;
             letter-spacing: 0.05em;
         }
-        .victoria { color: #059669; font-weight: 700; }
-        .empate   { color: #d97706; font-weight: 700; }
+        .victoria { color: #047857; font-weight: 700; }
+        .empate   { color: #b45309; font-weight: 700; }
         .derrota  { color: #b91c1c; font-weight: 700; }
 
         .rival-players-container {
@@ -1326,19 +1326,19 @@ html {
             gap: 0.6rem;
             margin-top: 1rem;
             padding-top: 1rem;
-            border-top: 1px dashed #e2e8f0;
+            border-top: 1px dashed #cbd5e1;
         }
         .rival-player-card {
-            background: #f8fafc;
+            background: #f1f5f9;
             border-radius: 10px;
             padding: 0.6rem 0.75rem;
             text-align: center;
-            border: 1px solid #e2e8f0;
+            border: 1px solid #cbd5e1;
         }
         .rival-player-name {
             font-weight: 800;
             font-size: 0.8rem;
-            color: #1e293b;
+            color: #0f172a;
             margin-bottom: 0.2rem;
             white-space: nowrap;
             overflow: hidden;
@@ -1364,7 +1364,7 @@ html {
         }
         .dark .rival-match-card {
             background: #1e293b;
-            border-color: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.1);
         }
         .dark .rival-player-card {
             background: #0f172a;
@@ -1373,6 +1373,9 @@ html {
         .dark .rival-player-name {
             color: #f1f5f9;
         }
+        .dark .victoria { color: #34d399; }
+        .dark .empate   { color: #fbbf24; }
+        .dark .derrota  { color: #f87171; }
 
         /* ============================================================
            PUNTO 4 - Comparador Cara a Cara con Barras Dinámicas

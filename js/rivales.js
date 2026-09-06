@@ -53,18 +53,8 @@ window.renderRivales = function() {
     container.innerHTML = '';
     rivales.forEach(rivalData => {
         const escudoRival = getEscudoRival(rivalData.rival);
-        
-        // 1. Insignia de balance
-        let balanceBadge = '';
-        if (rivalData.victorias > rivalData.derrotas) {
-            balanceBadge = `<span class="rival-badge rival-badge-favorable"><i class="fas fa-arrow-trend-up mr-1"></i>Favorable</span>`;
-        } else if (rivalData.victorias === rivalData.derrotas) {
-            balanceBadge = `<span class="rival-badge rival-badge-parejo"><i class="fas fa-scale-balanced mr-1"></i>Parejo</span>`;
-        } else {
-            balanceBadge = `<span class="rival-badge rival-badge-desfavorable"><i class="fas fa-fire mr-1"></i>Por Vencer</span>`;
-        }
 
-        // 2. Barra de efectividad
+        // Barra de efectividad
         const winrate = rivalData.porcentajeVictorias;
         const winrateGradient = winrate >= 60 
             ? 'from-emerald-500 to-green-600' 
@@ -72,9 +62,8 @@ window.renderRivales = function() {
 
         container.innerHTML += `
             <div class="rival-card group" onclick="showRivalDetails('${rivalData.rival}')">
-                <div class="flex items-center justify-between mb-4 w-full">
-                    <span class="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">${rivalData.partidos} ${rivalData.partidos === 1 ? 'partido' : 'partidos'}</span>
-                    ${balanceBadge}
+                <div class="flex items-center justify-center mb-4 w-full">
+                    <span class="text-xs font-bold text-gray-600 dark:text-gray-400 uppercase tracking-wider">${rivalData.partidos} ${rivalData.partidos === 1 ? 'partido' : 'partidos'}</span>
                 </div>
 
                 <div class="rival-crest-wrapper mb-3">
@@ -93,15 +82,15 @@ window.renderRivales = function() {
                 <!-- Barra de efectividad -->
                 <div class="rival-winrate-box w-full">
                     <div class="flex justify-between items-center text-xs font-bold mb-1.5">
-                        <span class="text-gray-500 dark:text-gray-400 font-semibold">Efectividad</span>
+                        <span class="text-gray-600 dark:text-gray-400 font-semibold">Efectividad</span>
                         <span class="font-extrabold text-red-800 dark:text-red-400">${winrate}%</span>
                     </div>
                     <div class="w-full h-2.5 bg-gray-200 dark:bg-gray-700/80 rounded-full overflow-hidden p-0.5 border border-gray-300/40 dark:border-gray-600/30">
                         <div class="h-full rounded-full bg-gradient-to-r ${winrateGradient} transition-all duration-700" style="width: ${Math.max(winrate, 5)}%"></div>
                     </div>
-                    <div class="flex justify-between items-center text-[11px] text-gray-500 dark:text-gray-400 mt-2 font-medium">
-                        <span>Goles: <strong class="text-gray-700 dark:text-gray-200">${rivalData.golesFavor} GF</strong></span>
-                        <span>Contra: <strong class="text-gray-700 dark:text-gray-200">${rivalData.golesContra} GC</strong></span>
+                    <div class="flex justify-between items-center text-[11px] text-gray-600 dark:text-gray-400 mt-2 font-medium">
+                        <span>Goles: <strong class="text-gray-800 dark:text-gray-200">${rivalData.golesFavor} GF</strong></span>
+                        <span>Contra: <strong class="text-gray-800 dark:text-gray-200">${rivalData.golesContra} GC</strong></span>
                     </div>
                 </div>
 

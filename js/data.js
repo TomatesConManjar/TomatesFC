@@ -872,7 +872,7 @@ const jugadoresData = {
         posicion: 'Arquero',
         frase: 'Si la pelota me llega a las manos, el partido es nuestro',
         imagenCamiseta: 'images/dorsal_vilhelm1.jpg',
-        fechaNacimiento: '25 de diciembre de 2004',
+        fechaNacimiento: '18 de junio de 2010',
         estado: 'Activo',
         partidos: []
     },
@@ -882,7 +882,7 @@ const jugadoresData = {
         posicion: 'Defensa',
         frase: 'La defensa es el pilar de todo gran equipo',
         imagenCamiseta: 'images/dorsal_zavala5.jpg',
-        fechaNacimiento: '25 de diciembre de 2004',
+        fechaNacimiento: '28 de diciembre de 2004',
         estado: 'Activo',
         partidos: []
     },
@@ -892,7 +892,7 @@ const jugadoresData = {
         posicion: 'Defensa',
         frase: 'La última línea de defensa, siempre alerta',
         imagenCamiseta: 'images/dorsal_lizama6.jpg',
-        fechaNacimiento: '25 de diciembre de 2004',
+        fechaNacimiento: '03 de agosto de 2004',
         estado: 'Lesionado',
         partidos: []
     },
@@ -902,7 +902,7 @@ const jugadoresData = {
         posicion: 'Delantero',
         frase: 'Cada gol cuenta, y yo estoy aquí para marcar la diferencia',
         imagenCamiseta: 'images/dorsal_garces7.jpg',
-        fechaNacimiento: '25 de diciembre de 2004',
+        fechaNacimiento: '31 de mayo de 2005',
         estado: 'Activo',
         partidos: []
     },
@@ -912,7 +912,7 @@ const jugadoresData = {
         posicion: 'Delantero',
         frase: 'Anticipar el juego es lo que me define como delantero',
         imagenCamiseta: 'images/dorsal_kryzpo8.jpg',
-        fechaNacimiento: '25 de diciembre de 2004',
+        fechaNacimiento: '06 de mayo de 2007',
         estado: 'Activo',
         partidos: []
     },
@@ -922,7 +922,7 @@ const jugadoresData = {
         posicion: 'Delantero',
         frase: 'Cada gol es un paso más hacia la victoria',
         imagenCamiseta: 'images/dorsal_paredes9.jpg',
-        fechaNacimiento: '25 de diciembre de 2004',
+        fechaNacimiento: '18 de febrero de 2005',
         estado: 'Cedido a Bélgica',
         partidos: []
     },
@@ -942,7 +942,7 @@ const jugadoresData = {
         posicion: 'Mediocampista',
         frase: 'Siempre listo para recuperar el balón y apoyar al equipo',
         imagenCamiseta: 'images/dorsal_saso11.jpg',
-        fechaNacimiento: '25 de diciembre de 2004',
+        fechaNacimiento: '31 de diciembre de 2004',
         estado: 'Activo',
         partidos: []
     },
@@ -952,7 +952,7 @@ const jugadoresData = {
         posicion: 'Mediocampista',
         frase: 'No hay balón perdido si yo estoy cerca, de un área a la otra',
         imagenCamiseta: 'images/dorsal_bustamante14.jpg',
-        fechaNacimiento: '25 de diciembre de 2004',
+        fechaNacimiento: '04 de mayo de 2006',
         estado: 'Activo',
         partidos: []
     }

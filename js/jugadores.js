@@ -434,17 +434,17 @@ window.showPlayerDetails = function(playerId) {
             </div>
             <div class="flex-1 text-center md:text-left">
                 <div class="flex flex-wrap items-center justify-center md:justify-start gap-3 mb-2">
-                    <h1 class="text-4xl font-bold text-red-800">${jugador.nombre}</h1>
+                    <h1 class="text-4xl font-bold text-red-800 dark:text-red-400">${jugador.nombre}</h1>
                     ${estadoBadgeHTML}
                 </div>
-                <p class="text-xl text-gray-600 mb-2">${jugador.posicion}</p>
+                <p class="text-xl text-gray-600 dark:text-gray-300 mb-2">${jugador.posicion}</p>
                 <div class="flex flex-wrap items-center justify-center md:justify-start gap-3 mb-4">
-                    <span class="inline-flex items-center gap-2 bg-red-50 text-red-800 px-3.5 py-1.5 rounded-full text-sm font-semibold border border-red-200 shadow-sm">
-                        <i class="fas fa-birthday-cake text-red-600"></i>
+                    <span class="inline-flex items-center gap-2 bg-red-50 dark:bg-red-950/40 text-red-800 dark:text-red-300 px-3.5 py-1.5 rounded-full text-sm font-semibold border border-red-200 dark:border-red-800/50 shadow-sm">
+                        <i class="fas fa-birthday-cake text-red-600 dark:text-red-400"></i>
                         <span>Cumpleaños: <strong>${fechaNacimiento}</strong></span>
                     </span>
                 </div>
-                <p class="text-lg text-gray-700 italic mb-6">"${jugador.frase}"</p>
+                <p class="text-lg text-gray-700 dark:text-gray-300 italic mb-6">"${jugador.frase}"</p>
             </div>
         </div>
 

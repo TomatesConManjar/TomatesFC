@@ -598,7 +598,7 @@
         </div>
     </section>
     <!-- Sección de estadísticas -->
-    <section id="stats-section" class="hidden py-16 bg-white">
+    <section id="stats-section" class="hidden py-16 modern-section-bg">
         <div class="container mx-auto px-6">
             <!-- TITULO PRINCIPAL (cambia dinámicamente) -->
             <h2 id="stats-section-title" class="text-3xl font-bold text-center mb-4 text-red-800 fade-up">ESTADÍSTICAS</h2>
@@ -639,7 +639,7 @@
             <!-- 2. SUB-SECCIÓN: COMPARADOR H2H -->
             <div id="stats-comparison-view" class="hidden">
 
-                <div class="bg-gray-50 dark:bg-gray-800 rounded-3xl p-6 md:p-8 shadow-xl border border-gray-100 dark:border-gray-700 max-w-5xl mx-auto">
+                <div class="bg-white/85 dark:bg-gray-800/85 backdrop-blur-md rounded-3xl p-6 md:p-8 shadow-2xl border border-gray-200/80 dark:border-gray-700/80 max-w-5xl mx-auto">
                     <!-- Selector de temporada -->
                     <div class="flex gap-3 justify-center mb-8">
                         <button id="compare-year-2025" onclick="setCompareYear(2025)" class="px-5 py-2 rounded-full font-bold bg-red-800 text-white transition">2025</button>
@@ -695,7 +695,7 @@
                 ← Volver al Equipo
             </button>
             <!-- Header del jugador -->
-            <div id="player-header" class="bg-white rounded-lg p-8 shadow-lg mb-8">
+            <div id="player-header" class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl mb-8 border border-gray-100 dark:border-gray-700">
                 <!-- Contenido dinámico -->
             </div>
             <!-- Estadísticas generales -->
@@ -763,7 +763,7 @@
                     ← Volver a Partidos
                 </button>
                 <h2 class="text-3xl font-bold text-center mb-8 text-red-800">Detalles del Partido</h2>
-                <div id="match-header" class="bg-white rounded-lg p-6 shadow-lg mb-8">
+                <div id="match-header" class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-xl mb-8 border border-gray-100 dark:border-gray-700">
                     <!-- Los escudos y resultado se cargan aquí dinámicamente -->
                 </div>
             </div>
@@ -791,7 +791,7 @@
                 <button onclick="backToRivales()" class="bg-red-800 hover:bg-red-900 text-white font-bold py-2 px-6 rounded-full transition mb-8">
                     ← Volver a Rivales
                 </button>
-                <div id="rival-header" class="bg-white rounded-lg p-8 shadow-lg mb-8"></div>
+                <div id="rival-header" class="mb-8"></div>
                 <div id="rival-matches-container" class="space-y-6"> <!-- Cambiado a space-y-6 para más espacio entre partidos -->
                     <!-- Aquí se renderizarán los partidos con jugadores -->
                 </div>

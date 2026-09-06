@@ -145,7 +145,6 @@ window.showRivalDetails = function(rivalName) {
                         <img src="images/logo_tomates.png" alt="Tomates FC" class="h-20 w-20 md:h-24 md:w-24 object-contain drop-shadow-xl">
                     </div>
                     <h3 class="font-black text-2xl md:text-3xl tracking-wide uppercase mt-2 text-white">Tomates FC</h3>
-                    <span class="text-xs uppercase tracking-widest text-red-300 font-bold">Temuco • F7</span>
                 </div>
 
                 <!-- Centro: Marcador H2H & VS -->
@@ -182,7 +181,6 @@ window.showRivalDetails = function(rivalName) {
                         <img src="${escudoRival}" alt="${rivalName}" class="h-20 w-20 md:h-24 md:w-24 object-contain drop-shadow-xl">
                     </div>
                     <h3 class="font-black text-2xl md:text-3xl tracking-wide uppercase mt-2 text-white">${rivalName}</h3>
-                    <span class="text-xs uppercase tracking-widest text-gray-300 font-bold">Rival Histórico</span>
                 </div>
             </div>
         </div>
@@ -202,8 +200,8 @@ window.showRivalDetails = function(rivalName) {
                     <div class="rival-player-card">
                         <div class="rival-player-name">${j.nombre}</div>
                         <div class="flex items-center justify-center gap-3 text-xs font-semibold mt-1">
-                            <span class="text-green-600 dark:text-green-400 font-bold">⚽ ${j.goles}</span>
-                            <span class="text-blue-600 dark:text-blue-400 font-bold">🎯 ${j.asistencias}</span>
+                            <span class="text-green-600 dark:text-green-400 font-bold">⚽ ${j.goles}G</span>
+                            <span class="text-blue-600 dark:text-blue-400 font-bold">🎯 ${j.asistencias}A</span>
                         </div>
                     </div>
                 `).join('')}
@@ -213,11 +211,15 @@ window.showRivalDetails = function(rivalName) {
         matchesContainer.innerHTML += `
             <div class="rival-match-card result-border-${resultadoClass}">
                 <div class="rival-match-header">
-                    <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
-                        <i class="fas fa-calendar-alt text-red-700"></i>
+                    <div class="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 font-medium">
+                        <i class="fas fa-calendar-alt text-red-700 dark:text-red-400"></i>
                         <span>${partido.fecha} • ${partido.lugar} • ${partido.hora}</span>
                     </div>
-                    <span class="text-xs uppercase font-bold tracking-wider px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300">${partido.tipo}</span>
+                    <span class="text-xs uppercase font-bold tracking-wider px-3 py-1 rounded-full ${
+                        partido.tipo === 'Amistoso'
+                            ? 'bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-400 border border-green-300 dark:border-green-700'
+                            : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300'
+                    }">${partido.tipo}</span>
                 </div>
                 <div class="rival-match-result ${resultadoClass}">${partido.resultado} (${resultadoText})</div>
                 ${jugadoresHTML}

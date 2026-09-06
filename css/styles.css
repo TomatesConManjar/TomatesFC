@@ -800,6 +800,87 @@ html {
         }
 
         /* ============================================================
+           Badges de Posición e Indicadores de Estado en Tarjetas
+           ============================================================ */
+        .position-badge {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            z-index: 10;
+            padding: 4px 10px;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+            backdrop-filter: blur(6px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+        }
+        .position-badge.gk {
+            background: rgba(202, 138, 4, 0.9);
+            color: #ffffff;
+        }
+        .position-badge.def {
+            background: rgba(37, 99, 235, 0.9);
+            color: #ffffff;
+        }
+        .position-badge.med {
+            background: rgba(13, 148, 136, 0.9);
+            color: #ffffff;
+        }
+        .position-badge.del {
+            background: rgba(220, 38, 38, 0.9);
+            color: #ffffff;
+        }
+
+        .status-corner {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            z-index: 10;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            font-size: 0.9rem;
+            font-weight: 900;
+            border: 2px solid rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(6px);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .player-card:hover .status-corner {
+            transform: scale(1.15);
+        }
+        /* Activo: verde */
+        .status-corner.activo-corner {
+            background: #16a34a;
+            color: #ffffff;
+            box-shadow: 0 0 12px rgba(22, 163, 74, 0.7);
+        }
+        /* Cedido: naranjo */
+        .status-corner.cedido-corner {
+            background: #ea580c;
+            color: #ffffff;
+            box-shadow: 0 0 12px rgba(234, 88, 12, 0.7);
+        }
+        /* Lesionado: cruz roja */
+        .status-corner.lesionado-corner {
+            background: #dc2626;
+            color: #ffffff;
+            box-shadow: 0 0 12px rgba(220, 38, 38, 0.7);
+            font-size: 1rem;
+        }
+        /* Inactivo: gris */
+        .status-corner.inactivo-corner {
+            background: #6b7280;
+            color: #ffffff;
+            box-shadow: 0 0 12px rgba(107, 114, 128, 0.7);
+        }
+
+        /* ============================================================
            PUNTO 4 - Barra de Progreso de Scroll
            ============================================================ */
         #scroll-progress-bar {

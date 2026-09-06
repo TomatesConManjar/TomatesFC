@@ -872,6 +872,8 @@ const jugadoresData = {
         posicion: 'Arquero',
         frase: 'Si la pelota me llega a las manos, el partido es nuestro',
         imagenCamiseta: 'images/dorsal_vilhelm1.jpg',
+        fechaNacimiento: '25 de diciembre de 2004',
+        estado: 'Activo',
         partidos: []
     },
     'leandro-zavala': {
@@ -880,6 +882,8 @@ const jugadoresData = {
         posicion: 'Defensa',
         frase: 'La defensa es el pilar de todo gran equipo',
         imagenCamiseta: 'images/dorsal_zavala5.jpg',
+        fechaNacimiento: '25 de diciembre de 2004',
+        estado: 'Activo',
         partidos: []
     },
     'francisco-lizama': {
@@ -888,6 +892,8 @@ const jugadoresData = {
         posicion: 'Defensa',
         frase: 'La última línea de defensa, siempre alerta',
         imagenCamiseta: 'images/dorsal_lizama6.jpg',
+        fechaNacimiento: '25 de diciembre de 2004',
+        estado: 'Lesionado',
         partidos: []
     },
     'benjamin-garces': {
@@ -896,6 +902,8 @@ const jugadoresData = {
         posicion: 'Delantero',
         frase: 'Cada gol cuenta, y yo estoy aquí para marcar la diferencia',
         imagenCamiseta: 'images/dorsal_garces7.jpg',
+        fechaNacimiento: '25 de diciembre de 2004',
+        estado: 'Activo',
         partidos: []
     },
     'cristobal-santibanez': {
@@ -904,6 +912,8 @@ const jugadoresData = {
         posicion: 'Delantero',
         frase: 'Anticipar el juego es lo que me define como delantero',
         imagenCamiseta: 'images/dorsal_kryzpo8.jpg',
+        fechaNacimiento: '25 de diciembre de 2004',
+        estado: 'Activo',
         partidos: []
     },
     'matias-paredes': {
@@ -912,6 +922,8 @@ const jugadoresData = {
         posicion: 'Delantero',
         frase: 'Cada gol es un paso más hacia la victoria',
         imagenCamiseta: 'images/dorsal_paredes9.jpg',
+        fechaNacimiento: '25 de diciembre de 2004',
+        estado: 'Cedido a Bélgica',
         partidos: []
     },
     'diego-manque': {
@@ -920,6 +932,8 @@ const jugadoresData = {
         posicion: 'Mediocampista',
         frase: 'Crear oportunidades es mi pasión en el campo',
         imagenCamiseta: 'images/dorsal_manque10.jpg',
+        fechaNacimiento: '25 de diciembre de 2004',
+        estado: 'Activo',
         partidos: []
     },
     'sebastian-sandoval': {
@@ -928,6 +942,8 @@ const jugadoresData = {
         posicion: 'Mediocampista',
         frase: 'Siempre listo para recuperar el balón y apoyar al equipo',
         imagenCamiseta: 'images/dorsal_saso11.jpg',
+        fechaNacimiento: '25 de diciembre de 2004',
+        estado: 'Activo',
         partidos: []
     },
     'matias-bustamante': {
@@ -936,6 +952,8 @@ const jugadoresData = {
         posicion: 'Mediocampista',
         frase: 'No hay balón perdido si yo estoy cerca, de un área a la otra',
         imagenCamiseta: 'images/dorsal_bustamante14.jpg',
+        fechaNacimiento: '25 de diciembre de 2004',
+        estado: 'Activo',
         partidos: []
     }
 };

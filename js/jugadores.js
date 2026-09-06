@@ -364,6 +364,42 @@ window.showPlayerDetails = function(playerId) {
     detalles.classList.remove('hidden');
     window.history.pushState({ section: 'player-details', playerId }, '', `#jugador/${playerId}`);
 
+    // Estado y estilo del jugador
+    const estado = jugador.estado || 'Activo';
+    let estadoBadgeHTML = '';
+    const estadoLower = estado.toLowerCase();
+    
+    if (estadoLower.includes('lesionad')) {
+        estadoBadgeHTML = `
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-red-100 text-red-700 border border-red-300 shadow-sm" title="Estado: Lesionado">
+                <span class="text-red-600 font-extrabold text-sm leading-none">✕</span>
+                <span>Lesionado</span>
+            </span>`;
+    } else if (estadoLower.includes('cedid')) {
+        const textoCedido = (estadoLower.includes('bélgica') || estadoLower.includes('belgica')) 
+            ? 'Cedido a Bélgica' 
+            : (jugador.estadoDetalle ? `Cedido a ${jugador.estadoDetalle}` : 'Cedido');
+        estadoBadgeHTML = `
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-orange-100 text-orange-700 border border-orange-300 shadow-sm" title="Estado: ${textoCedido}">
+                <span class="text-orange-500 font-bold text-sm leading-none">⇆</span>
+                <span>${textoCedido}</span>
+            </span>`;
+    } else if (estadoLower.includes('inactiv')) {
+        estadoBadgeHTML = `
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-gray-100 text-gray-700 border border-gray-300 shadow-sm" title="Estado: Inactivo">
+                <span class="w-2 h-2 rounded-full bg-gray-400"></span>
+                <span>Inactivo</span>
+            </span>`;
+    } else {
+        estadoBadgeHTML = `
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-green-100 text-green-700 border border-green-300 shadow-sm" title="Estado: Activo">
+                <span class="w-2 h-2 rounded-full bg-green-500"></span>
+                <span>Activo</span>
+            </span>`;
+    }
+
+    const fechaNacimiento = jugador.fechaNacimiento || '25 de diciembre de 2004';
+
     // Header
     document.getElementById('player-header').innerHTML = `
         <div class="flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-8">
@@ -376,8 +412,17 @@ window.showPlayerDetails = function(playerId) {
                 </div>
             </div>
             <div class="flex-1 text-center md:text-left">
-                <h1 class="text-4xl font-bold text-red-800 mb-2">${jugador.nombre}</h1>
-                <p class="text-xl text-gray-600 mb-4">${jugador.posicion} • #${jugador.numero}</p>
+                <div class="flex flex-wrap items-center justify-center md:justify-start gap-3 mb-2">
+                    <h1 class="text-4xl font-bold text-red-800">${jugador.nombre}</h1>
+                    ${estadoBadgeHTML}
+                </div>
+                <p class="text-xl text-gray-600 mb-2">${jugador.posicion} • #${jugador.numero}</p>
+                <div class="flex flex-wrap items-center justify-center md:justify-start gap-3 mb-4">
+                    <span class="inline-flex items-center gap-2 bg-red-50 text-red-800 px-3.5 py-1.5 rounded-full text-sm font-semibold border border-red-200 shadow-sm">
+                        <i class="fas fa-birthday-cake text-red-600"></i>
+                        <span>Cumpleaños: <strong>${fechaNacimiento}</strong></span>
+                    </span>
+                </div>
                 <p class="text-lg text-gray-700 italic mb-6">"${jugador.frase}"</p>
             </div>
         </div>

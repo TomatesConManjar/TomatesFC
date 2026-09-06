@@ -400,14 +400,30 @@ window.showPlayerDetails = function(playerId) {
 
     const fechaNacimiento = jugador.fechaNacimiento || '25 de diciembre de 2004';
 
+    const fotoJugador = jugador.foto || {
+        'agustin-vilhelm': 'images/foto_agustin.jpg',
+        'leandro-zavala': 'images/foto_zavala.png',
+        'francisco-lizama': 'images/foto_lizama.png',
+        'benjamin-garces': 'images/foto_garces.jpg',
+        'cristobal-santibanez': 'images/foto_kryz.png',
+        'matias-paredes': 'images/foto_paredes.png',
+        'diego-manque': 'images/foto_diego.png',
+        'sebastian-sandoval': 'images/foto_saso.jpg',
+        'matias-bustamante': 'images/foto_matib.png'
+    }[playerId];
+
     // Header
     document.getElementById('player-header').innerHTML = `
         <div class="flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-8">
             <div class="relative">
-                <div class="w-48 h-60 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-lg shadow-lg relative">
-                    <i class="fas fa-user text-8xl mb-4 text-gray-300"></i>
+                <div class="w-48 h-60 bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-white rounded-lg shadow-lg relative overflow-hidden">
+                    ${fotoJugador ? `
+                        <img src="${fotoJugador}" alt="Foto de ${jugador.nombre}" class="w-full h-full object-cover">
+                    ` : `
+                        <i class="fas fa-user text-8xl mb-4 text-gray-300"></i>
+                    `}
                 </div>
-                <div class="absolute -top-3 -right-3 bg-gradient-to-r from-red-600 to-red-800 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl shadow-lg">
+                <div class="absolute -top-3 -right-3 bg-gradient-to-r from-red-600 to-red-800 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl shadow-lg z-10">
                     ${jugador.numero}
                 </div>
             </div>
@@ -416,7 +432,7 @@ window.showPlayerDetails = function(playerId) {
                     <h1 class="text-4xl font-bold text-red-800">${jugador.nombre}</h1>
                     ${estadoBadgeHTML}
                 </div>
-                <p class="text-xl text-gray-600 mb-2">${jugador.posicion} • #${jugador.numero}</p>
+                <p class="text-xl text-gray-600 mb-2">${jugador.posicion}</p>
                 <div class="flex flex-wrap items-center justify-center md:justify-start gap-3 mb-4">
                     <span class="inline-flex items-center gap-2 bg-red-50 text-red-800 px-3.5 py-1.5 rounded-full text-sm font-semibold border border-red-200 shadow-sm">
                         <i class="fas fa-birthday-cake text-red-600"></i>

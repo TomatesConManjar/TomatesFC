@@ -872,6 +872,7 @@ const jugadoresData = {
         posicion: 'Arquero',
         frase: 'Si la pelota me llega a las manos, el partido es nuestro',
         imagenCamiseta: 'images/dorsal_vilhelm1.jpg',
+        foto: 'images/foto_agustin.jpg',
         fechaNacimiento: '25 de diciembre de 2004',
         estado: 'Activo',
         partidos: []
@@ -882,6 +883,7 @@ const jugadoresData = {
         posicion: 'Defensa',
         frase: 'La defensa es el pilar de todo gran equipo',
         imagenCamiseta: 'images/dorsal_zavala5.jpg',
+        foto: 'images/foto_zavala.png',
         fechaNacimiento: '25 de diciembre de 2004',
         estado: 'Activo',
         partidos: []
@@ -892,6 +894,7 @@ const jugadoresData = {
         posicion: 'Defensa',
         frase: 'La última línea de defensa, siempre alerta',
         imagenCamiseta: 'images/dorsal_lizama6.jpg',
+        foto: 'images/foto_lizama.png',
         fechaNacimiento: '25 de diciembre de 2004',
         estado: 'Lesionado',
         partidos: []
@@ -902,6 +905,7 @@ const jugadoresData = {
         posicion: 'Delantero',
         frase: 'Cada gol cuenta, y yo estoy aquí para marcar la diferencia',
         imagenCamiseta: 'images/dorsal_garces7.jpg',
+        foto: 'images/foto_garces.jpg',
         fechaNacimiento: '25 de diciembre de 2004',
         estado: 'Activo',
         partidos: []
@@ -912,6 +916,7 @@ const jugadoresData = {
         posicion: 'Delantero',
         frase: 'Anticipar el juego es lo que me define como delantero',
         imagenCamiseta: 'images/dorsal_kryzpo8.jpg',
+        foto: 'images/foto_kryz.png',
         fechaNacimiento: '25 de diciembre de 2004',
         estado: 'Activo',
         partidos: []
@@ -922,6 +927,7 @@ const jugadoresData = {
         posicion: 'Delantero',
         frase: 'Cada gol es un paso más hacia la victoria',
         imagenCamiseta: 'images/dorsal_paredes9.jpg',
+        foto: 'images/foto_paredes.png',
         fechaNacimiento: '25 de diciembre de 2004',
         estado: 'Cedido a Bélgica',
         partidos: []
@@ -932,6 +938,7 @@ const jugadoresData = {
         posicion: 'Mediocampista',
         frase: 'Crear oportunidades es mi pasión en el campo',
         imagenCamiseta: 'images/dorsal_manque10.jpg',
+        foto: 'images/foto_diego.png',
         fechaNacimiento: '25 de diciembre de 2004',
         estado: 'Activo',
         partidos: []
@@ -942,6 +949,7 @@ const jugadoresData = {
         posicion: 'Mediocampista',
         frase: 'Siempre listo para recuperar el balón y apoyar al equipo',
         imagenCamiseta: 'images/dorsal_saso11.jpg',
+        foto: 'images/foto_saso.jpg',
         fechaNacimiento: '25 de diciembre de 2004',
         estado: 'Activo',
         partidos: []
@@ -952,6 +960,7 @@ const jugadoresData = {
         posicion: 'Mediocampista',
         frase: 'No hay balón perdido si yo estoy cerca, de un área a la otra',
         imagenCamiseta: 'images/dorsal_bustamante14.jpg',
+        foto: 'images/foto_matib.png',
         fechaNacimiento: '25 de diciembre de 2004',
         estado: 'Activo',
         partidos: []

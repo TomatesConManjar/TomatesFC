@@ -322,19 +322,24 @@ window.comparePlayers = function() {
             <div class="compare-stat-row">
                 <!-- Etiquetas de valores y Nombre de la métrica -->
                 <div class="flex justify-between items-center mb-2">
-                    <span class="text-lg font-bold text-gray-700 dark:text-gray-300 w-16 text-left ${isWinner1 ? 'compare-winner' : ''}">${displayVal1}</span>
-                    <span class="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">${cfg.label}</span>
-                    <span class="text-lg font-bold text-gray-700 dark:text-gray-300 w-16 text-right ${isWinner2 ? 'compare-winner' : ''}">${displayVal2}</span>
-                </div>
-                <!-- Barras de comparación -->
-                <div class="flex items-center gap-4">
-                    <!-- Jugador 1 Bar (de derecha a izquierda) -->
-                    <div class="compare-bar-left">
-                        <div class="compare-fill compare-fill-left" style="width: ${percent1}%; background-color: ${isWinner1 ? '#10B981' : '#EF4444'}"></div>
+                    <div class="w-20 text-left">
+                        <span class="compare-val-badge ${isWinner1 ? 'winner-left' : ''}">${displayVal1}</span>
                     </div>
-                    <!-- Jugador 2 Bar (de izquierda a derecha) -->
-                    <div class="compare-bar-right">
-                        <div class="compare-fill compare-fill-right" style="width: ${percent2}%; background-color: ${isWinner2 ? '#10B981' : '#D97706'}"></div>
+                    <span class="text-xs md:text-sm font-extrabold text-gray-600 dark:text-gray-300 uppercase tracking-wider text-center flex-1 px-2">${cfg.label}</span>
+                    <div class="w-20 text-right">
+                        <span class="compare-val-badge ${isWinner2 ? 'winner-right' : ''}">${displayVal2}</span>
+                    </div>
+                </div>
+                <!-- Barras de comparación dinámicas enfrentadas -->
+                <div class="compare-track-container">
+                    <!-- Jugador 1 Bar (crece hacia el centro) -->
+                    <div class="compare-bar-track compare-track-left">
+                        <div class="compare-fill compare-fill-left ${isWinner1 ? 'fill-winner-1' : 'fill-standard-1'}" style="width: ${percent1}%"></div>
+                    </div>
+                    <div class="compare-center-divider"></div>
+                    <!-- Jugador 2 Bar (crece desde el centro) -->
+                    <div class="compare-bar-track compare-track-right">
+                        <div class="compare-fill compare-fill-right ${isWinner2 ? 'fill-winner-2' : 'fill-standard-2'}" style="width: ${percent2}%"></div>
                     </div>
                 </div>
             </div>

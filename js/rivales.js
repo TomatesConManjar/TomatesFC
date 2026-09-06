@@ -53,20 +53,61 @@ window.renderRivales = function() {
     container.innerHTML = '';
     rivales.forEach(rivalData => {
         const escudoRival = getEscudoRival(rivalData.rival);
+        
+        // 1. Insignia de balance
+        let balanceBadge = '';
+        if (rivalData.victorias > rivalData.derrotas) {
+            balanceBadge = `<span class="rival-badge rival-badge-favorable"><i class="fas fa-arrow-trend-up mr-1"></i>Favorable</span>`;
+        } else if (rivalData.victorias === rivalData.derrotas) {
+            balanceBadge = `<span class="rival-badge rival-badge-parejo"><i class="fas fa-scale-balanced mr-1"></i>Parejo</span>`;
+        } else {
+            balanceBadge = `<span class="rival-badge rival-badge-desfavorable"><i class="fas fa-fire mr-1"></i>Por Vencer</span>`;
+        }
+
+        // 2. Barra de efectividad
+        const winrate = rivalData.porcentajeVictorias;
+        const winrateGradient = winrate >= 60 
+            ? 'from-emerald-500 to-green-600' 
+            : (winrate >= 40 ? 'from-amber-500 to-yellow-600' : 'from-red-500 to-rose-600');
+
         container.innerHTML += `
-            <div class="rival-card" onclick="showRivalDetails('${rivalData.rival}')">
-                <img src="${escudoRival}" alt="Escudo ${rivalData.rival}" class="mx-auto h-16 w-16 object-contain mb-4">
-                <h3 class="rival-name text-center">${rivalData.rival}</h3>
-                <div class="rival-stats">
-                    <div class="rival-stat"><strong>${rivalData.partidos}</strong>Partidos</div>
-                    <div class="rival-stat"><strong>${rivalData.victorias}</strong>G</div>
-                    <div class="rival-stat"><strong>${rivalData.empates}</strong>E</div>
-                    <div class="rival-stat"><strong>${rivalData.derrotas}</strong>P</div>
-                    <div class="rival-stat"><strong>${rivalData.golesFavor} - ${rivalData.golesContra}</strong>GF - GC</div>
-                    <div class="rival-stat"><strong>${rivalData.porcentajeVictorias}%</strong>Victorias</div>
+            <div class="rival-card group" onclick="showRivalDetails('${rivalData.rival}')">
+                <div class="flex items-center justify-between mb-4 w-full">
+                    <span class="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">${rivalData.partidos} ${rivalData.partidos === 1 ? 'partido' : 'partidos'}</span>
+                    ${balanceBadge}
                 </div>
-                <button onclick="showRivalDetails('${rivalData.rival}')" class="w-full bg-gray-100 hover:bg-red-100 text-red-800 py-2 rounded-full transition mt-4">
-                    Ver detalles
+
+                <div class="rival-crest-wrapper mb-3">
+                    <img src="${escudoRival}" alt="Escudo ${rivalData.rival}" class="rival-crest-img">
+                </div>
+
+                <h3 class="rival-name text-center">${rivalData.rival}</h3>
+
+                <!-- Récord en píldoras (W-D-L) -->
+                <div class="flex items-center justify-center gap-2 my-3">
+                    <span class="rival-record-pill record-w" title="Victorias">${rivalData.victorias}V</span>
+                    <span class="rival-record-pill record-d" title="Empates">${rivalData.empates}E</span>
+                    <span class="rival-record-pill record-l" title="Derrotas">${rivalData.derrotas}D</span>
+                </div>
+
+                <!-- Barra de efectividad -->
+                <div class="rival-winrate-box w-full">
+                    <div class="flex justify-between items-center text-xs font-bold mb-1.5">
+                        <span class="text-gray-500 dark:text-gray-400 font-semibold">Efectividad</span>
+                        <span class="font-extrabold text-red-800 dark:text-red-400">${winrate}%</span>
+                    </div>
+                    <div class="w-full h-2.5 bg-gray-200 dark:bg-gray-700/80 rounded-full overflow-hidden p-0.5 border border-gray-300/40 dark:border-gray-600/30">
+                        <div class="h-full rounded-full bg-gradient-to-r ${winrateGradient} transition-all duration-700" style="width: ${Math.max(winrate, 5)}%"></div>
+                    </div>
+                    <div class="flex justify-between items-center text-[11px] text-gray-500 dark:text-gray-400 mt-2 font-medium">
+                        <span>Goles: <strong class="text-gray-700 dark:text-gray-200">${rivalData.golesFavor} GF</strong></span>
+                        <span>Contra: <strong class="text-gray-700 dark:text-gray-200">${rivalData.golesContra} GC</strong></span>
+                    </div>
+                </div>
+
+                <button class="rival-action-btn mt-5 w-full">
+                    <span>Ver Historial</span>
+                    <i class="fas fa-arrow-right ml-1 transition-transform duration-300 group-hover:translate-x-1.5"></i>
                 </button>
             </div>
         `;
@@ -92,19 +133,57 @@ window.showRivalDetails = function(rivalName) {
     if (rivalDetails) rivalDetails.classList.remove('hidden');
 
     const escudoRival = getEscudoRival(rivalName);
+    
+    // 3. Banner Versus Cinematográfico
     document.getElementById('rival-header').innerHTML = `
-        <div class="flex items-center justify-between mb-6">
-            <div class="text-center">
-                <img src="images/logo_tomates.png" alt="Tomates FC" class="h-16 w-16 mx-auto mb-2">
-                <p class="font-bold">Tomates FC</p>
-            </div>
-            <div class="text-center">
-                <h2 class="text-2xl font-bold text-red-800 mb-2">${rivalName}</h2>
-                <p class="text-gray-600">Partidos: ${rivalData.partidos} | G: ${rivalData.victorias} E: ${rivalData.empates} P: ${rivalData.derrotas} | GF: ${rivalData.golesFavor} - ${rivalData.golesContra}</p>
-            </div>
-            <div class="text-center">
-                <img src="${escudoRival}" alt="${rivalName}" class="h-16 w-16 mx-auto mb-2">
-                <p class="font-bold">${rivalName}</p>
+        <div class="rival-versus-banner relative overflow-hidden rounded-3xl p-6 md:p-8 shadow-2xl text-white">
+            <div class="versus-bg-glow"></div>
+            <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8">
+                <!-- Local: Tomates FC -->
+                <div class="flex flex-col items-center flex-1 text-center">
+                    <div class="versus-shield-box">
+                        <img src="images/logo_tomates.png" alt="Tomates FC" class="h-20 w-20 md:h-24 md:w-24 object-contain drop-shadow-xl">
+                    </div>
+                    <h3 class="font-black text-2xl md:text-3xl tracking-wide uppercase mt-2 text-white">Tomates FC</h3>
+                    <span class="text-xs uppercase tracking-widest text-red-300 font-bold">Temuco • F7</span>
+                </div>
+
+                <!-- Centro: Marcador H2H & VS -->
+                <div class="flex flex-col items-center justify-center text-center px-4">
+                    <span class="versus-vs-badge">VS</span>
+                    <div class="versus-score-row mt-3">
+                        <div class="versus-stat-col">
+                            <span class="text-green-400 font-black text-3xl md:text-5xl font-bebas">${rivalData.victorias}</span>
+                            <span class="text-[10px] uppercase font-bold tracking-widest text-gray-300">Victorias</span>
+                        </div>
+                        <span class="versus-stat-dash text-gray-400 text-2xl font-light">-</span>
+                        <div class="versus-stat-col">
+                            <span class="text-amber-300 font-black text-3xl md:text-5xl font-bebas">${rivalData.empates}</span>
+                            <span class="text-[10px] uppercase font-bold tracking-widest text-gray-300">Empates</span>
+                        </div>
+                        <span class="versus-stat-dash text-gray-400 text-2xl font-light">-</span>
+                        <div class="versus-stat-col">
+                            <span class="text-red-400 font-black text-3xl md:text-5xl font-bebas">${rivalData.derrotas}</span>
+                            <span class="text-[10px] uppercase font-bold tracking-widest text-gray-300">Derrotas</span>
+                        </div>
+                    </div>
+                    <div class="versus-summary-pill mt-4">
+                        <span>${rivalData.partidos} ${rivalData.partidos === 1 ? 'partido' : 'partidos'}</span>
+                        <span>•</span>
+                        <span>${rivalData.golesFavor} GF / ${rivalData.golesContra} GC (${(rivalData.golesFavor - rivalData.golesContra) >= 0 ? '+' : ''}${rivalData.golesFavor - rivalData.golesContra})</span>
+                        <span>•</span>
+                        <span class="text-yellow-400">${rivalData.porcentajeVictorias}% Éxito</span>
+                    </div>
+                </div>
+
+                <!-- Visitante: Rival -->
+                <div class="flex flex-col items-center flex-1 text-center">
+                    <div class="versus-shield-box">
+                        <img src="${escudoRival}" alt="${rivalName}" class="h-20 w-20 md:h-24 md:w-24 object-contain drop-shadow-xl">
+                    </div>
+                    <h3 class="font-black text-2xl md:text-3xl tracking-wide uppercase mt-2 text-white">${rivalName}</h3>
+                    <span class="text-xs uppercase tracking-widest text-gray-300 font-bold">Rival Histórico</span>
+                </div>
             </div>
         </div>
     `;
@@ -122,18 +201,23 @@ window.showRivalDetails = function(rivalName) {
                 ${partido.jugadores.map(j => `
                     <div class="rival-player-card">
                         <div class="rival-player-name">${j.nombre}</div>
-                        <div>⚽ <span class="rival-player-goles">${j.goles}</span> Goles</div>
-                        <div>🎯 <span class="rival-player-asist">${j.asistencias}</span> Asist.</div>
+                        <div class="flex items-center justify-center gap-3 text-xs font-semibold mt-1">
+                            <span class="text-green-600 dark:text-green-400 font-bold">⚽ ${j.goles}</span>
+                            <span class="text-blue-600 dark:text-blue-400 font-bold">🎯 ${j.asistencias}</span>
+                        </div>
                     </div>
                 `).join('')}
                </div>`
             : '<p class="text-gray-500 text-sm italic mt-2">No hay datos de jugadores disponibles.</p>';
 
         matchesContainer.innerHTML += `
-            <div class="rival-match-card">
+            <div class="rival-match-card result-border-${resultadoClass}">
                 <div class="rival-match-header">
-                    <p class="text-sm text-gray-600 flex-1">${partido.fecha} • ${partido.lugar} • ${partido.hora}</p>
-                    <p class="text-sm text-gray-500 flex-1 text-right">${partido.tipo}</p>
+                    <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
+                        <i class="fas fa-calendar-alt text-red-700"></i>
+                        <span>${partido.fecha} • ${partido.lugar} • ${partido.hora}</span>
+                    </div>
+                    <span class="text-xs uppercase font-bold tracking-wider px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300">${partido.tipo}</span>
                 </div>
                 <div class="rival-match-result ${resultadoClass}">${partido.resultado} (${resultadoText})</div>
                 ${jugadoresHTML}

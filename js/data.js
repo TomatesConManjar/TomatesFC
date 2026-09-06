@@ -884,7 +884,6 @@ const jugadoresData = {
     },
     'francisco-lizama': {
         nombre: 'Francisco Lizama',
-        numero: 6,
         posicion: 'Defensa',
         frase: 'La última línea de defensa, siempre alerta',
         imagenCamiseta: 'images/dorsal_lizama6.jpg',

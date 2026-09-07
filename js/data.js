@@ -866,7 +866,7 @@ const partidosData = {
         temporada: 2026,
         fecha: "Domingo 06 Septiembre",
         rival: "Equipo Luck",
-        resultado: "11-13",
+        resultado: "12-13",
         lugar: "Canchas Santa Laura",
         tipo: "Amistoso",
         hora: "16:00 hrs",

@@ -164,6 +164,25 @@ document.addEventListener('DOMContentLoaded', function() {
             window.history.pushState({ section: seccionId }, '', `#${seccionId}`);
         });
     });
+
+    // --- Manejo de ruta inicial según hash en la URL ---
+    function handleInitialRoute() {
+        const hash = window.location.hash;
+        if (!hash) return;
+        if (hash === '#stats-section' || hash === '#estadisticas') {
+            if (typeof showStats === 'function') showStats();
+        } else if (hash.startsWith('#jugador/')) {
+            const playerId = hash.replace('#jugador/', '');
+            if (typeof showPlayerDetails === 'function') showPlayerDetails(playerId);
+        } else if (hash.startsWith('#partido/')) {
+            const partidoId = hash.replace('#partido/', '');
+            if (typeof showMatchDetails === 'function') showMatchDetails(partidoId);
+        } else if (hash.startsWith('#rivales/')) {
+            const rivalName = decodeURIComponent(hash.replace('#rivales/', ''));
+            if (typeof showRivalDetails === 'function') showRivalDetails(rivalName);
+        }
+    }
+    handleInitialRoute();
 });
 
 // --- Navegación con botones atrás/adelante del navegador ---
@@ -210,6 +229,11 @@ window.addEventListener('popstate', function(event) {
             }
         }
     } else {
+        const hash = window.location.hash;
+        if (hash === '#stats-section' || hash === '#estadisticas') {
+            if (typeof showStats === 'function') showStats();
+            return;
+        }
         ['inicio', 'historia', 'equipo', 'partidos', 'rivales'].forEach(id => {
             const el = document.getElementById(id);
             if (el) el.classList.remove('hidden');

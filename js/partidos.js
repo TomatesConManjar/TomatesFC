@@ -131,27 +131,30 @@ function renderMatches(filter = 'todos') {
 
         const escudoRival = getEscudoRival(partido.rival);
         container.innerHTML += `
-            <div class="match-card p-6 hover:shadow-lg transition" data-result="${resultado}">
-                <div class="flex justify-end items-center mb-4">
+            <div class="match-card p-4 sm:p-5 hover:shadow-lg transition flex flex-col justify-between h-full" data-result="${resultado}">
+                <div class="flex justify-end items-center mb-3">
                     <p class="text-gray-600 text-sm font-medium">${partido.fecha}</p>
                 </div>
-                <div class="flex items-center justify-between my-4">
-                    <div class="text-center">
-                    <img src="images/logo_tomates.png" alt="Escudo Tomates FC" class="mx-auto h-16 w-16 object-contain">
-                        <p class="font-bold mt-2">Tomates FC</p>
-                        <span class="text-4xl font-bold text-gray-800">${golesLocal}</span>
+                <div class="flex items-center justify-between my-auto gap-1">
+                    <div class="text-center flex-1 min-w-0 flex flex-col items-center">
+                        <img src="images/logo_tomates.png" alt="Escudo Tomates FC" class="h-12 w-12 sm:h-14 sm:w-14 object-contain">
+                        <div class="h-10 flex items-center justify-center px-1 mt-1">
+                            <p class="font-bold text-xs sm:text-sm leading-tight text-center">Tomates FC</p>
+                        </div>
+                        <span class="text-2xl sm:text-3xl font-bold text-gray-800 mt-1">${golesLocal}</span>
                     </div>
-                    <div class="text-center mx-4">
-                        <p class="font-bold text-xl">VS</p>
-                        <p class="text-gray-600 text-sm">${partido.hora}</p>
+                    <div class="text-center mx-1 shrink-0 flex flex-col items-center justify-center">
+                        <p class="font-bold text-base sm:text-lg text-gray-600">VS</p>
                     </div>
-                    <div class="text-center">
-                        <img src="${escudoRival}" alt="Escudo ${partido.rival}" class="mx-auto h-16 w-16 object-contain">
-                        <p class="font-bold mt-2">${partido.rival}</p>
-                        <span class="text-4xl font-bold text-gray-800">${golesVisitante}</span>
+                    <div class="text-center flex-1 min-w-0 flex flex-col items-center">
+                        <img src="${escudoRival}" alt="Escudo ${partido.rival}" class="h-12 w-12 sm:h-14 sm:w-14 object-contain">
+                        <div class="h-10 flex items-center justify-center px-1 mt-1">
+                            <p class="font-bold text-xs sm:text-sm leading-tight text-center">${partido.rival}</p>
+                        </div>
+                        <span class="text-2xl sm:text-3xl font-bold text-gray-800 mt-1">${golesVisitante}</span>
                     </div>
                 </div>
-                <button onclick="showMatchDetails(${id})" class="w-full bg-gray-100 hover:bg-red-100 text-red-800 py-2 rounded-full transition">
+                <button onclick="showMatchDetails(${id})" class="w-full mt-4 bg-gray-100 hover:bg-red-100 text-red-800 py-2 rounded-full transition text-sm font-semibold">
                     Ver detalles
                 </button>
             </div>

@@ -1030,6 +1030,10 @@ html {
             transition: transform var(--transition-bounce), box-shadow var(--transition-base);
             position: relative;
             overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
         .dark .match-card {
             background: rgba(30, 41, 59, 0.85);

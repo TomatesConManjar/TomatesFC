@@ -225,23 +225,67 @@ window.showMatchDetails = function(partidoId) {
 
         const escudoRival = getEscudoRival(partido.rival);
         const [golesLocal, golesVisitante] = partido.resultado.split('-');
+        const gl = parseInt(golesLocal) || 0;
+        const gv = parseInt(golesVisitante) || 0;
+
+        let resultadoClass = 'empate', resultadoLabel = 'Empate', resultadoBadgeBg = 'bg-amber-500/20 text-amber-300 border-amber-500/40';
+        if (gl > gv) {
+            resultadoClass = 'victoria';
+            resultadoLabel = 'Victoria';
+            resultadoBadgeBg = 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40';
+        } else if (gl < gv) {
+            resultadoClass = 'derrota';
+            resultadoLabel = 'Derrota';
+            resultadoBadgeBg = 'bg-rose-500/20 text-rose-300 border-rose-500/40';
+        }
 
         document.getElementById('match-header').innerHTML = `
-            <div class="flex items-center justify-center space-x-8 mb-8">
-                <div class="text-center">
-                    <img src="images/logo_tomates.png" alt="Escudo Tomates FC" class="h-20 w-20 mx-auto mb-2">
-                    <p class="font-bold text-lg">Tomates FC</p>
-                    <span class="text-4xl font-bold text-red-800">${golesLocal}</span>
-                </div>
-                <div class="text-center">
-                    <p class="text-2xl font-bold text-gray-600">VS</p>
-                    <p class="text-sm text-green-600 font-semibold">${partido.tipo} • ${partido.hora}</p>
-                    <p class="text-sm text-blue-600 font-semibold">${partido.lugar}</p>
-                </div>
-                <div class="text-center">
-                    <img src="${escudoRival}" alt="Escudo ${partido.rival}" class="h-20 w-20 mx-auto mb-2">
-                    <p class="font-bold text-lg">${partido.rival}</p>
-                    <span class="text-4xl font-bold text-gray-800">${golesVisitante}</span>
+            <div class="rival-versus-banner relative overflow-hidden rounded-3xl p-6 md:p-8 shadow-2xl text-white">
+                <div class="versus-bg-glow"></div>
+                <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8">
+                    <!-- Local: Tomates FC -->
+                    <div class="flex flex-col items-center flex-1 text-center">
+                        <div class="versus-shield-box">
+                            <img src="images/logo_tomates.png" alt="Tomates FC" class="h-16 w-16 md:h-20 md:w-20 object-contain drop-shadow-xl">
+                        </div>
+                        <h3 class="font-black text-2xl md:text-3xl tracking-wide uppercase mt-3 text-white">Tomates FC</h3>
+                        <span class="text-xs uppercase font-bold tracking-widest text-red-300 mt-0.5">Local</span>
+                    </div>
+
+                    <!-- Centro: Marcador, VS y Datos -->
+                    <div class="flex flex-col items-center justify-center text-center px-4">
+                        <span class="inline-flex items-center gap-1.5 px-4 py-1 rounded-full text-xs font-black uppercase tracking-widest border ${resultadoBadgeBg} mb-3 shadow-lg">
+                            <i class="fas ${resultadoClass === 'victoria' ? 'fa-trophy' : resultadoClass === 'empate' ? 'fa-handshake' : 'fa-times-circle'}"></i>
+                            ${resultadoLabel}
+                        </span>
+                        <div class="flex items-center justify-center gap-4 my-1">
+                            <span class="text-4xl md:text-6xl font-black font-bebas text-white tracking-wider drop-shadow-lg">${golesLocal}</span>
+                            <span class="text-2xl md:text-3xl font-bold text-red-400/80 mx-1">:</span>
+                            <span class="text-4xl md:text-6xl font-black font-bebas text-white tracking-wider drop-shadow-lg">${golesVisitante}</span>
+                        </div>
+                        <div class="versus-summary-pill mt-3">
+                            <span class="flex items-center gap-1.5 text-gray-200">
+                                <i class="fas fa-calendar-alt text-red-400"></i> ${partido.fecha}
+                            </span>
+                            <span>•</span>
+                            <span class="flex items-center gap-1.5 text-gray-200">
+                                <i class="fas fa-clock text-amber-400"></i> ${partido.hora}
+                            </span>
+                            <span>•</span>
+                            <span class="flex items-center gap-1.5 text-gray-200">
+                                <i class="fas fa-map-marker-alt text-blue-400"></i> ${partido.lugar}
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Visitante: Rival -->
+                    <div class="flex flex-col items-center flex-1 text-center">
+                        <div class="versus-shield-box">
+                            <img src="${escudoRival}" alt="${partido.rival}" class="h-16 w-16 md:h-20 md:w-20 object-contain drop-shadow-xl">
+                        </div>
+                        <h3 class="font-black text-2xl md:text-3xl tracking-wide uppercase mt-3 text-white">${partido.rival}</h3>
+                        <span class="text-xs uppercase font-bold tracking-widest text-gray-300 mt-0.5">Rival</span>
+                    </div>
                 </div>
             </div>
         `;
@@ -249,23 +293,27 @@ window.showMatchDetails = function(partidoId) {
         const playersContainer = document.getElementById('match-players');
         if (!playersContainer) return;
         playersContainer.innerHTML = '';
-        partido.jugadores.forEach(jugador => {
-            playersContainer.innerHTML += `
-                <div class="bg-white rounded-lg p-6 shadow-lg border-2 border-red-100 hover:border-red-300 transition">
-                    <h3 class="font-bold text-xl mb-3 text-red-800">${jugador.nombre}</h3>
-                    <div class="space-y-2">
-                        <div class="flex justify-between items-center">
-                            <span class="text-gray-600">⚽ Goles:</span>
-                            <span class="font-bold text-green-600">${jugador.goles}</span>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-gray-600">🎯 Asistencias:</span>
-                            <span class="font-bold text-blue-600">${jugador.asistencias}</span>
+        if (!partido.jugadores || partido.jugadores.length === 0) {
+            playersContainer.innerHTML = '<p class="text-gray-500 dark:text-gray-400 text-center col-span-full italic py-4">No hay estadísticas de jugadores registradas para este partido.</p>';
+        } else {
+            partido.jugadores.forEach(jugador => {
+                playersContainer.innerHTML += `
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border-2 border-red-100 dark:border-gray-700 hover:border-red-300 dark:hover:border-red-500 transition duration-300">
+                        <h3 class="font-bold text-xl mb-3 text-red-800 dark:text-red-400">${jugador.nombre}</h3>
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600 dark:text-gray-300 font-medium">⚽ Goles:</span>
+                                <span class="font-bold text-green-600 dark:text-green-400 text-lg">${jugador.goles}</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600 dark:text-gray-300 font-medium">🎯 Asistencias:</span>
+                                <span class="font-bold text-blue-600 dark:text-blue-400 text-lg">${jugador.asistencias}</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-            `;
-        });
+                `;
+            });
+        }
     } catch (error) {
         console.error('Error en showMatchDetails:', error);
     }

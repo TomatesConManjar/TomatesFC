@@ -132,9 +132,8 @@ function renderMatches(filter = 'todos') {
         const escudoRival = getEscudoRival(partido.rival);
         container.innerHTML += `
             <div class="match-card p-6 hover:shadow-lg transition" data-result="${resultado}">
-                <div class="flex justify-between items-center mb-4">
-                    <span class="bg-green-600 text-white px-3 py-1 rounded-full text-sm">${partido.tipo}</span>
-                    <p class="text-gray-600">${partido.fecha}</p>
+                <div class="flex justify-end items-center mb-4">
+                    <p class="text-gray-600 text-sm font-medium">${partido.fecha}</p>
                 </div>
                 <div class="flex items-center justify-between my-4">
                     <div class="text-center">

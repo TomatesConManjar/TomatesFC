@@ -204,11 +204,6 @@ window.showRivalDetails = function(rivalName) {
                         <i class="fas fa-calendar-alt text-red-700 dark:text-red-400"></i>
                         <span>${partido.fecha} • ${partido.lugar} • ${partido.hora}</span>
                     </div>
-                    <span class="text-xs uppercase font-bold tracking-wider px-3 py-1 rounded-full ${
-                        partido.tipo === 'Amistoso'
-                            ? 'bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-400 border border-green-300 dark:border-green-700'
-                            : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300'
-                    }">${partido.tipo}</span>
                 </div>
                 <div class="rival-match-result ${resultadoClass}">${partido.resultado} (${resultadoText})</div>
                 ${jugadoresHTML}

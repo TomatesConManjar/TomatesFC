@@ -891,7 +891,7 @@ html {
             font-family: 'Bebas Neue', sans-serif;
             font-weight: 900;
             line-height: 0.8;
-            color: rgba(185, 28, 28, 0.08);
+            color: rgba(185, 28, 28, 0.22);
             pointer-events: none;
             user-select: none;
             z-index: 1;
@@ -899,13 +899,13 @@ html {
         }
         .player-card:hover .player-watermark-number {
             transform: scale(1.12) translateY(-6px);
-            color: rgba(185, 28, 28, 0.16);
+            color: rgba(185, 28, 28, 0.38);
         }
         .dark .player-watermark-number {
-            color: rgba(255, 255, 255, 0.05);
+            color: rgba(248, 113, 113, 0.18);
         }
         .dark .player-card:hover .player-watermark-number {
-            color: rgba(248, 113, 113, 0.14);
+            color: rgba(248, 113, 113, 0.32);
         }
 
         /* ============================================================

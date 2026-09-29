@@ -69,19 +69,88 @@ h1, h2, h3, h4, h5, h6, .font-bebas {
     --glass-blur:          16px;
     --glass-shadow-red:    rgba(255, 71, 87, 0.35);
 
+    /* ============================================================
+       PALETA LIGHT PREMIUM & CYBER-SPORTS (MODO CLARO)
+       ============================================================ */
+    --light-bg-base:           #f8fafc;   /* Base perlada clara */
+    --light-card-bg:           rgba(255, 255, 255, 0.88); /* Cristal esmerilado claro */
+    --light-card-border:       rgba(185, 28, 28, 0.13);   /* Borde rojo refinado */
+    --light-card-border-hover: rgba(239, 68, 68, 0.48);   /* Borde activo */
+    --light-card-shadow:       0 10px 30px -5px rgba(0, 0, 0, 0.05), 0 4px 12px -2px rgba(185, 28, 28, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.85);
+    --light-card-shadow-hover: 0 24px 50px -10px rgba(185, 28, 28, 0.16), 0 10px 25px -5px rgba(0, 0, 0, 0.06), 0 0 25px rgba(239, 68, 68, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+
     /* Animaciones */
     --transition-fast:     0.2s ease;
     --transition-base:     0.3s ease;
     --transition-bounce:   0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* Micro-interacciones y Glassmorphism */
-.player-card, .match-card, [data-result] {
-    transition: transform var(--transition-bounce), box-shadow var(--transition-base) !important;
+/* ============================================================
+   GLASSMORPHISM LIGHT PREMIUM & MICRO-INTERACCIONES
+   ============================================================ */
+.player-card, 
+.match-card, 
+.rival-card, 
+[data-result], 
+.stat-card, 
+.match-performance-card {
+    background: var(--light-card-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--light-card-border);
+    box-shadow: var(--light-card-shadow);
+    transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, border-color 0.3s ease !important;
 }
-.player-card:hover, .match-card:hover, [data-result]:hover {
-    transform: translateY(-4px) !important;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px var(--glass-shadow-red) !important;
+
+.player-card:hover, 
+.match-card:hover, 
+.rival-card:hover, 
+[data-result]:hover {
+    transform: translateY(-8px) scale(1.02) !important;
+    border-color: var(--light-card-border-hover) !important;
+    box-shadow: var(--light-card-hover-shadow) !important;
+}
+
+/* Escudos, Avatares y Fotos en Light Mode */
+.rival-card img,
+.rival-badge img,
+[data-result] img,
+.player-card img {
+    filter: drop-shadow(0 4px 10px rgba(185, 28, 28, 0.18));
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+.rival-card:hover img,
+[data-result]:hover img {
+    filter: drop-shadow(0 8px 20px rgba(185, 28, 28, 0.36));
+}
+
+/* Botones de filtros en Light Mode */
+.filter-btn {
+    background: rgba(255, 255, 255, 0.88) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1.5px solid rgba(185, 28, 28, 0.18) !important;
+    color: #374151 !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    transition: all 0.25s ease !important;
+}
+.filter-btn:hover {
+    background: #fff5f5 !important;
+    border-color: #ef4444 !important;
+    color: #991b1b !important;
+    box-shadow: 0 6px 18px rgba(239, 68, 68, 0.2);
+    transform: translateY(-2px);
+}
+.filter-btn.bg-red-800,
+.bg-red-800 {
+    background: linear-gradient(135deg, #991b1b 0%, #b91c1c 50%, #dc2626 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    color: #ffffff !important;
+    box-shadow: 0 6px 20px rgba(185, 28, 28, 0.35) !important;
+}
+.bg-red-800:hover {
+    background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 50%, #b91c1c 100%) !important;
+    box-shadow: 0 8px 25px rgba(185, 28, 28, 0.45) !important;
 }
 
 /* Scroll suave para todos los enlaces de ancla */
@@ -314,12 +383,44 @@ html {
         }
         body {
             font-family: 'Outfit', 'Quicksand', sans-serif;
-            background-color: var(--color-bg-soft);
+            background-color: #f8fafc;
             color: var(--color-text-base);
+            background-image: 
+                radial-gradient(ellipse 90% 50% at 50% -8%, rgba(185, 28, 28, 0.045), transparent),
+                radial-gradient(ellipse 70% 50% at 90% 45%, rgba(217, 119, 6, 0.035), transparent),
+                radial-gradient(ellipse 70% 50% at 10% 85%, rgba(185, 28, 28, 0.035), transparent);
+            background-attachment: fixed;
         }
         h1, h2, h3 {
             font-family: 'Bebas Neue', sans-serif;
             letter-spacing: 0.05em;
+        }
+
+        /* Títulos de sección con degradado carmesí deportivo en Light Mode */
+        h2.text-red-800, section h2.text-red-800 {
+            background: linear-gradient(135deg, #7f1d1d 0%, #b91c1c 45%, #ea580c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 0.06em;
+            filter: drop-shadow(0 2px 8px rgba(185, 28, 28, 0.16));
+            display: inline-block;
+        }
+        .dark h2.text-red-800, .dark section h2.text-red-800 {
+            background: linear-gradient(135deg, #ffffff 0%, #ff4757 55%, #ffd700 100%) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text !important;
+            filter: drop-shadow(0 2px 14px rgba(255, 71, 87, 0.4)) !important;
+        }
+
+        /* Navbar Sticky en Light Mode con Glassmorphism Carmesí */
+        nav.sticky {
+            background: linear-gradient(135deg, rgba(127, 29, 29, 0.95) 0%, rgba(185, 28, 28, 0.95) 50%, rgba(153, 27, 27, 0.95) 100%) !important;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.22) !important;
+            box-shadow: 0 4px 20px rgba(127, 29, 29, 0.25), 0 0 15px rgba(185, 28, 28, 0.1) !important;
         }
         .hero {
             height: 100vh;
@@ -679,16 +780,17 @@ html {
         }
 
         /* ============================================================
-           PUNTO 3 - Glassmorphism Premium en Tarjetas de Jugadores
+           PUNTO 3 - Glassmorphism Premium en Tarjetas de Jugadores (Light Mode)
            ============================================================ */
         .player-card {
-            transition: var(--transition-bounce);
-            backdrop-filter: blur(var(--glass-blur));
-            -webkit-backdrop-filter: blur(var(--glass-blur));
-            background: rgba(255, 255, 255, 0.92);
-            border: 1px solid var(--glass-border);
+            transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, border-color 0.3s ease !important;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            background: rgba(255, 255, 255, 0.88);
+            border: 1px solid rgba(185, 28, 28, 0.13);
             position: relative;
             overflow: hidden;
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05), 0 4px 12px -2px rgba(185, 28, 28, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.85);
         }
 
         /* Reflejo de vidrio en esquina superior */
@@ -702,9 +804,9 @@ html {
             background: linear-gradient(
                 90deg,
                 transparent 0%,
-                rgba(255, 255, 255, 0.8) 30%,
-                rgba(255, 255, 255, 0.9) 50%,
-                rgba(255, 255, 255, 0.8) 70%,
+                rgba(255, 255, 255, 0.9) 30%,
+                rgba(255, 255, 255, 1) 50%,
+                rgba(255, 255, 255, 0.9) 70%,
                 transparent 100%
             );
             z-index: 2;
@@ -721,7 +823,7 @@ html {
             background: linear-gradient(
                 105deg,
                 transparent 0%,
-                rgba(255, 255, 255, 0.12) 50%,
+                rgba(255, 255, 255, 0.25) 50%,
                 transparent 100%
             );
             transform: rotate(10deg);
@@ -737,12 +839,13 @@ html {
         }
 
         .player-card:hover {
-            transform: translateY(-14px) scale(1.025);
+            transform: translateY(-8px) scale(1.02) !important;
+            border-color: rgba(239, 68, 68, 0.48) !important;
             box-shadow:
-                0 30px 60px -12px rgba(0, 0, 0, 0.22),
-                0 12px 28px -6px var(--glass-shadow-red),
-                0 0 0 1px rgba(185, 28, 28, 0.15),
-                inset 0 1px 0 rgba(255, 255, 255, 0.6);
+                0 24px 50px -10px rgba(185, 28, 28, 0.16),
+                0 10px 25px -5px rgba(0, 0, 0, 0.06),
+                0 0 25px rgba(239, 68, 68, 0.16),
+                inset 0 1px 0 rgba(255, 255, 255, 0.95) !important;
         }
 
         /* Borde rojo sutil al fondo de la tarjeta al hover */

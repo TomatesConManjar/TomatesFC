@@ -47,16 +47,27 @@ h1, h2, h3, h4, h5, h6, .font-bebas {
     --color-text-light:    #9CA3AF;   /* Gris claro */
 
     /* Dark Mode superficies */
-    --color-dark-bg:       #111827;   /* Fondo oscuro principal */
-    --color-dark-surface:  #1F2937;   /* Tarjetas en dark */
-    --color-dark-elevated: #374151;   /* Elementos elevados en dark */
-    --color-dark-border:   rgba(255, 255, 255, 0.08);
+    --color-dark-bg:       #0b0e14;   /* Fondo ultra oscuro principal */
+    --color-dark-surface:  #12151e;   /* Superficies / tarjetas */
+    --color-dark-elevated: #1a1f2c;   /* Elementos elevados / modales */
+    --color-dark-border:   rgba(255, 71, 87, 0.22);
+
+    /* Paleta Cyber-Sports & Dark Premium (Punto 3) */
+    --cyber-dark-bg:        #0b0e14;   /* Fondo ultra oscuro ciber */
+    --cyber-dark-surface:   #12151e;   /* Superficie base tarjetas */
+    --cyber-dark-elevated:  #1a1f2c;   /* Modales y dropdowns */
+    --cyber-neon-red:       #ff4757;   /* Rojo tomate neón cyber */
+    --cyber-neon-gold:      #ffd700;   /* Dorado cyber */
+    --cyber-gradient-deep:  linear-gradient(135deg, #160406 0%, #800f14 50%, #e84118 100%);
+    --cyber-glow-red:       0 0 25px rgba(255, 71, 87, 0.45);
+    --cyber-glow-gold:      0 0 25px rgba(255, 215, 0, 0.45);
+    --cyber-border-neon:    rgba(255, 71, 87, 0.22);
 
     /* Glassmorphism (Punto 3) */
     --glass-bg:            rgba(255, 255, 255, 0.06);
     --glass-border:        rgba(255, 255, 255, 0.15);
     --glass-blur:          16px;
-    --glass-shadow-red:    rgba(185, 28, 28, 0.25);
+    --glass-shadow-red:    rgba(255, 71, 87, 0.35);
 
     /* Animaciones */
     --transition-fast:     0.2s ease;
@@ -77,104 +88,188 @@ h1, h2, h3, h4, h5, h6, .font-bebas {
 html {
     scroll-behavior: smooth;
 }
-        /* Modo oscuro */
+        /* ============================================================
+           PUNTO 3 - PALETA DARK PREMIUM & CYBER-SPORTS
+           ============================================================ */
+        /* Fondo general ultra oscuro y tipografía base */
         .dark {
-            background-color: #0f172a !important;
+            background-color: var(--cyber-dark-bg) !important;
             color: #f1f5f9 !important;
         }
-        .dark .bg-white {
-            background: rgba(15, 23, 42, 0.95) !important;
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(239, 68, 68, 0.12) !important;
+        .dark body {
+            background-color: var(--cyber-dark-bg) !important;
             color: #f1f5f9 !important;
+        }
+
+        /* Superficies de secciones y contenedores en Dark Mode */
+        .dark .bg-white {
+            background: rgba(18, 21, 30, 0.85) !important;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 71, 87, 0.16) !important;
+            color: #f1f5f9 !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
         }
         .dark .bg-gray-100 {
-            background-color: #0f172a !important;
+            background-color: var(--cyber-dark-bg) !important;
         }
         .dark .bg-gray-50 {
-            background-color: #1e293b !important;
+            background-color: var(--cyber-dark-surface) !important;
         }
+        .dark .bg-gray-800 {
+            background-color: var(--cyber-dark-surface) !important;
+            border-color: rgba(255, 71, 87, 0.2) !important;
+        }
+        .dark .bg-gray-900 {
+            background-color: #07090e !important;
+        }
+
+        /* Textos y contrastes Cyber */
         .dark .text-gray-600 {
             color: #94a3b8 !important;
         }
         .dark .text-gray-700 {
             color: #cbd5e1 !important;
         }
-        /* Estilos para detalles del jugador en modo oscuro */
-        .dark .stat-card {
-            background-color: #2d3748 !important;
-            color: #e2e8f0 !important;
-            border: 1px solid rgba(255, 255, 255, 0.1) !important;
-        }
-        .dark .match-performance-card {
-            background-color: #2d3748 !important;
-            color: #e2e8f0 !important;
-        }
-        .dark .bg-green-100 {
-            background-color: rgba(72, 187, 120, 0.2) !important;
-            color: #68d391 !important;
-        }
-        .dark .border-green-300 {
-            border-color: #68d391 !important;
-        }
-        .dark .bg-red-100 {
-            background-color: rgba(245, 101, 101, 0.2) !important;
-            color: #fc8181 !important;
-        }
-        .dark .border-red-300 {
-            border-color: #fc8181 !important;
-        }
-        .dark .bg-yellow-100 {
-            background-color: rgba(236, 201, 75, 0.2) !important;
-            color: #f6e05e !important;
-        }
-        .dark .border-yellow-300 {
-            border-color: #f6e05e !important;
-        }
-        .dark .bg-green-200 {
-            background-color: rgba(72, 187, 120, 0.3) !important;
-            color: #68d391 !important;
-        }
-        .dark .bg-red-200 {
-            background-color: rgba(245, 101, 101, 0.3) !important;
-            color: #fc8181 !important;
-        }
-        .dark .bg-yellow-200 {
-            background-color: rgba(236, 201, 75, 0.3) !important;
-            color: #f6e05e !important;
-        }
         .dark .text-gray-800 {
-            color: #e2e8f0 !important;
+            color: #f1f5f9 !important;
         }
         .dark .text-red-800 {
-            color: #fc8181 !important;
+            color: var(--cyber-neon-red) !important;
+            text-shadow: 0 0 16px rgba(255, 71, 87, 0.35);
+        }
+
+        /* Encabezados con estética Cyber-Sports */
+        .dark h1, .dark h2, .dark h3 {
+            color: #ffffff;
+            letter-spacing: 0.05em;
+        }
+        .dark h2 {
+            text-shadow: 0 0 20px rgba(255, 71, 87, 0.35);
+        }
+
+        /* Navbar Sticky en Dark Mode con degradado Cyber-Sports */
+        .dark nav.sticky {
+            background: rgba(11, 14, 20, 0.94) !important;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 71, 87, 0.35) !important;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.75), 0 0 20px rgba(255, 71, 87, 0.2) !important;
+        }
+
+        /* Hero en Modo Oscuro - Atmósfera Cyber Deep */
+        .dark .hero {
+            background: radial-gradient(circle at 50% 30%, #1a0508 0%, #0b0e14 75%) !important;
+        }
+
+        /* ============================================================
+           GLASSMORPHISM CYBER-SPORTS & MICRO-INTERACCIONES HOVER
+           ============================================================ */
+        .dark .player-card,
+        .dark .match-card,
+        .dark .rival-card,
+        .dark [data-result],
+        .dark .stat-card,
+        .dark .match-performance-card {
+            background: rgba(18, 21, 30, 0.78) !important;
+            backdrop-filter: blur(16px) !important;
+            -webkit-backdrop-filter: blur(16px) !important;
+            border: 1px solid rgba(255, 71, 87, 0.22) !important;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+            color: #f1f5f9 !important;
+            transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, border-color 0.3s ease !important;
+        }
+
+        /* Hover Elevación Suave + Resplandor Neón Cyber */
+        .dark .player-card:hover,
+        .dark .match-card:hover,
+        .dark .rival-card:hover,
+        .dark [data-result]:hover {
+            transform: translateY(-8px) scale(1.02) !important;
+            border-color: rgba(255, 71, 87, 0.7) !important;
+            box-shadow: 
+                0 22px 50px -10px rgba(0, 0, 0, 0.85),
+                0 0 28px rgba(255, 71, 87, 0.42),
+                inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+        }
+
+        /* Escudos de Rivales, Avatares y Logos con Drop-Shadow Neón */
+        .dark .rival-card img,
+        .dark .rival-badge img,
+        .dark [data-result] img,
+        .dark .player-card img {
+            filter: drop-shadow(0 0 8px rgba(255, 71, 87, 0.4));
+            transition: filter 0.3s ease, transform 0.3s ease;
+        }
+        .dark .rival-card:hover img,
+        .dark [data-result]:hover img {
+            filter: drop-shadow(0 0 16px rgba(255, 71, 87, 0.8));
+        }
+
+        /* Badges de Resultado / Rendimiento en Dark Mode */
+        .dark .bg-green-100 {
+            background-color: rgba(16, 185, 129, 0.18) !important;
+            color: #34d399 !important;
+            border: 1px solid rgba(52, 211, 153, 0.3) !important;
+        }
+        .dark .border-green-300 {
+            border-color: #34d399 !important;
+        }
+        .dark .bg-red-100 {
+            background-color: rgba(255, 71, 87, 0.18) !important;
+            color: #ff6b81 !important;
+            border: 1px solid rgba(255, 71, 87, 0.3) !important;
+        }
+        .dark .border-red-300 {
+            border-color: #ff6b81 !important;
+        }
+        .dark .bg-yellow-100 {
+            background-color: rgba(251, 191, 36, 0.18) !important;
+            color: #fbbf24 !important;
+            border: 1px solid rgba(251, 191, 36, 0.3) !important;
+        }
+        .dark .border-yellow-300 {
+            border-color: #fbbf24 !important;
         }
         .dark .border-red-200 {
-            border-color: #fc8181 !important;
+            border-color: rgba(255, 71, 87, 0.4) !important;
         }
         .dark .border-green-100 {
-            border-color: #68d391 !important;
+            border-color: rgba(52, 211, 153, 0.4) !important;
         }
-        .dark .player-card {
-            background: rgba(45, 55, 72, 0.95) !important;
-            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+
+        /* Botones de filtros Cyber-Sports */
+        .dark .filter-btn {
+            background: rgba(26, 31, 44, 0.9) !important;
+            color: #e2e8f0 !important;
+            border: 1px solid rgba(255, 71, 87, 0.28) !important;
+            backdrop-filter: blur(8px);
+            transition: all 0.25s ease !important;
+        }
+        .dark .filter-btn:hover {
+            background: rgba(255, 71, 87, 0.2) !important;
+            border-color: var(--cyber-neon-red) !important;
+            color: #ffffff !important;
+            box-shadow: 0 0 16px rgba(255, 71, 87, 0.4) !important;
+        }
+        .dark .filter-btn[data-filter]:not([class*="bg-red-800"]) {
+            background-color: rgba(26, 31, 44, 0.9) !important;
             color: #e2e8f0 !important;
         }
-        .dark .player-card:hover {
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 
-                        0 10px 25px -5px rgba(220, 38, 38, 0.2),
-                        0 0 0 1px rgba(255, 255, 255, 0.1) !important;
-        }
-        .dark [data-result] {
-            background: rgba(31, 41, 55, 0.85) !important;
-            backdrop-filter: blur(var(--glass-blur));
-            -webkit-backdrop-filter: blur(var(--glass-blur));
-            border-color: rgba(255, 255, 255, 0.08) !important;
-            color: #e2e8f0 !important;
-        }
+        /* Botón Activo con Degradado Profundo Cyber */
         .dark .bg-red-800 {
-            background-color: #c53030 !important;
+            background: linear-gradient(135deg, #160406 0%, #800f14 50%, #e84118 100%) !important;
+            border: 1px solid var(--cyber-neon-red) !important;
+            box-shadow: 0 0 20px rgba(255, 71, 87, 0.45) !important;
+            color: #ffffff !important;
+        }
+        .dark .bg-red-800:hover {
+            background: linear-gradient(135deg, #800f14 0%, #b91c1c 50%, #ff4757 100%) !important;
+            box-shadow: 0 0 28px rgba(255, 71, 87, 0.65) !important;
+        }
+        .dark .bg-gray-200 {
+            background-color: rgba(26, 31, 44, 0.8) !important;
+            color: #cbd5e1 !important;
         }
 
         /* Ocultar barra de desplazamiento del carrusel pero permitir scroll */
@@ -186,7 +281,7 @@ html {
             scrollbar-width: none;
         }
 
-        /* Indicadores tipo Dash (Líneas) del Carrusel */
+        /* Indicadores tipo Dash (Líneas) del Carrusel Cyber */
         .carousel-dot {
             height: 4px;
             width: 16px;
@@ -196,11 +291,15 @@ html {
             cursor: pointer;
         }
         .dark .carousel-dot {
-            background-color: #4a5568;
+            background-color: rgba(255, 255, 255, 0.2);
         }
         .carousel-dot.active {
             width: 32px;
-            background-color: #c53030;
+            background-color: var(--color-primary);
+        }
+        .dark .carousel-dot.active {
+            background-color: var(--cyber-neon-red);
+            box-shadow: 0 0 12px var(--cyber-neon-red);
         }
 
         /* Animaciones al hacer scroll */
@@ -212,70 +311,6 @@ html {
         .fade-up.visible {
             opacity: 1;
             transform: translateY(0);
-        }
-
-        .dark .bg-gray-900 {
-            background-color: #0d1117 !important;
-        }
-        .dark nav.sticky {
-            background-color: #c53030 !important;
-        }
-        .dark .hero {
-            background: linear-gradient(135deg, #0f172a 0%, #180b0b 50%, #0f172a 100%) !important;
-        }
-        /* Dark mode glass cards - Glassmorphism refinado */
-        .dark .player-card {
-            background: rgba(15, 23, 42, 0.85) !important;
-            border: 1px solid rgba(239, 68, 68, 0.18) !important;
-            box-shadow: 0 4px 24px rgba(0,0,0,0.4), inset 0 1px 0 rgba(239,68,68,0.08) !important;
-        }
-        .dark .player-card:hover {
-            border-color: rgba(239, 68, 68, 0.4) !important;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.6), 0 0 30px rgba(239,68,68,0.12), inset 0 1px 0 rgba(255,255,255,0.08) !important;
-        }
-        .dark .match-card, .dark .rival-card {
-            background: rgba(15, 23, 42, 0.85) !important;
-            border: 1px solid rgba(239, 68, 68, 0.15) !important;
-            box-shadow: 0 4px 24px rgba(0,0,0,0.35) !important;
-        }
-        .dark .match-card:hover, .dark .rival-card:hover {
-            border-color: rgba(239, 68, 68, 0.38) !important;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.5), 0 0 20px rgba(239,68,68,0.10) !important;
-        }
-
-        /* Botones de filtros en modo oscuro */
-        .dark .filter-btn {
-            background-color: #4a5568 !important;
-            color: #e2e8f0 !important;
-            border: 1px solid #718096 !important;
-        }
-        .dark .filter-btn:hover {
-            background-color: #2d3748 !important;
-            color: #e2e8f0 !important;
-        }
-        .dark .filter-btn[data-filter]:not([class*="bg-red-800"]) {
-            background-color: #4a5568 !important;
-            color: #e2e8f0 !important;
-        }
-        /* Botón activo en modo oscuro */
-        .dark .bg-red-800 {
-            background-color: #e53e3e !important;
-            color: #ffffff !important;
-        }
-        .dark .bg-red-800:hover {
-            background-color: #c53030 !important;
-            color: #ffffff !important;
-        }
-        /* Botones inactivos en modo oscuro */
-        .dark .bg-gray-200 {
-            background-color: #4a5568 !important;
-            color: #e2e8f0 !important;
-        }
-        .dark .text-gray-700 {
-            color: #e2e8f0 !important;
-        }
-        .dark .text-gray-700 {
-            color: #e2e8f0 !important;
         }
         body {
             font-family: 'Outfit', 'Quicksand', sans-serif;
@@ -296,11 +331,16 @@ html {
             justify-content: center;
         }
 
-        /* Hero Estilo Club Europeo */
+        /* Hero Estilo Cyber-Sports & Club Europeo */
         .hero-dynamic-bg {
-            background: linear-gradient(-45deg, #7f1d1d, #450a0a, #991b1b, #1e0505, #7f1d1d) !important;
+            background: linear-gradient(-45deg, #160406, #3b070b, #800f14, #12151e, #160406) !important;
             background-size: 400% 400% !important;
-            animation: gradientBg 12s ease infinite !important;
+            animation: gradientBg 14s ease infinite !important;
+        }
+        .dark .hero-dynamic-bg {
+            background: linear-gradient(-45deg, #0b0e14, #160406, #3b070b, #0b0e14) !important;
+            background-size: 400% 400% !important;
+            animation: gradientBg 16s ease infinite !important;
         }
 
         /* Pattern hexagonal sobre el hero */
@@ -495,8 +535,8 @@ html {
             display: flex;
             align-items: center;
             justify-content: center;
-            opacity: 0.22;
-            filter: drop-shadow(0 0 35px rgba(251, 191, 36, 0.75)) drop-shadow(0 0 70px rgba(220, 38, 38, 0.5));
+            opacity: 0.25;
+            filter: drop-shadow(0 0 35px rgba(255, 215, 0, 0.8)) drop-shadow(0 0 70px rgba(255, 71, 87, 0.65));
             animation: watermarkPulse 6s ease-in-out infinite alternate;
         }
 
@@ -509,13 +549,13 @@ html {
         @keyframes watermarkPulse {
             0% {
                 transform: translate(-50%, -50%) scale(0.96);
-                opacity: 0.18;
-                filter: drop-shadow(0 0 25px rgba(251, 191, 36, 0.6)) drop-shadow(0 0 50px rgba(220, 38, 38, 0.35));
+                opacity: 0.20;
+                filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.65)) drop-shadow(0 0 50px rgba(255, 71, 87, 0.45));
             }
             100% {
                 transform: translate(-50%, -50%) scale(1.04);
-                opacity: 0.26;
-                filter: drop-shadow(0 0 45px rgba(251, 191, 36, 0.9)) drop-shadow(0 0 90px rgba(220, 38, 38, 0.6));
+                opacity: 0.30;
+                filter: drop-shadow(0 0 45px rgba(255, 215, 0, 0.95)) drop-shadow(0 0 90px rgba(255, 71, 87, 0.8));
             }
         }
 
@@ -526,10 +566,10 @@ html {
             left: 0;
             right: 0;
             width: 100%;
-            background: rgba(0,0,0,0.45);
+            background: rgba(11, 14, 20, 0.65);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            border-top: 1px solid rgba(255,255,255,0.1);
+            border-top: 1px solid rgba(255, 71, 87, 0.2);
             padding: 0.85rem 1.5rem;
             display: flex;
             justify-content: center;
@@ -538,6 +578,11 @@ html {
             z-index: 2;
             animation: titleReveal 1s 0.8s ease-out both;
             box-sizing: border-box;
+        }
+        .dark .hero-stats-band {
+            background: rgba(11, 14, 20, 0.88);
+            border-top: 1px solid rgba(255, 71, 87, 0.28);
+            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.65);
         }
         .hero-stat-item {
             display: flex;
@@ -549,9 +594,13 @@ html {
         .hero-stat-number {
             font-family: 'Bebas Neue', cursive;
             font-size: clamp(1.4rem, 3.5vw, 2.4rem);
-            color: #fbbf24;
+            color: #ffd700;
             line-height: 1;
-            text-shadow: 0 2px 10px rgba(251, 191, 36, 0.4);
+            text-shadow: 0 2px 14px rgba(255, 215, 0, 0.45);
+        }
+        .dark .hero-stat-number {
+            color: #ffd700;
+            text-shadow: 0 0 14px rgba(255, 215, 0, 0.65), 0 0 25px rgba(255, 71, 87, 0.4);
         }
         .hero-stat-label {
             font-size: clamp(0.58rem, 1.2vw, 0.72rem);
@@ -563,7 +612,7 @@ html {
         .hero-stat-divider {
             width: 1px;
             height: 36px;
-            background: rgba(255,255,255,0.15);
+            background: rgba(255, 71, 87, 0.25);
             align-self: center;
         }
 
@@ -707,9 +756,8 @@ html {
         .mobile-menu {
             transform: translateX(-100%);
             transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.32s;
-            background-color: #881337 !important;
-            background: linear-gradient(180deg, #991b1b 0%, #7f1d1d 100%) !important;
-            border-right: 1px solid rgba(255, 255, 255, 0.2);
+            background: linear-gradient(180deg, #160406 0%, #800f14 50%, #991b1b 100%) !important;
+            border-right: 1px solid rgba(255, 71, 87, 0.3);
             opacity: 1 !important;
             visibility: hidden;
             pointer-events: none;
@@ -719,13 +767,14 @@ html {
             opacity: 1 !important;
         }
         .dark .mobile-menu {
-            background-color: #0f172a !important;
-            background: linear-gradient(180deg, #1e1b4b 0%, #0f172a 100%) !important;
-            border-right: 1px solid rgba(239, 68, 68, 0.3) !important;
+            background-color: var(--cyber-dark-bg) !important;
+            background: linear-gradient(180deg, #12151e 0%, #0b0e14 100%) !important;
+            border-right: 1px solid rgba(255, 71, 87, 0.35) !important;
         }
         .dark .submenu, .dark .submenu li {
-            background-color: #c53030 !important;
-            background: #c53030 !important;
+            background-color: #12151e !important;
+            background: #12151e !important;
+            border-color: rgba(255, 71, 87, 0.2) !important;
         }
         .mobile-menu.active {
             transform: translateX(0);
@@ -1004,15 +1053,15 @@ html {
         }
         .dark .modern-section-bg {
             background: 
-                radial-gradient(ellipse 80% 50% at 50% -20%, rgba(185, 28, 28, 0.15), transparent),
-                radial-gradient(ellipse 60% 40% at 100% 100%, rgba(217, 119, 6, 0.08), transparent),
-                #0b0f19 !important;
+                radial-gradient(ellipse 80% 50% at 50% -20%, rgba(255, 71, 87, 0.12), transparent),
+                radial-gradient(ellipse 60% 40% at 100% 100%, rgba(255, 215, 0, 0.06), transparent),
+                var(--cyber-dark-bg) !important;
         }
         .dark .modern-section-alt-bg {
             background: 
-                radial-gradient(ellipse 70% 40% at 20% 0%, rgba(185, 28, 28, 0.12), transparent),
-                radial-gradient(ellipse 60% 50% at 80% 100%, rgba(30, 41, 59, 0.25), transparent),
-                #0f172a !important;
+                radial-gradient(ellipse 70% 40% at 20% 0%, rgba(255, 71, 87, 0.10), transparent),
+                radial-gradient(ellipse 60% 50% at 80% 100%, rgba(26, 31, 44, 0.4), transparent),
+                var(--cyber-dark-surface) !important;
         }
 
         /* Estilos para la sección de partidos */
@@ -1036,8 +1085,9 @@ html {
             justify-content: space-between;
         }
         .dark .match-card {
-            background: rgba(30, 41, 59, 0.85);
-            border-color: rgba(255, 255, 255, 0.08);
+            background: rgba(18, 21, 30, 0.78) !important;
+            border-color: rgba(255, 71, 87, 0.22) !important;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
         }
         .match-card::before {
             content: '';
@@ -1349,37 +1399,40 @@ html {
             text-overflow: ellipsis;
         }
 
-        /* Dark mode para rivales */
+        /* Dark mode Cyber-Sports para rivales */
         .dark .rival-card {
-            background: rgba(30, 41, 59, 0.85) !important;
-            border-color: rgba(255, 255, 255, 0.08) !important;
+            background: rgba(18, 21, 30, 0.78) !important;
+            border-color: rgba(255, 71, 87, 0.22) !important;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
             color: #f1f5f9;
         }
         .dark .rival-crest-wrapper {
-            background: radial-gradient(circle, rgba(51, 65, 85, 1) 0%, rgba(30, 41, 59, 0.9) 100%);
-            border-color: rgba(255, 255, 255, 0.12);
+            background: radial-gradient(circle, rgba(26, 31, 44, 1) 0%, rgba(18, 21, 30, 0.95) 100%);
+            border-color: rgba(255, 71, 87, 0.25);
+            box-shadow: 0 0 15px rgba(255, 71, 87, 0.2);
         }
         .dark .rival-name {
-            color: #fca5a5 !important;
+            color: #ffffff !important;
+            text-shadow: 0 0 10px rgba(255, 71, 87, 0.4);
         }
         .dark .rival-winrate-box {
-            background: rgba(15, 23, 42, 0.6);
-            border-color: rgba(255, 255, 255, 0.08);
+            background: rgba(11, 14, 20, 0.7);
+            border-color: rgba(255, 71, 87, 0.2);
         }
         .dark .rival-match-card {
-            background: #1e293b;
-            border-color: rgba(255, 255, 255, 0.1);
+            background: rgba(18, 21, 30, 0.9);
+            border-color: rgba(255, 71, 87, 0.2);
         }
         .dark .rival-player-card {
-            background: #0f172a;
-            border-color: rgba(255, 255, 255, 0.08);
+            background: rgba(11, 14, 20, 0.85);
+            border-color: rgba(255, 71, 87, 0.18);
         }
         .dark .rival-player-name {
             color: #f1f5f9;
         }
-        .dark .victoria { color: #34d399; }
-        .dark .empate   { color: #fbbf24; }
-        .dark .derrota  { color: #f87171; }
+        .dark .victoria { color: #34d399; text-shadow: 0 0 8px rgba(52, 211, 153, 0.4); }
+        .dark .empate   { color: #ffd700; text-shadow: 0 0 8px rgba(255, 215, 0, 0.4); }
+        .dark .derrota  { color: #ff6b81; text-shadow: 0 0 8px rgba(255, 107, 129, 0.4); }
 
         /* ============================================================
            PUNTO 4 - Comparador Cara a Cara con Barras Dinámicas
@@ -1393,15 +1446,16 @@ html {
             transition: background 0.2s ease, transform 0.2s ease;
         }
         .dark .compare-stat-row {
-            background: rgba(30, 41, 59, 0.6);
-            border-color: rgba(255, 255, 255, 0.06);
+            background: rgba(18, 21, 30, 0.75);
+            border-color: rgba(255, 71, 87, 0.16);
         }
         .compare-stat-row:hover {
             background: rgba(255, 255, 255, 0.95);
             transform: translateY(-1px);
         }
         .dark .compare-stat-row:hover {
-            background: rgba(30, 41, 59, 0.95);
+            background: rgba(26, 31, 44, 0.95);
+            border-color: rgba(255, 71, 87, 0.35);
         }
 
         .compare-val-badge {
@@ -1422,6 +1476,7 @@ html {
         }
         .dark .compare-val-badge.winner-left {
             color: #4ade80 !important;
+            text-shadow: 0 0 10px rgba(74, 222, 128, 0.5);
         }
 
         .compare-val-badge.winner-right {
@@ -1430,7 +1485,8 @@ html {
             text-shadow: 0 0 10px rgba(245, 158, 11, 0.3);
         }
         .dark .compare-val-badge.winner-right {
-            color: #fbbf24 !important;
+            color: #ffd700 !important;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
         }
 
         .compare-track-container {
@@ -1450,7 +1506,8 @@ html {
             box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
         }
         .dark .compare-bar-track {
-            background: #334155;
+            background: rgba(11, 14, 20, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .compare-track-left {
@@ -2500,13 +2557,14 @@ html {
             color: #fff;
         }
         .dark #reset-lineup-btn {
-            color: #fca5a5;
-            border-color: #fca5a5;
+            color: #ff6b81;
+            border-color: rgba(255, 71, 87, 0.4);
         }
         .dark #reset-lineup-btn:hover {
-            background: #7f1d1d;
+            background: rgba(255, 71, 87, 0.2);
             color: #fff;
-            border-color: #7f1d1d;
+            border-color: var(--cyber-neon-red);
+            box-shadow: 0 0 15px rgba(255, 71, 87, 0.35);
         }
         /* Formation select */
         #formation-select {
@@ -2525,9 +2583,9 @@ html {
             box-shadow: 0 0 0 3px rgba(127,29,29,0.15);
         }
         .dark #formation-select {
-            background: #1f2937;
-            color: #fca5a5;
-            border-color: #991b1b;
+            background: rgba(26, 31, 44, 0.95);
+            color: #f1f5f9;
+            border-color: rgba(255, 71, 87, 0.35);
         }
 
         /* Estilos personalizados para las fichas de la pizarra táctica */

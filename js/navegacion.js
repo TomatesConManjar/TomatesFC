@@ -8,8 +8,8 @@ function syncMobileMenuColor() {
     if (!mobileMenu) return;
     const isDark = document.documentElement.classList.contains('dark');
     mobileMenu.style.background = isDark 
-        ? 'linear-gradient(180deg, #1e1b4b 0%, #0f172a 100%)' 
-        : 'linear-gradient(180deg, #991b1b 0%, #7f1d1d 100%)';
+        ? 'linear-gradient(180deg, #12151e 0%, #0b0e14 100%)' 
+        : 'linear-gradient(180deg, #160406 0%, #800f14 50%, #991b1b 100%)';
 }
 
 // Función global para restaurar la posición de scroll guardada o volver a una sección específica

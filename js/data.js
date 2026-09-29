@@ -881,7 +881,7 @@ const partidosData = {
     },
     54: {
         temporada: 2026,
-        fecha: "Domingo 06 Septiembre",
+        fecha: "Jueves 24 Septiembre",
         rival: "Pirula",
         resultado: "11-9",
         lugar: "Canchas Santa Laura",

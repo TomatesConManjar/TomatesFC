@@ -876,7 +876,23 @@ const partidosData = {
             { nombre: "Cristóbal Santibáñez", goles: 5, asistencias: 3 },
             { nombre: "Diego Manque", goles: 3, asistencias: 5 },
             { nombre: "Sebastián Sandoval", goles: 1, asistencias: 2 },
-            { nombre: "Matías Bustamante", goles: 1, asistencias: 0 }
+            { nombre: "Matías Bustamante", goles: 1, asistencias: 0 },
+        ]
+    },
+    54: {
+        temporada: 2026,
+        fecha: "Domingo 06 Septiembre",
+        rival: "Pirula",
+        resultado: "11-9",
+        lugar: "Canchas Santa Laura",
+        tipo: "Amistoso",
+        hora: "12:00 hrs",
+        jugadores: [
+            { nombre: "Agustín Vilhelm", goles: 0, asistencias: 0 },
+            { nombre: "Francisco Lizama", goles: 0, asistencias: 0 },
+            { nombre: "Benjamín Garcés", goles: 1, asistencias: 3 },
+            { nombre: "Diego Manque", goles: 4, asistencias: 4 },
+            { nombre: "Sebastián Sandoval", goles: 2, asistencias: 2 }
         ]
     }
 };

@@ -892,7 +892,40 @@ const partidosData = {
             { nombre: "Francisco Lizama", goles: 0, asistencias: 0 },
             { nombre: "Benjamín Garcés", goles: 1, asistencias: 3 },
             { nombre: "Diego Manque", goles: 4, asistencias: 4 },
-            { nombre: "Sebastián Sandoval", goles: 2, asistencias: 2 }
+            { nombre: "Sebastián Sandoval", goles: 2, asistencias: 2 },
+        ]
+    },
+    55: {
+        temporada: 2026,
+        fecha: "Jueves 01 Octubre",
+        rival: "Pirula",
+        resultado: "14-4",
+        lugar: "Canchas Santa Laura",
+        tipo: "Amistoso",
+        hora: "12:00 hrs",
+        jugadores: [
+            { nombre: "Agustín Vilhelm", goles: 0, asistencias: 0 },
+            { nombre: "Leandro Zavala", goles: 2, asistencias: 1 },
+            { nombre: "Cristóbal Santibáñez", goles: 4, asistencias: 3 },
+            { nombre: "Diego Manque", goles: 4, asistencias: 3 },
+            { nombre: "Sebastián Sandoval", goles: 2, asistencias: 1 },
+        ]
+    },
+    56: {
+        temporada: 2026,
+        fecha: "Jueves 08 Octubre",
+        rival: "Pirula",
+        resultado: "10-8",
+        lugar: "Canchas Santa Laura",
+        tipo: "Amistoso",
+        hora: "12:00 hrs",
+        jugadores: [
+            { nombre: "Agustín Vilhelm", goles: 1, asistencias: 1 },
+            { nombre: "Leandro Zavala", goles: 0, asistencias: 1 },
+            { nombre: "Benjamín Garcés", goles: 2, asistencias: 1 },
+            { nombre: "Cristóbal Santibáñez", goles: 3, asistencias: 1 },
+            { nombre: "Diego Manque", goles: 3, asistencias: 0 },
+            { nombre: "Sebastián Sandoval", goles: 1, asistencias: 2 }
         ]
     }
 };

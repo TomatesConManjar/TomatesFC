@@ -85,9 +85,6 @@ window.showPlayerDetails = function(playerId) {
                         <i class="fas fa-user text-8xl mb-4 text-gray-300"></i>
                     `}
                 </div>
-                <div class="absolute -top-3 -right-3 bg-gradient-to-r from-red-600 to-red-800 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl shadow-lg z-10">
-                    ${jugador.numero}
-                </div>
             </div>
             <div class="flex-1 text-center md:text-left">
                 <div class="flex flex-wrap items-center justify-center md:justify-start gap-3 mb-2">

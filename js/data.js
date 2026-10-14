@@ -925,7 +925,22 @@ const partidosData = {
             { nombre: "Benjamín Garcés", goles: 2, asistencias: 1 },
             { nombre: "Cristóbal Santibáñez", goles: 3, asistencias: 1 },
             { nombre: "Diego Manque", goles: 3, asistencias: 0 },
-            { nombre: "Sebastián Sandoval", goles: 1, asistencias: 2 }
+            { nombre: "Sebastián Sandoval", goles: 1, asistencias: 2 },
+        ]
+    },
+    57: {
+        temporada: 2026,
+        fecha: "Lunes 12 Octubre",
+        rival: "Equipo Luck",
+        resultado: "8-7",
+        lugar: "Canchas Santa Laura",
+        tipo: "Amistoso",
+        hora: "16:00 hrs",
+        jugadores: [
+            { nombre: "Agustín Vilhelm", goles: 1, asistencias: 1 },
+            { nombre: "Cristóbal Santibáñez", goles: 2, asistencias: 1 },
+            { nombre: "Diego Manque", goles: 2, asistencias: 4 },
+            { nombre: "Sebastián Sandoval", goles: 2, asistencias: 1 }
         ]
     }
 };

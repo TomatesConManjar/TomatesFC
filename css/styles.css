@@ -2768,3 +2768,387 @@ html {
             box-shadow: 0 3px 6px rgba(0,0,0,0.35) !important;
             box-sizing: border-box !important;
         }
+
+
+/* ============================================================
+   SECCIÓN HISTORIA — DISEÑO PREMIUM
+   ============================================================ */
+
+/* ---------- Fondo oscuro con degradado diagonal ---------- */
+.historia-section {
+    background: linear-gradient(145deg, #0f0305 0%, #1a0406 30%, #2d060a 60%, #0f0305 100%);
+    color: #f1f5f9;
+    position: relative;
+}
+
+/* Patrón de cuadrícula sutil */
+.historia-bg-pattern {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Halos de luz decorativos */
+.historia-glow-left {
+    position: absolute;
+    top: 10%;
+    left: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(185,28,28,0.18) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+.historia-glow-right {
+    position: absolute;
+    bottom: 5%;
+    right: -10%;
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(217,119,6,0.13) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ---------- Título principal ---------- */
+.historia-title-badge {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(185,28,28,0.22);
+    border: 1px solid rgba(185,28,28,0.5);
+    color: #fca5a5;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+    backdrop-filter: blur(8px);
+}
+
+.historia-title {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    letter-spacing: 0.08em;
+    line-height: 1;
+    background: linear-gradient(135deg, #ffffff 0%, #fde68a 50%, #f59e0b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 16px;
+}
+
+.historia-subtitle {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    letter-spacing: 0.1em;
+    background: linear-gradient(135deg, #fde68a 0%, #f59e0b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.historia-title-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 10px;
+}
+.historia-title-line {
+    width: 80px;
+    height: 1.5px;
+    background: linear-gradient(90deg, transparent, rgba(245,158,11,0.7));
+}
+.historia-title-line:last-child {
+    background: linear-gradient(270deg, transparent, rgba(245,158,11,0.7));
+}
+.historia-title-icon {
+    color: #f59e0b;
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+/* ---------- Foto equipo con marco dorado ---------- */
+.historia-photo-wrapper {
+    position: relative;
+    display: inline-block;
+    border-radius: 16px;
+}
+
+.historia-photo {
+    width: 100%;
+    max-width: 520px;
+    border-radius: 14px;
+    display: block;
+    filter: brightness(0.9) contrast(1.05);
+    box-shadow: 0 25px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(245,158,11,0.3);
+    transition: filter 0.3s ease, transform 0.35s ease;
+}
+.historia-photo-wrapper:hover .historia-photo {
+    filter: brightness(1) contrast(1.06);
+    transform: scale(1.01);
+}
+
+/* Esquinas decorativas doradas */
+.historia-photo-corner {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    z-index: 2;
+}
+.historia-photo-corner--tl { top: -4px; left: -4px; border-top: 3px solid #f59e0b; border-left: 3px solid #f59e0b; border-radius: 4px 0 0 0; }
+.historia-photo-corner--tr { top: -4px; right: -4px; border-top: 3px solid #f59e0b; border-right: 3px solid #f59e0b; border-radius: 0 4px 0 0; }
+.historia-photo-corner--bl { bottom: -4px; left: -4px; border-bottom: 3px solid #f59e0b; border-left: 3px solid #f59e0b; border-radius: 0 0 0 4px; }
+.historia-photo-corner--br { bottom: -4px; right: -4px; border-bottom: 3px solid #f59e0b; border-right: 3px solid #f59e0b; border-radius: 0 0 4px 0; }
+
+/* Overlay inferior con etiqueta de año */
+.historia-photo-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 100%);
+    border-radius: 0 0 14px 14px;
+    padding: 20px 16px 14px;
+    display: flex;
+    justify-content: flex-end;
+}
+.historia-photo-label {
+    background: rgba(245,158,11,0.92);
+    color: #0f0305;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 999px;
+}
+
+/* ---------- Texto y párrafos ---------- */
+.historia-text {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #cbd5e1;
+    margin-bottom: 1rem;
+}
+
+.historia-highlight {
+    color: #fbbf24;
+    font-weight: 700;
+}
+
+/* ---------- Pills de valores ---------- */
+.historia-value-pill {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(245,158,11,0.35);
+    color: #f1f5f9;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 8px 18px;
+    border-radius: 999px;
+    backdrop-filter: blur(8px);
+    transition: all 0.25s ease;
+    cursor: default;
+}
+.historia-value-pill:hover {
+    background: rgba(245,158,11,0.15);
+    border-color: rgba(245,158,11,0.7);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(245,158,11,0.2);
+}
+
+/* ---------- Tarjetas de estadísticas premium ---------- */
+.historia-stat-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    padding: 32px 24px 28px;
+    text-align: center;
+    backdrop-filter: blur(12px);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.35s cubic-bezier(0.175,0.885,0.32,1.275), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.historia-stat-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, transparent 60%);
+    pointer-events: none;
+}
+.historia-stat-card--featured {
+    background: rgba(185,28,28,0.15);
+    border-color: rgba(185,28,28,0.4);
+    box-shadow: 0 0 35px rgba(185,28,28,0.18);
+    transform: scale(1.03);
+}
+.historia-stat-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: rgba(245,158,11,0.5);
+    box-shadow: 0 20px 45px rgba(0,0,0,0.5), 0 0 25px rgba(245,158,11,0.15);
+}
+.historia-stat-card--featured:hover {
+    transform: translateY(-8px) scale(1.05);
+    border-color: rgba(185,28,28,0.7);
+    box-shadow: 0 20px 45px rgba(0,0,0,0.5), 0 0 30px rgba(185,28,28,0.35);
+}
+
+/* Icono en tarjeta de stat */
+.historia-stat-icon-bg {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(245,158,11,0.2), rgba(185,28,28,0.2));
+    border: 1.5px solid rgba(245,158,11,0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    box-shadow: 0 0 20px rgba(245,158,11,0.15);
+}
+.historia-stat-icon {
+    font-size: 1.5rem;
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Barra decorativa superior de tarjeta */
+.historia-stat-bar {
+    height: 3px;
+    border-radius: 999px;
+    position: absolute;
+    top: 0;
+    left: 20%;
+    right: 20%;
+}
+.historia-stat-bar--gold {
+    background: linear-gradient(90deg, transparent, #f59e0b, transparent);
+}
+.historia-stat-bar--red {
+    background: linear-gradient(90deg, transparent, #ef4444, transparent);
+}
+
+/* Número de stat */
+.historia-stat-number {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 2rem;
+    letter-spacing: 0.05em;
+    background: linear-gradient(135deg, #ffffff, #fde68a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+.historia-stat-desc {
+    font-size: 0.82rem;
+    color: #94a3b8;
+    line-height: 1.6;
+}
+
+/* ---------- Tarjetas de Uniformes ---------- */
+.historia-jersey-card {
+    position: relative;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    padding: 28px 20px 22px;
+    width: 220px;
+    text-align: center;
+    backdrop-filter: blur(12px);
+    transition: transform 0.35s cubic-bezier(0.175,0.885,0.32,1.275), box-shadow 0.3s ease, border-color 0.3s ease;
+    overflow: hidden;
+}
+.historia-jersey-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(160deg, rgba(255,255,255,0.06) 0%, transparent 55%);
+    pointer-events: none;
+}
+.historia-jersey-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    border-color: rgba(245,158,11,0.55);
+    box-shadow: 0 22px 50px rgba(0,0,0,0.55), 0 0 25px rgba(245,158,11,0.18);
+}
+
+/* Badge HOME / AWAY */
+.historia-jersey-badge {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 999px;
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 1;
+}
+.historia-jersey-badge--home {
+    background: linear-gradient(135deg, rgba(185,28,28,0.3), rgba(220,38,38,0.3));
+    border: 1px solid rgba(239,68,68,0.5);
+    color: #fca5a5;
+}
+.historia-jersey-badge--away {
+    background: linear-gradient(135deg, rgba(245,158,11,0.25), rgba(251,191,36,0.25));
+    border: 1px solid rgba(245,158,11,0.5);
+    color: #fde68a;
+}
+
+/* Imagen del uniforme */
+.historia-jersey-img-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 160px;
+    margin-bottom: 16px;
+}
+.historia-jersey-img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 8px 20px rgba(0,0,0,0.5));
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+.historia-jersey-card:hover .historia-jersey-img {
+    filter: drop-shadow(0 12px 28px rgba(245,158,11,0.35));
+    transform: scale(1.05) translateY(-4px);
+}
+
+.historia-jersey-info {
+    position: relative;
+    z-index: 1;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+.historia-jersey-name {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.2rem;
+    letter-spacing: 0.08em;
+    color: #f1f5f9;
+    margin-bottom: 4px;
+}
+.historia-jersey-desc {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    line-height: 1.4;
+}
+
+/* ---------- Dark mode compatibility ---------- */
+.dark .historia-section {
+    /* Ya es oscura por defecto */
+}

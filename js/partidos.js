@@ -178,15 +178,15 @@ function updateTeamStats() {
     });
     const promedio = (golesAnotados / totalPartidos).toFixed(2);
 
-    const set = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
+    const setHTML = (id, val) => { const el = document.getElementById(id); if (el) el.innerHTML = val; };
     const totalJugadores = Object.keys(jugadoresData).length;
 
-    set('stat-partidos-titulo', `${totalPartidos} partidos`);
-    set('stat-partidos-desc', `Hemos disputado ${totalPartidos} partidos con un porcentaje de victoria del ${Math.round((victorias/totalPartidos)*100)}%.`);
-    set('stat-jugadores-titulo', `${totalJugadores} Jugadores`);
-    set('stat-jugadores-desc', `Contamos con un plantel de ${totalJugadores} jugadores talentosos y comprometidos con el equipo.`);
-    set('stat-goles-titulo', `${golesAnotados} Goles`);
-    set('stat-goles-desc', `Tenemos la gran cantidad de ${golesAnotados} goles como equipo y con un promedio de ${promedio} goles por partido.`);
+    setHTML('stat-partidos-titulo', `${totalPartidos}<br><span style="font-size:1rem;letter-spacing:0.1em;opacity:0.75">PARTIDOS</span>`);
+    setHTML('stat-partidos-desc', `Hemos disputado <strong style="color:#fbbf24">${totalPartidos}</strong> partidos con un porcentaje de victoria del <strong style="color:#fbbf24">${Math.round((victorias/totalPartidos)*100)}%</strong>.`);
+    setHTML('stat-jugadores-titulo', `${totalJugadores}<br><span style="font-size:1rem;letter-spacing:0.1em;opacity:0.75">JUGADORES</span>`);
+    setHTML('stat-jugadores-desc', `Contamos con un plantel de <strong style="color:#fbbf24">${totalJugadores}</strong> jugadores talentosos y comprometidos con el equipo.`);
+    setHTML('stat-goles-titulo', `${golesAnotados}<br><span style="font-size:1rem;letter-spacing:0.1em;opacity:0.75">GOLES</span>`);
+    setHTML('stat-goles-desc', `<strong style="color:#fbbf24">${golesAnotados}</strong> goles como equipo con un promedio de <strong style="color:#fbbf24">${promedio}</strong> goles por partido.`);
 
     const footerEl = document.querySelector('footer ul.space-y-2.text-gray-300');
     if (footerEl) {

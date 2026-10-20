@@ -254,62 +254,149 @@
     </section>
 
     <!-- Nuestra Historia -->
-    <section id="historia" class="py-16 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12 text-red-800 fade-up">NUESTRA HISTORIA</h2>
-            <div class="flex flex-col md:flex-row items-start mb-16">
-                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
-                    <img src="images/foto_tomates2026.jpeg" alt="Equipo Tomates FC posando juntos en el campo con uniformes azules" class="rounded-lg shadow-xl">
+    <section id="historia" class="historia-section py-20 relative overflow-hidden">
+
+        <!-- Fondo decorativo: grid sutil y textura -->
+        <div class="historia-bg-pattern" aria-hidden="true"></div>
+        <div class="historia-glow-left" aria-hidden="true"></div>
+        <div class="historia-glow-right" aria-hidden="true"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+
+            <!-- Título con acento decorativo -->
+            <div class="text-center mb-16 fade-up">
+                <div class="historia-title-badge">
+                    <i class="fas fa-shield-alt mr-2"></i> Fundado en Temuco, 2017
                 </div>
-                <div class="md:w-1/2">
-                    <p class="text-lg mb-4">Fundado en 2017, Tomates FC comenzó como un grupo de amigos apasionados por el fútbol que buscaban mantenerse activos y compartir su amor por el deporte.</p>
-                    <p class="text-lg mb-4">Hoy somos un equipo competitivo que participa en partidos importantes de fútbol 7 en Temuco, combinando habilidad, estrategia y camaradería en cada encuentro.</p>
-                    <p class="text-lg mb-6">Nuestros valores se basan en el respeto, el trabajo en equipo y la superación personal, tanto dentro como fuera del campo.</p>
-                    <div class="flex flex-wrap gap-4">
-                        <span class="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full">Competitividad</span>
-                        <span class="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full">Compañerismo</span>
-                        <span class="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full">Diversión</span>
+                <h2 class="historia-title">NUESTRA HISTORIA</h2>
+                <div class="historia-title-divider">
+                    <div class="historia-title-line"></div>
+                    <i class="fas fa-futbol historia-title-icon"></i>
+                    <div class="historia-title-line"></div>
+                </div>
+            </div>
+
+            <!-- Contenido: Foto + Texto -->
+            <div class="flex flex-col lg:flex-row items-center gap-12 mb-20">
+
+                <!-- Foto con marco premium -->
+                <div class="lg:w-1/2 flex justify-center fade-up">
+                    <div class="historia-photo-wrapper">
+                        <div class="historia-photo-corner historia-photo-corner--tl"></div>
+                        <div class="historia-photo-corner historia-photo-corner--tr"></div>
+                        <div class="historia-photo-corner historia-photo-corner--bl"></div>
+                        <div class="historia-photo-corner historia-photo-corner--br"></div>
+                        <img src="images/foto_tomates2026.jpeg"
+                             alt="Equipo Tomates FC posando juntos en el campo"
+                             class="historia-photo">
+                        <div class="historia-photo-overlay">
+                            <span class="historia-photo-label"><i class="fas fa-camera mr-2"></i>Temporada 2026</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Texto e info -->
+                <div class="lg:w-1/2 fade-up">
+                    <p class="historia-text">
+                        Fundado en <span class="historia-highlight">2017</span>, Tomates FC comenzó como un grupo de amigos apasionados por el fútbol que buscaban mantenerse activos y compartir su amor por el deporte.
+                    </p>
+                    <p class="historia-text">
+                        Hoy somos un equipo competitivo que participa en partidos de <span class="historia-highlight">fútbol 7</span> en Temuco, combinando habilidad, estrategia y camaradería en cada encuentro.
+                    </p>
+                    <p class="historia-text mb-8">
+                        Nuestros valores se basan en el respeto, el trabajo en equipo y la superación personal, tanto dentro como fuera del campo.
+                    </p>
+
+                    <!-- Pills de valores rediseñadas -->
+                    <div class="flex flex-wrap gap-3">
+                        <span class="historia-value-pill">
+                            <i class="fas fa-bolt mr-2 text-amber-400"></i>Competitividad
+                        </span>
+                        <span class="historia-value-pill">
+                            <i class="fas fa-hands-helping mr-2 text-amber-400"></i>Compañerismo
+                        </span>
+                        <span class="historia-value-pill">
+                            <i class="fas fa-star mr-2 text-amber-400"></i>Diversión
+                        </span>
                     </div>
                 </div>
             </div>
-            <div class="text-center">
-                <h3 class="text-3xl font-bold mb-8 text-red-800">Uniformes Oficiales</h3>
-                <div class="flex justify-center gap-12 flex-wrap">
+
+            <!-- Tarjetas de estadísticas premium -->
+            <div class="grid md:grid-cols-3 gap-6 mb-20 fade-up">
+
+                <!-- Partidos -->
+                <div class="historia-stat-card">
+                    <div class="historia-stat-icon-bg">
+                        <i class="fas fa-trophy historia-stat-icon"></i>
+                    </div>
+                    <div class="historia-stat-bar historia-stat-bar--gold"></div>
+                    <div class="historia-stat-number" id="stat-partidos-titulo"></div>
+                    <p class="historia-stat-desc" id="stat-partidos-desc"></p>
+                </div>
+
+                <!-- Jugadores -->
+                <div class="historia-stat-card historia-stat-card--featured">
+                    <div class="historia-stat-icon-bg">
+                        <i class="fas fa-users historia-stat-icon"></i>
+                    </div>
+                    <div class="historia-stat-bar historia-stat-bar--red"></div>
+                    <div class="historia-stat-number" id="stat-jugadores-titulo"></div>
+                    <p class="historia-stat-desc" id="stat-jugadores-desc"></p>
+                </div>
+
+                <!-- Goles -->
+                <div class="historia-stat-card">
+                    <div class="historia-stat-icon-bg">
+                        <i class="fas fa-futbol historia-stat-icon"></i>
+                    </div>
+                    <div class="historia-stat-bar historia-stat-bar--gold"></div>
+                    <div class="historia-stat-number" id="stat-goles-titulo"></div>
+                    <p class="historia-stat-desc" id="stat-goles-desc"></p>
+                </div>
+            </div>
+
+            <!-- Uniformes Oficiales -->
+            <div class="text-center fade-up">
+                <div class="historia-title-badge mb-4">
+                    <i class="fas fa-tshirt mr-2"></i> Equipaciones
+                </div>
+                <h3 class="historia-subtitle mb-10">UNIFORMES OFICIALES</h3>
+                <div class="flex justify-center gap-8 flex-wrap">
+
                     <!-- Camiseta Local -->
-                    <div class="max-w-xs bg-white rounded-lg shadow-lg p-6 hover:shadow-2xl transition transform hover:-translate-y-2">
-                        <img src="images/camiseta_local.png" class="mx-auto rounded-lg mb-4">
-                        <p class="text-lg font-semibold text-gray-800">Camiseta Local</p>
-                        <p class="text-gray-600 mt-1">Colores llamativos en rojo oscuro y dorado</p>
+                    <div class="historia-jersey-card">
+                        <div class="historia-jersey-badge historia-jersey-badge--home">
+                            <i class="fas fa-home mr-1"></i> LOCAL
+                        </div>
+                        <div class="historia-jersey-img-wrapper">
+                            <img src="images/camiseta_local.png" alt="Camiseta Local Tomates FC" class="historia-jersey-img">
+                        </div>
+                        <div class="historia-jersey-info">
+                            <p class="historia-jersey-name">Camiseta Local</p>
+                            <p class="historia-jersey-desc">Rojo oscuro y dorado — Temporada 2025/26</p>
+                        </div>
                     </div>
+
                     <!-- Camiseta Visitante -->
-                    <div class="max-w-xs bg-white rounded-lg shadow-lg p-6 hover:shadow-2xl transition transform hover:-translate-y-2">
-                        <img src="images/camiseta_antigua.png" class="mx-auto rounded-lg mb-4">
-                        <p class="text-lg font-semibold text-gray-800">Camiseta Visitante</p>
-                        <p class="text-gray-600 mt-1">Diseño alternativo en tonos claros</p>
+                    <div class="historia-jersey-card">
+                        <div class="historia-jersey-badge historia-jersey-badge--away">
+                            <i class="fas fa-plane mr-1"></i> VISITANTE
+                        </div>
+                        <div class="historia-jersey-img-wrapper">
+                            <img src="images/camiseta_antigua.png" alt="Camiseta Visitante Tomates FC" class="historia-jersey-img">
+                        </div>
+                        <div class="historia-jersey-info">
+                            <p class="historia-jersey-name">Camiseta Visitante</p>
+                            <p class="historia-jersey-desc">Diseño alternativo en tonos claros</p>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="mt-16">
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="bg-gray-50 p-6 rounded-lg text-center border-2 border-yellow-300">
-                        <div class="text-blue-900 text-4xl mb-4">🏆</div>
-                        <h3 class="text-xl font-semibold mb-2" id="stat-partidos-titulo"></h3>
-                        <p class="text-gray-600" id="stat-partidos-desc"></p>
-                    </div>
-                    <div class="bg-gray-50 p-6 rounded-lg text-center border-2 border-yellow-300">
-                        <div class="text-blue-900 text-4xl mb-4">👥</div>
-                        <h3 class="text-xl font-semibold mb-2" id="stat-jugadores-titulo"></h3>
-                        <p class="text-gray-600" id="stat-jugadores-desc"></p>
-                    </div>
-                    <div class="bg-gray-50 p-6 rounded-lg text-center border-2 border-yellow-300">
-                        <div class="text-blue-900 text-4xl mb-4">⚽</div>
-                        <h3 class="text-xl font-semibold mb-2" id="stat-goles-titulo"></h3>
-                        <p class="text-gray-600" id="stat-goles-desc"></p>
-                    </div>
-                </div>
-            </div>
+
         </div>
     </section>
+
     <!-- Sección del equipo -->
     <section id="equipo" class="py-16 modern-section-bg">
         <div class="container mx-auto px-6">

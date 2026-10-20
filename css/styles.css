@@ -2496,6 +2496,26 @@ html {
             box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.6), 0 8px 20px rgba(0,0,0,0.6);
             animation: pulseTokenGlow 1.5s infinite;
         }
+        .pitch-player-token.empty-token .pitch-token-avatar {
+            border: 2px dashed rgba(251, 191, 36, 0.7);
+            background: rgba(127, 29, 29, 0.45);
+            opacity: 0.85;
+        }
+        .pitch-player-token.empty-token:hover .pitch-token-avatar {
+            border-color: #fbbf24;
+            opacity: 1;
+            box-shadow: 0 0 12px rgba(251, 191, 36, 0.6);
+        }
+        #tactical-pitch.has-selection .pitch-player-token:not(.selected-token) {
+            cursor: pointer;
+        }
+        #tactical-pitch.has-selection .pitch-player-token:not(.selected-token) .pitch-token-avatar {
+            box-shadow: 0 0 0 2px rgba(251, 191, 36, 0.6), 0 4px 14px rgba(0,0,0,0.45);
+        }
+        #tactical-pitch.has-selection .pitch-player-token:not(.selected-token):hover {
+            transform: translate(-50%, -50%) scale(1.15);
+            filter: drop-shadow(0 0 10px rgba(251, 191, 36, 0.8));
+        }
         @keyframes pulseTokenGlow {
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.1); }

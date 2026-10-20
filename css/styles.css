@@ -2770,27 +2770,6 @@ html {
         }
 
 
-/* ============================================================
-   SECCIÓN HISTORIA — DISEÑO PREMIUM
-   ============================================================ */
-
-/* ---------- Fondo oscuro con degradado diagonal ---------- */
-.historia-section {
-    background: linear-gradient(145deg, #0f0305 0%, #1a0406 30%, #2d060a 60%, #0f0305 100%);
-    color: #f1f5f9;
-    position: relative;
-}
-
-/* Patrón de cuadrícula sutil */
-.historia-bg-pattern {
-    position: absolute;
-    inset: 0;
-    background-image:
-        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-    background-size: 50px 50px;
-    pointer-events: none;
-    z-index: 0;
 }
 
 /* Halos de luz decorativos */

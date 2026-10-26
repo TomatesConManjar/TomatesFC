@@ -940,7 +940,7 @@ const partidosData = {
             { nombre: "Agustín Vilhelm", goles: 1, asistencias: 1 },
             { nombre: "Cristóbal Santibáñez", goles: 2, asistencias: 1 },
             { nombre: "Diego Manque", goles: 2, asistencias: 4 },
-            { nombre: "Sebastián Sandoval", goles: 2, asistencias: 1 }
+            { nombre: "Sebastián Sandoval", goles: 2, asistencias: 1 },
         ]
     },
     58: {

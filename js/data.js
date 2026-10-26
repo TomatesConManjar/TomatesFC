@@ -984,7 +984,7 @@ const partidosData = {
         resultado: "14-13",
         lugar: "Canchas Santa Laura",
         tipo: "Amistoso",
-        hora: "12:00 hrs",
+        hora: "17:00 hrs",
         jugadores: [
             { nombre: "Agustín Vilhelm", goles: 1, asistencias: 0 },
             { nombre: "Benjamín Garcés", goles: 3, asistencias: 2 },

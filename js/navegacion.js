@@ -38,37 +38,68 @@ window.restoreScrollOrSection = function(fallbackSectionId) {
     });
 };
 
-// Toggle dark mode (llamado desde el botón en el navbar)
+// Sincroniza iconos y textos del modo oscuro en Navbar desktop y menú móvil
+function updateDarkModeUI(isDark) {
+    // Icono Navbar Desktop
+    const navIcon = document.getElementById('darkModeIconNav');
+    if (navIcon) navIcon.className = isDark ? 'fas fa-sun text-yellow-400 text-lg' : 'fas fa-moon text-lg';
+
+    // Icono y Texto en Menú Móvil
+    const mobileIcon = document.getElementById('mobileDarkModeIcon');
+    const mobileText = document.getElementById('mobileDarkModeText');
+    if (mobileIcon) mobileIcon.className = isDark ? 'fas fa-sun text-yellow-400 text-lg w-5 text-center' : 'fas fa-moon text-yellow-400 text-lg w-5 text-center';
+    if (mobileText) mobileText.textContent = isDark ? 'Modo Claro' : 'Modo Oscuro';
+
+    // Compatibilidad legacy si existe el icono antiguo
+    const legacyIcon = document.getElementById('darkModeIcon');
+    if (legacyIcon) legacyIcon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+}
+
+// Poblar dinámicamente los submenús del Navbar (Equipo y Rivales) desde data.js
+function populateNavbarSubmenus() {
+    // Submenú de Equipo
+    const equipoContainer = document.getElementById('equipo-nav-items');
+    if (equipoContainer && typeof jugadoresData !== 'undefined') {
+        equipoContainer.innerHTML = Object.entries(jugadoresData).map(([id, j]) => `
+            <li class="nav-player-item"><a href="javascript:void(0);" onclick="showPlayerDetails('${id}')" class="block px-4 py-2 hover:bg-red-700 transition text-sm">${j.nombre}</a></li>
+        `).join('');
+    }
+
+    // Submenú de Rivales
+    const rivalesContainer = document.getElementById('rivales-nav-items');
+    if (rivalesContainer && typeof partidosData !== 'undefined') {
+        const uniqueRivales = [...new Set(Object.values(partidosData).map(p => p.rival))].sort((a, b) => a.localeCompare(b, 'es'));
+        rivalesContainer.innerHTML = uniqueRivales.map(rival => `
+            <li class="nav-rival-item"><a href="javascript:void(0);" onclick="showRivalDetails('${rival}')" class="block px-4 py-2 hover:bg-red-700 transition text-sm">${rival}</a></li>
+        `).join('');
+    }
+}
+
+// Toggle dark mode (llamado desde el Navbar o Menú Móvil)
 window.toggleDarkMode = function() {
     const html = document.documentElement;
     html.classList.toggle('dark');
     const isDark = html.classList.contains('dark');
-    const icon = document.getElementById('darkModeIcon');
-    if (isDark) {
-        if (icon) icon.className = 'fas fa-sun';
-        localStorage.setItem('darkMode', 'enabled');
-    } else {
-        if (icon) icon.className = 'fas fa-moon';
-        localStorage.setItem('darkMode', 'disabled');
-    }
+    updateDarkModeUI(isDark);
+    localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
     syncMobileMenuColor();
 };
 
 document.addEventListener('DOMContentLoaded', function() {
 
     // --- Aplicar preferencia de dark mode guardada ---
-    const darkModeSetting = localStorage.getItem('darkMode');
+    const isDark = localStorage.getItem('darkMode') === 'enabled';
     const html = document.documentElement;
-    const icon = document.getElementById('darkModeIcon');
-    if (darkModeSetting === 'enabled') {
+    if (isDark) {
         html.classList.add('dark');
-        if (icon) icon.className = 'fas fa-sun';
     } else {
         html.classList.remove('dark');
-        if (icon) icon.className = 'fas fa-moon';
     }
-    // Aplicar color correcto al menú móvil desde el inicio
+    updateDarkModeUI(isDark);
     syncMobileMenuColor();
+
+    // --- Poblar submenús dinámicos de jugadores y rivales ---
+    populateNavbarSubmenus();
 
     // --- Menú móvil ---
     const mobileMenuButton = document.getElementById('mobile-menu-button');

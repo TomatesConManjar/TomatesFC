@@ -52,13 +52,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Buscadores rápidos en el Navbar (Punto 1)
+    // Buscadores rápidos en el Navbar
     const equipoNavSearch = document.getElementById('equipo-nav-search');
     if (equipoNavSearch) {
         equipoNavSearch.addEventListener('input', function(e) {
             const searchTerm = e.target.value.toLowerCase();
-            // Filtrar todos los <li> hermanos excepto el buscador
-            const items = this.closest('ul').querySelectorAll('li:not(:first-child)');
+            const items = this.closest('ul').querySelectorAll('.nav-player-item');
             items.forEach(li => {
                 const text = li.textContent.toLowerCase();
                 li.style.display = text.includes(searchTerm) ? '' : 'none';
@@ -72,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (rivalesNavSearch) {
         rivalesNavSearch.addEventListener('input', function(e) {
             const searchTerm = e.target.value.toLowerCase();
-            const items = this.closest('ul').querySelectorAll('li:not(:first-child)');
+            const items = this.closest('ul').querySelectorAll('.nav-rival-item');
             items.forEach(li => {
                 const text = li.textContent.toLowerCase();
                 li.style.display = text.includes(searchTerm) ? '' : 'none';

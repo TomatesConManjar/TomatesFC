@@ -696,7 +696,7 @@ const partidosData = {
         fecha: "Domingo 28 Junio",
         rival: "Equipo Pablismo",
         resultado: "12-8",
-        lugar: "Canchas UFRO",
+        lugar: "Canchas Santa Laura",
         tipo: "Amistoso",
         hora: "17:00 hrs",
         jugadores: [

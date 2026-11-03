@@ -979,7 +979,7 @@ const partidosData = {
     },
     60: {
         temporada: 2026,
-        fecha: "Jueves 15 Octubre",
+        fecha: "Domingo 25 Octubre",
         rival: "Equipo Pablismo",
         resultado: "14-13",
         lugar: "Canchas Santa Laura",
@@ -990,7 +990,38 @@ const partidosData = {
             { nombre: "Benjamín Garcés", goles: 3, asistencias: 2 },
             { nombre: "Cristóbal Santibáñez", goles: 2, asistencias: 1 },
             { nombre: "Diego Manque", goles: 4, asistencias: 1 },
-            { nombre: "Sebastián Sandoval", goles: 1, asistencias: 1 }
+            { nombre: "Sebastián Sandoval", goles: 1, asistencias: 1 },
+        ]
+    },
+    61: {
+        temporada: 2026,
+        fecha: "Miercoles 28 Octubre",
+        rival: "Medicina FC",
+        resultado: "16-2",
+        lugar: "Canchas Santa Laura",
+        tipo: "Amistoso",
+        hora: "13:00 hrs",
+        jugadores: [
+            { nombre: "Agustín Vilhelm", goles: 4, asistencias: 1 },
+            { nombre: "Leandro Zavala", goles: 2, asistencias: 3 },
+            { nombre: "Diego Manque", goles: 1, asistencias: 4 },
+            { nombre: "Sebastián Sandoval", goles: 1, asistencias: 7 },
+        ]
+    },
+    62: {
+        temporada: 2026,
+        fecha: "Jueves 29 Octubre",
+        rival: "Real Nutrid",
+        resultado: "11-11",
+        lugar: "Canchas Santa Laura",
+        tipo: "Amistoso",
+        hora: "15:00 hrs",
+        jugadores: [
+            { nombre: "Agustín Vilhelm", goles: 0, asistencias: 0 },
+            { nombre: "Leandro Zavala", goles: 0, asistencias: 0 },
+            { nombre: "Benjamín Garcés", goles: 2, asistencias: 1 },
+            { nombre: "Diego Manque", goles: 2, asistencias: 3 },
+            { nombre: "Sebastián Sandoval", goles: 3, asistencias: 1 }
         ]
     }
 };

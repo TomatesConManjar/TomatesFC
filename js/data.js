@@ -1021,7 +1021,24 @@ const partidosData = {
             { nombre: "Leandro Zavala", goles: 0, asistencias: 0 },
             { nombre: "Benjamín Garcés", goles: 2, asistencias: 1 },
             { nombre: "Diego Manque", goles: 2, asistencias: 3 },
-            { nombre: "Sebastián Sandoval", goles: 3, asistencias: 1 }
+            { nombre: "Sebastián Sandoval", goles: 3, asistencias: 1 },
+        ]
+    },
+    63: {
+        temporada: 2026,
+        fecha: "Jueves 5 Noviembre",
+        rival: "Pirula",
+        resultado: "5-7",
+        lugar: "Canchas UFRO",
+        tipo: "Amistoso",
+        hora: "16:00 hrs",
+        jugadores: [
+            { nombre: "Agustín Vilhelm", goles: 0, asistencias: 1 },
+            { nombre: "Leandro Zavala", goles: 0, asistencias: 0 },
+            { nombre: "Benjamín Garcés", goles: 2, asistencias: 1 },
+            { nombre: "Cristóbal Santibáñez", goles: 1, asistencias: 0 },
+            { nombre: "Diego Manque", goles: 0, asistencias: 1 },
+            { nombre: "Sebastián Sandoval", goles: 2, asistencias: 1 }
         ]
     }
 };
